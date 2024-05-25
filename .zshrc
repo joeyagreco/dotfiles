@@ -1,6 +1,6 @@
-# INITIAL SETUP
-
-# VARIABLES
+#############
+# VARIABLES #
+#############
 PYTHON_VERSION="python3.10"
 ZSHRC_FILE_PATH="$HOME/.zshrc"
 ALACRITTY_FILE_PATH="$HOME/.config/alacritty/alacritty.yml"
@@ -9,7 +9,10 @@ STARSHIP_FILE_PATH="$HOME/.starship.toml"
 VIM_FILE_PATH="$HOME/.vimrc"
 SCRIPTS_PATH="$HOME/.scripts"
 
-
+############
+# SOURCING #
+############
+eval "$(fzf --zsh)"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
