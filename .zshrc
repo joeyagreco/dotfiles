@@ -70,6 +70,7 @@ alias venvdown='deactivate'
 alias gitco='git checkout'
 alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty -m '\''empty commit'\'
+alias gcnv="git commit --no-verify"
 
 #############
 # FUNCTIONS #
