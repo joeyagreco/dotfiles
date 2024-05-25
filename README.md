@@ -3,11 +3,9 @@
 # Setting up a New Computer
 
 1. Clone this Git repo
-2. Create a symlink from the root directory
+2. Create a symlink for each dir/file from your root dir
 ```sh
-ln -s {path to the local clone of this repo} terminal-symlink
-```
-3. Verify symlink
-```sh
-ls -l terminal-symlink
+# from the root dir
+# run something like this for each dir/file
+ln -s /path/to/this/repo/locally/.vimrc .vimrc
 ```
