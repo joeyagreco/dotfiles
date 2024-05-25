@@ -3,10 +3,12 @@
 # VARIABLES
 PYTHON_VERSION="python3.10"
 ZSHRC_FILE_PATH="$HOME/.zshrc"
+ALACRITTY_FILE_PATH="$HOME/.config/alacritty/alacritty.yml"
 TMUX_FILE_PATH="$HOME/.tmux.conf"
 STARSHIP_FILE_PATH="$HOME/.starship.toml"
 VIM_FILE_PATH="$HOME/.vimrc"
 SCRIPTS_PATH="$HOME/.scripts"
+
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -30,14 +32,15 @@ setopt EXTENDED_GLOB
 # ALIASES
 alias vim="vim -u $VIM_FILE_PATH"
 alias ic="ping 8.8.8.8"
-alias zz='vim ~/.zshrc'
-alias applyz="source ~/.zshrc"
-alias tt='vim $TMUX_FILE_PATH'
+alias aa="vim $ALACRITTY_FILE_PATH"
+alias zz="vim $ZSHRC_FILE_PATH"
+alias applyz="source $ZSHRC_FILE_PATH"
+alias tt="vim $TMUX_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
-alias vv='vim $VIM_FILE_PATH'
-alias ss='vim $STARSHIP_FILE_PATH'
+alias vv="vim $VIM_FILE_PATH"
+alias ss="vim $STARSHIP_FILE_PATH"
 alias home='cd ~'
-alias py='$PYTHON_VERSION'
+alias py="$PYTHON_VERSION"
 alias pip='$PYTHON_VERSION -m pip'
 alias cls='clear'
 alias gitco='git checkout'
