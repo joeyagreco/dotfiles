@@ -1,8 +1,5 @@
 # INITIAL SETUP
 
-# SYM LINK SETUP
-SYMLINK_DIR=~/terminal-symlink
-
 # VARIABLES
 PYTHON_VERSION="python3.10"
 ZSHRC_FILE_PATH="$HOME/.zshrc"
@@ -19,7 +16,7 @@ bindkey "^I" autosuggest-accept
 
 # set up starship
 # https://starship.rs/
-export STARSHIP_CONFIG=~/.starship.toml
+export STARSHIP_CONFIG=$STARSHIP_FILE_PATH
 eval "$(starship init zsh)"
 
 # Case-insensitive (all), completion (comp) and listing (list).
@@ -38,7 +35,7 @@ alias applyz="source ~/.zshrc"
 alias tt='vim $TMUX_FILE_PATH'
 alias applyt="tmux source-file $TMUX_FILE_PATH"
 alias vv='vim $VIM_FILE_PATH'
-alias ss='vim ~/.starship.toml'
+alias ss='vim $STARSHIP_FILE_PATH'
 alias home='cd ~'
 alias py='$PYTHON_VERSION'
 alias pip='$PYTHON_VERSION -m pip'
