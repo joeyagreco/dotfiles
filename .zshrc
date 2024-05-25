@@ -56,6 +56,7 @@ alias home='cd ~'
 alias cls='clear'
 alias clearpanes="tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} 'clearall' C-m"
 alias speed='clearall && speedtest-cli --secure --no-upload'
+alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 # PYTHON
 alias py="$PYTHON_VERSION"
 alias pip="$PYTHON_VERSION -m pip"
