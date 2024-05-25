@@ -10,7 +10,7 @@ VIM_FILE_PATH="$HOME/.vimrc"
 SCRIPTS_PATH="$HOME/.scripts"
 
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # USE TAB TO COMPLETE AUTOSUGGESTION
@@ -29,9 +29,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt NO_CASE_GLOB
 setopt EXTENDED_GLOB
 
-# ALIASES
-alias vim="vim -u $VIM_FILE_PATH"
-alias ic="ping 8.8.8.8"
+###########
+# ALIASES #
+###########
+
+# DOTFILES
 alias aa="vim $ALACRITTY_FILE_PATH"
 alias zz="vim $ZSHRC_FILE_PATH"
 alias applyz="source $ZSHRC_FILE_PATH"
@@ -39,10 +41,13 @@ alias tt="vim $TMUX_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
 alias vv="vim $VIM_FILE_PATH"
 alias ss="vim $STARSHIP_FILE_PATH"
+# GENERAL QOL
+alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias py="$PYTHON_VERSION"
 alias pip='$PYTHON_VERSION -m pip'
 alias cls='clear'
+# GIT
 alias gitco='git checkout'
 alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty -m '\''empty commit'\'
@@ -56,7 +61,9 @@ alias speed='clearall && speedtest-cli --secure --no-upload'
 # check name availability on pypi
 alias pypi='$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py'
 
-# FUNCTIONS
+#############
+# FUNCTIONS #
+#############
 
 function clearall() {
   # clear the terminal
@@ -71,11 +78,6 @@ function clearall() {
 
 function port() {
     lsof -i :$1
-}
-
-
-function gitco() {
-  git checkout "$1"
 }
 
 
