@@ -45,3 +45,7 @@ disabled = true
 
 [gcloud]
 disabled = true
+
+[golang]
+disabled = true
+

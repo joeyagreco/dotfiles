@@ -1,7 +1,7 @@
 #############
 # VARIABLES #
 #############
-# THESE SHOULD BE OVERRITTEN IN .zshrc.local
+# THESE SHOULD BE OVERWRITTEN IN .zshrc.local
 LOCAL_GIT_REPO_PATH="NOT_SET"
 # THESE ARE GLOBAL
 LOCAL_AFFIX=".local"
@@ -19,10 +19,6 @@ SCRIPTS_PATH="$HOME/.scripts"
 # fuzzy find
 eval "$(fzf --zsh)"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# USE TAB TO COMPLETE AUTOSUGGESTION
-bindkey "^I" autosuggest-accept
 
 # set up starship
 # https://starship.rs/
@@ -36,6 +32,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # Case-insensitive for command execution.
 setopt NO_CASE_GLOB
 setopt EXTENDED_GLOB
+
+# enable tab completion
+autoload -U compinit promptinit
 
 ###########
 # ALIASES #
