@@ -72,6 +72,7 @@ alias gitco='git checkout'
 alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty -m '\''empty commit'\'
 alias gcnv="git commit --no-verify"
+alias recentbranch="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n "
 
 #############
 # FUNCTIONS #
