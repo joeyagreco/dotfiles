@@ -1,0 +1,38 @@
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - tmux
+font:
+  size: 14.0
+  normal:
+    family: Fira Code
+    style: Regular
+  bold:
+    family: Fira Code
+    style: Bold
+  italic:
+    family: Fira Code
+    style: Italic
+  bold_italic:
+    family: Fira Code
+    style: Bold Italic
+
+scrolling:
+  # How many lines of scrollback to keep,
+  # '0' will disable scrolling.
+  history: 10000
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+  hide_when_typing: false
+  url:
+    launcher:
+      program: open
+    modifiers: None
+  copy_on_selection: true
+  save_to_clipboard: true
+
+
