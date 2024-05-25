@@ -126,5 +126,7 @@ function mp4() {
 # THIS MUST STAY AT THE BOTTOM OF THE FILE
 if [ -f $ZSHRC_FILE_PATH$LOCAL_AFFIX ]; then
     source $ZSHRC_FILE_PATH$LOCAL_AFFIX
+else;
+    echo "NO .zshrc.local FILE FOUND!"
 fi
     
