@@ -1,6 +1,9 @@
 #############
 # VARIABLES #
 #############
+# THESE SHOULD BE OVERRITTEN IN .zshrc.local
+LOCAL_GIT_REPO_PATH="NOT_SET"
+# THESE ARE GLOBAL
 LOCAL_AFFIX=".local"
 PYTHON_VERSION="python3.10"
 ZSHRC_FILE_PATH="$HOME/.zshrc"
@@ -13,6 +16,7 @@ SCRIPTS_PATH="$HOME/.scripts"
 ############
 # SOURCING #
 ############
+# fuzzy find
 eval "$(fzf --zsh)"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -49,22 +53,23 @@ alias ss="vim $STARSHIP_FILE_PATH"
 # GENERAL QOL
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
-alias py="$PYTHON_VERSION"
-alias pip='$PYTHON_VERSION -m pip'
 alias cls='clear'
+alias clearpanes="tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} 'clearall' C-m"
+alias speed='clearall && speedtest-cli --secure --no-upload'
+# PYTHON
+alias py="$PYTHON_VERSION"
+alias pip="$PYTHON_VERSION -m pip"
+# open up a project in pypi
+alias pp='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
+# check name availability on pypi
+alias pypi='$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py'
+# use venv
+alias venv='$PYTHON_VERSION -m venv'
+alias venvdown='deactivate'
 # GIT
 alias gitco='git checkout'
 alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty -m '\''empty commit'\'
-# open up a project in pypi
-alias pp='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
-alias venv='$PYTHON_VERSION -m venv'
-alias venvdown='deactivate'
-# split panes
-alias clearpanes="tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} 'clearall' C-m"
-alias speed='clearall && speedtest-cli --secure --no-upload'
-# check name availability on pypi
-alias pypi='$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py'
 
 #############
 # FUNCTIONS #
@@ -92,15 +97,10 @@ function venvup() {
 
 
 function c() {
-  cd $HOME/Code
+  cd $LOCAL_GIT_REPO_PATH
   if [[ -n $1 ]]; then
     cd "$1" 
   fi
-}
-
-function clone() {
-  cd $HOME/Code
-  git clone https://github.com/joeyagreco/$1.git
 }
 
 
@@ -118,9 +118,9 @@ function mp4() {
   setopt glob
 }
 
-###############
-# LOCAL SETUP #
-###############
+#########################
+# ACTIVATE LOCAL CONFIG #
+#########################
 
 # THIS MUST STAY AT THE BOTTOM OF THE FILE
 if [ -f $ZSHRC_FILE_PATH$LOCAL_AFFIX ]; then
