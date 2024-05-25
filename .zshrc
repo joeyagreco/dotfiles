@@ -1,6 +1,7 @@
 #############
 # VARIABLES #
 #############
+LOCAL_AFFIX=".local"
 PYTHON_VERSION="python3.10"
 ZSHRC_FILE_PATH="$HOME/.zshrc"
 ALACRITTY_FILE_PATH="$HOME/.config/alacritty/alacritty.yml"
@@ -39,6 +40,7 @@ setopt EXTENDED_GLOB
 # DOTFILES
 alias aa="vim $ALACRITTY_FILE_PATH"
 alias zz="vim $ZSHRC_FILE_PATH"
+alias zzl="vim $ZSHRC_FILE_PATH$LOCAL_AFFIX"
 alias applyz="source $ZSHRC_FILE_PATH"
 alias tt="vim $TMUX_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
@@ -116,4 +118,12 @@ function mp4() {
   setopt glob
 }
 
+###############
+# LOCAL SETUP #
+###############
 
+# THIS MUST STAY AT THE BOTTOM OF THE FILE
+if [ -f $ZSHRC_FILE_PATH$LOCAL_AFFIX ]; then
+    source $ZSHRC_FILE_PATH$LOCAL_AFFIX
+fi
+    

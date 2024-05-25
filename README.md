@@ -9,3 +9,4 @@
 # run something like this for each dir/file
 ln -s /path/to/this/repo/locally/.vimrc .vimrc
 ```
+3. Create a `.zshrc.local` file in the root dir to keep local config
