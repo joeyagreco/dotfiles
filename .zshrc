@@ -68,6 +68,7 @@ alias pp='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
 alias pypi='$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py'
 # use venv
 alias venv='$PYTHON_VERSION -m venv'
+alias venvup='f_venvup'
 alias venvdown='deactivate'
 # GIT
 alias gitco='git checkout'
@@ -96,7 +97,7 @@ function port() {
 }
 
 
-function venvup() {
+function f_venvup() {
   source "$1/bin/activate"
 }
 

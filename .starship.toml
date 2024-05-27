@@ -38,7 +38,15 @@ disabled = true
 disabled = true
 
 [python]
-disabled = true
+# does '(venv_name)' when in virtual env
+format = '[(\($virtualenv\))](bold red)'
+symbol = ''
+version_format = ''
+
+
+
+#[env_var.VIRTUAL_ENV]
+#format = "via [$env_value](bold green) "
 
 [docker_context]
 disabled = true
