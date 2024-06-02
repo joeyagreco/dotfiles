@@ -51,6 +51,7 @@ alias applyt="tmux source-file $TMUX_FILE_PATH"
 alias vv="vim $VIM_FILE_PATH"
 alias ss="vim $STARSHIP_FILE_PATH"
 # GENERAL QOL
+# install any dependencies
 alias deps="install_deps"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
