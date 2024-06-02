@@ -51,6 +51,7 @@ alias applyt="tmux source-file $TMUX_FILE_PATH"
 alias vv="vim $VIM_FILE_PATH"
 alias ss="vim $STARSHIP_FILE_PATH"
 # GENERAL QOL
+alias deps="install_deps"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias cls='clear'
@@ -58,6 +59,8 @@ alias clearpanes="tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -
 alias speed='clearall && speedtest-cli --secure --no-upload'
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
+# get shortened URL for given url (surl https://my/url) or for whatever url is copied to clipboard.
+# copies shortened URL to clipboard automatically
 alias surl="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/surl.py "
 # vim cheat sheet
 alias vimcs='open "https://devhints.io/vim"'
@@ -125,6 +128,12 @@ function mp4() {
   $PYTHON_VERSION $SCRIPTS_PATH/python/mp_download.py "mp4" "$1"
   setopt glob
 }
+
+function install_deps() {
+pip install -r $PYTHON_SCRIPTS_PATH/requirements.txt
+
+}
+
 
 #########################
 # ACTIVATE LOCAL CONFIG #
