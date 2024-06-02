@@ -12,6 +12,7 @@ TMUX_FILE_PATH="$HOME/.tmux.conf"
 STARSHIP_FILE_PATH="$HOME/.starship.toml"
 VIM_FILE_PATH="$HOME/.vimrc"
 SCRIPTS_PATH="$HOME/.scripts"
+PYTHON_SCRIPTS_PATH="$SCRIPTS_PATH/python"
 
 ############
 # SOURCING #
@@ -57,6 +58,7 @@ alias clearpanes="tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -
 alias speed='clearall && speedtest-cli --secure --no-upload'
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
+alias surl="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/surl.py "
 # vim cheat sheet
 alias vimcs='open "https://devhints.io/vim"'
 # PYTHON
@@ -101,7 +103,7 @@ function f_venvup() {
   source "$1/bin/activate"
 }
 
-
+# open up the given repo
 function c() {
   cd $LOCAL_GIT_REPO_PATH
   if [[ -n $1 ]]; then
