@@ -75,7 +75,7 @@ alias pypi='$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py'
 # use venv
 alias venv='$PYTHON_VERSION -m venv'
 alias venvup='f_venvup'
-alias venvdown='deactivate'
+alias venvdown='f_venvdown'
 # GIT
 alias gitco='git checkout'
 alias gitf='git fetch --all'
@@ -104,7 +104,13 @@ function port() {
 
 
 function f_venvup() {
+  venv $1
   source "$1/bin/activate"
+}
+
+function f_venvdown() {
+  deactivate $1
+  rm -rf $1
 }
 
 # open up the given repo
