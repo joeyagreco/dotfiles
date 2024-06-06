@@ -53,6 +53,7 @@ alias ss="vim $STARSHIP_FILE_PATH"
 # GENERAL QOL
 # install any dependencies
 alias deps="install_deps"
+alias docker-compose="docker compose"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias cls='clear'
