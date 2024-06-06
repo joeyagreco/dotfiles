@@ -39,7 +39,7 @@ disabled = true
 
 [python]
 # does '(venv_name)' when in virtual env
-format = '[(\($virtualenv\))](bold red)'
+format = ' [(\($virtualenv\))](bold red) '
 symbol = ''
 version_format = ''
 
