@@ -77,6 +77,7 @@ alias pypi='$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py'
 alias venv='$PYTHON_VERSION -m venv'
 alias venvup='f_venvup'
 alias venvdown='f_venvdown'
+alias venvlist="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/venv_check.py"
 # GIT
 alias gitco='git checkout'
 alias gitf='git fetch --all'
