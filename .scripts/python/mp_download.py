@@ -20,6 +20,7 @@ def download_youtube_video(url: str, format: str, save_path: Union[Path, str]) -
         raise ValueError("Invalid format. Choose 'mp4' or 'mp3'.")
 
     stream.download(output_path=save_path, filename=filename)
+    print(f"VIDEO SUCCCESSFULLY DOWNLOADED TO '{save_path}'")
 
 
 if __name__ == "__main__":
@@ -29,6 +30,6 @@ if __name__ == "__main__":
 
     video_format = sys.argv[1]
     video_url = sys.argv[2]
-    
+
     downloads_folder = Path.home() / "Downloads"
     download_youtube_video(video_url, video_format, downloads_folder)
