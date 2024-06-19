@@ -13,6 +13,7 @@ STARSHIP_FILE_PATH="$HOME/.starship.toml"
 VIM_FILE_PATH="$HOME/.vimrc"
 SCRIPTS_PATH="$HOME/.scripts"
 PYTHON_SCRIPTS_PATH="$SCRIPTS_PATH/python"
+DOWNLOADS_PATH="$HOME/Downloads"
 
 ############
 # SOURCING #
@@ -56,6 +57,7 @@ alias deps="install_deps"
 alias docker-compose="docker compose"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
+alias sss='screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date "+%Y%m%d%H%M%S").png'
 alias cls='clear'
 alias clearpanes="tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} 'clearall' C-m"
 alias speed='clearall && speedtest-cli --secure --no-upload'
@@ -72,9 +74,9 @@ alias pip="$PYTHON_VERSION -m pip"
 # open up a project in pypi
 alias pp='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
 # check name availability on pypi
-alias pypi='$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py'
+alias pypi="$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py"
 # use venv
-alias venv='$PYTHON_VERSION -m venv'
+alias venv="$PYTHON_VERSION -m venv"
 alias venvup='f_venvup'
 alias venvdown='f_venvdown'
 alias venvlist="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/venv_check.py"
