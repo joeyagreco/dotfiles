@@ -72,9 +72,11 @@ alias vimcs='open "https://devhints.io/vim"'
 alias py="$PYTHON_VERSION"
 alias pip="$PYTHON_VERSION -m pip"
 # open up a project in pypi
-alias pp='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
+# o(pen)pypi
+alias opypi='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
 # check name availability on pypi
-alias pypi="$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py"
+# a(vailability)pypi
+alias apypi="$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py"
 # use venv
 alias venv="$PYTHON_VERSION -m venv"
 alias venvup='f_venvup'
