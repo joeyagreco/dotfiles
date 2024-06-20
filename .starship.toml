@@ -1,6 +1,6 @@
 [directory]
 disabled = false
-truncation_length = 1
+#truncation_length = 1
 style = "blue"
 home_symbol = "🏠"
 
