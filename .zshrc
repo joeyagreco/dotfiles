@@ -46,7 +46,7 @@ autoload -U compinit promptinit
 alias aa="vim $ALACRITTY_FILE_PATH"
 alias zz="vim $ZSHRC_FILE_PATH"
 alias zzl="vim $ZSHRC_FILE_PATH$LOCAL_AFFIX"
-alias applyz="source $ZSHRC_FILE_PATH"
+alias applyz="clear_all_panes && all_panes 'source $ZSHRC_FILE_PATH'"
 alias tt="vim $TMUX_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
 alias vv="vim $VIM_FILE_PATH"
@@ -88,6 +88,8 @@ alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty -m '\''empty commit'\'' && git push'
 alias gcnv="git commit --no-verify"
 alias recentbranch="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n "
+# push to branch that only exists locally and set upstream
+alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 
 #############
 # FUNCTIONS #
@@ -143,8 +145,21 @@ function mp4() {
 }
 
 function install_deps() {
-pip install -r $PYTHON_SCRIPTS_PATH/requirements.txt
+  pip install -r $PYTHON_SCRIPTS_PATH/requirements.txt
+}
 
+# clears all tmux panes
+function clear_all_panes() {
+  for pane in $(tmux list-panes -F '#{pane_id}'); do tmux send-keys -t $pane C-u; done
+}
+
+# executes the given command in all tmux panes
+function all_panes() {
+  if [ -z "$1" ]; then
+   echo "Usage: all_panes <command>"
+   return 1
+   fi
+  tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} "$1" C-m
 }
 
 
