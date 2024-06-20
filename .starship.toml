@@ -12,6 +12,10 @@ vicmd_symbol = "[<](green)"
 format = "[$duration]($style) "
 style = "yellow"
 
+[battery]
+charging_symbol='🪫'
+full_symbol='🔋'
+
 [package]
 disabled = true
 
