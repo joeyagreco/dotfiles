@@ -57,16 +57,18 @@ alias deps="install_deps"
 alias docker-compose="docker compose"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
-alias sss='screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date "+%Y%m%d%H%M%S").png'
+# screenshot and save to downloads folder
+alias sss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
 alias cls='clear'
-alias clearpanes="tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} 'clearall' C-m"
+alias clearpanes="clear_all_panes && tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} 'clearall' C-m"
 alias speed='clearall && speedtest-cli --secure --no-upload'
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
 # get shortened URL for given url (surl https://my/url) or for whatever url is copied to clipboard.
 # copies shortened URL to clipboard automatically
+# s(hort)url
 alias surl="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/surl.py "
-# vim cheat sheet
+# vimc(heat)s(heet)
 alias vimcs='open "https://devhints.io/vim"'
 # PYTHON
 alias py="$PYTHON_VERSION"
@@ -87,6 +89,7 @@ alias gitco='git checkout'
 alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty -m '\''empty commit'\'' && git push'
 alias gcnv="git commit --no-verify"
+# list the n most recent git branches
 alias recentbranch="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n "
 # push to branch that only exists locally and set upstream
 alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
