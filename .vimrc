@@ -9,10 +9,12 @@ colorscheme desert
 " makes backspace work
 set backspace=indent,eol,start
 filetype plugin indent on
-" highlight search matches
-"set hlsearch
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
 " While searching though a file incrementally highlight matching characters as
 " you type.
 set incsearch
+" highlights matching parentheses/brackets/etc
+set showmatch
+" enable spell check
+set spell  
