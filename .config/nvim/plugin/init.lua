@@ -57,7 +57,7 @@ require('packer').startup(function(use)
   
   -- setup nvim-treesitter
   require'nvim-treesitter.configs'.setup {
-	ensure_installed = { "lua", "python", "javascript" }, -- only list parsers that are needed
+	-- ensure_installed = "all", -- only list parsers that are needed
 	highlight = {
 	  enable = true,
 	},
