@@ -36,5 +36,11 @@ require("nvim-tree").setup({
     dotfiles = false,
   },
 })
-require('telescope').setup()
+require('telescope').setup{
+  defaults = {
+    file_ignore_patterns = {},
+    hidden = true
+  }
+}
+
 require('nvim-treesitter').setup()
