@@ -1,6 +1,3 @@
-local my_env_var = os.getenv("LOCAL_GIT_REPO_PATH")
-print(my_env_var)
-
 -- Set leader to SPACE
 vim.g.mapleader = ' '
 

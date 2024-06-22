@@ -27,39 +27,8 @@ require('packer').startup(function(use)
 	  end,
 	}
   end)
-  
-  -- setup nvim-web-devicons
-  require('nvim-web-devicons').setup()
-  
-  -- setup nvim-tree
-  require("nvim-tree").setup({
-	sort = {
-	  sorter = "case_sensitive"
-	},
-	view = {
-	  width = 50,
-	},
-	renderer = {
-	  group_empty = true,
-	},
-	filters = {
-	  dotfiles = false,
-	},
-  })
-  
-  -- setup telescope
-  require('telescope').setup{
-	defaults = {
-	  file_ignore_patterns = {},
-	  hidden = true
-	}
-  }
-  
-  -- setup nvim-treesitter
-  require'nvim-treesitter.configs'.setup {
-	-- ensure_installed = "all", -- only list parsers that are needed
-	highlight = {
-	  enable = true,
-	},
-  }
+ 
+
+
+
   
