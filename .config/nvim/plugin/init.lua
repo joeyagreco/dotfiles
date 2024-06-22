@@ -8,16 +8,26 @@ require('packer').startup(function(use)
 		requires = {
 			'nvim-tree/nvim-web-devicons', -- optional
 		 },
-	 }
+	}
+	use { 
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.8'
+	}
+	-- required for telescope (1)
+	use 'nvim-lua/plenary.nvim'
+	-- required for telescope (2)
+	use {
+        'nvim-treesitter/nvim-treesitter'
+    }
 end)
 
 require('nvim-web-devicons').setup()
 require("nvim-tree").setup({
   sort = {
-    sorter = "case_sensitive",
+    sorter = "case_sensitive"
   },
   view = {
-    width = 30,
+    width = 50,
   },
   renderer = {
     group_empty = true,
@@ -26,3 +36,5 @@ require("nvim-tree").setup({
     dotfiles = false,
   },
 })
+require('telescope').setup()
+require('nvim-treesitter').setup()

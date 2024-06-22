@@ -10,4 +10,4 @@ vim.g.mapleader = ' '
 -- Shortcuts
 
 -- open explorer (<LEADER>e)
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
