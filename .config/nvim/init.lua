@@ -1,10 +1,10 @@
--- Source vim config
+-- load vim config
 vim.cmd('source ~/.vimrc')
 
--- Source plugins
+-- load plugins
 dofile(vim.fn.stdpath('config') .. '/plugin/init.lua')
 
--- Source shortcuts
+-- load shortcuts
 dofile(vim.fn.stdpath('config') .. '/shortcuts.lua')
 
 -- Enable copy/paste
