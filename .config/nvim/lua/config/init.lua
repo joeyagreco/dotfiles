@@ -1,1 +1,1 @@
-require("config/shortcuts")
+require("config/keymaps")
