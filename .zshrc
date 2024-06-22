@@ -2,18 +2,18 @@
 # VARIABLES #
 #############
 # THESE SHOULD BE OVERWRITTEN IN .zshrc.local
-LOCAL_GIT_REPO_PATH="NOT_SET"
+export LOCAL_GIT_REPO_PATH="NOT_SET"
 # THESE ARE GLOBAL
-LOCAL_AFFIX=".local"
-PYTHON_VERSION="python3.10"
-ZSHRC_FILE_PATH="$HOME/.zshrc"
-ALACRITTY_FILE_PATH="$HOME/.alacritty.yml"
-TMUX_FILE_PATH="$HOME/.tmux.conf"
-STARSHIP_FILE_PATH="$HOME/.starship.toml"
-VIM_FILE_PATH="$HOME/.vimrc"
-SCRIPTS_PATH="$HOME/.scripts"
-PYTHON_SCRIPTS_PATH="$SCRIPTS_PATH/python"
-DOWNLOADS_PATH="$HOME/Downloads"
+export LOCAL_AFFIX=".local"
+export PYTHON_VERSION="python3.10"
+export ZSHRC_FILE_PATH="$HOME/.zshrc"
+export ALACRITTY_FILE_PATH="$HOME/.alacritty.yml"
+export TMUX_FILE_PATH="$HOME/.tmux.conf"
+export STARSHIP_FILE_PATH="$HOME/.starship.toml"
+export VIM_FILE_PATH="$HOME/.vimrc"
+export SCRIPTS_PATH="$HOME/.scripts"
+export PYTHON_SCRIPTS_PATH="$SCRIPTS_PATH/python"
+export DOWNLOADS_PATH="$HOME/Downloads"
 
 ############
 # SOURCING #

@@ -5,7 +5,7 @@
 2. Create a `.zshrc.local` file in the root dir to keep local config
 3. Add this to `.zshrc.local` file:
 ```sh
-LOCAL_GIT_REPO_PATH="/path/to/git/repos/on/this/computer"
+export LOCAL_GIT_REPO_PATH="/path/to/git/repos/on/this/computer"
 ```
 
 # Adding new things
