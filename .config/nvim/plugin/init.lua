@@ -16,7 +16,7 @@ require('packer').startup(function(use)
 	-- required for telescope (1)
 	use 'nvim-lua/plenary.nvim'
 	-- required for telescope (2)
-    use {
+	use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
