@@ -69,7 +69,7 @@ alias make='gmake'
 # s(hort)url
 alias surl="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/surl.py "
 # vimc(heat)s(heet)
-alias vimcs='open "https://devhints.io/vim"'
+alias vimcs='open "https://cheatography.com/marconlsantos/cheat-sheets/neovim/"'
 # PYTHON
 alias py="$PYTHON_VERSION"
 alias pip="$PYTHON_VERSION -m pip"
