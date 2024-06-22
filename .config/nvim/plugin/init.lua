@@ -16,8 +16,12 @@ require('packer').startup(function(use)
 	-- required for telescope (1)
 	use 'nvim-lua/plenary.nvim'
 	-- required for telescope (2)
-	use {
-        'nvim-treesitter/nvim-treesitter'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
     }
 end)
 
@@ -44,3 +48,10 @@ require('telescope').setup{
 }
 
 require('nvim-treesitter').setup()
+require'nvim-treesitter.configs'.setup {
+	ensure_installed = { "lua", "python", "javascript" }, -- only list parsers that are needed
+	highlight = {
+	  enable = true,
+	},
+  }
+  
