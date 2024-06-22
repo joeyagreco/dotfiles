@@ -1,11 +1,9 @@
+-- load config
+require('config')
+require('plugin')
+
 -- load vim config
 vim.cmd('source ~/.vimrc')
-
--- load plugins
-dofile(vim.fn.stdpath('config') .. '/plugin/init.lua')
-
--- load shortcuts
-dofile(vim.fn.stdpath('config') .. '/shortcuts.lua')
 
 -- Enable copy/paste
 vim.g.clipboard = {

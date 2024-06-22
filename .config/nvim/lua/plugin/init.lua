@@ -27,6 +27,13 @@ require('packer').startup(function(use)
 	  end,
 	}
   end)
+
+require("plugin/nvim_tree")
+require("plugin/nvim_web_devicons")
+require("plugin/telescope")
+require("plugin/treesitter")
+
+
  
 
 
