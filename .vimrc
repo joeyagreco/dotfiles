@@ -17,4 +17,4 @@ set incsearch
 " highlights matching parentheses/brackets/etc
 set showmatch
 " enable spell check
-set spell  
+"set spell  
