@@ -20,6 +20,7 @@ shell:
 #     style: Bold Italic
 
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
+# must be a "Nerd Font" for icons to work on nvim-tree
 font:
   size: 14.0
   normal:
