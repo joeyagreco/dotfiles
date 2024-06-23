@@ -1,9 +1,11 @@
--- load config
-require('config')
-require('plugin')
-
 -- load vim config
 vim.cmd('source ~/.vimrc')
+
+-- load config
+require('plugin')
+require('config')
+
+
 
 -- Enable copy/paste
 vim.g.clipboard = {
