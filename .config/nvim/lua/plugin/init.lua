@@ -27,6 +27,7 @@ require('packer').startup(function(use)
 	  end,
 	}
 	-- neoformat
+	-- https://github.com/sbdchd/neoformat
 	use 'sbdchd/neoformat' 
 	-- theme
 	use 'Abstract-IDE/Abstract-cs'
