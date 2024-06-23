@@ -28,7 +28,8 @@ require('packer').startup(function(use)
 	}
 	-- theme
 	use 'Abstract-IDE/Abstract-cs'
-  end)
+        use 'marko-cerovac/material.nvim'
+end)
 
 
 require("plugin/nvim_tree")
