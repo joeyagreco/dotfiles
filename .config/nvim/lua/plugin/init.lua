@@ -1,4 +1,5 @@
 -- set up packer for plugin management
+-- https://github.com/wbthomason/packer.nvim
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	
