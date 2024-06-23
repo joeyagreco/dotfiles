@@ -26,6 +26,8 @@ require('packer').startup(function(use)
 		ts_update()
 	  end,
 	}
+	-- neoformat
+	use 'sbdchd/neoformat' 
 	-- theme
 	use 'Abstract-IDE/Abstract-cs'
         use 'marko-cerovac/material.nvim'

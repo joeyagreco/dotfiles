@@ -11,3 +11,5 @@ vim.api.nvim_set_keymap('n', '<leader>o', ':NvimTreeToggle ', { noremap = true, 
 -- fuzzy find (<LEADER>ff)
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<cr>', { noremap = true, silent = true, desc = "fuzzy find" })
 
+-- format code (<LEADER>fmt)
+vim.api.nvim_set_keymap('n', '<leader>fmt', ':Neoformat<cr>', { noremap = true, silent = true, desc = "format code"})
