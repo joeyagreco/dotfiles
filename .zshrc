@@ -148,11 +148,12 @@ function mp4() {
 }
 
 function install_deps() {
-  pip install -r $PYTHON_SCRIPTS_PATH/requirements.txt
+  pip install -r $HOME/requirements.txt
   brew update
-  brew bundle --file=Brewfile
+  brew bundle --file=$HOME/Brewfile
   brew cleanup
 }
+
 
 # clears all tmux panes
 function clear_all_panes() {
