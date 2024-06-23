@@ -5,3 +5,6 @@ vim.cmd([[
     autocmd BufWritePre * undojoin | Neoformat
   augroup END
 ]])
+
+-- use system clipboard
+vim.o.clipboard = 'unnamedplus'

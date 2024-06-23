@@ -24,12 +24,6 @@ vim.api.nvim_set_keymap(
 -- format code (<LEADER>fmt)
 vim.api.nvim_set_keymap("n", "<leader>fmt", ":Neoformat<cr>", { noremap = true, silent = true, desc = "format code" })
 
--- paste from system clipboard (p)
-vim.api.nvim_set_keymap("n", "p", '"+p', { noremap = true, silent = true, desc = "paste from system clipboard" })
-
--- copy to system clipboard (yy)
-vim.api.nvim_set_keymap("n", "yy", '"+yy', { noremap = true, silent = true, desc = "copy to system clipboard" })
-
 -- search for word that cursor is on (<LEADER>fw)
 vim.api.nvim_set_keymap(
 	"n",
