@@ -13,7 +13,7 @@ ln -s /path/to/git/repo/.foo .foo
 ```sh
 export LOCAL_GIT_REPO_PATH="/path/to/git/repos/on/this/computer"
 ```
-5. Run `applyz`
+5. Run `applyz && applyz`
 6. Install dependencies `deps`
 
 # Adding new things
@@ -24,6 +24,6 @@ export LOCAL_GIT_REPO_PATH="/path/to/git/repos/on/this/computer"
 4. Create a symlink for the new item from here
 ```sh
 # from the root dir
-# run something like this for each dir/file
+# run something like this for your new dir/file
 ln -s /path/to/git/repo/foo.txt foo.txt
 ```
