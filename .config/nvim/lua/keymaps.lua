@@ -1,3 +1,6 @@
+-- import apis
+local telescope = require("telescope.builtin")
+
 -- Set leader to SPACE
 vim.g.mapleader = " "
 
@@ -13,14 +16,6 @@ vim.api.nvim_set_keymap(
 -- TODO: need a better way to do this
 vim.api.nvim_set_keymap("n", "<leader>o", ":NvimTreeToggle ", { noremap = true, silent = false, desc = "open a dir" })
 
--- fuzzy find (<LEADER>ff)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ff",
-	":Telescope find_files<cr>",
-	{ noremap = true, silent = true, desc = "fuzzy find" }
-)
-
 -- format code (<LEADER>fmt)
 vim.api.nvim_set_keymap("n", "<leader>fmt", ":Neoformat<cr>", { noremap = true, silent = true, desc = "format code" })
 
@@ -31,3 +26,11 @@ vim.api.nvim_set_keymap(
 	"<cmd>Telescope grep_string<CR>",
 	{ noremap = true, silent = true, desc = "search for word that cursor is on" }
 )
+
+-- find files (<LEADER> ff)
+vim.keymap.set("n", "<leader>ff", function()
+	telescope.find_files({
+		follow = true, -- Follow symbolic links
+		--	hidden = true, -- Show hidden files
+	})
+end, { noremap = true, silent = true, desc = "find files" })
