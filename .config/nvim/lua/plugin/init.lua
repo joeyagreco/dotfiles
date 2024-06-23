@@ -30,7 +30,9 @@ require('packer').startup(function(use)
 	-- neoformat (format code)
 	-- https://github.com/sbdchd/neoformat
 	use 'sbdchd/neoformat' 
-	-- theme
+	-- LSP servers
+	use 'neovim/nvim-lspconfig'
+-- theme
 	use 'Abstract-IDE/Abstract-cs'
         use 'marko-cerovac/material.nvim'
 end)
@@ -40,10 +42,4 @@ require("plugin/nvim_tree")
 require("plugin/nvim_web_devicons")
 require("plugin/telescope")
 require("plugin/treesitter")
-
-
- 
-
-
-
-  
+require("plugin/lsp_zero")
