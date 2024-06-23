@@ -20,5 +20,5 @@ vim.api.nvim_set_keymap('n', 'p', '"+p', { noremap = true, silent = true, desc =
 -- copy to system clipboard (yy)
 vim.api.nvim_set_keymap('n', 'yy', '"+yy', { noremap = true, silent = true, desc = "copy to system clipboard" })
 
--- search for word that cursor is on
+-- search for word that cursor is on (<LEADER>fw)
 vim.api.nvim_set_keymap('n', '<leader>fw', '<cmd>Telescope grep_string<CR>', { noremap = true, silent = true, desc = "search for word that cursor is on" })
