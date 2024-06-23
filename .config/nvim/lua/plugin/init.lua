@@ -27,7 +27,7 @@ require('packer').startup(function(use)
 		ts_update()
 	  end,
 	}
-	-- neoformat
+	-- neoformat (format code)
 	-- https://github.com/sbdchd/neoformat
 	use 'sbdchd/neoformat' 
 	-- theme
