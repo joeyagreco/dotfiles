@@ -26,7 +26,10 @@ require('packer').startup(function(use)
 		ts_update()
 	  end,
 	}
+	-- theme
+	use 'Abstract-IDE/Abstract-cs'
   end)
+
 
 require("plugin/nvim_tree")
 require("plugin/nvim_web_devicons")
