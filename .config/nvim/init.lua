@@ -1,10 +1,10 @@
 -- load vim config
-vim.cmd('source ~/.vimrc')
+vim.cmd("source ~/.vimrc")
 
 -- load config
-require('keymaps')
-require('theme')
-
+require("settings")
+require("keymaps")
+require("theme")
 
 -- TODO: i dont think this is needed
 -- -- Enable copy/paste
@@ -20,5 +20,3 @@ require('theme')
 --     },
 --     cache_enabled = true,
 -- }
-
-
