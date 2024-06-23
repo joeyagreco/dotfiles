@@ -2,23 +2,23 @@
 vim.cmd('source ~/.vimrc')
 
 -- load config
-require('plugin')
-require('config')
+require('keymaps')
+require('theme')
 
 
-
--- Enable copy/paste
-vim.g.clipboard = {
-    name = 'pbcopy',
-    copy = {
-        ['+'] = 'pbcopy',
-        ['*'] = 'pbcopy',
-    },
-    paste = {
-        ['+'] = 'pbpaste',
-        ['*'] = 'pbpaste',
-    },
-    cache_enabled = true,
-}
+-- TODO: i dont think this is needed
+-- -- Enable copy/paste
+-- vim.g.clipboard = {
+--     name = 'pbcopy',
+--     copy = {
+--         ['+'] = 'pbcopy',
+--         ['*'] = 'pbcopy',
+--     },
+--     paste = {
+--         ['+'] = 'pbpaste',
+--         ['*'] = 'pbpaste',
+--     },
+--     cache_enabled = true,
+-- }
 
 
