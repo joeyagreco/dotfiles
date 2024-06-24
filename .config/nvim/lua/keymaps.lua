@@ -33,3 +33,6 @@ vim.keymap.set("n", "<leader>ff", function()
 		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
 	})
 end, { noremap = true, silent = true, desc = "find files" })
+
+-- open up tree to the current file (<LEADER> tc)
+vim.keymap.set('n', '<leader>tc', ':NvimTreeFindFile<CR>', { desc = 'Ooen nvim tree to current file' })

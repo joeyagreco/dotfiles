@@ -2,3 +2,4 @@ packer_compiled.lua
 node_modules
 package-lock.json
 Brewfile.lock.json
+.config/op
