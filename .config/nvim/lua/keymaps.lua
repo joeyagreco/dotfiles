@@ -21,6 +21,11 @@ vim.keymap.set("n", "<leader>fw", function()
 	})
 end, { noremap = true, silent = true, desc = "search for word under cursor" })
 
+-- serach for a word (<LEADER> fs)
+vim.keymap.set("n", "<leader>fs", function()
+	require("telescope.builtin").live_grep()
+end, { noremap = true, silent = true, desc = "open popup to search for words" })
+
 -- find files (<LEADER>ff)
 vim.keymap.set("n", "<leader>ff", function()
 	require("telescope.builtin").find_files({

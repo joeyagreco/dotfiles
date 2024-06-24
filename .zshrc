@@ -150,6 +150,7 @@ function mp4() {
 function install_deps() {
   pip install --upgrade pip
   pip install -r $HOME/requirements.txt
+  npm install -g --prefix $HOME
   brew update
   brew bundle --file=$HOME/Brewfile
   brew cleanup
