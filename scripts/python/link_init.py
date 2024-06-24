@@ -42,7 +42,7 @@ if __name__ == "__main__":
                 print(f"command failed with code {result.returncode}")
                 err_count += 1
             else:
-                print("sucess!")
+                print("success!")
         else:
             print(f"skipping creation of link '{link}' ...")
             skipped_count += 1
