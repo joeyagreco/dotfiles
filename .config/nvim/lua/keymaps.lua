@@ -28,11 +28,16 @@ end, { noremap = true, silent = true, desc = "open popup to search for words" })
 
 -- find files (<LEADER>ff)
 vim.keymap.set("n", "<leader>ff", function()
+	require("telescope.builtin").find_files({})
+end, { noremap = true, silent = true, desc = "find files" })
+
+-- find files including hidden (<LEADER>fh)
+vim.keymap.set("n", "<leader>fh", function()
 	require("telescope.builtin").find_files({
 		hidden = true,
 		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
 	})
-end, { noremap = true, silent = true, desc = "find files" })
+end, { noremap = true, silent = true, desc = "find files including hidden" })
 
 -- open up tree to the current file (<LEADER> tc)
-vim.keymap.set('n', '<leader>tc', ':NvimTreeFindFile<CR>', { desc = 'Ooen nvim tree to current file' })
+vim.keymap.set("n", "<leader>tc", ":NvimTreeFindFile<CR>", { desc = "Ooen nvim tree to current file" })
