@@ -1,6 +1,19 @@
 -- import apis
 local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
+local harpoon = require("harpoon")
+
+-- keep track of custom keymaps by letter
+-- a
+-- e
+-- ff
+-- fh
+-- fmt
+-- fs
+-- fw
+-- gd
+-- h
+-- tc
 
 -- Set leader to SPACE
 vim.g.mapleader = " "
@@ -40,7 +53,19 @@ vim.keymap.set("n", "<leader>fh", function()
 end, { noremap = true, silent = true, desc = "find files including hidden" })
 
 -- open up tree to the current file (<LEADER>tc)
-vim.keymap.set("n", "<leader>tc", ":NvimTreeFindFile<CR>", { desc = "Ooen nvim tree to current file" })
+vim.keymap.set("n", "<leader>tc", ":NvimTreeFindFile<CR>",
+	{ noremap = true, silent = true, desc = "Ooen nvim tree to current file" })
 
 -- go to definition for whatever the cursor is on (<LEADER>gd)
-vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { desc = "go to definition for whatever the cursor is on" })
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition,
+	{ noremap = true, silent = true, desc = "go to definition for whatever the cursor is on" })
+
+-- add to harpoon menu (<LEADER>a)
+vim.keymap.set("n", "<leader>a", function()
+	harpoon:list():add()
+end, { noremap = true, silent = true, desc = "add current file to harpoon menu" })
+
+-- open harpoon menu (<LEADER>h)
+vim.keymap.set("n", "<leader>h", function()
+	harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { noremap = true, silent = true, desc = "open harpoon menu" })

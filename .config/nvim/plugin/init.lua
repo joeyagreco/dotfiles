@@ -36,4 +36,10 @@ require("packer").startup(function(use)
 	use("marko-cerovac/material.nvim")
 	-- git blame
 	use("f-person/git-blame.nvim")
+	-- harpoon
+	use({
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 end)
