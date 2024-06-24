@@ -21,18 +21,17 @@ if __name__ == "__main__":
     # links now holds the things we want to create a sym link for in $HOME
     home_dir_path = os.environ.get("HOME")
     if home_dir_path is None:
-        print("could not load home directory path from $HOME")
-        exit(1)
+        print("could not load home path from $HOME")
     home_dir_existing_links = os.listdir(home_dir_path)
-
     err_count = 0
+    skipped_count = 0
 
     for link in links:
         if link in home_dir_existing_links:
             print(f"link '{link}' already exists, skipping...")
             continue
         # this link is expected, prompt to create it
-        command = f"ln -s {os.path.join(terminal_path, link)} link"
+        command = f"ln -s {os.path.join(terminal_path, link)} {link}"
         selection = input(f"create link '{link}'?\ncommand: '{command}'\n(y/N): ")
         if selection == "y":
             print(f"creating link '{link}' ...")
@@ -42,7 +41,12 @@ if __name__ == "__main__":
             if result.returncode != 0:
                 print(f"command failed with code {result.returncode}")
                 err_count += 1
+            else:
+                print("sucess!")
         else:
             print(f"skipping creation of link '{link}' ...")
+            skipped_count += 1
 
-    print(f"\nlinks creation completed with {err_count} errors")
+    print(
+        f"\nlinks creation completed with {err_count} errors and {skipped_count} skips"
+    )

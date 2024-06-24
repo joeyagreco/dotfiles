@@ -7,6 +7,7 @@ export LOCAL_GIT_REPO_PATH="NOT_SET"
 export LOCAL_AFFIX=".local"
 export PYTHON_VERSION="python3.10"
 export ZSHRC_FILE_PATH="$HOME/.zshrc"
+export ZSHRC_LOCAL_FILE_PATH=$ZSHRC_FILE_PATH$LOCAL_AFFIX
 export ALACRITTY_FILE_PATH="$HOME/.alacritty.yml"
 export TMUX_FILE_PATH="$HOME/.tmux.conf"
 export STARSHIP_FILE_PATH="$HOME/.starship.toml"
@@ -46,7 +47,7 @@ autoload -U compinit promptinit
 alias aa="vim $ALACRITTY_FILE_PATH"
 alias zz="vim $ZSHRC_FILE_PATH"
 alias zzl="vim $ZSHRC_FILE_PATH$LOCAL_AFFIX"
-alias applyz="clear_all_panes && all_panes 'source $ZSHRC_FILE_PATH'"
+alias applyz="source $ZSHRC_FILE_PATH"
 alias tt="vim $TMUX_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
 alias vv="vim $VIM_FILE_PATH"
@@ -78,7 +79,7 @@ alias pip="$PYTHON_VERSION -m pip"
 alias opypi='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
 # check name availability on pypi
 # a(vailability)pypi
-alias apypi="$PYTHON_VERSION $SCRIPTS_PATH/python/pypi_check.py"
+alias apypi="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/pypi_check.py"
 # use venv
 alias venv="$PYTHON_VERSION -m venv"
 alias venvup='f_venvup'
@@ -136,19 +137,19 @@ function c() {
 # download a youtube link to mp3
 function mp3() {
   unsetopt glob
-  $PYTHON_VERSION $SCRIPTS_PATH/python/mp_download.py "mp3" "$1"
+  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/mp_download.py "mp3" "$1"
   setopt glob
 }
 
 # download a youtube link to mp4
 function mp4() {
   unsetopt glob
-  $PYTHON_VERSION $SCRIPTS_PATH/python/mp_download.py "mp4" "$1"
+  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/mp_download.py "mp4" "$1"
   setopt glob
 }
 
 function install_deps() {
-  $PYTHON_VERSION $SCRIPTS_PATH/python/link_init.py
+  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/link_init.py
   pip install --upgrade pip
   pip install -r $HOME/requirements.txt
   npm install -g --prefix $HOME
@@ -156,6 +157,7 @@ function install_deps() {
   brew bundle --file=$HOME/Brewfile
   brew cleanup
   # make sure packer is installed for nvim
+  # TODO: this fails most of the time bc already cloned
   git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 }
@@ -181,8 +183,8 @@ function all_panes() {
 #########################
 
 # THIS MUST STAY AT THE BOTTOM OF THE FILE
-if [ -f $ZSHRC_FILE_PATH$LOCAL_AFFIX ]; then
-    source $ZSHRC_FILE_PATH$LOCAL_AFFIX
+if [ -f $ZSHRC_LOCAL_FILE_PATH ]; then
+    source $ZSHRC_LOCAL_FILE_PATH
 else;
     echo "NO .zshrc.local FILE FOUND!"
 fi
