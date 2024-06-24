@@ -41,3 +41,6 @@ end, { noremap = true, silent = true, desc = "find files including hidden" })
 
 -- open up tree to the current file (<LEADER> tc)
 vim.keymap.set("n", "<leader>tc", ":NvimTreeFindFile<CR>", { desc = "Ooen nvim tree to current file" })
+
+-- go to definition for whatever the cursor is on
+vim.keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, { desc = "go to definition for whatever the cursor is on" })
