@@ -11,7 +11,7 @@ export ALACRITTY_FILE_PATH="$HOME/.alacritty.yml"
 export TMUX_FILE_PATH="$HOME/.tmux.conf"
 export STARSHIP_FILE_PATH="$HOME/.starship.toml"
 export VIM_FILE_PATH="$HOME/.vimrc"
-export SCRIPTS_PATH="$HOME/.scripts"
+export SCRIPTS_PATH="$HOME/scripts"
 export PYTHON_SCRIPTS_PATH="$SCRIPTS_PATH/python"
 export DOWNLOADS_PATH="$HOME/Downloads"
 
