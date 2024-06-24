@@ -34,5 +34,6 @@ require("packer").startup(function(use)
 	-- theme
 	use("Abstract-IDE/Abstract-cs")
 	use("marko-cerovac/material.nvim")
+	-- git blame
+	use("f-person/git-blame.nvim")
 end)
-
