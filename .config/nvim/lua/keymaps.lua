@@ -54,12 +54,20 @@ vim.keymap.set("n", "<leader>fh", function()
 end, { noremap = true, silent = true, desc = "find files including hidden" })
 
 -- open up tree to the current file (<LEADER>tc)
-vim.keymap.set("n", "<leader>tc", ":NvimTreeFindFile<CR>",
-	{ noremap = true, silent = true, desc = "Ooen nvim tree to current file" })
+vim.keymap.set(
+	"n",
+	"<leader>tc",
+	":NvimTreeFindFile<CR>",
+	{ noremap = true, silent = true, desc = "Ooen nvim tree to current file" }
+)
 
 -- go to definition for whatever the cursor is on (<LEADER>gd)
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition,
-	{ noremap = true, silent = true, desc = "go to definition for whatever the cursor is on" })
+vim.keymap.set(
+	"n",
+	"<leader>gd",
+	vim.lsp.buf.definition,
+	{ noremap = true, silent = true, desc = "go to definition for whatever the cursor is on" }
+)
 
 -- add to harpoon menu (<LEADER>a)
 vim.keymap.set("n", "<leader>a", function()
@@ -77,3 +85,11 @@ harpoon:list():clear()
 vim.keymap.set("n", "<leader>c", function()
 	harpoon:list():clear()
 end, { noremap = true, silent = true, desc = "clear harpoon menu" })
+
+-- 'if __name__ == "__main__"' (<LEADER>inm)
+vim.keymap.set(
+	"n",
+	"<leader>inm",
+	'iif __name__ == "__main__":<Esc>o',
+	{ noremap = true, silent = true, desc = "if name == main " }
+)

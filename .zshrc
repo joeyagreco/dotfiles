@@ -148,6 +148,7 @@ function mp4() {
 }
 
 function install_deps() {
+  $PYTHON_VERSION $SCRIPTS_PATH/python/link_init.py
   pip install --upgrade pip
   pip install -r $HOME/requirements.txt
   npm install -g --prefix $HOME
