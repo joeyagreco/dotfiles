@@ -20,7 +20,7 @@ export LOCAL_GIT_REPO_PATH="/path/to/git/repos/on/this/computer"
 
 5. Run `applyz && applyz`
 6. Install dependencies `deps`
-7. Install `Hack Nerd Fond` from [this site](https://www.nerdfonts.com/font-downloads)
+7. Install `Hack Nerd Font` from [this site](https://www.nerdfonts.com/font-downloads)
 
 # Adding new things
 
