@@ -3,15 +3,13 @@
     "version": "1.0.0",
     "description": "npm deps",
     "main": "index.js",
-    "scripts": {
-    },
+    "scripts": {},
     "dependencies": {
-      "typescript": "^5.0.0",
-      "typescript-language-server": "^3.0.0"
+        "pyright": "^1.1.368",
+        "typescript": "^5.0.0",
+        "typescript-language-server": "^3.0.0"
     },
-    "devDependencies": {},
     "keywords": [],
     "author": "",
     "license": "MIT"
-  }
-  
+}
