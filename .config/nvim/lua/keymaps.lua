@@ -21,9 +21,10 @@ vim.keymap.set("n", "<leader>fw", function()
 	})
 end, { noremap = true, silent = true, desc = "search for word under cursor" })
 
--- find files (<LEADER> ff)
+-- Find files (<LEADER> ff)
 vim.keymap.set("n", "<leader>ff", function()
-	telescope.find_files({
-		follow = true, -- Follow symbolic links
+	require("telescope.builtin").find_files({
+		hidden = true,
+		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
 	})
 end, { noremap = true, silent = true, desc = "find files" })
