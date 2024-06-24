@@ -5,6 +5,7 @@ local harpoon = require("harpoon")
 
 -- keep track of custom keymaps by letter
 -- a
+-- c
 -- e
 -- ff
 -- fh
@@ -69,3 +70,10 @@ end, { noremap = true, silent = true, desc = "add current file to harpoon menu" 
 vim.keymap.set("n", "<leader>h", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { noremap = true, silent = true, desc = "open harpoon menu" })
+
+harpoon:list():clear()
+
+-- clear harpoon menu (<LEADER>c)
+vim.keymap.set("n", "<leader>c", function()
+	harpoon:list():clear()
+end, { noremap = true, silent = true, desc = "clear harpoon menu" })
