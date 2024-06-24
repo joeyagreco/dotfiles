@@ -148,10 +148,14 @@ function mp4() {
 }
 
 function install_deps() {
+  pip install --upgrade pip
   pip install -r $HOME/requirements.txt
   brew update
   brew bundle --file=$HOME/Brewfile
   brew cleanup
+  # make sure packer is installed for nvim
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 }
 
 
