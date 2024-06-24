@@ -1,5 +1,6 @@
 # Brewfile
 
+brew "nvim"
 brew "tmux"
 brew "zsh"
 brew "starship"
