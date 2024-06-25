@@ -1,4 +1,5 @@
 -- custom theme discussion here: https://github.com/goolord/alpha-nvim/discussions/16
+-- this specific theme: https://github.com/mohammedbabiker/dotfiles/blob/main/.config/nvim/lua/plugins/alpha.lua
 
 local alpha = require("alpha")
 local alpha_themes = require("alpha.themes.startify")
@@ -24,7 +25,7 @@ dashboard.section.header.val = {
 	[[                                                                       ]],
 }
 
--- Set menu
+-- menu
 dashboard.section.buttons.val = {
 	dashboard.button("n", "   New file", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("f", "   Find file", ":Telescope find_files<CR>"),
@@ -32,5 +33,12 @@ dashboard.section.buttons.val = {
 	dashboard.button("u", "󰂖   Update plugins", ":PackerSync<CR>"),
 	dashboard.button("q", "   Quit NVIM", ":qa<CR>"),
 }
+
+-- footer
+
+local function footer()
+	return "Welcome, Joey"
+end
+dashboard.section.footer.val = footer()
 
 alpha.setup(dashboard.opts)
