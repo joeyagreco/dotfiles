@@ -157,10 +157,14 @@ function mp4() {
 }
 
 function install_deps() {
+  # create symlinks if needed
   $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/link_init.py
+  # install python package deps
   pip install --upgrade pip
   pip install -r $HOME/requirements.txt
-  npm install --prefix $HOME
+  # install npm deps
+  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/npm_init.py
+  # install brew deps
   brew update
   brew bundle --file=$HOME/Brewfile
   brew cleanup
