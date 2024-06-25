@@ -30,7 +30,18 @@ require("packer").startup(function(use)
 	-- https://github.com/sbdchd/neoformat
 	use("sbdchd/neoformat")
 	-- LSP servers
-	use("neovim/nvim-lspconfig")
+	-- COQ: https://github.com/ms-jpq/coq_nvim
+	-- may need to run :COQdeps and :COQnow before this works
+	use({
+		"neovim/nvim-lspconfig",
+		requires = { { "ms-jpq/coq_nvim", branch = "coq" }, { "ms-jpq/coq.artifacts", branch = "artifacts" } },
+		init = function()
+			vim.g.coq_settings = {
+				auto_start = true, -- if you want to start COQ at startup
+				-- Your COQ settings here
+			}
+		end,
+	})
 	-- theme
 	use("Abstract-IDE/Abstract-cs")
 	use("marko-cerovac/material.nvim")
