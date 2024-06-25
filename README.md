@@ -10,7 +10,7 @@
 export LOCAL_GIT_REPO_PATH="/path/to/git/repos/on/this/computer"
 ```
 
-4. Run `applyz && applyz`
+4. Run `source .zshrc.local && applyz`
 5. Install dependencies `deps`
 6. Install `Hack Nerd Font` from [this site](https://www.nerdfonts.com/font-downloads)
 
