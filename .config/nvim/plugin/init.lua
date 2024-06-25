@@ -35,12 +35,6 @@ require("packer").startup(function(use)
 	use({
 		"neovim/nvim-lspconfig",
 		requires = { { "ms-jpq/coq_nvim", branch = "coq" }, { "ms-jpq/coq.artifacts", branch = "artifacts" } },
-		init = function()
-			vim.g.coq_settings = {
-				auto_start = true, -- if you want to start COQ at startup
-				-- Your COQ settings here
-			}
-		end,
 	})
 	-- theme
 	use("Abstract-IDE/Abstract-cs")
