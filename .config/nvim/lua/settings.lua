@@ -1,3 +1,5 @@
+local constants = require("constants")
+
 -- Auto format on save using Neoformat
 vim.cmd([[
   augroup fmt
@@ -7,4 +9,7 @@ vim.cmd([[
 ]])
 
 -- use system clipboard
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
+
+-- set python to use
+vim.g.python3_host_prog = constants.PYTHON_PATH

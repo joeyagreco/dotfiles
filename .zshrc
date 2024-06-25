@@ -6,6 +6,7 @@ export LOCAL_GIT_REPO_PATH="NOT_SET"
 # THESE ARE GLOBAL
 export LOCAL_AFFIX=".local"
 export PYTHON_VERSION="python3.10"
+export PYTHON_PATH=$(which $PYTHON_VERSION)
 export ZSHRC_FILE_PATH="$HOME/.zshrc"
 export ZSHRC_LOCAL_FILE_PATH=$ZSHRC_FILE_PATH$LOCAL_AFFIX
 export ALACRITTY_FILE_PATH="$HOME/.alacritty.yml"
@@ -15,10 +16,17 @@ export VIM_FILE_PATH="$HOME/.vimrc"
 export SCRIPTS_PATH="$HOME/scripts"
 export PYTHON_SCRIPTS_PATH="$SCRIPTS_PATH/python"
 export DOWNLOADS_PATH="$HOME/Downloads"
+export PYENV_ROOT="$HOME/.pyenv"
 
 ############
 # SOURCING #
 ############
+
+# set up pyenv
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
 # fuzzy find
 eval "$(fzf --zsh)"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

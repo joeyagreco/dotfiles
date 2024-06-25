@@ -5,18 +5,3 @@ vim.cmd("source ~/.vimrc")
 require("settings")
 require("keymaps")
 require("theme")
-
--- TODO: i dont think this is needed
--- -- Enable copy/paste
--- vim.g.clipboard = {
---     name = 'pbcopy',
---     copy = {
---         ['+'] = 'pbcopy',
---         ['*'] = 'pbcopy',
---     },
---     paste = {
---         ['+'] = 'pbpaste',
---         ['*'] = 'pbpaste',
---     },
---     cache_enabled = true,
--- }
