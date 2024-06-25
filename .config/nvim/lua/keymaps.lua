@@ -14,6 +14,7 @@ local harpoon = require("harpoon")
 -- fw
 -- gd
 -- h
+-- K
 -- tc
 
 -- Set leader to SPACE
@@ -93,3 +94,6 @@ vim.keymap.set(
 	'iif __name__ == "__main__":<Esc>o',
 	{ noremap = true, silent = true, desc = "if name == main " }
 )
+
+-- get lsp info for whatever the cursor is on (K)
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, desc = "Show info popup over function" })
