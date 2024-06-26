@@ -35,6 +35,7 @@ vim.keymap.set("n", "<leader>fw", function()
 	telescope.grep_string({
 		word_match = "-w",
 		search = vim.fn.expand("<cword>"),
+		cwd = vim.fn.getcwd(),
 	})
 end, { noremap = true, silent = true, desc = "search for word under cursor" })
 
