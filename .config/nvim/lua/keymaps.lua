@@ -86,17 +86,15 @@ vim.keymap.set("n", "<leader>c", function()
 	harpoon:list():clear()
 end, { noremap = true, silent = true, desc = "clear harpoon menu" })
 
--- Ttggle previous & next buffers stored within Harpoon list
+-- Toggle previous & next buffers stored within Harpoon list
 -- (<CTRL>p) (<CTRL>n)
 vim.keymap.set("n", "<C-P>", function()
-	print("prev")
 	harpoon:list():prev()
-end, { noremap = true, silent = true, "prev harpoon buffer" })
+end, { noremap = true, silent = true, desc = "prev harpoon buffer" })
 
 vim.keymap.set("n", "<C-N>", function()
-	print("next")
 	harpoon:list():next()
-end, { noremap = true, silent = true , "next harpoon buffer"})
+end, { noremap = true, silent = true, desc = "next harpoon buffer" })
 
 -- 'if __name__ == "__main__"' (<LEADER>inm)
 vim.keymap.set(
