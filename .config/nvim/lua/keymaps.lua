@@ -2,6 +2,7 @@
 local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
 local harpoon = require("harpoon")
+local constants = require("constants")
 
 -- keep track of custom keymaps by letter to prevent collision delay
 -- a
@@ -16,7 +17,6 @@ local harpoon = require("harpoon")
 -- ho
 -- K
 -- m
--- tc
 
 -- Set leader to SPACE
 vim.g.mapleader = " "
@@ -54,14 +54,6 @@ vim.keymap.set("n", "<leader>fh", function()
 		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
 	})
 end, { noremap = true, silent = true, desc = "find files including hidden" })
-
--- open up tree to the current file (<LEADER>tc)
-vim.keymap.set(
-	"n",
-	"<leader>tc",
-	":NvimTreeFindFile<CR>",
-	{ noremap = true, silent = true, desc = "Open nvim tree to current file" }
-)
 
 -- go to definition for whatever the cursor is on (<LEADER>gd)
 vim.keymap.set(
@@ -114,3 +106,12 @@ vim.keymap.set(
 	":nohlsearch<CR>",
 	{ noremap = true, silent = true, desc = "turn off vim search highlights" }
 )
+
+-- open a git directory
+vim.keymap.set("n", "<leader>gi", function()
+    local path = vim.fn.input("Path: ", constants.LOCAL_GIT_REPO_PATH .. "/")
+	vim.cmd("NvimTreeClose") 
+    vim.cmd("NvimTreeOpen " .. vim.fn.fnameescape(path))
+end, { noremap = true, silent = true, desc = "open a git dir" })
+
+
