@@ -3,6 +3,7 @@ local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
 local harpoon = require("harpoon")
 local constants = require("constants")
+local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
 -- a
@@ -108,10 +109,9 @@ vim.keymap.set(
 )
 
 -- open a git directory
-vim.keymap.set("n", "<leader>gi", function()
-    local path = vim.fn.input("Path: ", constants.LOCAL_GIT_REPO_PATH .. "/")
-	vim.cmd("NvimTreeClose") 
-    vim.cmd("NvimTreeOpen " .. vim.fn.fnameescape(path))
-end, { noremap = true, silent = true, desc = "open a git dir" })
-
-
+vim.keymap.set(
+	"n",
+	"<leader>gi",
+	helpers.prompt_and_open_git_repo,
+	{ noremap = true, silent = true, desc = "open a git dir" }
+)
