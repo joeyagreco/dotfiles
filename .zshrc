@@ -27,6 +27,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
+# set up cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # fuzzy find
 eval "$(fzf --zsh)"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -157,17 +160,31 @@ function mp4() {
 }
 
 function install_deps() {
-  # create symlinks if needed
+  # create symlinks if needed THIS SHOULD BE FIRST
   $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/link_init.py
+
+  # make sure cargo is installed
+  if ! command -v cargo &> /dev/null
+  then
+      echo "cargo could not be found, installing..."
+      curl https://sh.rustup.rs -sSf | sh
+  fi
+
+  # install cargo deps
+  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/cargo_init.py
+
   # install python package deps
   pip install --upgrade pip
   pip install -r $HOME/requirements.txt
+
   # install npm deps
   $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/npm_init.py
+
   # install brew deps
   brew update
   brew bundle --file=$HOME/Brewfile
   brew cleanup
+  
   # make sure packer is installed for nvim
   # TODO: this fails most of the time bc already cloned
   git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim

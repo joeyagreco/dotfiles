@@ -3,7 +3,7 @@ local lspconfig = require("lspconfig")
 -- true = autostart
 -- shut-up = autostart and don't show startup message
 vim.g.coq_settings = {
-    auto_start = 'shut-up',
+	auto_start = "shut-up",
 }
 local coq = require("coq")
 -- typescript
@@ -14,3 +14,5 @@ lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
 lspconfig.gopls.setup(coq.lsp_ensure_capabilities({}))
 -- markdown
 lspconfig.marksman.setup(coq.lsp_ensure_capabilities({}))
+-- protobuf
+lspconfig.protols.setup(coq.lsp_ensure_capabilities({}))
