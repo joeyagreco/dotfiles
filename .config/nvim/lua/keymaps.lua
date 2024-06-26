@@ -2,7 +2,6 @@
 local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
 local harpoon = require("harpoon")
-local constants = require("constants")
 local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
@@ -64,6 +63,12 @@ vim.keymap.set(
 	vim.lsp.buf.definition,
 	{ noremap = true, silent = true, desc = "go to definition for whatever the cursor is on" }
 )
+
+-- toggle tree (<LEADER>t)
+vim.keymap.set("n", "<leader>t", function()
+	nvim_tree.tree.toggle()
+end, { noremap = true, silent = true, desc = "toggle tree" })
+
 
 -- add to harpoon menu (<LEADER>a)
 vim.keymap.set("n", "<leader>a", function()
