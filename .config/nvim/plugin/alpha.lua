@@ -31,7 +31,12 @@ dashboard.section.buttons.val = {
 	--dashboard.button("n", "   New file", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("f", "   Find file", ":Telescope find_files<CR>"),
 	dashboard.button("r", "   Recent", ":Telescope oldfiles<CR>"),
-	--dashboard.button("g", "󰉋   Open git directory", ":lua open_git_directory()<CR>", { silent = true }),
+	dashboard.button(
+		"g",
+		"󰉋   Open git directory",
+		":lua require('helpers').prompt_and_open_git_repo()<CR>",
+		{ silent = true }
+	),
 	dashboard.button("u", "󰂖   Update plugins", ":PackerSync<CR>"),
 	dashboard.button("q", "   Quit NVIM", ":qa<CR>"),
 }
