@@ -60,7 +60,7 @@ vim.keymap.set(
 	"n",
 	"<leader>tc",
 	":NvimTreeFindFile<CR>",
-	{ noremap = true, silent = true, desc = "Ooen nvim tree to current file" }
+	{ noremap = true, silent = true, desc = "Open nvim tree to current file" }
 )
 
 -- go to definition for whatever the cursor is on (<LEADER>gd)
