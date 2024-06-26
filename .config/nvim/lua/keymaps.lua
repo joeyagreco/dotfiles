@@ -3,7 +3,7 @@ local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
 local harpoon = require("harpoon")
 
--- keep track of custom keymaps by letter
+-- keep track of custom keymaps by letter to prevent collision delay
 -- a
 -- c
 -- e
@@ -13,8 +13,9 @@ local harpoon = require("harpoon")
 -- fs
 -- fw
 -- gd
--- h
+-- ho
 -- K
+-- m
 -- tc
 
 -- Set leader to SPACE
@@ -75,17 +76,27 @@ vim.keymap.set("n", "<leader>a", function()
 	harpoon:list():add()
 end, { noremap = true, silent = true, desc = "add current file to harpoon menu" })
 
--- open harpoon menu (<LEADER>h)
-vim.keymap.set("n", "<leader>h", function()
+-- open harpoon menu (<LEADER>m)
+vim.keymap.set("n", "<leader>m", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { noremap = true, silent = true, desc = "open harpoon menu" })
-
-harpoon:list():clear()
 
 -- clear harpoon menu (<LEADER>c)
 vim.keymap.set("n", "<leader>c", function()
 	harpoon:list():clear()
 end, { noremap = true, silent = true, desc = "clear harpoon menu" })
+
+-- Ttggle previous & next buffers stored within Harpoon list
+-- (<CTRL>p) (<CTRL>n)
+vim.keymap.set("n", "<C-P>", function()
+	print("prev")
+	harpoon:list():prev()
+end, { noremap = true, silent = true, "prev harpoon buffer" })
+
+vim.keymap.set("n", "<C-N>", function()
+	print("next")
+	harpoon:list():next()
+end, { noremap = true, silent = true , "next harpoon buffer"})
 
 -- 'if __name__ == "__main__"' (<LEADER>inm)
 vim.keymap.set(
@@ -97,3 +108,11 @@ vim.keymap.set(
 
 -- get lsp info for whatever the cursor is on (K)
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, desc = "Show info popup over function" })
+
+-- turn search highlighting off (<LEADER>ho)
+vim.keymap.set(
+	"n",
+	"<leader>ho",
+	":nohlsearch<CR>",
+	{ noremap = true, silent = true, desc = "turn off vim search highlights" }
+)
