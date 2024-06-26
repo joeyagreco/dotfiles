@@ -9,7 +9,7 @@ local harpoon = require("harpoon")
 -- e
 -- ff
 -- fh
--- fmt
+-- fm
 -- fs
 -- fw
 -- gd
@@ -25,8 +25,8 @@ vim.keymap.set("n", "<leader>e", function()
 	nvim_tree.tree.open({ focus = true })
 end, { noremap = true, silent = true, desc = "open / focus explorer" })
 
--- format code (<LEADER>fmt)
-vim.api.nvim_set_keymap("n", "<leader>fmt", ":Neoformat<cr>", { noremap = true, silent = true, desc = "format code" })
+-- format code (<LEADER>fm)
+vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<cr>", { noremap = true, silent = true, desc = "format code" })
 
 -- search for word that cursor is on (<LEADER>fw)
 vim.keymap.set("n", "<leader>fw", function()
