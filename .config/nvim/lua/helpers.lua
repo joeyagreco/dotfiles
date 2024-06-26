@@ -5,6 +5,7 @@ local M = {}
 function M.prompt_and_open_git_repo()
 	local path = vim.fn.input("Path: ", constants.LOCAL_GIT_REPO_PATH .. "/")
 	vim.cmd("cd " .. vim.fn.fnameescape(path))
+	vim.cmd("NvimTreeOpen")
 end
 
 return M
