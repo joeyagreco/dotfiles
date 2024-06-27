@@ -37,7 +37,7 @@ dashboard.section.buttons.val = {
 		":lua require('helpers').prompt_and_open_git_repo()<CR>",
 		{ silent = true }
 	),
-	dashboard.button("u", "󰂖   Update plugins", ":PackerSync<CR>"),
+	dashboard.button("p", "󰂖   Clean and update plugins", ":lua require('helpers').clean_and_update_plugins()<CR>"),
 	dashboard.button("q", "   Quit NVIM", ":qa<CR>"),
 }
 
