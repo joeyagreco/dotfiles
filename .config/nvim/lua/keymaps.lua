@@ -19,7 +19,8 @@ local helpers = require("helpers")
 -- K
 -- m
 -- pp
--- r
+-- R
+-- rn
 -- /
 
 -- Set leader to SPACE
@@ -44,8 +45,8 @@ end, { noremap = true, silent = true, desc = "search for word under cursor" })
 
 -- serach for a word (<LEADER>fs)
 vim.keymap.set("n", "<leader>fs", function()
-	require("telescope.builtin").live_grep()
-end, { noremap = true, silent = true, desc = "open popup to search for words" })
+	require("telescope.builtin").live_grep({})
+end, { noremap = true, silent = true, desc = "open popup to search for words case insensitively" })
 
 -- find files (<LEADER>ff)
 vim.keymap.set("n", "<leader>ff", function()

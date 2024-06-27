@@ -1,4 +1,5 @@
 local actions = require("telescope.actions")
+
 require("telescope").setup({
 	defaults = {
 		file_ignore_patterns = {},
@@ -10,7 +11,8 @@ require("telescope").setup({
 			"--with-filename",
 			"--line-number",
 			"--column",
-			"--smart-case",
+			"--ignore-case",
+			"--fixed-strings",
 		},
 		mappings = {
 			i = {
