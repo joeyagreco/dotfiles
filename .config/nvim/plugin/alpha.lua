@@ -2,7 +2,6 @@
 -- this specific theme: https://github.com/mohammedbabiker/dotfiles/blob/main/.config/nvim/lua/plugins/alpha.lua
 
 local alpha = require("alpha")
-local alpha_themes = require("alpha.themes.startify")
 local dashboard = require("alpha.themes.dashboard")
 
 dashboard.section.header.val = {
