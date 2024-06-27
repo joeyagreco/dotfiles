@@ -68,6 +68,9 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "go to definition for whatever the cursor is on" }
 )
 
+-- rename symbol
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename Symbol" })
+
 -- toggle tree (<LEADER>t)
 vim.keymap.set("n", "<leader>t", function()
 	nvim_tree.tree.toggle()
@@ -137,7 +140,7 @@ end, { noremap = true, silent = true, desc = "copy url of current line in git" }
 -- toggle recent files
 vim.keymap.set(
 	"n",
-	"<leader>r",
+	"<leader>R",
 	":Telescope oldfiles<CR>",
 	{ noremap = true, silent = true, desc = "toggle recent files" }
 )
