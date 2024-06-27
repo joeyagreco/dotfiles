@@ -1,7 +1,7 @@
 -- import apis
 local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
-local harpoon = require("harpoon")
+-- local harpoon = require("harpoon")
 local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
@@ -18,6 +18,7 @@ local helpers = require("helpers")
 -- ho
 -- K
 -- m
+-- pp
 -- r
 -- /
 
@@ -151,4 +152,12 @@ vim.keymap.set(
 	"<leader>/",
 	'<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
 	{ noremap = true, silent = true, desc = "Comment selection" }
+)
+
+-- clean and update plugins (<LEADER>pp)
+vim.keymap.set(
+	"n",
+	"<leader>pp",
+	helpers.clean_and_update_plugins,
+	{ noremap = true, silent = true, desc = "clean and update plugins" }
 )

@@ -8,4 +8,9 @@ function M.prompt_and_open_git_repo()
 	vim.cmd("NvimTreeOpen")
 end
 
+function M.clean_and_update_plugins()
+	vim.cmd("PackerClean")
+	vim.cmd("PackerUpdate")
+end
+
 return M

@@ -1,4 +1,4 @@
-local harpoon = require("harpoon")
+-- local harpoon = require("harpoon")
 
--- REQUIRED
-harpoon:setup()
+-- -- REQUIRED
+-- harpoon:setup()
