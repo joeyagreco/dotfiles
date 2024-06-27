@@ -130,3 +130,11 @@ vim.keymap.set("n", "<leader>gu", function()
 	vim.cmd("GitBlameCopyFileURL")
 	print("git url copied")
 end, { noremap = true, silent = true, desc = "copy url of current line in git" })
+
+-- toggle recent files
+vim.keymap.set(
+	"n",
+	"<leader>r",
+	":Telescope oldfiles<CR>",
+	{ noremap = true, silent = true, desc = "toggle recent files" }
+)
