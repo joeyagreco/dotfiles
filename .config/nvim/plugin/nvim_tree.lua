@@ -1,7 +1,5 @@
 local constants = require("constants")
 
--- config docs: https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
--- (search for "SETUP")
 require("nvim-tree").setup({
 	sort = {
 		sorter = "case_sensitive",
@@ -15,6 +13,7 @@ require("nvim-tree").setup({
 	update_focused_file = {
 		enable = true,
 		update_cwd = true,
+		update_root = true,
 	},
 	-- set all local git directories as root dirs
 	root_dirs = constants.ALL_LOCAL_GIT_REPO_PATHS,
