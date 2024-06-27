@@ -32,7 +32,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   end,
 })
 
-
 -- disable for nvim-tree
 -- :help nvim-tree-netrw
 -- https://github.com/nvim-tree/nvim-tree.lua?tab=readme-ov-file#install
