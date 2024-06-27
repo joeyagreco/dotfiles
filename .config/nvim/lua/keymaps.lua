@@ -72,30 +72,30 @@ vim.keymap.set("n", "<leader>t", function()
 	nvim_tree.tree.toggle()
 end, { noremap = true, silent = true, desc = "toggle tree" })
 
--- add to harpoon menu (<LEADER>a)
-vim.keymap.set("n", "<leader>a", function()
-	harpoon:list():add()
-end, { noremap = true, silent = true, desc = "add current file to harpoon menu" })
-
--- open harpoon menu (<LEADER>m)
-vim.keymap.set("n", "<leader>m", function()
-	harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { noremap = true, silent = true, desc = "open harpoon menu" })
-
--- clear harpoon menu (<LEADER>c)
-vim.keymap.set("n", "<leader>c", function()
-	harpoon:list():clear()
-end, { noremap = true, silent = true, desc = "clear harpoon menu" })
-
--- Toggle previous & next buffers stored within Harpoon list
--- (<CTRL>p) (<CTRL>n)
-vim.keymap.set("n", "<C-P>", function()
-	harpoon:list():prev()
-end, { noremap = true, silent = true, desc = "prev harpoon buffer" })
-
-vim.keymap.set("n", "<C-N>", function()
-	harpoon:list():next()
-end, { noremap = true, silent = true, desc = "next harpoon buffer" })
+-- -- add to harpoon menu (<LEADER>a)
+-- vim.keymap.set("n", "<leader>a", function()
+-- 	harpoon:list():add()
+-- end, { noremap = true, silent = true, desc = "add current file to harpoon menu" })
+--
+-- -- open harpoon menu (<LEADER>m)
+-- vim.keymap.set("n", "<leader>m", function()
+-- 	harpoon.ui:toggle_quick_menu(harpoon:list())
+-- end, { noremap = true, silent = true, desc = "open harpoon menu" })
+--
+-- -- clear harpoon menu (<LEADER>c)
+-- vim.keymap.set("n", "<leader>c", function()
+-- 	harpoon:list():clear()
+-- end, { noremap = true, silent = true, desc = "clear harpoon menu" })
+--
+-- -- Toggle previous & next buffers stored within Harpoon list
+-- -- (<CTRL>p) (<CTRL>n)
+-- vim.keymap.set("n", "<C-P>", function()
+-- 	harpoon:list():prev()
+-- end, { noremap = true, silent = true, desc = "prev harpoon buffer" })
+--
+-- vim.keymap.set("n", "<C-N>", function()
+-- 	harpoon:list():next()
+-- end, { noremap = true, silent = true, desc = "next harpoon buffer" })
 
 -- 'if __name__ == "__main__"' (<LEADER>inm)
 vim.keymap.set(
