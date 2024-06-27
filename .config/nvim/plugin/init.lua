@@ -54,6 +54,8 @@ require("packer").startup(function(use)
 	})
 	-- comment code
 	use("numToStr/Comment.nvim")
-	-- git signs
+	-- git signs (used to see line at side of file for diffs)
 	use("lewis6991/gitsigns.nvim")
+	-- git diff (used for git diff view)
+	use("sindrets/diffview.nvim")
 end)

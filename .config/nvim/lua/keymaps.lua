@@ -7,6 +7,7 @@ local helpers = require("helpers")
 -- keep track of custom keymaps by letter to prevent collision delay
 -- a
 -- c
+-- dif
 -- e
 -- ff
 -- fh
@@ -165,3 +166,9 @@ vim.keymap.set(
 	helpers.clean_and_update_plugins,
 	{ noremap = true, silent = true, desc = "clean and update plugins" }
 )
+
+-- open git diff view
+vim.keymap.set('n', '<leader>dif', ":DiffviewOpen<CR>", { desc = 'open git diff view' })
+
+-- close tab
+vim.keymap.set('n', '<leader>c', ":tabc<CR>", { desc = 'close tab' })
