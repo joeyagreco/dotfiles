@@ -18,6 +18,8 @@ local helpers = require("helpers")
 -- ho
 -- K
 -- m
+-- r
+-- /
 
 -- Set leader to SPACE
 vim.g.mapleader = " "
@@ -137,4 +139,16 @@ vim.keymap.set(
 	"<leader>r",
 	":Telescope oldfiles<CR>",
 	{ noremap = true, silent = true, desc = "toggle recent files" }
+)
+
+-- comment out / uncomment line and selection (<LEADER>/)
+vim.keymap.set("n", "<leader>/", function()
+	require("Comment.api").toggle.linewise.current()
+end, { noremap = true, silent = true, desc = "Comment current line" })
+
+vim.keymap.set(
+	"v",
+	"<leader>/",
+	'<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
+	{ noremap = true, silent = true, desc = "Comment selection" }
 )
