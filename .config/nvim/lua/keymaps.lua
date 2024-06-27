@@ -69,7 +69,6 @@ vim.keymap.set("n", "<leader>t", function()
 	nvim_tree.tree.toggle()
 end, { noremap = true, silent = true, desc = "toggle tree" })
 
-
 -- add to harpoon menu (<LEADER>a)
 vim.keymap.set("n", "<leader>a", function()
 	harpoon:list():add()
@@ -121,3 +120,12 @@ vim.keymap.set(
 	helpers.prompt_and_open_git_repo,
 	{ noremap = true, silent = true, desc = "open a git dir" }
 )
+
+-- quit vim (<LEADER>qq)
+vim.keymap.set("n", "<leader>qq", ":qa<CR>", { noremap = true, silent = true, desc = "exit vim" })
+
+-- copy url of current line in git
+vim.keymap.set("n", "<leader>gu", function()
+	vim.cmd("GitBlameCopyFileURL")
+	print("git url copied")
+end, { noremap = true, silent = true, desc = "copy url of current line in git" })
