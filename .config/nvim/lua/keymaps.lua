@@ -1,6 +1,7 @@
 -- import apis
 local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
+local git_signs = require("gitsigns")
 -- local harpoon = require("harpoon")
 local helpers = require("helpers")
 
@@ -16,6 +17,7 @@ local helpers = require("helpers")
 -- fs
 -- fw
 -- gd
+-- gr
 -- gu
 -- ho
 -- K
@@ -124,6 +126,22 @@ vim.keymap.set("n", "<leader>gu", function()
 	vim.cmd("GitBlameCopyFileURL")
 	print("git url copied")
 end, { noremap = true, silent = true, desc = "copy url of current line in git" })
+
+-- reset current cursor hunk
+vim.keymap.set(
+	"n",
+	"<leader>gr",
+	git_signs.reset_hunk,
+	{ noremap = true, silent = true, desc = "reset current hunk via git" }
+)
+
+-- reset all hunks in current file/buffer
+vim.keymap.set(
+	"n",
+	"<leader>gR",
+	git_signs.reset_buffer,
+	{ noremap = true, silent = true, desc = "reset all hunks in current buffer" }
+)
 
 -- toggle recent files
 vim.keymap.set(
