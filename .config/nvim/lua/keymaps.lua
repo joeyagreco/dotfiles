@@ -30,13 +30,16 @@ local helpers = require("helpers")
 -- Set leader to SPACE
 vim.g.mapleader = " "
 
+local default_options = { noremap = true, silent = true }
+
 -- toggle on / focus on explorer (<LEADER>e)
 vim.keymap.set("n", "<leader>e", function()
 	nvim_tree.tree.open({ focus = true })
-end, { noremap = true, silent = true, desc = "open / focus explorer" })
+end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
 
 -- format code (<LEADER>fm)
-vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<cr>", { noremap = true, silent = true, desc = "format code" })
+vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<cr>",
+	helpers.combine_tables(default_options, { desc = "format code" }))
 
 -- search for word that cursor is on (<LEADER>fw)
 vim.keymap.set("n", "<leader>fw", function()
@@ -45,69 +48,63 @@ vim.keymap.set("n", "<leader>fw", function()
 		search = vim.fn.expand("<cword>"),
 		cwd = vim.fn.getcwd(),
 	})
-end, { noremap = true, silent = true, desc = "search for word under cursor" })
+end, helpers.combine_tables(default_options, { desc = "search for word under cursor" }))
 
 -- serach for a word (<LEADER>fs)
 vim.keymap.set("n", "<leader>fs", function()
 	telescope.live_grep({})
-end, { noremap = true, silent = true, desc = "open popup to search for words case insensitively" })
+end, helpers.combine_tables(default_options, { desc = "search for words" }))
 
 -- find files (<LEADER>ff)
 vim.keymap.set("n", "<leader>ff", function()
-	telescope.find_files({})
-end, { noremap = true, silent = true, desc = "find files" })
-
--- find files including hidden (<LEADER>fh)
-vim.keymap.set("n", "<leader>fh", function()
 	telescope.find_files({
 		hidden = true,
 		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
 	})
-end, { noremap = true, silent = true, desc = "find files including hidden" })
+end, helpers.combine_tables(default_options, { desc = "find files" }))
 
 -- go to definition for whatever the cursor is on (<LEADER>gd)
 vim.keymap.set(
 	"n",
 	"<leader>gd",
 	vim.lsp.buf.definition,
-	{ noremap = true, silent = true, desc = "go to definition for whatever the cursor is on" }
+	helpers.combine_tables(default_options, { desc = "go to definition for word under cursor" })
 )
 
 -- get lsp info for whatever the cursor is on (K)
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, desc = "Show info popup over function" })
+vim.keymap.set("n", "K", vim.lsp.buf.hover,
+	helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" }))
 
 -- find references for whatever cursor is on
-vim.keymap.set("n", "<leader>fr", telescope.lsp_references, { desc = "Find References" })
+vim.keymap.set("n", "<leader>fr", telescope.lsp_references,
+	helpers.combine_tables(default_options, { desc = "find references" }))
 
 -- find old (open up telescope search with previous search)
-vim.keymap.set("n", "<leader>fo", telescope.resume, {
-	noremap = true,
-	silent = true,
-	desc = "resume previous (live grep, find files, etc)",
-})
+vim.keymap.set("n", "<leader>fo", telescope.resume,
+	helpers.combine_tables(default_options, { desc = "resume previous search" }))
 
 -- 'if __name__ == "__main__"' (<LEADER>inm)
 vim.keymap.set(
 	"n",
 	"<leader>inm",
 	'iif __name__ == "__main__":<Esc>o',
-	{ noremap = true, silent = true, desc = "if name == main " }
+	helpers.combine_tables(default_options, { desc = "if name == main" })
 )
 
 -- rename symbol
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename Symbol" })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
 -- toggle tree (<LEADER>t)
 vim.keymap.set("n", "<leader>t", function()
 	nvim_tree.tree.toggle()
-end, { noremap = true, silent = true, desc = "toggle tree" })
+end, helpers.combine_tables(default_options, { desc = "toggle tree" }))
 
 -- turn search highlighting off (<LEADER>ho)
 vim.keymap.set(
 	"n",
 	"<leader>ho",
 	":nohlsearch<CR>",
-	{ noremap = true, silent = true, desc = "turn off vim search highlights" }
+	helpers.combine_tables(default_options, { desc = "turn off vim search highlights" })
 )
 
 -- open a git directory
@@ -115,24 +112,24 @@ vim.keymap.set(
 	"n",
 	"<leader>gi",
 	helpers.prompt_and_open_git_repo,
-	{ noremap = true, silent = true, desc = "open a git dir" }
+	helpers.combine_tables(default_options, { desc = "open a git directory" })
 )
 
 -- quit vim (<LEADER>qq)
-vim.keymap.set("n", "<leader>qq", ":qa<CR>", { noremap = true, silent = true, desc = "exit vim" })
+vim.keymap.set("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
 
 -- copy url of current line in git
 vim.keymap.set("n", "<leader>gu", function()
 	vim.cmd("GitBlameCopyFileURL")
 	print("git url copied")
-end, { noremap = true, silent = true, desc = "copy url of current line in git" })
+end, helpers.combine_tables(default_options, { desc = "copy url of current line in git" }))
 
 -- reset current cursor hunk
 vim.keymap.set(
 	"n",
 	"<leader>gr",
 	git_signs.reset_hunk,
-	{ noremap = true, silent = true, desc = "reset current hunk via git" }
+	helpers.combine_tables(default_options, { desc = "git reset current hunk" })
 )
 
 -- reset all hunks in current file/buffer
@@ -140,7 +137,7 @@ vim.keymap.set(
 	"n",
 	"<leader>gR",
 	git_signs.reset_buffer,
-	{ noremap = true, silent = true, desc = "reset all hunks in current buffer" }
+	helpers.combine_tables(default_options, { desc = "git reset current buffer" })
 )
 
 -- toggle recent files
@@ -148,19 +145,19 @@ vim.keymap.set(
 	"n",
 	"<leader>R",
 	":Telescope oldfiles<CR>",
-	{ noremap = true, silent = true, desc = "toggle recent files" }
+	helpers.combine_tables(default_options, { desc = "see recent files" })
 )
 
 -- comment out / uncomment line and selection (<LEADER>/)
 vim.keymap.set("n", "<leader>/", function()
 	require("Comment.api").toggle.linewise.current()
-end, { noremap = true, silent = true, desc = "Comment current line" })
+end, helpers.combine_tables(default_options, { desc = "comment current line" }))
 
 vim.keymap.set(
 	"v",
 	"<leader>/",
 	'<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
-	{ noremap = true, silent = true, desc = "Comment selection" }
+	helpers.combine_tables(default_options, { desc = "comment current selection" })
 )
 
 -- clean and update plugins (<LEADER>pp)
@@ -168,11 +165,12 @@ vim.keymap.set(
 	"n",
 	"<leader>pp",
 	helpers.clean_and_update_plugins,
-	{ noremap = true, silent = true, desc = "clean and update plugins" }
+	helpers.combine_tables(default_options, { desc = "clean and update plugins" })
 )
 
 -- open git diff view
-vim.keymap.set("n", "<leader>dif", ":DiffviewOpen<CR>", { desc = "open git diff view" })
+vim.keymap.set("n", "<leader>dif", ":DiffviewOpen<CR>",
+	helpers.combine_tables(default_options, { desc = "open git dif view" }))
 
 -- close tab
-vim.keymap.set("n", "<leader>c", ":tabc<CR>", { desc = "close tab" })
+vim.keymap.set("n", "<leader>c", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))

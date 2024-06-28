@@ -25,12 +25,19 @@ end
 function M.close_all_file_buffers()
 	for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
 		if vim.api.nvim_buf_is_loaded(buffer) then
-			local buftype = vim.api.nvim_buf_get_option(buffer, 'buftype')
-			if buftype == '' then -- Only close normal file buffers
+			local buftype = vim.api.nvim_buf_get_option(buffer, "buftype")
+			if buftype == "" then -- Only close normal file buffers
 				vim.api.nvim_buf_delete(buffer, { force = true })
 			end
 		end
 	end
+end
+
+function M.combine_tables(first_table, second_table)
+	for k, v in pairs(second_table) do
+		first_table[k] = v
+	end
+	return first_table
 end
 
 return M
