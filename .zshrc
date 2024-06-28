@@ -17,6 +17,7 @@ export SCRIPTS_PATH="$HOME/scripts"
 export PYTHON_SCRIPTS_PATH="$SCRIPTS_PATH/python"
 export DOWNLOADS_PATH="$HOME/Downloads"
 export PYENV_ROOT="$HOME/.pyenv"
+export PACKER_NVIM_PATH="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 
 ############
 # SOURCING #
@@ -186,9 +187,9 @@ function install_deps() {
   brew cleanup
   
   # make sure packer is installed for nvim
-  # TODO: this fails most of the time bc already cloned
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
+if [ ! -d "$PACKER_NVIM_PATH" ]; then
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim "$PACKER_NVIM_PATH"
+fi
 }
 
 
