@@ -20,3 +20,17 @@ lspconfig.protols.setup(coq.lsp_ensure_capabilities({}))
 lspconfig.bashls.setup(coq.lsp_ensure_capabilities({
      filetypes = { "sh", "zsh" },
 })) 
+-- yaml
+lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
+     settings = {
+         yaml = {
+             schemas = {
+                 kubernetes = "*.yaml",
+                 ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+                 ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                 ["http://json.schemastore.org/drone"] = ".drone.yml",
+                 ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+             },
+         },
+     },
+ }))

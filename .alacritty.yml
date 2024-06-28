@@ -4,20 +4,6 @@ shell:
     - -l
     - -c
     - tmux
-# font:
-#   size: 14.0
-#   normal:
-#     family: Fira Code
-#     style: Regular
-#   bold:
-#     family: Fira Code
-#     style: Bold
-#   italic:
-#     family: Fira Code
-#     style: Italic
-#   bold_italic:
-#     family: Fira Code
-#     style: Bold Italic
 
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
 # must be a "Nerd Font" for icons to work on nvim-tree
@@ -45,5 +31,3 @@ mouse:
     modifiers: None
   copy_on_selection: true
   save_to_clipboard: true
-
-
