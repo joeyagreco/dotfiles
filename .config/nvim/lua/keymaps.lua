@@ -77,6 +77,13 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, des
 -- find references for whatever cursor is on
 vim.keymap.set("n", "<leader>fr", telescope.lsp_references, { desc = "Find References" })
 
+-- find old (open up telescope search with previous search)
+vim.keymap.set("n", "<leader>fo", telescope.resume, {
+	noremap = true,
+	silent = true,
+	desc = "resume previous (live grep, find files, etc)",
+})
+
 -- 'if __name__ == "__main__"' (<LEADER>inm)
 vim.keymap.set(
 	"n",
