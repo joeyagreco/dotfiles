@@ -18,5 +18,5 @@ lspconfig.marksman.setup(coq.lsp_ensure_capabilities({}))
 lspconfig.protols.setup(coq.lsp_ensure_capabilities({}))
 -- zsh
 lspconfig.bashls.setup(coq.lsp_ensure_capabilities({
-	filetypes = { "sh", "zsh" },
-}))
+     filetypes = { "sh", "zsh" },
+})) 

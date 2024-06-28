@@ -31,6 +31,9 @@ eval "$(pyenv init -)"
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# set up go
+export PATH=$PATH:$(go env GOPATH)/bin
+
 # fuzzy find
 eval "$(fzf --zsh)"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -112,101 +115,98 @@ alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 #############
 
 function clearall() {
-  # clear the terminal
-  clear
+	# clear the terminal
+	clear
 
-  # clear tmux history if in tmux session
-  if [ -n "$TMUX" ]; then
-    tmux clear-history
-  fi
+	# clear tmux history if in tmux session
+	if [ -n "$TMUX" ]; then
+		tmux clear-history
+	fi
 }
-
 
 function port() {
-    lsof -i :$1
+	lsof -i :$1
 }
 
-
 function f_venvup() {
-  venv $1
-  source "$1/bin/activate"
+	venv $1
+	source "$1/bin/activate"
 }
 
 function f_venvdown() {
-  deactivate $1
-  rm -rf $1
+	deactivate $1
+	rm -rf $1
 }
 
 # open up the given repo
 function c() {
-  cd $LOCAL_GIT_REPO_PATH
-  if [[ -n $1 ]]; then
-    cd "$1" 
-  fi
+	cd $LOCAL_GIT_REPO_PATH
+	if [[ -n $1 ]]; then
+		cd "$1"
+	fi
 }
-
 
 # download a youtube link to mp3
 function mp3() {
-  unsetopt glob
-  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/mp_download.py "mp3" "$1"
-  setopt glob
+	unsetopt glob
+	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/mp_download.py "mp3" "$1"
+	setopt glob
 }
 
 # download a youtube link to mp4
 function mp4() {
-  unsetopt glob
-  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/mp_download.py "mp4" "$1"
-  setopt glob
+	unsetopt glob
+	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/mp_download.py "mp4" "$1"
+	setopt glob
 }
 
 function install_deps() {
-  # create symlinks if needed THIS SHOULD BE FIRST
-  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/link_init.py
+	# create symlinks if needed THIS SHOULD BE FIRST
+	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/link_init.py
 
-  # make sure cargo is installed
-  if ! command -v cargo &> /dev/null
-  then
-      echo "cargo could not be found, installing..."
-      curl https://sh.rustup.rs -sSf | sh
-  fi
+	# make sure cargo is installed
+	if ! command -v cargo &>/dev/null; then
+		echo "cargo could not be found, installing..."
+		curl https://sh.rustup.rs -sSf | sh
+	fi
 
-  # install cargo deps
-  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/cargo_init.py
+	# install cargo deps
+	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/cargo_init.py
 
-  # install python package deps
-  pip install --upgrade pip
-  pip install -r $HOME/requirements.txt
+	# install python package deps
+	pip install --upgrade pip
+	pip install -r $HOME/requirements.txt
 
-  # install npm deps
-  $PYTHON_VERSION $PYTHON_SCRIPTS_PATH/npm_init.py
+	# install npm deps
+	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/npm_init.py
 
-  # install brew deps
-  brew update
-  brew bundle --file=$HOME/Brewfile
-  brew cleanup
-  
-  # make sure packer is installed for nvim
-if [ ! -d "$PACKER_NVIM_PATH" ]; then
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim "$PACKER_NVIM_PATH"
-fi
+	# install brew deps
+	brew update
+	brew bundle --file=$HOME/Brewfile
+	brew cleanup
+
+	# install go deps
+	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/go_init.py
+
+	# make sure packer is installed for nvim
+	if [ ! -d "$PACKER_NVIM_PATH" ]; then
+		git clone --depth 1 https://github.com/wbthomason/packer.nvim "$PACKER_NVIM_PATH"
+	fi
 }
-
 
 # clears all tmux panes
 function clear_all_panes() {
-  for pane in $(tmux list-panes -F '#{pane_id}'); do tmux send-keys -t $pane C-u; done
+	for pane in $(tmux list-panes -F '#{pane_id}'); do tmux send-keys -t $pane C-u; done
 }
 
 # executes the given command in all tmux panes
 function all_panes() {
-  if [ -z "$1" ]; then
-   echo "Usage: all_panes <command>"
-   return 1
-   fi
-  tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} "$1" C-m
+	if [ -z "$1" ]; then
+		echo "Usage: all_panes <command>"
+		return 1
+	fi
+	tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} "$1" C-m
 }
-
 
 #########################
 # ACTIVATE LOCAL CONFIG #
@@ -214,8 +214,7 @@ function all_panes() {
 
 # THIS MUST STAY AT THE BOTTOM OF THE FILE
 if [ -f $ZSHRC_LOCAL_FILE_PATH ]; then
-    source $ZSHRC_LOCAL_FILE_PATH
-else;
-    echo "NO .zshrc.local FILE FOUND!"
+	source $ZSHRC_LOCAL_FILE_PATH
+else
+	echo "NO .zshrc.local FILE FOUND!"
 fi
-    
