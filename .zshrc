@@ -170,23 +170,17 @@ function install_deps() {
 		curl https://sh.rustup.rs -sSf | sh
 	fi
 
-	# install cargo deps
-	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/cargo_init.py
-
 	# install python package deps
 	pip install --upgrade pip
 	pip install -r $HOME/requirements.txt
-
-	# install npm deps
-	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/npm_init.py
 
 	# install brew deps
 	brew update
 	brew bundle --file=$HOME/Brewfile
 	brew cleanup
 
-	# install go deps
-	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/go_init.py
+  # install go, cargo, and npm deps
+	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/deps_init.py
 
 	# make sure packer is installed for nvim
 	if [ ! -d "$PACKER_NVIM_PATH" ]; then
