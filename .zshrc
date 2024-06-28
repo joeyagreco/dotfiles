@@ -18,6 +18,7 @@ export PYTHON_SCRIPTS_PATH="$SCRIPTS_PATH/python"
 export DOWNLOADS_PATH="$HOME/Downloads"
 export PYENV_ROOT="$HOME/.pyenv"
 export PACKER_NVIM_PATH="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+export DEPS_DIR_PATH="$HOME/deps"
 
 ############
 # SOURCING #
@@ -172,11 +173,11 @@ function install_deps() {
 
 	# install python package deps
 	pip install --upgrade pip
-	pip install -r $HOME/requirements.txt
+	pip install -r $DEPS_DIR_PATH/requirements.txt
 
 	# install brew deps
 	brew update
-	brew bundle --file=$HOME/Brewfile
+	brew bundle --file=$DEPS_DIR_PATH/Brewfile
 	brew cleanup
 
   # install go, cargo, and npm deps

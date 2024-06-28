@@ -5,11 +5,11 @@ def install(*, deps_file_name: str, install_command: str) -> None:
     """
     install_command should have {DEP} in it, which will be swapped out with the dep name
     """
-    HOME_PATH = os.environ.get("HOME")
-    if HOME_PATH is None:
-        print("no env var found for '$HOME'")
+    DEPS_DIR_PATH = os.environ.get("DEPS_DIR_PATH")
+    if DEPS_DIR_PATH is None:
+        print("no env var found for '$DEPS_DIR_PATH'")
         exit(1)
-    DEPS_FILE_PATH = os.path.join(HOME_PATH, deps_file_name)
+    DEPS_FILE_PATH = os.path.join(DEPS_DIR_PATH, deps_file_name)
 
     err_count = 0
     success_count = 0
