@@ -12,6 +12,7 @@ local helpers = require("helpers")
 -- ff
 -- fh
 -- fm
+-- fr
 -- fs
 -- fw
 -- gd
@@ -46,17 +47,17 @@ end, { noremap = true, silent = true, desc = "search for word under cursor" })
 
 -- serach for a word (<LEADER>fs)
 vim.keymap.set("n", "<leader>fs", function()
-	require("telescope.builtin").live_grep({})
+	telescope.live_grep({})
 end, { noremap = true, silent = true, desc = "open popup to search for words case insensitively" })
 
 -- find files (<LEADER>ff)
 vim.keymap.set("n", "<leader>ff", function()
-	require("telescope.builtin").find_files({})
+	telescope.find_files({})
 end, { noremap = true, silent = true, desc = "find files" })
 
 -- find files including hidden (<LEADER>fh)
 vim.keymap.set("n", "<leader>fh", function()
-	require("telescope.builtin").find_files({
+	telescope.find_files({
 		hidden = true,
 		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
 	})
@@ -70,38 +71,11 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "go to definition for whatever the cursor is on" }
 )
 
--- rename symbol
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename Symbol" })
+-- get lsp info for whatever the cursor is on (K)
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, desc = "Show info popup over function" })
 
--- toggle tree (<LEADER>t)
-vim.keymap.set("n", "<leader>t", function()
-	nvim_tree.tree.toggle()
-end, { noremap = true, silent = true, desc = "toggle tree" })
-
--- -- add to harpoon menu (<LEADER>a)
--- vim.keymap.set("n", "<leader>a", function()
--- 	harpoon:list():add()
--- end, { noremap = true, silent = true, desc = "add current file to harpoon menu" })
---
--- -- open harpoon menu (<LEADER>m)
--- vim.keymap.set("n", "<leader>m", function()
--- 	harpoon.ui:toggle_quick_menu(harpoon:list())
--- end, { noremap = true, silent = true, desc = "open harpoon menu" })
---
--- -- clear harpoon menu (<LEADER>c)
--- vim.keymap.set("n", "<leader>c", function()
--- 	harpoon:list():clear()
--- end, { noremap = true, silent = true, desc = "clear harpoon menu" })
---
--- -- Toggle previous & next buffers stored within Harpoon list
--- -- (<CTRL>p) (<CTRL>n)
--- vim.keymap.set("n", "<C-P>", function()
--- 	harpoon:list():prev()
--- end, { noremap = true, silent = true, desc = "prev harpoon buffer" })
---
--- vim.keymap.set("n", "<C-N>", function()
--- 	harpoon:list():next()
--- end, { noremap = true, silent = true, desc = "next harpoon buffer" })
+-- find references for whatever cursor is on
+vim.keymap.set("n", "<leader>fr", telescope.lsp_references, { desc = "Find References" })
 
 -- 'if __name__ == "__main__"' (<LEADER>inm)
 vim.keymap.set(
@@ -111,8 +85,13 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "if name == main " }
 )
 
--- get lsp info for whatever the cursor is on (K)
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true, desc = "Show info popup over function" })
+-- rename symbol
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename Symbol" })
+
+-- toggle tree (<LEADER>t)
+vim.keymap.set("n", "<leader>t", function()
+	nvim_tree.tree.toggle()
+end, { noremap = true, silent = true, desc = "toggle tree" })
 
 -- turn search highlighting off (<LEADER>ho)
 vim.keymap.set(
@@ -168,7 +147,7 @@ vim.keymap.set(
 )
 
 -- open git diff view
-vim.keymap.set('n', '<leader>dif', ":DiffviewOpen<CR>", { desc = 'open git diff view' })
+vim.keymap.set("n", "<leader>dif", ":DiffviewOpen<CR>", { desc = "open git diff view" })
 
 -- close tab
-vim.keymap.set('n', '<leader>c', ":tabc<CR>", { desc = 'close tab' })
+vim.keymap.set("n", "<leader>c", ":tabc<CR>", { desc = "close tab" })

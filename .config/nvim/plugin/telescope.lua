@@ -2,7 +2,12 @@ local actions = require("telescope.actions")
 
 require("telescope").setup({
 	defaults = {
-		file_ignore_patterns = {},
+		file_ignore_patterns = {
+			"build/",
+			"dist/",
+			"node_modules/",
+			".git/",
+		},
 		hidden = true,
 		vimgrep_arguments = {
 			"rg",
