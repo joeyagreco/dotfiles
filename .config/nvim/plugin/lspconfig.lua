@@ -34,3 +34,5 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 		},
 	},
 }))
+--lua
+lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({}))
