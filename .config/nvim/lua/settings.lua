@@ -24,24 +24,24 @@ vim.g.python3_host_prog = constants.PYTHON_PATH
 
 -- Auto-close Alpha buffer when opening a file
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = "*",
-  callback = function()
-    if
-        vim.bo.filetype ~= "alpha"
-        and vim.fn.bufname() ~= ""
-        and vim.fn.bufname() ~= "[Command Line]"
-        and #vim.fn.getbufinfo({ buflisted = 1 }) > 1
-    then
-      local alpha_bufnr = vim.fn.bufnr("^Alpha$")
-      if alpha_bufnr ~= -1 then
-        vim.cmd("bdelete " .. alpha_bufnr)
-      end
-    end
-  end,
+	pattern = "*",
+	callback = function()
+		if
+			vim.bo.filetype ~= "alpha"
+			and vim.fn.bufname() ~= ""
+			and vim.fn.bufname() ~= "[Command Line]"
+			and #vim.fn.getbufinfo({ buflisted = 1 }) > 1
+		then
+			local alpha_bufnr = vim.fn.bufnr("^Alpha$")
+			if alpha_bufnr ~= -1 then
+				vim.cmd("bdelete " .. alpha_bufnr)
+			end
+		end
+	end,
 })
 
--- disable for nvim-tree
+-- disable netrw for nvim-tree
 -- :help nvim-tree-netrw
 -- https://github.com/nvim-tree/nvim-tree.lua?tab=readme-ov-file#install
-vim.g.loaded_netrw       = 1
+vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
