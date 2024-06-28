@@ -1,4 +1,3 @@
 neovim
-pyright
 typescript
 typescript-language-server
