@@ -35,4 +35,13 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 	},
 }))
 --lua
-lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.lua_ls.setup({
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- prevents "undefined global 'vim'"
+				globals = { "vim" },
+			},
+		},
+	},
+})
