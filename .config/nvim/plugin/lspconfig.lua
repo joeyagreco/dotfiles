@@ -16,3 +16,7 @@ lspconfig.gopls.setup(coq.lsp_ensure_capabilities({}))
 lspconfig.marksman.setup(coq.lsp_ensure_capabilities({}))
 -- protobuf
 lspconfig.protols.setup(coq.lsp_ensure_capabilities({}))
+-- zsh
+lspconfig.bashls.setup(coq.lsp_ensure_capabilities({
+	filetypes = { "sh", "zsh" },
+}))
