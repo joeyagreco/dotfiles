@@ -2,6 +2,7 @@
 local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
 local git_signs = require("gitsigns")
+local comment = require("Comment.api")
 -- local harpoon = require("harpoon")
 local helpers = require("helpers")
 
@@ -116,9 +117,12 @@ vim.keymap.set(
 )
 
 -- toggle tree (<LEADER>t)
-vim.keymap.set("n", "<leader>t", function()
-	nvim_tree.tree.toggle()
-end, helpers.combine_tables(default_options, { desc = "toggle tree" }))
+vim.keymap.set(
+	"n",
+	"<leader>t",
+	nvim_tree.tree.toggle,
+	helpers.combine_tables(default_options, { desc = "toggle tree" })
+)
 
 -- turn search highlighting off (<LEADER>ho)
 vim.keymap.set(
@@ -170,9 +174,12 @@ vim.keymap.set(
 )
 
 -- comment out / uncomment line and selection (<LEADER>/)
-vim.keymap.set("n", "<leader>/", function()
-	require("Comment.api").toggle.linewise.current()
-end, helpers.combine_tables(default_options, { desc = "comment current line" }))
+vim.keymap.set(
+	"n",
+	"<leader>/",
+	comment.toggle.linewise.current,
+	helpers.combine_tables(default_options, { desc = "comment current line" })
+)
 
 vim.keymap.set(
 	"v",
