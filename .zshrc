@@ -19,6 +19,7 @@ export DOWNLOADS_PATH="$HOME/Downloads"
 export PYENV_ROOT="$HOME/.pyenv"
 export PACKER_NVIM_PATH="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 export DEPS_DIR_PATH="$HOME/deps"
+export TMUX_RESIZE_UNIT=10
 
 ############
 # SOURCING #
@@ -68,6 +69,19 @@ alias tt="vim $TMUX_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
 alias vv="vim $VIM_FILE_PATH"
 alias ss="vim $STARSHIP_FILE_PATH"
+
+# TMUX
+alias ta="tmux attach"
+alias td="tmux detach"
+# list all tmux sessions
+alias tl="tmux list-sessions"
+# create a new named tmux session
+alias tn="tmux new-session -A -s"
+alias rr="tmux resize-pane -R"
+alias ll="tmux resize-pane -L"
+alias uu="tmux resize-pane -U"
+alias dd="tmux resize-pane -D"
+
 # GENERAL QOL
 # install any dependencies
 alias deps="install_deps"
@@ -180,7 +194,7 @@ function install_deps() {
 	brew bundle --file=$DEPS_DIR_PATH/Brewfile
 	brew cleanup
 
-  # install go, cargo, and npm deps
+	# install go, cargo, and npm deps
 	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/deps_init.py
 
 	# make sure packer is installed for nvim
