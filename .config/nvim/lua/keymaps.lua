@@ -38,8 +38,12 @@ vim.keymap.set("n", "<leader>e", function()
 end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
 
 -- format code (<LEADER>fm)
-vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<cr>",
-	helpers.combine_tables(default_options, { desc = "format code" }))
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fm",
+	":Neoformat<cr>",
+	helpers.combine_tables(default_options, { desc = "format code" })
+)
 
 -- search for word that cursor is on (<LEADER>fw)
 vim.keymap.set("n", "<leader>fw", function()
@@ -72,16 +76,28 @@ vim.keymap.set(
 )
 
 -- get lsp info for whatever the cursor is on (K)
-vim.keymap.set("n", "K", vim.lsp.buf.hover,
-	helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" }))
+vim.keymap.set(
+	"n",
+	"K",
+	vim.lsp.buf.hover,
+	helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" })
+)
 
 -- find references for whatever cursor is on
-vim.keymap.set("n", "<leader>fr", telescope.lsp_references,
-	helpers.combine_tables(default_options, { desc = "find references" }))
+vim.keymap.set(
+	"n",
+	"<leader>fr",
+	telescope.lsp_references,
+	helpers.combine_tables(default_options, { desc = "find references" })
+)
 
 -- find old (open up telescope search with previous search)
-vim.keymap.set("n", "<leader>fo", telescope.resume,
-	helpers.combine_tables(default_options, { desc = "resume previous search" }))
+vim.keymap.set(
+	"n",
+	"<leader>fo",
+	telescope.resume,
+	helpers.combine_tables(default_options, { desc = "resume previous search" })
+)
 
 -- 'if __name__ == "__main__"' (<LEADER>inm)
 vim.keymap.set(
@@ -92,7 +108,12 @@ vim.keymap.set(
 )
 
 -- rename symbol
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
+vim.keymap.set(
+	"n",
+	"<leader>rn",
+	vim.lsp.buf.rename,
+	helpers.combine_tables(default_options, { desc = "rename symbol" })
+)
 
 -- toggle tree (<LEADER>t)
 vim.keymap.set("n", "<leader>t", function()
@@ -169,8 +190,12 @@ vim.keymap.set(
 )
 
 -- open git diff view
-vim.keymap.set("n", "<leader>dif", ":DiffviewOpen<CR>",
-	helpers.combine_tables(default_options, { desc = "open git dif view" }))
+vim.keymap.set(
+	"n",
+	"<leader>dif",
+	":DiffviewOpen<CR>",
+	helpers.combine_tables(default_options, { desc = "open git dif view" })
+)
 
 -- close tab
 vim.keymap.set("n", "<leader>c", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
