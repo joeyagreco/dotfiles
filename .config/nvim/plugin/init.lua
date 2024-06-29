@@ -26,7 +26,7 @@ require("packer").startup(function(use)
 			ts_update()
 		end,
 	})
-	-- neoformat (format code)
+	-- neoformat
 	-- https://github.com/sbdchd/neoformat
 	use("sbdchd/neoformat")
 	-- LSP servers
@@ -48,8 +48,8 @@ require("packer").startup(function(use)
 	})
 	-- comment code
 	use("numToStr/Comment.nvim")
-	-- git signs (used to see line at side of file for diffs)
+	-- git signs
 	use("lewis6991/gitsigns.nvim")
-	-- git diff (used for git diff view)
+	-- git diff
 	use("sindrets/diffview.nvim")
 end)
