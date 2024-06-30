@@ -46,10 +46,10 @@ dashboard.section.buttons.val = {
 }
 
 -- footer
-
 local function footer()
 	return "Welcome, Joey"
 end
+
 dashboard.section.footer.val = footer()
 
 alpha.setup(dashboard.opts)
