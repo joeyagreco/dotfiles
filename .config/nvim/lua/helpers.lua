@@ -15,6 +15,8 @@ function M.prompt_and_open_git_repo()
 		M.close_all_file_buffers()
 		-- NOTE: we could also just do :NvimTreeClose and :NvimTreeOpen instead
 	end
+	-- clear prompt from status
+	vim.cmd.stopinsert()
 end
 
 function M.clean_and_update_plugins()
