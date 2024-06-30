@@ -39,10 +39,6 @@ end
 
 -- set on load
 -- this will contain a list of strings of all git dir paths
-if M.LOCAL_GIT_REPO_PATH then
-	M.ALL_LOCAL_GIT_REPO_PATHS = find_top_level_git_dirs(M.LOCAL_GIT_REPO_PATH)
-else
-	M.ALL_LOCAL_GIT_REPO_PATHS = {}
-end
+M.ALL_LOCAL_GIT_REPO_PATHS = find_top_level_git_dirs(M.LOCAL_GIT_REPO_PATH)
 
 return M
