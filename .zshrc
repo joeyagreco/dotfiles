@@ -72,19 +72,19 @@ alias ss="vim $STARSHIP_FILE_PATH"
 
 # TMUX
 # attach to a session by name
-alias ta="tmux attach -t"
+alias tma="tmux attach -t"
 # attach to the last session
-alias taa="tmux attach"
+alias tmaa="tmux attach"
 # detach from the current session
-alias td="tmux detach"
+alias tmd="tmux detach"
 # kill a session by name
-alias tk="tmux kill-session -t"
+alias tmk="tmux kill-session -t"
 # kill all sessions except the current
-alias tko="tmux kill-session -a"
+alias tmkk="tmux kill-session -a"
 # list all tmux sessions
-alias tl="tmux list-sessions"
+alias tml="tmux list-sessions"
 # create a new named tmux session
-alias tn="tmux new-session -A -s"
+alias tmn="tmux new-session -A -s"
 # resize current pane
 alias rr="tmux resize-pane -R"
 alias ll="tmux resize-pane -L"

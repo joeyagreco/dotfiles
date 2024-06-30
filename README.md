@@ -1,6 +1,6 @@
 # terminal
 
-# Setting up a New Computer
+# Setting up a new computer
 
 1. Clone this repo
 2. Create a `.zshrc.local` file in the root dir to keep local config
