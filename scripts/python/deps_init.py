@@ -1,6 +1,7 @@
 import os
 import subprocess
 
+
 def install(*, deps_file_name: str, install_command: str) -> None:
     """
     install_command should have {DEP} in it, which will be swapped out with the dep name
@@ -30,16 +31,13 @@ def install(*, deps_file_name: str, install_command: str) -> None:
 
     print(f"\nsuccessfully installed {success_count} deps with {err_count} errors")
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     # npm
     install(deps_file_name="npm_deps.txt", install_command="npm install -g {DEP}")
-    
+
     # go
     install(deps_file_name="go_deps.txt", install_command="go install {DEP}")
-    
+
     # cargo
     install(deps_file_name="cargo_deps.txt", install_command="cargo install {DEP}")
-
-    
-    

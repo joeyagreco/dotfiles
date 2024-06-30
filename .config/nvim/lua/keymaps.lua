@@ -32,22 +32,18 @@ local helpers = require("helpers")
 vim.g.mapleader = " "
 
 local default_options = { noremap = true, silent = true }
+local keyset = vim.keymap.set
 
 -- toggle on / focus on explorer (<LEADER>e)
-vim.keymap.set("n", "<leader>e", function()
+keyset("n", "<leader>e", function()
 	nvim_tree.tree.open({ focus = true })
 end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
 
 -- format code (<LEADER>fm)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>fm",
-	":Neoformat<cr>",
-	helpers.combine_tables(default_options, { desc = "format code" })
-)
+keyset("n", "<leader>fm", ":Neoformat<cr>", helpers.combine_tables(default_options, { desc = "format code" }))
 
 -- search for word that cursor is on (<LEADER>fw)
-vim.keymap.set("n", "<leader>fw", function()
+keyset("n", "<leader>fw", function()
 	telescope.grep_string({
 		word_match = "-w",
 		search = vim.fn.expand("<cword>"),
@@ -56,12 +52,12 @@ vim.keymap.set("n", "<leader>fw", function()
 end, helpers.combine_tables(default_options, { desc = "search for word under cursor" }))
 
 -- serach for a word (<LEADER>fs)
-vim.keymap.set("n", "<leader>fs", function()
+keyset("n", "<leader>fs", function()
 	telescope.live_grep({})
 end, helpers.combine_tables(default_options, { desc = "search for words" }))
 
 -- find files (<LEADER>ff)
-vim.keymap.set("n", "<leader>ff", function()
+keyset("n", "<leader>ff", function()
 	telescope.find_files({
 		hidden = true,
 		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
@@ -69,7 +65,7 @@ vim.keymap.set("n", "<leader>ff", function()
 end, helpers.combine_tables(default_options, { desc = "find files" }))
 
 -- go to definition for whatever the cursor is on (<LEADER>gd)
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>gd",
 	vim.lsp.buf.definition,
@@ -77,7 +73,7 @@ vim.keymap.set(
 )
 
 -- get lsp info for whatever the cursor is on (K)
-vim.keymap.set(
+keyset(
 	"n",
 	"K",
 	vim.lsp.buf.hover,
@@ -85,7 +81,7 @@ vim.keymap.set(
 )
 
 -- find references for whatever cursor is on
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>fr",
 	telescope.lsp_references,
@@ -93,7 +89,7 @@ vim.keymap.set(
 )
 
 -- find old (open up telescope search with previous search)
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>fo",
 	telescope.resume,
@@ -101,7 +97,7 @@ vim.keymap.set(
 )
 
 -- 'if __name__ == "__main__"' (<LEADER>inm)
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>inm",
 	'iif __name__ == "__main__":<Esc>o',
@@ -109,23 +105,13 @@ vim.keymap.set(
 )
 
 -- rename symbol
-vim.keymap.set(
-	"n",
-	"<leader>rn",
-	vim.lsp.buf.rename,
-	helpers.combine_tables(default_options, { desc = "rename symbol" })
-)
+keyset("n", "<leader>rn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
 -- toggle tree (<LEADER>t)
-vim.keymap.set(
-	"n",
-	"<leader>t",
-	nvim_tree.tree.toggle,
-	helpers.combine_tables(default_options, { desc = "toggle tree" })
-)
+keyset("n", "<leader>t", nvim_tree.tree.toggle, helpers.combine_tables(default_options, { desc = "toggle tree" }))
 
 -- turn search highlighting off (<LEADER>ho)
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>ho",
 	":nohlsearch<CR>",
@@ -133,7 +119,7 @@ vim.keymap.set(
 )
 
 -- open a git directory
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>gi",
 	helpers.prompt_and_open_git_repo,
@@ -141,16 +127,16 @@ vim.keymap.set(
 )
 
 -- quit vim (<LEADER>qq)
-vim.keymap.set("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
+keyset("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
 
 -- copy url of current line in git
-vim.keymap.set("n", "<leader>gu", function()
+keyset("n", "<leader>gu", function()
 	vim.cmd("GitBlameCopyFileURL")
 	print("git url copied")
 end, helpers.combine_tables(default_options, { desc = "copy url of current line in git" }))
 
 -- reset current cursor hunk
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>gr",
 	git_signs.reset_hunk,
@@ -158,7 +144,7 @@ vim.keymap.set(
 )
 
 -- reset all hunks in current file/buffer
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>gR",
 	git_signs.reset_buffer,
@@ -166,7 +152,7 @@ vim.keymap.set(
 )
 
 -- toggle recent files
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>R",
 	":Telescope oldfiles<CR>",
@@ -174,14 +160,14 @@ vim.keymap.set(
 )
 
 -- comment out / uncomment line and selection (<LEADER>/)
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>/",
 	comment.toggle.linewise.current,
 	helpers.combine_tables(default_options, { desc = "comment current line" })
 )
 
-vim.keymap.set(
+keyset(
 	"v",
 	"<leader>/",
 	'<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
@@ -189,7 +175,7 @@ vim.keymap.set(
 )
 
 -- clean and update plugins (<LEADER>pp)
-vim.keymap.set(
+keyset(
 	"n",
 	"<leader>pp",
 	helpers.clean_and_update_plugins,
@@ -197,12 +183,7 @@ vim.keymap.set(
 )
 
 -- open git diff view
-vim.keymap.set(
-	"n",
-	"<leader>dif",
-	":DiffviewOpen<CR>",
-	helpers.combine_tables(default_options, { desc = "open git dif view" })
-)
+keyset("n", "<leader>dif", ":DiffviewOpen<CR>", helpers.combine_tables(default_options, { desc = "open git dif view" }))
 
 -- close tab
-vim.keymap.set("n", "<leader>c", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
+keyset("n", "<leader>c", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))

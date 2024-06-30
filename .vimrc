@@ -18,3 +18,5 @@ set incsearch
 set showmatch
 " enable spell check
 "set spell  
+" persist undos even after closing file
+set undofile
