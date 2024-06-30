@@ -12,7 +12,6 @@ local helpers = require("helpers")
 -- dif
 -- e
 -- ff
--- fh
 -- fm
 -- fr
 -- fs
