@@ -41,3 +41,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- https://github.com/nvim-tree/nvim-tree.lua?tab=readme-ov-file#install
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- fold config
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
