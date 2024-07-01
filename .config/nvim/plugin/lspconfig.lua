@@ -34,7 +34,7 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 		},
 	},
 }))
---lua
+-- lua
 lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
@@ -45,3 +45,5 @@ lspconfig.lua_ls.setup({
 		},
 	},
 })
+-- makefile
+lspconfig.efm.setup(coq.lsp_ensure_capabilities({}))
