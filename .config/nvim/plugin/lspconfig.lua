@@ -14,6 +14,23 @@ lspconfig.marksman.setup(coq.lsp_ensure_capabilities({}))
 lspconfig.bashls.setup(coq.lsp_ensure_capabilities({
 	filetypes = { "sh", "zsh" },
 }))
+-- proto
+lspconfig.protols.setup(coq.lsp_ensure_capabilities({}))
+-- typescript
+lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({}))
+-- python
+lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
+-- lua
+lspconfig.lua_ls.setup({
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- prevents "undefined global 'vim'"
+				globals = { "vim" },
+			},
+		},
+	},
+})
 -- yaml
 lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 	settings = {
@@ -29,8 +46,6 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 	},
 }))
 -- makefile
--- typescript
--- lua
--- python
--- proto
-lspconfig.efm.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.efm.setup(coq.lsp_ensure_capabilities({
+	filetypes = { "make" },
+}))
