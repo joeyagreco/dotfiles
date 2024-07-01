@@ -6,8 +6,6 @@ vim.g.coq_settings = {
 	auto_start = "shut-up",
 }
 local coq = require("coq")
--- python
-lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
 -- golang
 lspconfig.gopls.setup(coq.lsp_ensure_capabilities({}))
 -- markdown
@@ -32,17 +30,8 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 		},
 	},
 }))
--- lua
-lspconfig.lua_ls.setup({
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- prevents "undefined global 'vim'"
-				globals = { "vim" },
-			},
-		},
-	},
-})
 -- makefile
 -- typescript
+-- lua
+-- python
 lspconfig.efm.setup(coq.lsp_ensure_capabilities({}))
