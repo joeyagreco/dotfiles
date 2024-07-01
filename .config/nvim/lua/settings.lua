@@ -1,5 +1,3 @@
-local constants = require("constants")
-
 -- Auto format on save using Neoformat
 vim.cmd([[
   augroup fmt
@@ -16,12 +14,6 @@ vim.cmd([[
   augroup end
 ]])
 
--- use system clipboard
-vim.o.clipboard = "unnamedplus"
-
--- set python to use
-vim.g.python3_host_prog = constants.PYTHON_PATH
-
 -- Auto-close Alpha buffer when opening a file
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*",
@@ -35,17 +27,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		end
 	end,
 })
-
--- disable netrw for nvim-tree
--- :help nvim-tree-netrw
--- https://github.com/nvim-tree/nvim-tree.lua?tab=readme-ov-file#install
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- fold config
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 99
 
 -- close quickfix automatically when navigated off of it
 vim.api.nvim_create_autocmd("CursorMoved", {
