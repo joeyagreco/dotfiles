@@ -4,3 +4,4 @@ package-lock.json
 Brewfile.lock.json
 .config/op
 .vscode
+.config/efm-langserver
