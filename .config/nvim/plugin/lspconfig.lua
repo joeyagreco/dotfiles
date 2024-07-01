@@ -10,8 +10,6 @@ local coq = require("coq")
 lspconfig.gopls.setup(coq.lsp_ensure_capabilities({}))
 -- markdown
 lspconfig.marksman.setup(coq.lsp_ensure_capabilities({}))
--- protobuf
-lspconfig.protols.setup(coq.lsp_ensure_capabilities({}))
 -- zsh
 lspconfig.bashls.setup(coq.lsp_ensure_capabilities({
 	filetypes = { "sh", "zsh" },
@@ -34,4 +32,5 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 -- typescript
 -- lua
 -- python
+-- proto
 lspconfig.efm.setup(coq.lsp_ensure_capabilities({}))
