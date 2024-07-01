@@ -6,8 +6,6 @@ vim.g.coq_settings = {
 	auto_start = "shut-up",
 }
 local coq = require("coq")
--- typescript
-lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({}))
 -- python
 lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
 -- golang
@@ -46,4 +44,5 @@ lspconfig.lua_ls.setup({
 	},
 })
 -- makefile
+-- typescript
 lspconfig.efm.setup(coq.lsp_ensure_capabilities({}))

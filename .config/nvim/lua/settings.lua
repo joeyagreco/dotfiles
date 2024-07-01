@@ -46,3 +46,12 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
+
+-- close quickfix automatically when navigated off of it
+vim.api.nvim_create_autocmd("CursorMoved", {
+	callback = function()
+		if vim.fn.getwininfo(vim.fn.win_getid())[1].quickfix == 1 then
+			vim.cmd("cclose")
+		end
+	end,
+})
