@@ -189,4 +189,9 @@ keyset("n", "<leader>dif", ":DiffviewOpen<CR>", helpers.combine_tables(default_o
 keyset("n", "<leader>c", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
 
 -- go to last buffer
-keyset("n", "<leader>l", "<C-^>", { desc = "go to last buffer" })
+keyset("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))
+
+-- go to last buffer
+keyset("n", "<leader>i", function()
+	vim.lsp.buf.code_action({ source = { organizeImports = true } })
+end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
