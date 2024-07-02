@@ -21,6 +21,7 @@ local helpers = require("helpers")
 -- gu
 -- ho
 -- K
+-- l
 -- m
 -- pp
 -- R
@@ -186,3 +187,6 @@ keyset("n", "<leader>dif", ":DiffviewOpen<CR>", helpers.combine_tables(default_o
 
 -- close tab
 keyset("n", "<leader>c", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
+
+-- go to last buffer
+keyset("n", "<leader>l", "<C-^>", { desc = "go to last buffer" })
