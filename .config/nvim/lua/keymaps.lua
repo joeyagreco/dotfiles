@@ -7,7 +7,6 @@ local comment = require("Comment.api")
 local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
--- a
 -- c
 -- dif
 -- e
@@ -22,7 +21,6 @@ local helpers = require("helpers")
 -- ho
 -- K
 -- l
--- m
 -- pp
 -- R
 -- rn
