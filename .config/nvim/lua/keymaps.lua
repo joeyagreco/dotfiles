@@ -1,9 +1,7 @@
--- import apis
 local telescope = require("telescope.builtin")
 local nvim_tree = require("nvim-tree.api")
 local git_signs = require("gitsigns")
 local comment = require("Comment.api")
--- local harpoon = require("harpoon")
 local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
