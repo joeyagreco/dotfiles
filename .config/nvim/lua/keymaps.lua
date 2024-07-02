@@ -52,6 +52,7 @@ keyset("n", "<leader>fw", function()
 end, helpers.combine_tables(default_options, { desc = "search for word under cursor" }))
 
 -- serach for a word (<LEADER>fs)
+-- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 keyset(
 	"n",
 	"<leader>fs",
