@@ -52,9 +52,12 @@ keyset("n", "<leader>fw", function()
 end, helpers.combine_tables(default_options, { desc = "search for word under cursor" }))
 
 -- serach for a word (<LEADER>fs)
-keyset("n", "<leader>fs", function()
-	telescope.live_grep({})
-end, helpers.combine_tables(default_options, { desc = "search for words" }))
+keyset(
+	"n",
+	"<leader>fs",
+	":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+	helpers.combine_tables(default_options, { desc = "search for words" })
+)
 
 -- find files (<LEADER>ff)
 keyset("n", "<leader>ff", function()

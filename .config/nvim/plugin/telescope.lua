@@ -1,6 +1,7 @@
 local actions = require("telescope.actions")
+local telescope = require("telescope")
 
-require("telescope").setup({
+telescope.setup({
 	defaults = {
 		file_ignore_patterns = {
 			"build/",
@@ -26,3 +27,6 @@ require("telescope").setup({
 		},
 	},
 })
+
+-- this must be last
+telescope.load_extension("live_grep_args")
