@@ -19,7 +19,6 @@ export DOWNLOADS_PATH="$HOME/Downloads"
 export PYENV_ROOT="$HOME/.pyenv"
 export PACKER_NVIM_PATH="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 export DEPS_DIR_PATH="$HOME/deps"
-export TMUX_RESIZE_UNIT=10
 
 ############
 # SOURCING #
@@ -36,8 +35,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # set up go
 export PATH=$PATH:$(go env GOPATH)/bin
 
-# fuzzy find
-eval "$(fzf --zsh)"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # set up starship
