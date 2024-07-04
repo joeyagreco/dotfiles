@@ -10,12 +10,11 @@
 export LOCAL_GIT_REPO_PATH="/path/to/git/repos/on/this/computer"
 ```
 
-4. Run `source .zshrc.local && applyz`
-5. Install dependencies `deps`
-6. Install `Hack Nerd Font` from [this site](https://www.nerdfonts.com/font-downloads)
+4. Install `Hack Nerd Font` from [this site](https://www.nerdfonts.com/font-downloads)
+5. Run `source .zshrc.local && applyz && deps`
 
 # Adding new things
 
-1. Go to where the git repo is cloned
-2. Create whatever you would like to add (`touch foo.txt`, etc)
+1. Go to where this git repo is cloned
+2. Create whatever file or folder you would like to add (`touch foo.txt`, etc)
 3. Run `deps` to ensure a symlink is created
