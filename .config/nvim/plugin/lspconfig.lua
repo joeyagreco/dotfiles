@@ -49,3 +49,5 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 lspconfig.efm.setup(coq.lsp_ensure_capabilities({
 	filetypes = { "make" },
 }))
+-- vimrc
+lspconfig.vimls.setup(coq.lsp_ensure_capabilities({}))
