@@ -5,8 +5,8 @@
 export LOCAL_GIT_REPO_PATH="NOT_SET"
 # THESE ARE GLOBAL
 export LOCAL_AFFIX=".local"
-export PYTHON_VERSION="python3.10"
-export PYTHON_PATH=$(which $PYTHON_VERSION)
+export PYTHON_VERSION="3.12.4"
+export PYTHON_COMMAND="python"
 export ZSHRC_FILE_PATH="$HOME/.zshrc"
 export ZSHRC_LOCAL_FILE_PATH=$ZSHRC_FILE_PATH$LOCAL_AFFIX
 export ALACRITTY_FILE_PATH="$HOME/.alacritty.yml"
@@ -28,6 +28,9 @@ export DEPS_DIR_PATH="$HOME/deps"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+eval "$(pyenv install -s $PYTHON_VERSION)"
+eval "$(pyenv global $PYTHON_VERSION)"
+eval "$(pyenv rehash)"
 
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -104,23 +107,23 @@ alias make='gmake'
 # get shortened URL for given url (surl https://my/url) or for whatever url is copied to clipboard.
 # copies shortened URL to clipboard automatically
 # s(hort)url
-alias surl="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/surl.py "
+alias surl="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/surl.py "
 # vimc(heat)s(heet)
 alias vimcs='open "https://cheatography.com/marconlsantos/cheat-sheets/neovim/"'
 # PYTHON
-alias py="$PYTHON_VERSION"
-alias pip="$PYTHON_VERSION -m pip"
+alias py="$PYTHON_COMMAND"
+alias pip="$PYTHON_COMMAND -m pip"
 # open up a project in pypi
 # o(pen)pypi
 alias opypi='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
 # check name availability on pypi
 # a(vailability)pypi
-alias apypi="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/pypi_check.py"
+alias apypi="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/pypi_check.py"
 # use venv
-alias venv="$PYTHON_VERSION -m venv"
+alias venv="$PYTHON_COMMAND -m venv"
 alias venvup='f_venvup'
 alias venvdown='f_venvdown'
-alias venvlist="$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/venv_check.py"
+alias venvlist="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/venv_check.py"
 # GIT
 alias gitco='git checkout'
 alias gitf='git fetch --all'
@@ -170,20 +173,20 @@ function c() {
 # download a youtube link to mp3
 function mp3() {
 	unsetopt glob
-	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/mp_download.py "mp3" "$1"
+	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/mp_download.py "mp3" "$1"
 	setopt glob
 }
 
 # download a youtube link to mp4
 function mp4() {
 	unsetopt glob
-	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/mp_download.py "mp4" "$1"
+	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/mp_download.py "mp4" "$1"
 	setopt glob
 }
 
 function install_deps() {
 	# create symlinks if needed THIS SHOULD BE FIRST
-	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/link_init.py
+	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/link_init.py
 
 	# make sure cargo is installed
 	if ! command -v cargo &>/dev/null; then
@@ -201,7 +204,7 @@ function install_deps() {
 	brew cleanup
 
 	# install go, cargo, and npm deps
-	$PYTHON_VERSION $PYTHON_SCRIPTS_PATH/deps_init.py
+	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/deps_init.py
 
 	# make sure packer is installed for nvim
 	if [ ! -d "$PACKER_NVIM_PATH" ]; then
