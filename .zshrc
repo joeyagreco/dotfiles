@@ -6,6 +6,7 @@ export LOCAL_GIT_REPO_PATH="NOT_SET"
 # THESE ARE GLOBAL
 export LOCAL_AFFIX=".local"
 export PYTHON_VERSION="3.12.4"
+export GO_VERSION="1.22.5"
 export PYTHON_COMMAND="python"
 export ZSHRC_FILE_PATH="$HOME/.zshrc"
 export ZSHRC_LOCAL_FILE_PATH=$ZSHRC_FILE_PATH$LOCAL_AFFIX
@@ -31,6 +32,14 @@ eval "$(pyenv init -)"
 eval "$(pyenv install -s $PYTHON_VERSION)"
 eval "$(pyenv global $PYTHON_VERSION)"
 eval "$(pyenv rehash)"
+
+# set up goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+eval "$(goenv install -s $GO_VERSION)"
+eval "$(goenv global $GO_VERSION)"
+eval "$(goenv rehash)"
 
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
