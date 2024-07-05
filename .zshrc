@@ -44,9 +44,7 @@ eval "$(goenv rehash)"
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# set up go
-export PATH=$PATH:$(go env GOPATH)/bin
-
+# set up syntax highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # set up starship
