@@ -166,7 +166,9 @@ map(
 )
 
 -- toggle recent files
-map("n", "<leader>R", ":Telescope oldfiles<CR>", helpers.combine_tables(default_options, { desc = "see recent files" }))
+map("n", "<leader>R", function()
+	telescope_builtin.oldfiles({ cwd = vim.fn.getcwd() })
+end, helpers.combine_tables(default_options, { desc = "see recent files" }))
 
 -- comment out / uncomment line and selection (<LEADER>/)
 map(
