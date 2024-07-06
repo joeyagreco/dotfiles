@@ -121,9 +121,6 @@ map(
 -- rename symbol
 map("n", "<leader>rn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
--- toggle tree (<LEADER>t)
-map("n", "<leader>t", nvim_tree.tree.toggle, helpers.combine_tables(default_options, { desc = "toggle tree" }))
-
 -- turn search highlighting off (<LEADER>ho)
 map(
 	"n",
