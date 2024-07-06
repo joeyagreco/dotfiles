@@ -22,6 +22,7 @@ local helpers = require("helpers")
 -- K
 -- l
 -- L
+-- m
 -- pp
 -- R
 -- rn
@@ -194,10 +195,18 @@ keyset("n", "<leader>c", ":tabc<CR>", helpers.combine_tables(default_options, { 
 -- go to last buffer
 keyset("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 
--- go to last buffer
+-- auto import
 keyset("n", "<leader>i", function()
 	vim.lsp.buf.code_action({ source = { organizeImports = true } })
 end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 
 -- see lsp info
 keyset("n", "<leader>L", vim.diagnostic.open_float, helpers.combine_tables(default_options, { desc = "see lsp info" }))
+
+-- focus from nvim tree -> main buffer
+keyset(
+	"n",
+	"<leader>m",
+	":wincmd l<CR>",
+	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
+)
