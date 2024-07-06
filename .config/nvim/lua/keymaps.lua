@@ -1,4 +1,5 @@
-local telescope = require("telescope.builtin")
+local telescope_builtin = require("telescope.builtin")
+local telescope = require("telescope")
 local nvim_tree = require("nvim-tree.api")
 local git_signs = require("gitsigns")
 local comment = require("Comment.api")
@@ -42,25 +43,25 @@ keyset("n", "<leader>fm", ":Neoformat<cr>", helpers.combine_tables(default_optio
 
 -- search for word that cursor is on (<LEADER>fw)
 keyset("n", "<leader>fw", function()
-	telescope.grep_string({
+	telescope_builtin.grep_string({
 		word_match = "-w",
 		search = vim.fn.expand("<cword>"),
 		cwd = vim.fn.getcwd(),
 	})
 end, helpers.combine_tables(default_options, { desc = "search for word under cursor" }))
 
--- serach for a word (<LEADER>fs)
+-- search for a word (<LEADER>fs)
 -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 keyset(
 	"n",
 	"<leader>fs",
-	":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+	telescope.extensions.live_grep_args.live_grep_args,
 	helpers.combine_tables(default_options, { desc = "search for words" })
 )
 
 -- find files (<LEADER>ff)
 keyset("n", "<leader>ff", function()
-	telescope.find_files({
+	telescope_builtin.find_files({
 		hidden = true,
 		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
 	})
@@ -86,7 +87,7 @@ keyset(
 keyset(
 	"n",
 	"<leader>fr",
-	telescope.lsp_references,
+	telescope_builtin.lsp_references,
 	helpers.combine_tables(default_options, { desc = "find references" })
 )
 
@@ -94,7 +95,7 @@ keyset(
 keyset(
 	"n",
 	"<leader>fo",
-	telescope.resume,
+	telescope_builtin.resume,
 	helpers.combine_tables(default_options, { desc = "resume previous search" })
 )
 
