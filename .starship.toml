@@ -10,8 +10,8 @@ error_symbol = "[>](red)"
 vicmd_symbol = "[<](green)"
 
 [cmd_duration]
-format = "[$duration]($style) "
-style = "yellow"
+format = " [$duration]($style) "
+style = "#fcff54" # yellow
 
 [battery]
 charging_symbol='🪫'
