@@ -40,6 +40,8 @@ eval "$(goenv init -)"
 eval "$(goenv install -s $GO_VERSION)"
 eval "$(goenv global $GO_VERSION)"
 eval "$(goenv rehash)"
+# used as a constant in nvim
+export PYTHON_PATH=$(pyenv which python)
 
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
