@@ -155,6 +155,14 @@ keyset(
 	helpers.combine_tables(default_options, { desc = "git reset current buffer" })
 )
 
+-- preview current cursor hunk
+keyset(
+	"n",
+	"<leader>gp",
+	git_signs.preview_hunk,
+	helpers.combine_tables(default_options, { desc = "git preview current hunk" })
+)
+
 -- toggle recent files
 keyset(
 	"n",
