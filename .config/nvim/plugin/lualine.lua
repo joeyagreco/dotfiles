@@ -7,6 +7,12 @@ require("lualine").setup({
 		-- disabled_filetypes = { "packer", "NvimTree" },
 	},
 	globalstatus = true,
+	sections = {
+		lualine_a = { { "mode", padding = 2 } },
+		lualine_x = { "filetype" },
+		lualine_y = {},
+		lualine_z = { { "filename", padding = 2, path = 0 } },
+	},
 })
 
 -- always show the status bar and only show ONE status bar
