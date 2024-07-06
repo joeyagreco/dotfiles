@@ -7,6 +7,7 @@ vim.opt.inccommand = "split"
 vim.opt.clipboard = "unnamedplus"
 
 -- fold config
+-- https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
