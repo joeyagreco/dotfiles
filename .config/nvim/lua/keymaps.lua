@@ -9,6 +9,7 @@ local helpers = require("helpers")
 -- c
 -- dif
 -- e
+-- E
 -- ff
 -- fm
 -- fr
@@ -24,7 +25,6 @@ local helpers = require("helpers")
 -- K
 -- l
 -- L
--- m
 -- pp
 -- R
 -- rn
@@ -40,6 +40,14 @@ local map = vim.keymap.set
 map("n", "<leader>e", function()
 	nvim_tree.tree.open({ focus = true })
 end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
+
+-- focus from nvim tree -> main buffer
+map(
+	"n",
+	"<leader>E",
+	":wincmd l<CR>",
+	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
+)
 
 -- format code (<LEADER>fm)
 map("n", "<leader>fm", ":Neoformat<cr>", helpers.combine_tables(default_options, { desc = "format code" }))
@@ -209,11 +217,3 @@ end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 
 -- see lsp info
 map("n", "<leader>L", vim.diagnostic.open_float, helpers.combine_tables(default_options, { desc = "see lsp info" }))
-
--- focus from nvim tree -> main buffer
-map(
-	"n",
-	"<leader>m",
-	":wincmd l<CR>",
-	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
-)

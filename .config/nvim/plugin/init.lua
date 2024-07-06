@@ -54,4 +54,9 @@ require("packer").startup(function(use)
 	use("sindrets/diffview.nvim")
 	-- autoclose
 	use("m4xshen/autoclose.nvim")
+	-- lualine
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
 end)
