@@ -6,20 +6,22 @@ vim.g.coq_settings = {
 	auto_start = "shut-up",
 }
 local coq = require("coq")
+local coq_setup = coq.lsp_ensure_capabilities
+
 -- golang
-lspconfig.gopls.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.gopls.setup(coq_setup({}))
 -- markdown
-lspconfig.marksman.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.marksman.setup(coq_setup({}))
 -- zsh
-lspconfig.bashls.setup(coq.lsp_ensure_capabilities({
+lspconfig.bashls.setup(coq_setup({
 	filetypes = { "sh", "zsh" },
 }))
 -- proto
-lspconfig.protols.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.protols.setup(coq_setup({}))
 -- typescript
-lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.tsserver.setup(coq_setup({}))
 -- python
-lspconfig.pyright.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.pyright.setup(coq_setup({}))
 -- lua
 lspconfig.lua_ls.setup({
 	settings = {
@@ -32,7 +34,7 @@ lspconfig.lua_ls.setup({
 	},
 })
 -- yaml
-lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
+lspconfig.yamlls.setup(coq_setup({
 	settings = {
 		yaml = {
 			schemas = {
@@ -46,8 +48,8 @@ lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({
 	},
 }))
 -- makefile
-lspconfig.efm.setup(coq.lsp_ensure_capabilities({
+lspconfig.efm.setup(coq_setup({
 	filetypes = { "make" },
 }))
 -- vimrc
-lspconfig.vimls.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.vimls.setup(coq_setup({}))
