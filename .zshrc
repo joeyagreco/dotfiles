@@ -167,8 +167,23 @@ function f_venvup() {
 }
 
 function f_venvdown() {
-	deactivate $1
-	rm -rf $1
+	if [ -z "$1" ]; then
+		echo "Error: No virtual environment directory specified"
+		return 1
+	fi
+
+	if [ ! -d "$1" ]; then
+		echo "Error: Directory $1 does not exist"
+		return 1
+	fi
+
+	if source "$1/bin/activate"; then
+		deactivate
+		rm -rf $1
+	else
+		echo "Failed to activate the virtual environment"
+		return 1
+	fi
 }
 
 # open up the given repo
