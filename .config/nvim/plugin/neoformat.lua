@@ -10,3 +10,11 @@ vim.g.neoformat_enabled_zsh = { "shfmt" }
 -- 	args = { "--style={ColumnLimit: 200}" },
 -- 	stdin = true,
 -- }
+
+-- Auto format on save using Neoformat
+vim.cmd([[
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+  augroup END
+]])
