@@ -36,7 +36,7 @@ vim.g.mapleader = " "
 local default_options = { noremap = true, silent = true }
 local map = vim.keymap.set
 
--- toggle on / focus on explorer (<LEADER>e)
+-- toggle on / focus on explorer
 map("n", "<leader>e", function()
 	nvim_tree.tree.open({ focus = true })
 end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
@@ -49,10 +49,10 @@ map(
 	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
 )
 
--- format code (<LEADER>fm)
+-- format code
 map("n", "<leader>fm", ":Neoformat<cr>", helpers.combine_tables(default_options, { desc = "format code" }))
 
--- search for word that cursor is on (<LEADER>fw)
+-- search for word that cursor is on
 map("n", "<leader>fw", function()
 	telescope_builtin.grep_string({
 		word_match = "-w",
@@ -61,7 +61,7 @@ map("n", "<leader>fw", function()
 	})
 end, helpers.combine_tables(default_options, { desc = "search for word under cursor" }))
 
--- search for a word (<LEADER>fs)
+-- search for a word
 -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 map(
 	"n",
@@ -70,7 +70,7 @@ map(
 	helpers.combine_tables(default_options, { desc = "search for words" })
 )
 
--- find files (<LEADER>ff)
+-- find files
 map("n", "<leader>ff", function()
 	telescope_builtin.find_files({
 		hidden = true,
@@ -78,7 +78,7 @@ map("n", "<leader>ff", function()
 	})
 end, helpers.combine_tables(default_options, { desc = "find files" }))
 
--- go to definition for whatever the cursor is on (<LEADER>gd)
+-- go to definition for whatever the cursor is on
 map(
 	"n",
 	"<leader>gd",
@@ -86,7 +86,7 @@ map(
 	helpers.combine_tables(default_options, { desc = "go to definition for word under cursor" })
 )
 
--- get lsp info for whatever the cursor is on (K)
+-- get lsp info for whatever the cursor is on
 map(
 	"n",
 	"K",
@@ -110,7 +110,7 @@ map(
 	helpers.combine_tables(default_options, { desc = "resume previous search" })
 )
 
--- 'if __name__ == "__main__"' (<LEADER>inm)
+-- 'if __name__ == "__main__"'
 map(
 	"n",
 	"<leader>inm",
@@ -121,7 +121,7 @@ map(
 -- rename symbol
 map("n", "<leader>rn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
--- turn search highlighting off (<LEADER>ho)
+-- turn search highlighting off
 map(
 	"n",
 	"<leader>ho",
@@ -137,7 +137,7 @@ map(
 	helpers.combine_tables(default_options, { desc = "open a git directory" })
 )
 
--- quit vim (<LEADER>qq)
+-- quit vim
 map("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
 
 -- copy url of current line in git
@@ -175,7 +175,7 @@ map("n", "<leader>R", function()
 	telescope_builtin.oldfiles({ cwd = vim.fn.getcwd() })
 end, helpers.combine_tables(default_options, { desc = "see recent files" }))
 
--- comment out / uncomment line and selection (<LEADER>/)
+-- comment out / uncomment line and selection
 map(
 	"n",
 	"<leader>/",
@@ -190,7 +190,7 @@ map(
 	helpers.combine_tables(default_options, { desc = "comment current selection" })
 )
 
--- clean and update plugins (<LEADER>pp)
+-- clean and update plugins
 map(
 	"n",
 	"<leader>pp",

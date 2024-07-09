@@ -188,14 +188,13 @@ function mp4() {
 }
 
 function install_deps() {
-	# create symlinks if needed THIS SHOULD BE FIRST
+	# create symlinks if needed
+	# THIS SHOULD BE FIRST
 	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/link_init.py
 
-	# set up python
+	# setup for various languages
 	f_setup_python
-	# set up golang
 	f_setup_golang
-	# set up cargo
 	f_setup_cargo
 
 	# install python package deps
@@ -247,6 +246,7 @@ function f_setup_python() {
 function f_setup_golang() {
 	# NOTE: run `which go` and if you see something not set up by goenv
 	# run something like this `sudo mv {go location} {go location}_backup`
+	# then run `which go` again to ensure it is now set by goenv
 	echo "setting up golang..."
 	# set up goenv
 	export GOENV_ROOT="$HOME/.goenv"
