@@ -1,3 +1,5 @@
+local lualine = require("lualine")
+
 -- Auto format on save using Neoformat
 vim.cmd([[
   augroup fmt
@@ -34,5 +36,13 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 		if vim.fn.getwininfo(vim.fn.win_getid())[1].quickfix == 1 then
 			vim.cmd("cclose")
 		end
+	end,
+})
+
+-- refresh lualine whenever the buffer is focused
+-- this ensures git dif is up to date
+vim.api.nvim_create_autocmd("BufEnter", {
+	callback = function()
+		lualine.refresh()
 	end,
 })
