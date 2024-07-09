@@ -6,10 +6,23 @@ lualine.setup({
 		theme = "auto",
 		-- disabled_filetypes = { "packer", "NvimTree" },
 	},
+	-- not sure i prefer this to just disabling lualine when nvimtree is focused
+	extensions = { "nvim-tree" },
 	globalstatus = true,
 	sections = {
 		lualine_a = { { "mode", padding = 2 } },
-		lualine_c = { { "filename", path = 0 } },
+		lualine_c = {
+			{
+				"filename",
+				path = 0,
+				symbols = {
+					modified = "[ + ]", -- Text to show when the file is modified.
+					readonly = "[ - ]", -- Text to show when the file is non-modifiable or readonly.
+					unnamed = "[ unnamed ]", -- Text to show for unnamed buffers.
+					newfile = "[ new ]", -- Text to show for newly created file before first write
+				},
+			},
+		},
 		lualine_x = { "filetype" },
 		lualine_y = {},
 		lualine_z = {
