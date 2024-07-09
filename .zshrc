@@ -25,27 +25,6 @@ export DEPS_DIR_PATH="$HOME/deps"
 # SOURCING #
 ############
 
-# set up pyenv
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv install -s $PYTHON_VERSION)"
-eval "$(pyenv global $PYTHON_VERSION)"
-eval "$(pyenv rehash)"
-# used as a constant in nvim
-export PYTHON_PATH=$(pyenv which python)
-
-# set up goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-eval "$(goenv install -s $GO_VERSION)"
-eval "$(goenv global $GO_VERSION)"
-eval "$(goenv rehash)"
-
-# set up cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-
 # set up syntax highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -212,11 +191,12 @@ function install_deps() {
 	# create symlinks if needed THIS SHOULD BE FIRST
 	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/link_init.py
 
-	# make sure cargo is installed
-	if ! command -v cargo &>/dev/null; then
-		echo "cargo could not be found, installing..."
-		curl https://sh.rustup.rs -sSf | sh
-	fi
+	# set up python
+	f_setup_python
+	# set up golang
+	f_setup_golang
+	# set up cargo
+	f_setup_cargo
 
 	# install python package deps
 	pip install --upgrade pip
@@ -248,6 +228,49 @@ function all_panes() {
 		return 1
 	fi
 	tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} "$1" C-m
+}
+
+function f_setup_python() {
+	echo "setting up python"
+	# set up pyenv
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init --path)"
+	eval "$(pyenv init -)"
+	eval "$(pyenv install -s $PYTHON_VERSION)"
+	eval "$(pyenv global $PYTHON_VERSION)"
+	eval "$(pyenv rehash)"
+	# used as a constant in nvim
+	export PYTHON_PATH=$(pyenv which python)
+	echo "finished setting up python"
+}
+
+function f_setup_golang() {
+	# NOTE: run `which go` and if you see something not set up by goenv
+	# run something like this `sudo mv {go location} {go location}_backup`
+	echo "setting up golang..."
+	# set up goenv
+	export GOENV_ROOT="$HOME/.goenv"
+	export PATH="$GOENV_ROOT/bin:$PATH"
+	eval "$(goenv init -)"
+	eval "$(goenv install -s $GO_VERSION)"
+	eval "$(goenv global $GO_VERSION)"
+	eval "$(goenv rehash)"
+	echo "finished setting up golang"
+}
+
+function f_setup_cargo() {
+	echo "setting up cargo..."
+	# make sure cargo is installed
+	if
+		! command -v cargo &>/dev/null
+	then
+		echo "cargo could not be found, installing..."
+		curl https://sh.rustup.rs -sSf | sh
+	fi
+
+	# set up cargo
+	export PATH="$HOME/.cargo/bin:$PATH"
+	echo "finished setting up cargo"
 }
 
 #########################
