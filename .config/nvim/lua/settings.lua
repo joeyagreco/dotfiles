@@ -41,8 +41,13 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 
 -- refresh lualine whenever the buffer is focused
 -- this ensures git dif is up to date
+
+vim.api.nvim_create_autocmd("FocusGained", {
+	callback = lualine.refresh,
+	desc = "Refresh lualine when Neovim gains focus",
+})
+
 vim.api.nvim_create_autocmd("BufEnter", {
-	callback = function()
-		lualine.refresh()
-	end,
+	callback = lualine.refresh,
+	desc = "Refresh lualine when buffer is focused",
 })
