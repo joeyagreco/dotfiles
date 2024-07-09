@@ -1,6 +1,5 @@
 -- https://github.com/nvim-lualine/lualine.nvim
 require("lualine").setup({
-
 	options = {
 		-- themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
 		theme = "auto",
@@ -9,9 +8,15 @@ require("lualine").setup({
 	globalstatus = true,
 	sections = {
 		lualine_a = { { "mode", padding = 2 } },
+		lualine_c = { { "filename", path = 0 } },
 		lualine_x = { "filetype" },
 		lualine_y = {},
-		lualine_z = { { "filename", padding = 2, path = 0 } },
+		lualine_z = {
+			{
+				"datetime",
+				style = "%A, %B %-d | %-I:%M %p",
+			},
+		},
 	},
 })
 
