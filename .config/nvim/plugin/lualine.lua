@@ -14,7 +14,12 @@ lualine.setup({
 		lualine_c = {
 			{
 				"filename",
-				path = 0,
+				-- 0: Just the filename
+				-- 1: Relative path
+				-- 2: Absolute path
+				-- 3: Absolute path, with tilde as the home directory
+				-- 4: Filename and parent dir, with tilde as the home directory
+				path = 1,
 				symbols = {
 					modified = "[ + ]", -- Text to show when the file is modified.
 					readonly = "[ - ]", -- Text to show when the file is non-modifiable or readonly.
