@@ -50,4 +50,8 @@ lualine.setup({
 -- but it doesn't so this is a workaround that seems to be unintrusive
 vim.o.laststatus = 3
 
-vim.api.nvim_create_autocmd("CursorMoved", { callback = lualine.refresh, desc = "Refresh when cursor moves" })
+vim.api.nvim_create_autocmd("CursorMoved", {
+	pattern = "*",
+	callback = lualine.refresh,
+	desc = "Refresh lualine on cursor move",
+})
