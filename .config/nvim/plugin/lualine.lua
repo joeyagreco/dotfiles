@@ -4,6 +4,11 @@ lualine.setup({
 	options = {
 		-- themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
 		theme = "auto",
+		refresh = {
+			statusline = 200,
+			tabline = 500,
+			winbar = 300,
+		},
 		-- disabled_filetypes = { "packer", "NvimTree" },
 	},
 	-- not sure i prefer this to just disabling lualine when nvimtree is focused
@@ -45,14 +50,4 @@ lualine.setup({
 -- but it doesn't so this is a workaround that seems to be unintrusive
 vim.o.laststatus = 3
 
--- refresh lualine whenever the buffer is focused
--- this ensures git dif is up to date
-vim.api.nvim_create_autocmd("FocusGained", {
-	callback = lualine.refresh,
-	desc = "Refresh lualine when Neovim gains focus",
-})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-	callback = lualine.refresh,
-	desc = "Refresh lualine when buffer is focused",
-})
+vim.api.nvim_create_autocmd("CursorMoved", { callback = lualine.refresh, desc = "Refresh when cursor moves" })
