@@ -26,6 +26,7 @@ telescope.setup({
 			"--column",
 			"--ignore-case",
 			"--fixed-strings",
+			"--hidden", -- Include hidden files
 		},
 		mappings = {
 			i = {
