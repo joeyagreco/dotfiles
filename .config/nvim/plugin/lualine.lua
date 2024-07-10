@@ -49,9 +49,3 @@ lualine.setup({
 -- i don't think this would be needed if globalstatus config played well with alpha dashboard
 -- but it doesn't so this is a workaround that seems to be unintrusive
 vim.o.laststatus = 3
-
-vim.api.nvim_create_autocmd("CursorMoved", {
-	pattern = "*",
-	callback = lualine.refresh,
-	desc = "Refresh lualine on cursor move",
-})
