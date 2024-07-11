@@ -55,5 +55,5 @@ if __name__ == "__main__":
     elif err_count > 0:
         color = "red"
     print_color(
-        f"\nlinks creation completed with {err_count} errors and {skipped_count} skips"
+        f"\nlinks creation completed with {err_count} errors and {skipped_count} skips\n\n"
     , color=color)

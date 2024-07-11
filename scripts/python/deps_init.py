@@ -33,7 +33,7 @@ def install(*, deps_file_name: str, install_command: str) -> None:
     color = "green"
     if err_count > 0:
         color = "red"
-    print_color(f"\nsuccessfully installed {success_count} deps with {err_count} errors", color=color)
+    print_color(f"\nsuccessfully installed {success_count} deps with {err_count} errors\n\n", color=color)
 
 
 if __name__ == "__main__":
