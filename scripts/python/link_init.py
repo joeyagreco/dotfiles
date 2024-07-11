@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     for link in links:
         if link in home_dir_existing_links:
-            print(f"link '{link}' already exists, skipping...")
+            print(f"link '{link}' already exists, continuing...")
             continue
         # this link is expected, prompt to create it
         command = f"ln -s {os.path.join(terminal_path, link)} {link}"
