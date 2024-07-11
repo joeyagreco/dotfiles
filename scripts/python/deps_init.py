@@ -34,10 +34,10 @@ def install(*, deps_file_name: str, install_command: str) -> None:
 
 if __name__ == "__main__":
     # npm
-    install(deps_file_name="npm_deps.txt", install_command="npm install -g {DEP}")
+    install(deps_file_name="npm_deps.txt", install_command="npm install -g --silent {DEP}")
 
     # go
     install(deps_file_name="go_deps.txt", install_command="go install {DEP}")
 
     # cargo
-    install(deps_file_name="cargo_deps.txt", install_command="cargo install {DEP}")
+    install(deps_file_name="cargo_deps.txt", install_command="cargo install -q {DEP}")
