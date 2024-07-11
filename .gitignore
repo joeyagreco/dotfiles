@@ -5,3 +5,5 @@ Brewfile.lock.json
 .config/op
 .vscode
 .config/efm-langserver
+__pycache__
+*.pyc
