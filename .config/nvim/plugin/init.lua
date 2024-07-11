@@ -61,4 +61,11 @@ require("packer").startup(function(use)
 	})
 	-- nvim-lint
 	use("mfussenegger/nvim-lint")
+	-- fine cmdline
+	use({
+		"VonHeikemen/fine-cmdline.nvim",
+		requires = {
+			{ "MunifTanjim/nui.nvim" },
+		},
+	})
 end)

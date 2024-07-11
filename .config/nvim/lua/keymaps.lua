@@ -3,6 +3,7 @@ local telescope = require("telescope")
 local nvim_tree = require("nvim-tree.api")
 local git_signs = require("gitsigns")
 local comment = require("Comment.api")
+local fine = require("fine-cmdline")
 local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
@@ -214,3 +215,6 @@ end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 
 -- see lsp info
 map("n", "<leader>L", vim.diagnostic.open_float, helpers.combine_tables(default_options, { desc = "see lsp info" }))
+
+-- remap ":"
+map("n", ":", fine.open, helpers.combine_tables(default_options, { desc = "open command line" }))
