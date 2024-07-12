@@ -93,7 +93,7 @@ alias docker-compose="docker compose"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
 # screenshot and save to downloads folder
-alias sss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
+alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
 alias cls='clear'
 alias clearpanes="clear_all_panes && all_panes 'clearall'"
 alias speed='clearall && speedtest-cli --secure --no-upload'
