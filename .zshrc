@@ -45,6 +45,13 @@ setopt EXTENDED_GLOB
 autoload -U compinit promptinit
 
 ###########
+# UNALIAS #
+# #########
+# these are things we may have had an alias for at one point that we no longer want
+# maybe theres some migration sort of thing we could use in the future that is more clean than this way
+unalias pip
+
+###########
 # ALIASES #
 ###########
 
@@ -100,7 +107,6 @@ alias surl="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/surl.py "
 alias vimcs='open "https://cheatography.com/marconlsantos/cheat-sheets/neovim/"'
 # PYTHON
 alias py="$PYTHON_COMMAND"
-alias pip="$PYTHON_COMMAND -m pip"
 # open up a project in pypi
 # o(pen)pypi
 alias opypi='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
