@@ -16,6 +16,7 @@ local helpers = require("helpers")
 -- fs
 -- fw
 -- gd
+-- gi
 -- gp
 -- gr
 -- gR
