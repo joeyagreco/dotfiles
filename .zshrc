@@ -49,21 +49,21 @@ autoload -U compinit promptinit
 # #########
 # these are things we may have had an alias for at one point that we no longer want
 # maybe theres some migration sort of thing we could use in the future that is more clean than this way
-unalias pip
+unalias pip 2>/dev/null
+unalias aa 2>/dev/null
+unalias zz 2>/dev/null
+unalias tt 2>/dev/null
+unalias vv 2>/dev/null
+unalias ss 2>/dev/null
 
 ###########
 # ALIASES #
 ###########
 
 # DOTFILES
-alias aa="vim $ALACRITTY_FILE_PATH"
-alias zz="vim $ZSHRC_FILE_PATH"
 alias zzl="vim $ZSHRC_FILE_PATH$LOCAL_AFFIX"
 alias applyz="source $ZSHRC_FILE_PATH"
-alias tt="vim $TMUX_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
-alias vv="vim $VIM_FILE_PATH"
-alias ss="vim $STARSHIP_FILE_PATH"
 
 # TMUX
 # attach to a session by name
