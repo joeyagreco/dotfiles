@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local constants = require("constants")
 -- this must be before requiring coq for autostart to work: https://github.com/ms-jpq/coq_nvim/issues/403
 -- true = autostart
 -- shut-up = autostart and don't show startup message
@@ -21,7 +22,13 @@ lspconfig.protols.setup(coq_setup({}))
 -- typescript
 lspconfig.tsserver.setup(coq_setup({}))
 -- python
-lspconfig.pyright.setup(coq_setup({}))
+lspconfig.pyright.setup(coq_setup({
+	settings = {
+		python = {
+			pythonPath = constants.PYTHON_PATH,
+		},
+	},
+}))
 -- lua
 lspconfig.lua_ls.setup({
 	settings = {
