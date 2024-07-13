@@ -7,6 +7,7 @@ local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
 -- c
+-- cn
 -- dif
 -- e
 -- E
@@ -26,9 +27,10 @@ local helpers = require("helpers")
 -- K
 -- l
 -- L
--- pp
+-- p
+-- qq
+-- r
 -- R
--- rn
 -- /
 
 -- Set leader to SPACE
@@ -119,8 +121,8 @@ map(
 	helpers.combine_tables(default_options, { desc = "if name == main" })
 )
 
--- rename symbol
-map("n", "<leader>rn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
+-- rename symbol (change name)
+map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
 -- turn search highlighting off
 map(
@@ -171,9 +173,14 @@ map(
 	helpers.combine_tables(default_options, { desc = "git preview current hunk" })
 )
 
--- toggle recent files
-map("n", "<leader>R", function()
+-- toggle recent files scoped to this directory
+map("n", "<leader>r", function()
 	telescope_builtin.oldfiles({ cwd = vim.fn.getcwd() })
+end, helpers.combine_tables(default_options, { desc = "see recent files" }))
+
+-- toggle recent files with no scope (show all recent files)
+map("n", "<leader>R", function()
+	telescope_builtin.oldfiles()
 end, helpers.combine_tables(default_options, { desc = "see recent files" }))
 
 -- comment out / uncomment line and selection
@@ -194,7 +201,7 @@ map(
 -- clean and update plugins
 map(
 	"n",
-	"<leader>pp",
+	"<leader>p",
 	helpers.clean_and_update_plugins,
 	helpers.combine_tables(default_options, { desc = "clean and update plugins" })
 )

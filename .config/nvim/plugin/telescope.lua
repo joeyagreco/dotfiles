@@ -2,12 +2,6 @@ local actions = require("telescope.actions")
 local telescope = require("telescope")
 
 telescope.setup({
-	pickers = {
-		oldfiles = {
-			-- ensures recent files only show files in this dir
-			cwd_only = true,
-		},
-	},
 	defaults = {
 		path_display = { "smart" },
 		file_ignore_patterns = {
