@@ -45,18 +45,6 @@ setopt EXTENDED_GLOB
 autoload -U compinit promptinit
 
 ###########
-# UNALIAS #
-# #########
-# these are things we may have had an alias for at one point that we no longer want
-# maybe theres some migration sort of thing we could use in the future that is more clean than this way
-unalias pip 2>/dev/null
-unalias aa 2>/dev/null
-unalias zz 2>/dev/null
-unalias tt 2>/dev/null
-unalias vv 2>/dev/null
-unalias ss 2>/dev/null
-
-###########
 # ALIASES #
 ###########
 
