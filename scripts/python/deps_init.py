@@ -33,12 +33,17 @@ def install(*, deps_file_name: str, install_command: str) -> None:
     color = "green"
     if err_count > 0:
         color = "red"
-    print_color(f"\nsuccessfully installed {success_count} deps with {err_count} errors\n\n", color=color)
+    print_color(
+        f"\nsuccessfully installed {success_count} deps with {err_count} errors\n\n",
+        color=color,
+    )
 
 
 if __name__ == "__main__":
     # npm
-    install(deps_file_name="npm_deps.txt", install_command="npm install -g --silent {DEP}")
+    install(
+        deps_file_name="npm_deps.txt", install_command="npm install -g --silent {DEP}"
+    )
 
     # go
     install(deps_file_name="go_deps.txt", install_command="go install {DEP}")

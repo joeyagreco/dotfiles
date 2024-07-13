@@ -5,6 +5,28 @@ local constants = require("constants")
 -- shut-up = autostart and don't show startup message
 vim.g.coq_settings = {
 	auto_start = "shut-up",
+	-- autocomplete was noisy and inaccurate
+	-- can tweak these until they seem nice
+	clients = {
+		lsp = {
+			enabled = true,
+		},
+		snippets = {
+			enabled = false,
+		},
+		tree_sitter = {
+			enabled = false,
+		},
+		buffers = {
+			enabled = false,
+		},
+		paths = {
+			enabled = false,
+		},
+		tags = {
+			enabled = false,
+		},
+	},
 }
 local coq = require("coq")
 local coq_setup = coq.lsp_ensure_capabilities
