@@ -12,7 +12,6 @@ local helpers = require("helpers")
 -- e
 -- E
 -- ff
--- fm
 -- fr
 -- fs
 -- fw
@@ -51,9 +50,6 @@ map(
 	":wincmd l<CR>",
 	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
 )
-
--- format code
-map("n", "<leader>fm", ":Neoformat<cr>", helpers.combine_tables(default_options, { desc = "format code" }))
 
 -- search for word that cursor is on
 map("n", "<leader>fw", function()
