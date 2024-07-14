@@ -46,8 +46,24 @@ dashboard.section.buttons.val = {
 }
 
 -- footer
+
 local function footer()
-	return "Welcome, Joey"
+	local hour = tonumber(os.date("%H"))
+	local greeting
+
+	if hour < 4 then
+		greeting = "  good night"
+	elseif hour < 12 then
+		greeting = "󰼰  good morning"
+	elseif hour < 17 then
+		greeting = "  good afternoon"
+	elseif hour < 20 then
+		greeting = "󰖝  good evening"
+	else
+		greeting = "󰖔  good night"
+	end
+
+	return greeting .. ", joey"
 end
 
 dashboard.section.footer.val = footer()

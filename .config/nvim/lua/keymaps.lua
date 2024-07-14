@@ -6,7 +6,7 @@ local comment = require("Comment.api")
 local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
--- c
+-- C
 -- cn
 -- dif
 -- e
@@ -206,7 +206,7 @@ map(
 map("n", "<leader>dif", ":DiffviewOpen<CR>", helpers.combine_tables(default_options, { desc = "open git dif view" }))
 
 -- close tab
-map("n", "<leader>c", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
+map("n", "<leader>C", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
 
 -- go to last buffer
 map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))
