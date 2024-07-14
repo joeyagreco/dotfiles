@@ -2,6 +2,7 @@ local telescope_builtin = require("telescope.builtin")
 local telescope = require("telescope")
 local nvim_tree = require("nvim-tree.api")
 local git_signs = require("gitsigns")
+local precognition = require("precognition")
 local comment = require("Comment.api")
 local helpers = require("helpers")
 
@@ -220,3 +221,6 @@ end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 map("n", "<leader>L", function()
 	vim.diagnostic.open_float(nil, { source = "always" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
+
+-- toggle vim hints
+map("n", "<leader>h", precognition.toggle, helpers.combine_tables(default_options, { desc = "toggle vim hints" }))
