@@ -217,4 +217,6 @@ map("n", "<leader>i", function()
 end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 
 -- see lsp info
-map("n", "<leader>L", vim.diagnostic.open_float, helpers.combine_tables(default_options, { desc = "see lsp info" }))
+map("n", "<leader>L", function()
+	vim.diagnostic.open_float(nil, { source = "always" })
+end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
