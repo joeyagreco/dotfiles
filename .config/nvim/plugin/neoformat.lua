@@ -1,6 +1,9 @@
+-- https://github.com/sbdchd/neoformat
+-- this is needed because by default, neoformat stops after a formatter succeeds
+vim.g.neoformat_run_all_formatters = 1
 vim.g.neoformat_enabled_sh = { "shfmt" }
 vim.g.neoformat_enabled_zsh = { "shfmt" }
-vim.g.neoformat_enabled_go = { "gofmt" }
+vim.g.neoformat_enabled_go = { "gofmt", "goimports" }
 
 -- proto format
 -- https://clang.llvm.org/docs/ClangFormat.html
