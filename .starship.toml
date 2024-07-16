@@ -62,3 +62,6 @@ disabled = true
 
 [lua]
 disabled = true
+
+[terraform]
+disabled = true
