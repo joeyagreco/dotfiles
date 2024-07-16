@@ -70,12 +70,7 @@ map(
 )
 
 -- find files
-map("n", "<leader>ff", function()
-	telescope_builtin.find_files({
-		hidden = true,
-		file_ignore_patterns = { "node_modules", "build", "dist", "yarn.lock", ".git" },
-	})
-end, helpers.combine_tables(default_options, { desc = "find files" }))
+map("n", "<leader>ff", telescope_builtin.find_files, helpers.combine_tables(default_options, { desc = "find files" }))
 
 -- go to definition for whatever the cursor is on
 map(

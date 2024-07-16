@@ -15,12 +15,3 @@ vim.cmd([[
     autocmd BufWritePost */plugin/*.lua source <afile> | PackerCompile
   augroup end
 ]])
-
--- -- autocommand to run actionlint on save for YAML files
--- vim.api.nvim_create_autocmd("BufWritePost", {
--- 	pattern = { "*.yaml", "*.yml" },
--- 	callback = function()
--- 		vim.cmd("!actionlint %")
--- 	end,
--- 	desc = "run actionlint on save for YAML files",
--- })

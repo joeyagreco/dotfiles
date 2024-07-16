@@ -28,6 +28,11 @@ telescope.setup({
 			},
 		},
 	},
+	pickers = {
+		find_files = {
+			hidden = true,
+		},
+	},
 })
 
 -- this must be last
