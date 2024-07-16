@@ -170,9 +170,12 @@ map("n", "<leader>r", function()
 end, helpers.combine_tables(default_options, { desc = "see recent files" }))
 
 -- toggle recent files with no scope (show all recent files)
-map("n", "<leader>R", function()
-	telescope_builtin.oldfiles()
-end, helpers.combine_tables(default_options, { desc = "see recent files" }))
+map(
+	"n",
+	"<leader>R",
+	telescope_builtin.oldfiles,
+	helpers.combine_tables(default_options, { desc = "see recent files" })
+)
 
 -- comment out / uncomment line and selection
 map(
