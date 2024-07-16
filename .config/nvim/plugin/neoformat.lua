@@ -4,6 +4,8 @@ vim.g.neoformat_run_all_formatters = 1
 vim.g.neoformat_enabled_sh = { "shfmt" }
 vim.g.neoformat_enabled_zsh = { "shfmt" }
 vim.g.neoformat_enabled_go = { "gofmt", "goimports" }
+vim.g.neoformat_enabled_yaml = { "prettier" }
+vim.g.neoformat_enabled_yml = { "prettier" }
 
 -- proto format
 -- https://clang.llvm.org/docs/ClangFormat.html

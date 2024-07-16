@@ -52,3 +52,6 @@ set softtabstop=4
 
 set smarttab
 set smartindent
+
+" literal (not regex) searches
+set nomagic
