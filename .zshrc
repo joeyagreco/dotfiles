@@ -26,7 +26,7 @@ export DEPS_DIR_PATH="$HOME/deps"
 ############
 
 # set up syntax highlighting
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # set up starship
 # https://starship.rs/
@@ -131,11 +131,11 @@ function clearall() {
 }
 
 function port() {
-	lsof -i :$1
+	lsof -i :"$1"
 }
 
 function f_venvup() {
-	venv $1
+	venv "$1"
 	source "$1/bin/activate"
 }
 
@@ -152,7 +152,7 @@ function f_venvdown() {
 
 	if source "$1/bin/activate"; then
 		deactivate
-		rm -rf $1
+		rm -rf "$1"
 	else
 		echo "Failed to activate the virtual environment"
 		return 1
@@ -170,21 +170,21 @@ function c() {
 # download a youtube link to mp3
 function mp3() {
 	unsetopt glob
-	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/mp_download.py "mp3" "$1"
+	"$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/mp_download.py" "mp3" "$1"
 	setopt glob
 }
 
 # download a youtube link to mp4
 function mp4() {
 	unsetopt glob
-	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/mp_download.py "mp4" "$1"
+	"$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/mp_download.py" "mp4" "$1"
 	setopt glob
 }
 
 function install_deps() {
 	# create symlinks if needed
 	# THIS SHOULD BE FIRST
-	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/link_init.py
+	"$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/link_init.py"
 
 	# setup for various languages
 	f_setup_python
@@ -193,16 +193,16 @@ function install_deps() {
 
 	# install python package deps
 	pip install --upgrade --quiet pip
-	pip install --quiet -r $DEPS_DIR_PATH/requirements.txt
+	pip install --quiet -r "$DEPS_DIR_PATH/requirements.txt"
 
 	# install brew deps
 	brew update -q
-	brew bundle -q --file=$DEPS_DIR_PATH/Brewfile
+	brew bundle -q --file="$DEPS_DIR_PATH/Brewfile"
 	# commenting this out as it errors without sudo permissions
 	# brew cleanup -q
 
 	# install go, cargo, and npm deps
-	$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/deps_init.py
+	"$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/deps_init.py"
 
 	# make sure packer is installed for nvim
 	if [ ! -d "$PACKER_NVIM_PATH" ]; then
@@ -273,8 +273,8 @@ function f_setup_cargo() {
 #########################
 
 # THIS MUST STAY AT THE BOTTOM OF THE FILE
-if [ -f $ZSHRC_LOCAL_FILE_PATH ]; then
-	source $ZSHRC_LOCAL_FILE_PATH
+if [ -f "$ZSHRC_LOCAL_FILE_PATH" ]; then
+	source "$ZSHRC_LOCAL_FILE_PATH"
 else
 	echo "NO .zshrc.local FILE FOUND!"
 fi
