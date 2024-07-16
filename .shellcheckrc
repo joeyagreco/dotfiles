@@ -1,0 +1,3 @@
+# for context on what these are, check here: https://github.com/koalaman/shellcheck/wiki/{code_here_in_all_caps}
+disable=SC1091
+

@@ -36,8 +36,9 @@ lspconfig.gopls.setup(coq_setup({}))
 -- markdown
 lspconfig.marksman.setup(coq_setup({}))
 -- zsh
+-- NOTE: use .shellcheckrc for configuration
 lspconfig.bashls.setup(coq_setup({
-	filetypes = { "sh", "zsh" },
+	filetypes = { "sh", "zsh", "zshrc" },
 }))
 -- proto
 lspconfig.protols.setup(coq_setup({}))
@@ -67,7 +68,9 @@ lspconfig.lua_ls.setup({
 	},
 })
 -- yaml
-lspconfig.yamlls.setup(coq_setup())
+lspconfig.yamlls.setup(coq_setup({
+	filetypes = { "yaml", "yml", "yamlfmt" },
+}))
 -- makefile
 lspconfig.efm.setup(coq_setup({
 	filetypes = { "make" },
