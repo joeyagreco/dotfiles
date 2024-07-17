@@ -90,7 +90,7 @@ alias make='gmake'
 # get shortened URL for given url (surl https://my/url) or for whatever url is copied to clipboard.
 # copies shortened URL to clipboard automatically
 # s(hort)url
-alias surl="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/surl.py "
+alias surl=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/surl.py "
 # vimc(heat)s(heet)
 alias vimcs='open "https://cheatography.com/marconlsantos/cheat-sheets/neovim/"'
 # PYTHON
@@ -100,12 +100,12 @@ alias py="$PYTHON_COMMAND"
 alias opypi='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
 # check name availability on pypi
 # a(vailability)pypi
-alias apypi="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/pypi_check.py"
+alias apypi=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/pypi_check.py"
 # use venv
-alias venv="$PYTHON_COMMAND -m venv"
+alias venv=$PYTHON_COMMAND "-m venv"
 alias venvup='f_venvup'
 alias venvdown='f_venvdown'
-alias venvlist="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/venv_check.py"
+alias venvlist=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/venv_check.py"
 # GIT
 alias gitco='git checkout'
 alias gitf='git fetch --all'
@@ -170,21 +170,21 @@ function c() {
 # download a youtube link to mp3
 function mp3() {
 	unsetopt glob
-	"$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/mp_download.py" "mp3" "$1"
+	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/mp_download.py" "mp3" "$1"
 	setopt glob
 }
 
 # download a youtube link to mp4
 function mp4() {
 	unsetopt glob
-	"$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/mp_download.py" "mp4" "$1"
+	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/mp_download.py" "mp4" "$1"
 	setopt glob
 }
 
 function install_deps() {
 	# create symlinks if needed
 	# THIS SHOULD BE FIRST
-	"$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/link_init.py"
+	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/link_init.py"
 
 	# setup for various languages
 	f_setup_python
@@ -202,7 +202,7 @@ function install_deps() {
 	# brew cleanup -q
 
 	# install go, cargo, and npm deps
-	"$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/deps_init.py"
+	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/deps_init.py"
 
 	# make sure packer is installed for nvim
 	if [ ! -d "$PACKER_NVIM_PATH" ]; then
