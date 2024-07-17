@@ -135,7 +135,7 @@ function port() {
 }
 
 function f_venvup() {
-	venv "$1"
+	$PYTHON_COMMAND -m venv "$1"
 	source "$1/bin/activate"
 }
 
