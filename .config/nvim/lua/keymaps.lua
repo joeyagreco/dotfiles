@@ -114,22 +114,6 @@ map(
 -- rename symbol (change name)
 map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
--- 'if __name__ == "__main__"'
-map(
-	"n",
-	"<leader>inm",
-	'iif __name__ == "__main__":<Esc>o',
-	helpers.combine_tables(default_options, { desc = "if name == main" })
-)
-
--- turn search highlighting off
-map(
-	"n",
-	"<leader>ho",
-	":nohlsearch<CR>",
-	helpers.combine_tables(default_options, { desc = "turn off vim search highlights" })
-)
-
 -- auto import
 map("n", "<leader>i", function()
 	vim.lsp.buf.code_action({ source = { organizeImports = true } })
@@ -232,4 +216,20 @@ map(
 	"<leader>E",
 	":wincmd l<CR>",
 	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
+)
+
+-- 'if __name__ == "__main__"'
+map(
+	"n",
+	"<leader>inm",
+	'iif __name__ == "__main__":<Esc>o',
+	helpers.combine_tables(default_options, { desc = "if name == main" })
+)
+
+-- turn search highlighting off
+map(
+	"n",
+	"<leader>ho",
+	":nohlsearch<CR>",
+	helpers.combine_tables(default_options, { desc = "turn off vim search highlights" })
 )
