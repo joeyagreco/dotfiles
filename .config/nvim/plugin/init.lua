@@ -59,4 +59,6 @@ require("packer").startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
+	-- nvim ufo
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 end)
