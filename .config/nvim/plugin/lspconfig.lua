@@ -69,16 +69,16 @@ lspconfig.lua_ls.setup({
 })
 
 -- Custom function to ignore YAML files in Helm directories
-local function yaml_on_init(client, bufnr)
-	local filename = vim.api.nvim_buf_get_name(bufnr)
-	if filename:match("/helm/") or filename:match("^helm/") then
-		client.stop()
-	end
-end
+-- local function yaml_on_init(client, bufnr)
+-- 	local filename = vim.api.nvim_buf_get_name(bufnr)
+-- 	if filename:match("/helm/") or filename:match("^helm/") then
+-- 		client.stop()
+-- 	end
+-- end
 
 -- yaml
 lspconfig.yamlls.setup(coq_setup({
-	on_init = yaml_on_init,
+	-- on_init = yaml_on_init,
 	filetypes = { "yaml", "yml", "yamlfmt" },
 }))
 -- makefile
