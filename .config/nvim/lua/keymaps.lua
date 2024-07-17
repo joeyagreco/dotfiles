@@ -38,19 +38,9 @@ vim.g.mapleader = " "
 local default_options = { noremap = true, silent = true }
 local map = vim.keymap.set
 
--- toggle on / focus on explorer
-map("n", "<leader>e", function()
-	nvim_tree.tree.open({ focus = true })
-end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
-
--- focus from nvim tree -> main buffer
-map(
-	"n",
-	"<leader>E",
-	":wincmd l<CR>",
-	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
-)
-
+------------
+-- SEARCH --
+------------
 -- search for word that cursor is on
 map("n", "<leader>fw", function()
 	telescope_builtin.grep_string({
@@ -80,6 +70,31 @@ map(
 	helpers.combine_tables(default_options, { desc = "go to definition for word under cursor" })
 )
 
+-- find old (open up telescope search with previous search)
+map(
+	"n",
+	"<leader>fo",
+	telescope_builtin.resume,
+	helpers.combine_tables(default_options, { desc = "resume previous search" })
+)
+
+-- toggle recent files scoped to this directory
+map("n", "<leader>r", function()
+	telescope_builtin.oldfiles({ cwd = vim.fn.getcwd() })
+end, helpers.combine_tables(default_options, { desc = "see recent files" }))
+
+-- toggle recent files with no scope (show all recent files)
+map(
+	"n",
+	"<leader>R",
+	telescope_builtin.oldfiles,
+	helpers.combine_tables(default_options, { desc = "see recent files" })
+)
+
+---------
+-- LSP --
+---------
+
 -- get lsp info for whatever the cursor is on
 map(
 	"n",
@@ -96,13 +111,8 @@ map(
 	helpers.combine_tables(default_options, { desc = "find references" })
 )
 
--- find old (open up telescope search with previous search)
-map(
-	"n",
-	"<leader>fo",
-	telescope_builtin.resume,
-	helpers.combine_tables(default_options, { desc = "resume previous search" })
-)
+-- rename symbol (change name)
+map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
 -- 'if __name__ == "__main__"'
 map(
@@ -112,9 +122,6 @@ map(
 	helpers.combine_tables(default_options, { desc = "if name == main" })
 )
 
--- rename symbol (change name)
-map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
-
 -- turn search highlighting off
 map(
 	"n",
@@ -123,6 +130,20 @@ map(
 	helpers.combine_tables(default_options, { desc = "turn off vim search highlights" })
 )
 
+-- auto import
+map("n", "<leader>i", function()
+	vim.lsp.buf.code_action({ source = { organizeImports = true } })
+end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
+
+-- see lsp info
+map("n", "<leader>L", function()
+	vim.diagnostic.open_float(nil, { source = "always" })
+end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
+
+---------
+-- GIT --
+---------
+
 -- open a git directory
 map(
 	"n",
@@ -130,9 +151,6 @@ map(
 	helpers.prompt_and_open_git_repo,
 	helpers.combine_tables(default_options, { desc = "open a git directory" })
 )
-
--- quit vim
-map("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
 
 -- copy url of current line in git
 map("n", "<leader>gu", function()
@@ -164,18 +182,15 @@ map(
 	helpers.combine_tables(default_options, { desc = "git preview current hunk" })
 )
 
--- toggle recent files scoped to this directory
-map("n", "<leader>r", function()
-	telescope_builtin.oldfiles({ cwd = vim.fn.getcwd() })
-end, helpers.combine_tables(default_options, { desc = "see recent files" }))
+-- open git diff view
+map("n", "<leader>dif", ":DiffviewOpen<CR>", helpers.combine_tables(default_options, { desc = "open git dif view" }))
 
--- toggle recent files with no scope (show all recent files)
-map(
-	"n",
-	"<leader>R",
-	telescope_builtin.oldfiles,
-	helpers.combine_tables(default_options, { desc = "see recent files" })
-)
+-------------
+-- GENERAL --
+-------------
+
+-- quit vim
+map("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
 
 -- comment out / uncomment line and selection
 map(
@@ -200,21 +215,21 @@ map(
 	helpers.combine_tables(default_options, { desc = "clean and update plugins" })
 )
 
--- open git diff view
-map("n", "<leader>dif", ":DiffviewOpen<CR>", helpers.combine_tables(default_options, { desc = "open git dif view" }))
-
 -- close tab
 map("n", "<leader>C", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
 
 -- go to last buffer
 map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 
--- auto import
-map("n", "<leader>i", function()
-	vim.lsp.buf.code_action({ source = { organizeImports = true } })
-end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
+-- toggle on / focus on explorer
+map("n", "<leader>e", function()
+	nvim_tree.tree.open({ focus = true })
+end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
 
--- see lsp info
-map("n", "<leader>L", function()
-	vim.diagnostic.open_float(nil, { source = "always" })
-end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
+-- focus from nvim tree -> main buffer
+map(
+	"n",
+	"<leader>E",
+	":wincmd l<CR>",
+	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
+)
