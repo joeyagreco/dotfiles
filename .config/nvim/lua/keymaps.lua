@@ -16,6 +16,7 @@ local helpers = require("helpers")
 -- fs
 -- fw
 -- gd
+-- gh
 -- gi
 -- gp
 -- gr
@@ -127,6 +128,11 @@ end, helpers.combine_tables(default_options, { desc = "see lsp info with source"
 ---------
 -- GIT --
 ---------
+
+-- open up git  history for current file
+map("n", "<leader>gh", function()
+	vim.cmd("DiffviewFileHistory %")
+end, helpers.combine_tables(default_options, { desc = "open up git history for current file" }))
 
 -- open a git directory
 map(
