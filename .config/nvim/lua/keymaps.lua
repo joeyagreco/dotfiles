@@ -3,6 +3,7 @@ local telescope = require("telescope")
 local nvim_tree = require("nvim-tree.api")
 local git_signs = require("gitsigns")
 local comment = require("Comment.api")
+local ufo = require("ufo")
 local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
@@ -242,3 +243,7 @@ map(
 
 -- make "x" not copy text
 map("n", "x", '"_x', helpers.combine_tables(default_options, { desc = "make 'x' not copy text" }))
+
+-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+map("n", "zR", ufo.openAllFolds, helpers.combine_tables(default_options, { desc = "ufo open all folds" }))
+map("n", "zM", ufo.closeAllFolds, helpers.combine_tables(default_options, { desc = "ufo open all folds" }))
