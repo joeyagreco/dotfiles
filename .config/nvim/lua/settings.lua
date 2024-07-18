@@ -16,14 +16,15 @@ vim.cmd([[
   augroup end
 ]])
 
--- Remember folds when switching buffers or windows, and on write/format, ignoring errors
 vim.api.nvim_create_augroup("remember_folds", {})
-vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost" }, {
+
+vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost", "InsertLeave" }, {
 	group = "remember_folds",
 	pattern = "*.*",
-	desc = "save view (folds) when closing or writing file",
+	desc = "save view (folds) when closing, writing file, or leaving insert mode",
 	command = "silent! mkview",
 })
+
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	group = "remember_folds",
 	pattern = "*.*",
