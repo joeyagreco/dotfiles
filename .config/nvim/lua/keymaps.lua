@@ -239,3 +239,6 @@ map(
 	":nohlsearch<CR>",
 	helpers.combine_tables(default_options, { desc = "turn off vim search highlights" })
 )
+
+-- make "x" not copy text
+map("n", "x", '"_x', helpers.combine_tables(default_options, { desc = "make 'x' not copy text" }))
