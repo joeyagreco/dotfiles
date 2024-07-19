@@ -1,5 +1,6 @@
 import os
 import subprocess
+
 from util import print_color
 
 if __name__ == "__main__":
@@ -13,7 +14,9 @@ if __name__ == "__main__":
     ]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
     if local_git_repo_path is None:
-        print_color("could not load local git repo path from $LOCAL_GIT_REPO_PATH", color="red")
+        print_color(
+            "could not load local git repo path from $LOCAL_GIT_REPO_PATH", color="red"
+        )
         exit(1)
 
     terminal_path = os.path.join(local_git_repo_path, "terminal")
@@ -41,7 +44,9 @@ if __name__ == "__main__":
             os.chdir(home_dir_path)
             result = subprocess.run(command, shell=True)
             if result.returncode != 0:
-                print_color(f"command failed with code {result.returncode}", color="red")
+                print_color(
+                    f"command failed with code {result.returncode}", color="red"
+                )
                 err_count += 1
             else:
                 print_color("success!", color="green")
@@ -55,5 +60,6 @@ if __name__ == "__main__":
     elif err_count > 0:
         color = "red"
     print_color(
-        f"\nlinks creation completed with {err_count} errors and {skipped_count} skips\n\n"
-    , color=color)
+        f"\nlinks creation completed with {err_count} errors and {skipped_count} skips\n\n",
+        color=color,
+    )

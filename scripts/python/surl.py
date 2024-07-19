@@ -1,7 +1,8 @@
-import pyperclip
-import requests
 import sys
 from urllib.parse import urlparse
+
+import pyperclip
+import requests
 
 
 def get_copied_text() -> str:

@@ -6,6 +6,7 @@ vim.g.neoformat_enabled_zsh = { "shfmt" }
 vim.g.neoformat_enabled_go = { "gofmt", "goimports" }
 vim.g.neoformat_enabled_yaml = { "prettier" }
 vim.g.neoformat_enabled_yml = { "prettier" }
+vim.g.neoformat_enabled_py = { "black", "isort" }
 
 -- proto format
 -- https://clang.llvm.org/docs/ClangFormat.html
