@@ -33,7 +33,13 @@ lualine.setup({
 				},
 			},
 		},
-		lualine_x = {},
+		lualine_x = {
+			{
+				"searchcount",
+				maxcount = 999,
+				timeout = 500,
+			},
+		},
 		lualine_y = { "filetype" },
 		lualine_z = {
 			{
@@ -43,6 +49,9 @@ lualine.setup({
 		},
 	},
 })
+
+-- since we show search count on lualine, we can disable it from the command line
+vim.opt.shortmess:append("S")
 
 -- always show the status bar and only show ONE status bar
 -- source: https://neovim.io/doc/user/options.html#'laststatus'
