@@ -24,6 +24,6 @@ vim.g.neoformat_enabled_proto = { "buf" }
 vim.cmd([[
   augroup fmt
     autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
+    autocmd BufWritePre * silent! undojoin | Neoformat
   augroup END
 ]])
