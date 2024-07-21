@@ -8,23 +8,29 @@ vim.g.coq_settings = {
 	-- autocomplete was noisy and inaccurate
 	-- can tweak these until they seem nice
 	clients = {
+		-- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#lsp
 		lsp = {
 			enabled = true,
 		},
+		-- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#snippets
 		snippets = {
 			enabled = false,
 		},
+		-- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#treesitter
 		tree_sitter = {
 			enabled = false,
 		},
+		-- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#buffers
 		buffers = {
 			enabled = false,
 		},
+		-- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#paths
 		paths = {
-			enabled = false,
+			enabled = true,
 		},
+		-- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#ctags
 		tags = {
-			enabled = false,
+			enabled = true,
 		},
 	},
 }
