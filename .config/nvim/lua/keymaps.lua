@@ -8,6 +8,7 @@ local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
 -- C
+-- con
 -- cn
 -- dif
 -- e
@@ -29,7 +30,9 @@ local helpers = require("helpers")
 -- l
 -- L
 -- p
+-- qo
 -- qq
+-- qx
 -- r
 -- R
 -- /
@@ -216,6 +219,12 @@ map(
 
 -- close tab
 map("n", "<leader>C", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
+
+-- open quickfix
+map("n", "<leader>qo", ":copen<CR>", helpers.combine_tables(default_options, { desc = "open quickfix" }))
+
+-- close quickfix
+map("n", "<leader>qx", ":cclose<CR>", helpers.combine_tables(default_options, { desc = "close quickfix" }))
 
 -- go to last buffer
 map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))

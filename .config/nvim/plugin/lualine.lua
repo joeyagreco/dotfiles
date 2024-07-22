@@ -36,7 +36,7 @@ lualine.setup({
 		lualine_x = {
 			{
 				"searchcount",
-				maxcount = 999,
+				maxcount = 9999,
 				timeout = 500,
 			},
 		},
