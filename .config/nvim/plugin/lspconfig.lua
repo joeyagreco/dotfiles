@@ -30,7 +30,7 @@ vim.g.coq_settings = {
 		},
 		-- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#ctags
 		tags = {
-			enabled = true,
+			enabled = false,
 		},
 	},
 }

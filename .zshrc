@@ -236,6 +236,8 @@ function f_setup_python() {
 	eval "$(pyenv rehash)"
 	# used as a constant in nvim
 	export PYTHON_PATH=$(pyenv which python)
+	# configure pyright
+	export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 	echo "finished setting up python"
 }
 
