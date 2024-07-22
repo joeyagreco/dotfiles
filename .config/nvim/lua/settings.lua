@@ -16,18 +16,18 @@ vim.cmd([[
   augroup end
 ]])
 
-vim.api.nvim_create_augroup("remember_folds", {})
-
-vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost", "InsertLeave" }, {
-	group = "remember_folds",
-	pattern = "*.*",
-	desc = "save view (folds) when closing, writing file, or leaving insert mode",
-	command = "silent! mkview",
-})
-
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	group = "remember_folds",
-	pattern = "*.*",
-	desc = "load view (folds) when opening file",
-	command = "silent! loadview",
-})
+-- vim.api.nvim_create_augroup("remember_folds", {})
+--
+-- vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWritePost", "InsertLeave" }, {
+-- 	group = "remember_folds",
+-- 	pattern = "*.*",
+-- 	desc = "save view (folds) when closing, writing file, or leaving insert mode",
+-- 	command = "silent! mkview",
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+-- 	group = "remember_folds",
+-- 	pattern = "*.*",
+-- 	desc = "load view (folds) when opening file",
+-- 	command = "silent! loadview",
+-- })
