@@ -6,6 +6,7 @@ __pycache__
 
 .config/efm-langserver
 .config/op
+.config/gcloud
 
 node_modules
 
@@ -14,3 +15,4 @@ package-lock.json
 
 
 akeyless
+

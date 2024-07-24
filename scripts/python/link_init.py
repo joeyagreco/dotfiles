@@ -4,6 +4,7 @@ import subprocess
 from util import print_color
 
 if __name__ == "__main__":
+    # TODO: make this just use the .gitignore file
     IGNORE_THINGS = [
         "README.md",
         ".git",
@@ -11,6 +12,7 @@ if __name__ == "__main__":
         "node_modules",
         "Brewfile.lock.json",
         "package-lock.json",
+        "akeyless",
     ]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
     if local_git_repo_path is None:
