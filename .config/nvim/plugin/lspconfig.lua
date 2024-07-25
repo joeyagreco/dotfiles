@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local constants = require("constants")
+
 -- this must be before requiring coq for autostart to work: https://github.com/ms-jpq/coq_nvim/issues/403
 -- true = autostart
 -- shut-up = autostart and don't show startup message
