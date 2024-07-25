@@ -53,14 +53,7 @@ lspconfig.tsserver.setup(coq_setup({}))
 -- python
 -- pyright config: https://github.com/microsoft/pyright/blob/main/docs/configuration.md
 lspconfig.pyright.setup(coq_setup({
-	settings = {
-		python = {
-			pythonPath = constants.PYTHON_PATH,
-			analysis = {
-				typeCheckingMode = "standard",
-			},
-		},
-	},
+	cmd = { "pyright-langserver", "--stdio" },
 }))
 -- lua
 lspconfig.lua_ls.setup({
