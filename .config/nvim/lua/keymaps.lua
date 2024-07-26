@@ -194,6 +194,14 @@ map(
 -- quit vim
 map("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
 
+-- disable space in normal and visual mode
+map(
+	{ "n", "v" },
+	"<Space>",
+	"<Nop>",
+	helpers.combine_tables(default_options, { desc = "disabled space in normal and visual mode" })
+)
+
 -- comment out / uncomment line and selection
 map(
 	"n",
