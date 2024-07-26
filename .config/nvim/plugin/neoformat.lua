@@ -2,7 +2,7 @@
 -- this is needed because by default, neoformat stops after a formatter succeeds
 vim.g.neoformat_run_all_formatters = 1
 -- TURN ON FOR DEBUGGING ONLY
-vim.g.neoformat_verbose = 2
+-- vim.g.neoformat_verbose = 2
 
 -----------------------
 -- custom formatters --
