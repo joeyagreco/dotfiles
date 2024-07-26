@@ -1,0 +1,9 @@
+# https://github.com/astral-sh/ruff?tab=readme-ov-file#configuration
+
+# line-length = 10
+
+# [lint]
+# select = ["F401"]
+
+
+

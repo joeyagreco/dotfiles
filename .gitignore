@@ -8,6 +8,8 @@ __pycache__
 .config/op
 .config/gcloud
 
+.ruff_cache
+
 node_modules
 
 Brewfile.lock.json
