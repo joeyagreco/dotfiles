@@ -25,6 +25,28 @@ export DEPS_DIR_PATH="$HOME/deps"
 # SOURCING #
 ############
 
+# python
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv global $PYTHON_VERSION)"
+eval "$(pyenv rehash)"
+# used as a constant in nvim
+export PYTHON_PATH=$(pyenv which python)
+# configure pyright
+export PYRIGHT_PYTHON_FORCE_VERSION='latest'
+
+# golang
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+eval "$(goenv global $GO_VERSION)"
+eval "$(goenv rehash)"
+
+# cargo 
+# set up cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # set up syntax highlighting
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
@@ -228,16 +250,7 @@ function all_panes() {
 function f_setup_python() {
 	echo "setting up python"
 	# set up pyenv
-	export PATH="$PYENV_ROOT/bin:$PATH"
-	eval "$(pyenv init --path)"
-	eval "$(pyenv init -)"
 	eval "$(pyenv install -s $PYTHON_VERSION)"
-	eval "$(pyenv global $PYTHON_VERSION)"
-	eval "$(pyenv rehash)"
-	# used as a constant in nvim
-	export PYTHON_PATH=$(pyenv which python)
-	# configure pyright
-	export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 	echo "finished setting up python"
 }
 
@@ -247,12 +260,7 @@ function f_setup_golang() {
 	# then run `which go` again to ensure it is now set by goenv
 	echo "setting up golang..."
 	# set up goenv
-	export GOENV_ROOT="$HOME/.goenv"
-	export PATH="$GOENV_ROOT/bin:$PATH"
-	eval "$(goenv init -)"
 	eval "$(goenv install -s $GO_VERSION)"
-	eval "$(goenv global $GO_VERSION)"
-	eval "$(goenv rehash)"
 	echo "finished setting up golang"
 }
 
@@ -265,9 +273,6 @@ function f_setup_cargo() {
 		echo "cargo could not be found, installing..."
 		curl https://sh.rustup.rs -sSf | sh
 	fi
-
-	# set up cargo
-	export PATH="$HOME/.cargo/bin:$PATH"
 	echo "finished setting up cargo"
 }
 
