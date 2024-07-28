@@ -17,7 +17,7 @@ vim.g.neoformat_proto_buf = {
 vim.g.neoformat_python_ruff = {
 	exe = "ruff",
 	stdin = 1,
-	args = { "format", "-", "--config", vim.fn.expand("$HOME/ruff.toml") },
+	args = { "check", "-", "--config", vim.fn.expand("$HOME/ruff.toml"), "--fix", "-q" },
 	stderr = 1,
 }
 
