@@ -43,7 +43,7 @@ eval "$(goenv init -)"
 eval "$(goenv global $GO_VERSION)"
 eval "$(goenv rehash)"
 
-# cargo 
+# cargo
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -132,7 +132,7 @@ alias venvlist=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/venv_check.py"
 # GIT
 alias gitco='git checkout'
 alias gitf='git fetch --all'
-alias emptycommit='git commit --allow-empty -m '\''empty commit'\'' && git push'
+alias emptycommit='git commit --allow-empty --no-verify -m '\''empty commit'\'' && git push'
 alias gcnv="git commit --no-verify"
 # list the n most recent git branches
 alias recentbranch="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n "

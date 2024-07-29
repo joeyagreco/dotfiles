@@ -31,3 +31,13 @@ vim.cmd([[
 -- 	desc = "load view (folds) when opening file",
 -- 	command = "silent! loadview",
 -- })
+--
+
+-- Define the custom filetype for files that start with "requirements" and end with ".txt"
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "requirements*.txt",
+	callback = function()
+		vim.bo.filetype = "requirements"
+	end,
+	desc = "Set filetype to requirements for files matching requirements*.txt",
+})
