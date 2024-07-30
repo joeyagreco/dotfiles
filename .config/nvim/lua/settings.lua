@@ -41,3 +41,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 	desc = "Set filetype to requirements for files matching requirements*.txt",
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.yamlfmt",
+	callback = function()
+		vim.bo.filetype = "yaml"
+	end,
+	desc = "Set filetype to yaml for .yamlfmt files",
+})
