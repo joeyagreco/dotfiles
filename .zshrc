@@ -99,6 +99,7 @@ alias dd="tmux resize-pane -D"
 # GENERAL QOL
 # install any dependencies
 alias deps="install_deps"
+alias vi="vim"
 alias docker-compose="docker compose"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
