@@ -14,6 +14,13 @@ vim.g.neoformat_proto_buf = {
 	replace = 1, -- Overwrite the file directly
 }
 
+vim.g.neoformat_python_ruff = {
+	exe = "ruff",
+	stdin = 1,
+	args = { "check", "-", "--config", vim.fn.expand("$HOME/ruff.toml"), "--fix", "-q" },
+	stderr = 1,
+}
+
 -- vim.g.neoformat_typescript_lintfix = {
 -- 	exe = "npm",
 -- 	args = { "run", "lint", "--fix" },
