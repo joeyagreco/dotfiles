@@ -7,8 +7,12 @@ from util import (
     print_color,
 )
 
-HOME_DIR = os.path.expanduser("~")
-NOTES_DIR = os.path.join(HOME_DIR, ".local.notes")
+# HOME_DIR = os.path.expanduser("~")
+# NOTES_DIR = os.path.join(HOME_DIR, ".local.notes")
+NOTES_DIR = os.environ.get("NOTES_PATH")
+if NOTES_DIR is None:
+    print_color("could not load notes path from $NOTES_PATH", color="red")
+    exit(1)
 
 
 def execute_command(command: str) -> str:
@@ -35,7 +39,8 @@ def initial_setup() -> None:
 def create_new_note(name: Optional[str] = None) -> str:
     name = name or "Untitled"
     name = name.replace(" ", "_")
-    timestamp = datetime.now().strftime("%Y.%m.%d_%H.%M.%S")
+    # timestamp = datetime.now().strftime("%Y.%m.%d_%H.%M.%S")
+    timestamp = datetime.now().strftime("%Y%m%dT%H%M%S")
     filename = f"{timestamp}_{name}.txt"
     new_note_path = os.path.join(NOTES_DIR, filename)
     open(new_note_path, "w")

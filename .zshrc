@@ -20,6 +20,7 @@ export DOWNLOADS_PATH="$HOME/Downloads"
 export PYENV_ROOT="$HOME/.pyenv"
 export PACKER_NVIM_PATH="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 export DEPS_DIR_PATH="$HOME/deps"
+export NOTES_PATH="$HOME/$LOCAL_AFFIX.notes"
 
 ############
 # SOURCING #
