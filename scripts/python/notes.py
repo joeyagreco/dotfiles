@@ -1,4 +1,5 @@
 from typing import Optional
+import sys
 from datetime import datetime
 import subprocess
 import os
@@ -7,8 +8,6 @@ from util import (
     print_color,
 )
 
-# HOME_DIR = os.path.expanduser("~")
-# NOTES_DIR = os.path.join(HOME_DIR, ".local.notes")
 NOTES_DIR = os.environ.get("NOTES_PATH")
 if NOTES_DIR is None:
     print_color("could not load notes path from $NOTES_PATH", color="red")
@@ -53,7 +52,11 @@ def open_file_in_nvim(file_path: str) -> None:
 
 
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print_color("note name required but not given", color="red")
+        exit(1)
+    note_name = sys.argv[1]
     execute_command("clear")
     initial_setup()
-    new_note_path = create_new_note("my new note lol")
+    new_note_path = create_new_note(note_name)
     open_file_in_nvim(new_note_path)
