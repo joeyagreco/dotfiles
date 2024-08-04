@@ -105,6 +105,7 @@ alias docker-compose="docker compose"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias ls='eza'
+alias note="function note() { python scripts/python/notes.py "$*"; }; note"
 # screenshot and save to downloads folder
 alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
 alias cls='clear'
