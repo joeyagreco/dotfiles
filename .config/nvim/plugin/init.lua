@@ -42,10 +42,10 @@ require("packer").startup(function(use)
 	-- git blame
 	use("f-person/git-blame.nvim")
 	-- dashboard
-	use({
-		"goolord/alpha-nvim",
-		requires = { "nvim-tree/nvim-web-devicons" },
-	})
+	-- use({
+	-- 	"goolord/alpha-nvim",
+	-- 	requires = { "nvim-tree/nvim-web-devicons" },
+	-- })
 	-- comment code
 	use("numToStr/Comment.nvim")
 	-- git signs

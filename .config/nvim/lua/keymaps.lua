@@ -138,14 +138,6 @@ map("n", "<leader>gh", function()
 	vim.cmd("DiffviewFileHistory %")
 end, helpers.combine_tables(default_options, { desc = "open up git history for current file" }))
 
--- open a git directory
-map(
-	"n",
-	"<leader>gi",
-	helpers.prompt_and_open_git_repo,
-	helpers.combine_tables(default_options, { desc = "open a git directory" })
-)
-
 -- copy url of current line in git
 map("n", "<leader>gu", function()
 	vim.cmd("GitBlameCopyFileURL")
