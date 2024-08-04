@@ -105,7 +105,7 @@ alias docker-compose="docker compose"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias ls='eza'
-alias note="function note() { python scripts/python/notes.py "$*"; }; note"
+alias note="f_note"
 # screenshot and save to downloads folder
 alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
 alias cls='clear'
@@ -277,6 +277,10 @@ function f_setup_cargo() {
 		curl https://sh.rustup.rs -sSf | sh
 	fi
 	echo "finished setting up cargo"
+}
+
+function f_note() {
+	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/notes.py" "$*"
 }
 
 #########################
