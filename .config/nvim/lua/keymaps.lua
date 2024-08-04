@@ -168,9 +168,6 @@ map(
 	helpers.combine_tables(default_options, { desc = "git preview current hunk" })
 )
 
--- open git diff view
-map("n", "<leader>dif", ":DiffviewOpen<CR>", helpers.combine_tables(default_options, { desc = "open git dif view" }))
-
 -- open merge conflicts in quickfix list
 map(
 	"n",

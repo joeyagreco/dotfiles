@@ -20,3 +20,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- set python to use
 vim.g.python3_host_prog = constants.PYTHON_PATH
+
+-- no splash screen on startup
+-- vim.opt.shortmess:append("I")
