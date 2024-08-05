@@ -107,6 +107,8 @@ alias home='cd ~'
 alias ls='eza'
 # create a new note
 alias note="f_note"
+# open up notes in nvim
+alias nn="cd $NOTES_PATH && nvim"
 # screenshot and save to downloads folder
 alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
 alias cls='clear'
