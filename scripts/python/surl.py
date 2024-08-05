@@ -1,6 +1,8 @@
 import sys
 from urllib.parse import urlparse
 
+from util import print_color
+
 import pyperclip
 import requests
 
@@ -37,6 +39,8 @@ if __name__ == "__main__":
     url = get_copied_text()
     if len(sys.argv) > 1:
         url = sys.argv[1]
+    if not url:
+        print_color("no url given", color="red")
     shortened_url = get_shortened_url(url)
     copy_to_clipboard(shortened_url)
     print(f"url shortened!\n\n❌ {url}\n\n✅ {shortened_url}")

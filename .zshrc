@@ -119,7 +119,7 @@ alias make='gmake'
 # get shortened URL for given url (surl https://my/url) or for whatever url is copied to clipboard.
 # copies shortened URL to clipboard automatically
 # s(hort)url
-alias surl=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/surl.py "
+alias surl="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/surl.py "
 # vimc(heat)s(heet)
 alias vimcs='open "https://cheatography.com/marconlsantos/cheat-sheets/neovim/"'
 # PYTHON
