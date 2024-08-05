@@ -4,12 +4,12 @@
 # THESE SHOULD BE OVERWRITTEN IN .zshrc.local
 export LOCAL_GIT_REPO_PATH="NOT_SET"
 # THESE ARE GLOBAL
-export LOCAL_AFFIX=".local"
+export LOCAL_FIX=".local"
 export PYTHON_VERSION="3.12.4"
 export GO_VERSION="1.22.5"
 export PYTHON_COMMAND="python"
 export ZSHRC_FILE_PATH="$HOME/.zshrc"
-export ZSHRC_LOCAL_FILE_PATH=$ZSHRC_FILE_PATH$LOCAL_AFFIX
+export ZSHRC_LOCAL_FILE_PATH=$ZSHRC_FILE_PATH$LOCAL_FIX
 export ALACRITTY_FILE_PATH="$HOME/.alacritty.yml"
 export TMUX_FILE_PATH="$HOME/.tmux.conf"
 export STARSHIP_FILE_PATH="$HOME/.starship.toml"
@@ -20,7 +20,7 @@ export DOWNLOADS_PATH="$HOME/Downloads"
 export PYENV_ROOT="$HOME/.pyenv"
 export PACKER_NVIM_PATH="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 export DEPS_DIR_PATH="$HOME/deps"
-export NOTES_PATH="$HOME/$LOCAL_AFFIX.notes"
+export NOTES_PATH="$HOME/$LOCAL_FIX.notes"
 
 ############
 # SOURCING #
@@ -72,7 +72,7 @@ autoload -U compinit promptinit
 ###########
 
 # DOTFILES
-alias zzl="vim $ZSHRC_FILE_PATH$LOCAL_AFFIX"
+alias zzl="vim $ZSHRC_FILE_PATH$LOCAL_FIX"
 alias applyz="source $ZSHRC_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
 
