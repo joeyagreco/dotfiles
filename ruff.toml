@@ -2,8 +2,15 @@
 
 # line-length = 10
 
-# [lint]
-# select = ["F401"]
-
+[lint]
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I001"
+]
 
 

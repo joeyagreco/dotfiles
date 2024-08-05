@@ -1,10 +1,9 @@
 import sys
 from urllib.parse import urlparse
 
-from util import print_color
-
 import pyperclip
 import requests
+from util import print_color
 
 
 def get_copied_text() -> str:
