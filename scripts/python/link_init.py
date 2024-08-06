@@ -15,7 +15,7 @@ if __name__ == "__main__":
         "Brewfile.lock.json",
         "package-lock.json",
         "akeyless",
-        ".ruff_cache"
+        ".ruff_cache",
     ]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
     if local_git_repo_path is None:
