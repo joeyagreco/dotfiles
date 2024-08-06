@@ -112,7 +112,6 @@ alias nn="cd $NOTES_PATH && nvim"
 # screenshot and save to downloads folder
 alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
 alias cls='clear'
-alias clearpanes="clear_all_panes && all_panes 'clearall'"
 alias speed='clearall && speedtest-cli --secure --no-upload'
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
@@ -126,7 +125,7 @@ alias vimcs='open "https://cheatography.com/marconlsantos/cheat-sheets/neovim/"'
 alias py="$PYTHON_COMMAND"
 # open up a project in pypi
 # o(pen)pypi
-alias opypi='function _pp(){ open "https://pypi.org/project/$1/"; }; _pp'
+alias opypi="f_opypi"
 # check name availability on pypi
 # a(vailability)pypi
 alias apypi=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/pypi_check.py"
@@ -190,9 +189,9 @@ function f_venvdown() {
 
 # open up the given repo
 function c() {
-	cd $LOCAL_GIT_REPO_PATH
+	cd $LOCAL_GIT_REPO_PATH || return
 	if [[ -n $1 ]]; then
-		cd "$1"
+		cd "$1" || return
 	fi
 }
 
@@ -239,11 +238,6 @@ function install_deps() {
 	fi
 }
 
-# clears all tmux panes
-function clear_all_panes() {
-	for pane in $(tmux list-panes -F '#{pane_id}'); do tmux send-keys -t $pane C-u; done
-}
-
 # executes the given command in all tmux panes
 function all_panes() {
 	if [ -z "$1" ]; then
@@ -284,6 +278,10 @@ function f_setup_cargo() {
 
 function f_note() {
 	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/notes.py" "$*"
+}
+
+function f_opypi() {
+	open "https://pypi.org/project/$1/"
 }
 
 #########################
