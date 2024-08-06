@@ -102,6 +102,7 @@ alias dd="tmux resize-pane -D"
 alias deps="install_deps"
 alias vi="vim"
 alias docker-compose="docker compose"
+alias dps="docker ps --format '{{.ID}} {{.Image}} {{.Status}}'"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias ls='eza'
