@@ -133,7 +133,6 @@ alias apypi=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/pypi_check.py"
 alias venv=$PYTHON_COMMAND "-m venv"
 alias venvup='f_venvup'
 alias venvdown='f_venvdown'
-alias venvlist=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/venv_check.py"
 # GIT
 alias gitco='git checkout'
 alias gitf='git fetch --all'
