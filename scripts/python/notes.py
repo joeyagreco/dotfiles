@@ -1,8 +1,8 @@
-from typing import Optional
+import os
+import subprocess
 import sys
 from datetime import datetime
-import subprocess
-import os
+from typing import Optional
 
 from util import (
     print_color,
