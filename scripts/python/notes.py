@@ -54,11 +54,8 @@ def open_file_in_nvim(file_path: str) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("-n", help="name of the note to be created", default="Untitled")
     parser.add_argument(
-        "--name", "-n", help="name of the note to be created", default="Untitled"
-    )
-    parser.add_argument(
-        "--ext",
         "-e",
         help="extension of the note to be created",
         default="txt",
@@ -67,5 +64,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     execute_command("clear")
     initial_setup()
-    new_note_path = create_new_note(name=args.name, extension=args.ext)
+    new_note_path = create_new_note(name=args.n, extension=args.e)
     open_file_in_nvim(new_note_path)
