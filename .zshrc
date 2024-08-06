@@ -107,7 +107,7 @@ alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias ls='eza'
 # create a new note
-alias note="f_note"
+alias note="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/notes.py"
 # open up notes in nvim
 alias nn="cd $NOTES_PATH && nvim"
 # screenshot and save to downloads folder
@@ -265,10 +265,6 @@ function f_setup_cargo() {
 		curl https://sh.rustup.rs -sSf | sh
 	fi
 	echo "finished setting up cargo"
-}
-
-function f_note() {
-	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/notes.py" "$*"
 }
 
 function f_opypi() {

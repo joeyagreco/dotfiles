@@ -1,3 +1,4 @@
+import argparse
 import os
 import subprocess
 import sys
@@ -35,12 +36,12 @@ def initial_setup() -> None:
             print_color("created!", color="green")
 
 
-def create_new_note(name: Optional[str] = None) -> str:
+def create_new_note(*, name: str, extension: str) -> str:
     name = name or "Untitled"
     name = name.replace(" ", "_")
     # timestamp = datetime.now().strftime("%Y.%m.%d_%H.%M.%S")
     timestamp = datetime.now().strftime("%Y%m%dT%H%M%S")
-    filename = f"{timestamp}_{name}.txt"
+    filename = f"{timestamp}_{name}.{extension}"
     new_note_path = os.path.join(NOTES_DIR, filename)
     open(new_note_path, "w")
     return new_note_path
@@ -52,11 +53,13 @@ def open_file_in_nvim(file_path: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print_color("note name required but not given", color="red")
-        exit(1)
-    note_name = sys.argv[1]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("name", help="name of the note to be created")
+    parser.add_argument(
+        "--ext", help="extension of the note to be created", default="txt"
+    )
+    args = parser.parse_args()
     execute_command("clear")
     initial_setup()
-    new_note_path = create_new_note(note_name)
+    new_note_path = create_new_note(name=args.name, extension=args.ext)
     open_file_in_nvim(new_note_path)
