@@ -37,7 +37,7 @@ def initial_setup() -> None:
 
 
 def create_new_note(*, name: str, extension: str) -> str:
-    name = name or "Untitled"
+    name = name
     name = name.replace(" ", "_")
     # timestamp = datetime.now().strftime("%Y.%m.%d_%H.%M.%S")
     timestamp = datetime.now().strftime("%Y%m%dT%H%M%S")
