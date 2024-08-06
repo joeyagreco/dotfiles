@@ -237,15 +237,6 @@ function install_deps() {
 	fi
 }
 
-# executes the given command in all tmux panes
-function all_panes() {
-	if [ -z "$1" ]; then
-		echo "Usage: all_panes <command>"
-		return 1
-	fi
-	tmux list-panes -F '#{pane_id}' | xargs -I {} tmux send-keys -t {} "$1" C-m
-}
-
 function f_setup_python() {
 	echo "setting up python"
 	# set up pyenv
