@@ -39,7 +39,6 @@ def initial_setup() -> None:
 def create_new_note(*, name: str, extension: str) -> str:
     name = name
     name = name.replace(" ", "_")
-    # timestamp = datetime.now().strftime("%Y.%m.%d_%H.%M.%S")
     timestamp = datetime.now().strftime("%Y%m%dT%H%M%S")
     filename = f"{timestamp}_{name}.{extension}"
     new_note_path = os.path.join(NOTES_DIR, filename)
@@ -54,7 +53,9 @@ def open_file_in_nvim(file_path: str) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-n", help="name of the note to be created", default="Untitled")
+    parser.add_argument(
+        "-n", help="name of the note to be created", type=str, default="Untitled"
+    )
     parser.add_argument(
         "-e",
         help="extension of the note to be created",
