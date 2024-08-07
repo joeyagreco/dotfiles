@@ -1,6 +1,13 @@
 -- https://github.com/nvim-tree/nvim-tree.lua/blob/12a9a995a455d2c2466e47140663275365a5d2fc/doc/nvim-tree-lua.txt#L376
 local constants = require("constants")
 
+-- set sort.sorter to this func for custom sorting
+-- local custom_sorter = function(nodes)
+-- 	table.sort(nodes, function(a, b)
+-- 		return #a.name > #b.name
+-- 	end)
+-- end
+
 require("nvim-tree").setup({
 	sort = {
 		sorter = "case_sensitive",
