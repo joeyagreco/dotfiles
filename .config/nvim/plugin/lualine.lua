@@ -1,4 +1,5 @@
 local lualine = require("lualine")
+local gitblame = require("gitblame")
 -- https://github.com/nvim-lualine/lualine.nvim
 lualine.setup({
 	options = {
@@ -38,6 +39,9 @@ lualine.setup({
 				"searchcount",
 				maxcount = 9999,
 				timeout = 500,
+			},
+			{
+				gitblame.get_current_blame_text,
 			},
 		},
 		lualine_y = { "filetype" },
