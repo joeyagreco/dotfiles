@@ -53,6 +53,9 @@ telescope.setup({
 			hidden = true,
 		},
 	},
+	extensions = {
+		live_grep_args = {},
+	},
 })
 
 -- this must be last
