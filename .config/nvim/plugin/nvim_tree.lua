@@ -1,16 +1,27 @@
 -- https://github.com/nvim-tree/nvim-tree.lua/blob/12a9a995a455d2c2466e47140663275365a5d2fc/doc/nvim-tree-lua.txt#L376
 local constants = require("constants")
+local nvim_tree = require("nvim-tree")
 
 -- set sort.sorter to this func for custom sorting
 -- local custom_sorter = function(nodes)
+-- 	local cwd = vim.loop.cwd()
+--
 -- 	table.sort(nodes, function(a, b)
--- 		return #a.name > #b.name
+-- 		-- Then sort by name based on the current directory
+-- 		if cwd == constants.NOTES_PATH then
+-- 			-- for notes folder, we want to show reverse alphabetical order
+-- 			-- this way, most recent notes are at the top
+-- 			return a.name > b.name
+-- 		else
+-- 			return nvim_tree.explorer.sorters.case_sensitive(a, b, {})
+-- 		end
 -- 	end)
 -- end
 
-require("nvim-tree").setup({
+nvim_tree.setup({
 	sort = {
 		sorter = "case_sensitive",
+		-- sorter = custom_sorter,
 	},
 	view = {
 		width = 40,

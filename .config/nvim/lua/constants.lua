@@ -2,6 +2,7 @@ local M = {}
 
 M.LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
 M.PYTHON_PATH = os.getenv("PYTHON_PATH")
+M.NOTES_PATH = os.getenv("NOTES_PATH")
 
 -- Function to find top-level .git directories
 local function find_top_level_git_dirs(base_path)
