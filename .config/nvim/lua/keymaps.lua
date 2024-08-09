@@ -8,7 +8,6 @@ local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
 -- C
--- con
 -- cn
 -- dif
 -- e
@@ -46,14 +45,6 @@ local map = vim.keymap.set
 ------------
 -- SEARCH --
 ------------
--- search for word that cursor is on
-map("n", "<leader>fw", function()
-	telescope_builtin.grep_string({
-		word_match = "-w",
-		search = vim.fn.expand("<cword>"),
-		cwd = vim.fn.getcwd(),
-	})
-end, helpers.combine_tables(default_options, { desc = "search for word under cursor" }))
 
 -- search for a word
 -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
@@ -133,7 +124,7 @@ end, helpers.combine_tables(default_options, { desc = "see lsp info with source"
 -- GIT --
 ---------
 
--- open up git  history for current file
+-- open up git history for current file
 map("n", "<leader>gh", function()
 	vim.cmd("DiffviewFileHistory %")
 end, helpers.combine_tables(default_options, { desc = "open up git history for current file" }))
@@ -166,14 +157,6 @@ map(
 	"<leader>gp",
 	git_signs.preview_hunk,
 	helpers.combine_tables(default_options, { desc = "git preview current hunk" })
-)
-
--- open merge conflicts in quickfix list
-map(
-	"n",
-	"<leader>con",
-	":GitConflictListQf<CR>",
-	helpers.combine_tables(default_options, { desc = "open merge conflicts in quickfix list" })
 )
 
 -------------
@@ -264,6 +247,6 @@ map(
 -- make "x" not copy text
 map("n", "x", '"_x', helpers.combine_tables(default_options, { desc = "make 'x' not copy text" }))
 
--- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+-- Using ufo provider need remap `zR` and `zM`
 map("n", "zR", ufo.openAllFolds, helpers.combine_tables(default_options, { desc = "ufo open all folds" }))
 map("n", "zM", ufo.closeAllFolds, helpers.combine_tables(default_options, { desc = "ufo open all folds" }))
