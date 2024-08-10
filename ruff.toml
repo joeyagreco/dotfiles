@@ -4,8 +4,6 @@
 
 [lint]
 select = [
-    # isort
-    "I001"
+   # isort
+   "I001",
 ]
-
-
