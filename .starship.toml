@@ -1,11 +1,11 @@
 [directory]
 disabled = false
-style = "#66b2b2" # teal from tmux status bar
 home_symbol = "🏠"
+style = "#66b2b2" # teal from tmux status bar
 
 [character]
-success_symbol = "[>](purple)"
 error_symbol = "[>](red)"
+success_symbol = "[>](purple)"
 vicmd_symbol = "[<](green)"
 
 [cmd_duration]
@@ -21,14 +21,14 @@ format = "[$branch]($style)"
 style = "bright-black"
 
 [git_status]
-format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind)]($style)"
-style = "bold red"
 conflicted = "⚡"
-untracked = "✷"
-modified = "✱"
-staged = "✓"
-renamed = "➤"
 deleted = "✗"
+format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind)]($style)"
+modified = "✱"
+renamed = "➤"
+staged = "✓"
+style = "bold red"
+untracked = "✷"
 
 [package]
 disabled = true
@@ -42,9 +42,9 @@ disabled = true
 [python]
 # does '(venv_name)' when in virtual env
 format = ' [(\($virtualenv\))]($style) '
+style = "bold red"
 symbol = ''
 version_format = ''
-style = "bold red"
 
 [docker_context]
 disabled = true

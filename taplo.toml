@@ -1,0 +1,7 @@
+[formatting]
+array_trailing_comma = true
+compact_arrays = false
+compact_inline_tables = false
+indent_string = "   "
+reorder_keys = true
+string_quote = "\""
