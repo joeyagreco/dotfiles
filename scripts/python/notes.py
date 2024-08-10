@@ -9,8 +9,8 @@ from util import (
     print_color,
 )
 
-NOTES_DIR = os.environ.get("NOTES_PATH")
-if NOTES_DIR is None:
+NOTES_DIR = os.environ.get("NOTES_PATH", "")
+if NOTES_DIR == "":
     print_color("could not load notes path from $NOTES_PATH", color="red")
     exit(1)
 
@@ -34,6 +34,9 @@ def initial_setup() -> None:
         if selection == "y":
             execute_command(f"mkdir {NOTES_DIR}")
             print_color("created!", color="green")
+        else:
+            print_color("note creation cancelled", color="yellow")
+            exit(0)
 
 
 def create_new_note(*, name: str, extension: str) -> str:
