@@ -46,6 +46,8 @@ lspconfig.marksman.setup(coq_setup({}))
 lspconfig.bashls.setup(coq_setup({
 	filetypes = { "sh", "zsh", "zshrc" },
 }))
+-- toml
+lspconfig.taplo.setup(coq_setup({}))
 -- proto
 lspconfig.protols.setup(coq_setup({}))
 -- typescript

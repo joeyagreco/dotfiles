@@ -10,11 +10,11 @@ vicmd_symbol = "[<](green)"
 
 [cmd_duration]
 format = " [$duration]($style) "
-style = "#fcff54" # yellow
+style = "#fcff54"                # yellow
 
 [battery]
-charging_symbol='🪫'
-full_symbol='🔋'
+charging_symbol = '🪫'
+full_symbol = '🔋'
 
 [git_branch]
 format = "[$branch]($style)"
