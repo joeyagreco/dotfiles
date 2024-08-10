@@ -22,13 +22,13 @@ style = "bright-black"
 
 [git_status]
 conflicted = "⚡"
-deleted = "✗"
+deleted = ""
 format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind)]($style)"
-modified = "✱"
-renamed = "➤"
+modified = "✗"
+renamed = "➜"
 staged = "✓"
 style = "bold red"
-untracked = "✷"
+untracked = "★"
 
 [package]
 disabled = true
