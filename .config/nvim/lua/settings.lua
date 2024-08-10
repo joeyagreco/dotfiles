@@ -6,6 +6,11 @@ vim.cmd([[
   augroup end
 ]])
 
+-- disable perl
+vim.g.loaded_perl_provider = 0
+-- disable ruby
+vim.g.loaded_ruby_provider = 0
+
 -- Define the custom filetype for files that start with "requirements" and end with ".txt"
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "requirements*.txt",
