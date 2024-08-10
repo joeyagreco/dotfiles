@@ -1,4 +1,4 @@
-def print_color(text, color=None):
+def print_color(text, color=""):
     color_codes = {
         "red": "\033[91m",
         "green": "\033[92m",
