@@ -1,6 +1,6 @@
 [directory]
 disabled = false
-style = "#4a69ff" # blue
+style = "#66b2b2" # teal from tmux status bar
 home_symbol = "🏠"
 
 [character]
@@ -21,8 +21,8 @@ format = "[$branch]($style)"
 style = "bright-black"
 
 [git_status]
-format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind)]($style)"
-style = "cyan"
+format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind)]($style)"
+style = "bold red"
 conflicted = "⚡"
 untracked = "✷"
 modified = "✱"
@@ -41,9 +41,10 @@ disabled = true
 
 [python]
 # does '(venv_name)' when in virtual env
-format = ' [(\($virtualenv\))](bold red) '
+format = ' [(\($virtualenv\))]($style) '
 symbol = ''
 version_format = ''
+style = "bold red"
 
 [docker_context]
 disabled = true
