@@ -37,6 +37,20 @@ nvim_tree.setup({
 	},
 	renderer = {
 		group_empty = true,
+		icons = {
+			glyphs = {
+				git = {
+
+					unstaged = "✗",
+					staged = "✓",
+					unmerged = "",
+					renamed = "➜",
+					untracked = "★",
+					deleted = "",
+					ignored = "◌",
+				},
+			},
+		},
 	},
 	update_focused_file = {
 		enable = true,
