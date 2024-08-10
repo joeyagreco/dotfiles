@@ -3,6 +3,11 @@ shell:
   args:
     - -l
 
+env:
+  # for true color support
+  # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+  TERM: xterm-256color
+
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
 # must be a "Nerd Font" for icons to work on nvim-tree
 font:
