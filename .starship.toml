@@ -28,7 +28,7 @@ modified = "✗"
 renamed = "➜"
 staged = "✓"
 style = "bold red"
-untracked = "★"
+untracked = "✷"
 
 [package]
 disabled = true
