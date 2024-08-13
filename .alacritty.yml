@@ -3,6 +3,14 @@ shell:
   args:
     - -l
 
+# start tmux
+command:
+  program: tmux
+  args:
+    - new-session
+    - -d
+    - zsh
+
 env:
   # for true color support
   # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
