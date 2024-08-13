@@ -1,6 +1,11 @@
 local lualine = require("lualine")
 local gitblame = require("gitblame")
 -- https://github.com/nvim-lualine/lualine.nvim
+
+local function get_line_count()
+	return vim.api.nvim_buf_line_count(0) .. " lines"
+end
+
 lualine.setup({
 	options = {
 		-- themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
@@ -17,6 +22,7 @@ lualine.setup({
 	globalstatus = true,
 	sections = {
 		lualine_a = { { "mode", padding = 2 } },
+		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = {
 			{
 				"filename",
@@ -45,12 +51,13 @@ lualine.setup({
 			},
 		},
 		lualine_y = { "filetype" },
-		lualine_z = {
-			{
-				"datetime",
-				style = "%A, %B %-d | %-I:%M %p",
-			},
-		},
+		lualine_z = { get_line_count },
+		-- lualine_z = {
+		-- 	{
+		-- 		"datetime",
+		-- 		style = "%A, %B %-d | %-I:%M %p",
+		-- 	},
+		-- },
 	},
 })
 
