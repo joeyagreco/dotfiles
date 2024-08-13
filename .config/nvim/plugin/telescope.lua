@@ -56,9 +56,7 @@ telescope.setup({
 	},
 	extensions = {
 		live_grep_args = {
-
 			mappings = {
-
 				i = {
 					["<C-q>"] = lga_actions.quote_prompt(),
 					-- freeze the current list and start a fuzzy search in the frozen list
