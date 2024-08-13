@@ -1,4 +1,5 @@
 local actions = require("telescope.actions")
+local lga_actions = require("telescope-live-grep-args.actions")
 local telescope = require("telescope")
 local previewers = require("telescope.previewers")
 
@@ -54,7 +55,17 @@ telescope.setup({
 		},
 	},
 	extensions = {
-		live_grep_args = {},
+		live_grep_args = {
+
+			mappings = {
+
+				i = {
+					["<C-q>"] = lga_actions.quote_prompt(),
+					-- freeze the current list and start a fuzzy search in the frozen list
+					["<C-r>"] = actions.to_fuzzy_refine,
+				},
+			},
+		},
 	},
 })
 
