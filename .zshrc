@@ -147,8 +147,6 @@ alias gcnv="git commit --no-verify"
 alias grb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n "
 # push to branch that only exists locally and set upstream
 alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
-# see what has been committed but not pushed for the current branch
-alias gcnp="git log origin/$(git rev-parse --abbrev-ref HEAD)..HEAD"
 
 #############
 # FUNCTIONS #
