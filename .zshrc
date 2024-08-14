@@ -51,6 +51,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # set up syntax highlighting
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# set up zoxide
+eval "$(zoxide init zsh)"
+
 # set up starship
 # https://starship.rs/
 export STARSHIP_CONFIG=$STARSHIP_FILE_PATH
@@ -106,6 +109,7 @@ alias dps="docker ps --format '{{.ID}} {{.Image}} {{.Status}}'"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias ls='eza'
+alias cd='z'
 # create a new note
 alias note="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/notes.py"
 # open up notes in nvim
