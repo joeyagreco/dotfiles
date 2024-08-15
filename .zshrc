@@ -100,12 +100,18 @@ alias ll="tmux resize-pane -L"
 alias uu="tmux resize-pane -U"
 alias dd="tmux resize-pane -D"
 
+# DOCKER
+
+alias docker-compose="docker compose"
+# list all docker info in a nice way
+alias dps="docker ps --format '{{.ID}} {{.Image}} {{.Status}}'"
+# stop all running containers
+alias dstop='docker stop $(docker ps -q)'
+
 # GENERAL QOL
 # install any dependencies
 alias deps="install_deps"
 alias vi="vim"
-alias docker-compose="docker compose"
-alias dps="docker ps --format '{{.ID}} {{.Image}} {{.Status}}'"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias ls='eza'
