@@ -94,14 +94,8 @@ alias tmkk="tmux kill-session -a"
 alias tml="tmux list-sessions"
 # create a new named tmux session
 alias tmn="tmux new-session -A -s"
-# resize current pane
-alias rr="tmux resize-pane -R"
-alias ll="tmux resize-pane -L"
-alias uu="tmux resize-pane -U"
-alias dd="tmux resize-pane -D"
 
 # DOCKER
-
 alias docker-compose="docker compose"
 # list all docker info in a nice way
 alias dps="docker ps --format '{{.ID}} {{.Image}} {{.Status}}'"
@@ -118,8 +112,8 @@ alias ls='eza'
 alias cd='z'
 # create a new note
 alias note="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/notes.py"
-# open up notes in nvim
-alias nn="cd $NOTES_PATH && nvim"
+# open up notes in nvim in a new tmux window
+alias nn="tmux new-window -c $NOTES_PATH nvim"
 # screenshot and save to downloads folder
 alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
 alias cls='clear'
