@@ -18,6 +18,9 @@ env:
   # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
   TERM: xterm-256color
 
+window:
+  startup_mode: "Fullscreen"
+
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
 # must be a "Nerd Font" for icons to work on nvim-tree
 font:
