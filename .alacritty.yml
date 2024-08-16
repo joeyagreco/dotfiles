@@ -1,3 +1,5 @@
+# https://alacritty.org/config-alacritty.html
+
 shell:
   program: /bin/zsh
   args:
@@ -35,7 +37,7 @@ scrolling:
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
-  hide_when_typing: false
+  hide_when_typing: true
   hints:
     launcher:
       program: open
