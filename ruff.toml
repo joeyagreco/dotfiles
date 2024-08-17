@@ -6,4 +6,5 @@
 select = [
    # isort
    "I001",
+   "F401",
 ]
