@@ -6,5 +6,6 @@
 select = [
    # isort
    "I001",
+   # remove unused imports
    "F401",
 ]
