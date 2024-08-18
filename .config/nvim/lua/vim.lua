@@ -1,5 +1,9 @@
 local constants = require("constants")
 
+-- set leader to SPACE
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- enable the live preview of substitution commands in a split window
 vim.opt.inccommand = "split"
 
@@ -23,3 +27,18 @@ vim.g.python3_host_prog = constants.PYTHON_PATH
 
 -- no splash screen on startup
 -- vim.opt.shortmess:append("I")
+
+-- enable smart indenting (see https://stackoverflow.com/questions/1204149/smart-wrap-in-vim)
+vim.opt.breakindent = true
+
+-- decrease updatetime to 250ms
+vim.opt.updatetime = 250
+
+-- set completeopt to have a better completion experience
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+-- enable persistent undo history
+vim.opt.undofile = true
+
+-- enable the sign column to prevent the screen from jumping
+vim.opt.signcolumn = "yes"

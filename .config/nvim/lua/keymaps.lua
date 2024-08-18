@@ -33,9 +33,6 @@ local helpers = require("helpers")
 -- R
 -- /
 
--- Set leader to SPACE
-vim.g.mapleader = " "
-
 local default_options = { noremap = true, silent = true }
 local map = vim.keymap.set
 
