@@ -7,6 +7,7 @@ brew "starship"
 brew "neovim"
 brew "prettier"
 brew "stylua"
+# like grep but for files and folder names
 brew "fd"
 brew "pyenv"
 brew "marksman"
@@ -17,7 +18,14 @@ brew "efm-langserver"
 brew "goenv"
 brew "clang-format"
 brew "universal-ctags"
+# linter for bash scripts
 brew "shellcheck"
 brew "eza"
 brew "stern"
 brew "zoxide"
+# json querying + pretty printing
+brew 'jq'
+# keep ZSH up to date
+brew 'zsh'
+# a more up to date version of curl than what macOS offers
+brew 'curl'
