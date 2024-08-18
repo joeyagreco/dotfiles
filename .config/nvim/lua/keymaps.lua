@@ -31,6 +31,7 @@ local helpers = require("helpers")
 -- qx
 -- r
 -- R
+-- w
 -- /
 
 local default_options = { noremap = true, silent = true }
@@ -166,6 +167,26 @@ map(
 	"<Space>",
 	"<Nop>",
 	helpers.combine_tables(default_options, { desc = "disabled space in normal and visual mode" })
+)
+
+-- save file
+map("n", "<leader>w", "<cmd>w<cr>", helpers.combine_tables(default_options, { desc = "save file" }))
+
+-- redo
+map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }))
+
+-- H and L to go to start and end of line (first/last char)
+map(
+	{ "n", "v" },
+	"H",
+	"^",
+	helpers.combine_tables(default_options, { desc = "go to first character in the current line" })
+)
+map(
+	{ "n", "v" },
+	"L",
+	"$",
+	helpers.combine_tables(default_options, { desc = "go to last character in the current line" })
 )
 
 -- comment out / uncomment line and selection
