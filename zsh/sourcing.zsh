@@ -2,7 +2,6 @@
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(pyenv global $PYTHON_VERSION)"
 eval "$(pyenv rehash)"
 # used as a constant in nvim
 export PYTHON_PATH=$(pyenv which python)
@@ -11,10 +10,8 @@ export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 
 # golang
 export GOENV_ROOT="$HOME/.goenv"
-# export GOROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
-eval "$(goenv global $GO_VERSION)"
 eval "$(goenv rehash)"
 
 # cargo

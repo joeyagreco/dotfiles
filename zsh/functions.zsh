@@ -77,7 +77,8 @@ function install_deps() {
 function f_setup_python() {
 	echo "setting up python"
 	# set up pyenv
-	eval "$(pyenv install -s $PYTHON_VERSION)"
+	# this installs if not exists
+	pyenv install -s $(cat .python-version)
 	echo "finished setting up python"
 }
 
@@ -87,7 +88,8 @@ function f_setup_golang() {
 	# then run `which go` again to ensure it is now set by goenv
 	echo "setting up golang..."
 	# set up goenv
-	eval "$(goenv install -s $GO_VERSION)"
+	# this installs if not exists
+	goenv install -s $(cat .go-version)
 	echo "finished setting up golang"
 }
 
