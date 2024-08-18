@@ -37,8 +37,65 @@ vim.opt.updatetime = 250
 -- set completeopt to have a better completion experience
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
--- enable persistent undo history
-vim.opt.undofile = true
-
 -- enable the sign column to prevent the screen from jumping
 vim.opt.signcolumn = "yes"
+
+-- enable syntax highlighting
+vim.cmd("syntax on")
+
+-- show line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- enable 24-bit RGB colors
+vim.opt.termguicolors = true
+
+-- always show the sign column
+vim.opt.signcolumn = "yes"
+
+-- disable compatibility with vi which can cause unexpected issues.
+vim.opt.compatible = false
+
+-- case insensitive search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- makes backspace work
+vim.opt.backspace = { "indent", "eol", "start" }
+
+-- enable filetype plugin and indent
+vim.cmd("filetype plugin indent on")
+
+-- highlight cursor line underneath the cursor horizontally.
+vim.opt.cursorline = true
+
+-- incremental search
+vim.opt.incsearch = true
+
+-- highlight matching parentheses/brackets/etc.
+vim.opt.showmatch = true
+
+-- persist undos even after closing file
+vim.opt.undofile = true
+
+-- do not wrap lines
+vim.opt.wrap = false
+
+-- show partial command in the last line of the screen
+vim.opt.showcmd = true
+
+-- set the commands to save in history, default number is 20.
+vim.opt.history = 1000
+
+-- ignore specific file types in wildmenu
+vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+
+-- number of spaces per tab
+vim.opt.softtabstop = 4
+
+-- enable smart tab and indent
+vim.opt.smarttab = true
+vim.opt.smartindent = true
+
+-- literal (not regex) searches
+vim.opt.magic = false
