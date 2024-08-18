@@ -1,7 +1,5 @@
 # THESE ARE GLOBAL
 export LOCAL_FIX=".local"
-export PYTHON_VERSION="3.12.5"
-export GO_VERSION="1.23"
 export PYTHON_COMMAND="python"
 export ZSHRC_FILE_PATH="$HOME/zsh/init.zsh"
 export ZSHRC_LOCAL_FILE_PATH=$ZSHRC_FILE_PATH$LOCAL_FIX
