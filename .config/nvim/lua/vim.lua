@@ -99,3 +99,8 @@ vim.opt.smartindent = true
 
 -- literal (not regex) searches
 vim.opt.magic = false
+
+-- disable perl
+vim.g.loaded_perl_provider = 0
+-- disable ruby
+vim.g.loaded_ruby_provider = 0
