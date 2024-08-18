@@ -11,6 +11,7 @@ export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 
 # golang
 export GOENV_ROOT="$HOME/.goenv"
+# export GOROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 eval "$(goenv global $GO_VERSION)"
