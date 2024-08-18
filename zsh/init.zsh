@@ -1,6 +1,6 @@
-source "$HOME/zsh/variables.zsh"
-source "$HOME/zsh/sourcing.zsh"
-source "$HOME/zsh/aliases.zsh"
-source "$HOME/zsh/functions.zsh"
+source "$ZSH_PATH/variables.zsh"
+source "$ZSH_PATH/sourcing.zsh"
+source "$ZSH_PATH/aliases.zsh"
+source "$ZSH_PATH/functions.zsh"
 # MUST STAY AT THE BOTTOM
-source "$HOME/.zshrc.local"
+source "$HOME/.zshrc$LOCAL_FIX"

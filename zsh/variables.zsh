@@ -1,4 +1,5 @@
 # THESE ARE GLOBAL
+export ZSH_PATH="$HOME/zsh"
 export LOCAL_FIX=".local"
 export PYTHON_COMMAND="python"
 export ZSHRC_FILE_PATH="$HOME/zsh/init.zsh"
