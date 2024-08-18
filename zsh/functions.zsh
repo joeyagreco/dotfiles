@@ -45,20 +45,6 @@ function c() {
 	fi
 }
 
-# download a youtube link to mp3
-function mp3() {
-	unsetopt glob
-	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/mp_download.py" "mp3" "$1"
-	setopt glob
-}
-
-# download a youtube link to mp4
-function mp4() {
-	unsetopt glob
-	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/mp_download.py" "mp4" "$1"
-	setopt glob
-}
-
 function install_deps() {
 	# create symlinks if needed
 	# THIS SHOULD BE FIRST
