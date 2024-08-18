@@ -41,15 +41,9 @@ alias nn="tmux new-window -c $NOTES_PATH nvim"
 # screenshot and save to downloads folder
 alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
 alias cls='clear'
-alias speed='clearall && speedtest-cli --secure --no-upload'
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
-# get shortened URL for given url (surl https://my/url) or for whatever url is copied to clipboard.
-# copies shortened URL to clipboard automatically
-# s(hort)url
-alias surl="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/surl.py "
-# vimc(heat)s(heet)
-alias vimcs='open "https://cheatography.com/marconlsantos/cheat-sheets/neovim/"'
+#
 # PYTHON
 alias py="$PYTHON_COMMAND"
 # open up a project in pypi
