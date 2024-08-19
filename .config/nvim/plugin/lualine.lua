@@ -1,6 +1,6 @@
+-- https://github.com/nvim-lualine/lualine.nvim
 local lualine = require("lualine")
 local gitblame = require("gitblame")
--- https://github.com/nvim-lualine/lualine.nvim
 
 local function get_line_count()
 	return vim.api.nvim_buf_line_count(0) .. " lines"
