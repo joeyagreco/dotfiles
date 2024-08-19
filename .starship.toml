@@ -30,6 +30,13 @@ staged = "✓ "
 style = "bold red"
 untracked = "✷ "
 
+[python]
+# does '(venv_name)' when in virtual env
+format = ' [(\($virtualenv\))]($style) '
+style = "bold red"
+symbol = ''
+version_format = ''
+
 [package]
 disabled = true
 
@@ -38,13 +45,6 @@ disabled = true
 
 [username]
 disabled = true
-
-[python]
-# does '(venv_name)' when in virtual env
-format = ' [(\($virtualenv\))]($style) '
-style = "bold red"
-symbol = ''
-version_format = ''
 
 [docker_context]
 disabled = true
