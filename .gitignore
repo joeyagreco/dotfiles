@@ -7,6 +7,7 @@ __pycache__
 .config/efm-langserver
 .config/op
 .config/gcloud
+.config/pgcli
 
 .ruff_cache
 
