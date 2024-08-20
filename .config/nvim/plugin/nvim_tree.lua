@@ -20,7 +20,7 @@ nvim_tree.setup({
 					unmerged = "",
 					renamed = "➜",
 					untracked = "✷",
-					deleted = "",
+					deleted = " ",
 					ignored = "◌",
 				},
 			},

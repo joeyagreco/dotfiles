@@ -22,7 +22,7 @@ style = "bright-black"
 
 [git_status]
 conflicted = "⚡"
-deleted = ""
+deleted = " "
 format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind)]($style)"
 modified = "✗"
 renamed = "➜"
