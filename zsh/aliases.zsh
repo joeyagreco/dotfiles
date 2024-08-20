@@ -1,5 +1,5 @@
 # DOTFILES
-alias zzl="vim $ZSHRC_FILE_PATH$LOCAL_FIX"
+alias zzl="nvim $HOME/.zshrc$LOCAL_FIX"
 alias applyz="source $ZSHRC_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
 
