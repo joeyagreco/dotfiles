@@ -21,14 +21,14 @@ format = "[$branch]($style)"
 style = "bright-black"
 
 [git_status]
-conflicted = "⚡ "
-deleted = " "
+conflicted = "⚡"
+deleted = ""
 format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind)]($style)"
-modified = "✗ "
-renamed = "➜ "
-staged = "✓ "
+modified = "✗"
+renamed = "➜"
+staged = "✓"
 style = "bold red"
-untracked = "✷ "
+untracked = "✷"
 
 [python]
 # does '(venv_name)' when in virtual env
