@@ -9,8 +9,8 @@ success_symbol = "[>](purple)"
 vicmd_symbol = "[<](green)"
 
 [cmd_duration]
-format = " [$duration]($style) "
-style = "#fcff54"                # yellow
+format = "[ $duration]($style)"
+style = "#fcff54"               # yellow
 
 [battery]
 charging_symbol = '🪫'
@@ -23,7 +23,7 @@ style = "bright-black"
 [git_status]
 conflicted = "⚡"
 deleted = "✗"
-format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind)]($style)"
+format = "[$conflicted( $untracked)( $modified)( $staged)( $renamed)( $deleted)( $ahead_behind)]($style)"
 modified = "✷"
 renamed = "➜"
 staged = "✓"
@@ -32,7 +32,7 @@ untracked = "✩"
 
 [python]
 # does '(venv_name)' when in virtual env
-format = ' [(\($virtualenv\))]($style) '
+format = '[( \($virtualenv\))]($style)'
 style = "bold red"
 symbol = ''
 version_format = ''
