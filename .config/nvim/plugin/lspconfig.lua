@@ -39,24 +39,34 @@ local coq_setup = coq.lsp_ensure_capabilities
 
 -- golang
 lspconfig.gopls.setup(coq_setup({}))
+
 -- markdown
 lspconfig.marksman.setup(coq_setup({}))
+
 -- zsh
 -- NOTE: use .shellcheckrc for configuration
 lspconfig.bashls.setup(coq_setup({
 	filetypes = { "sh", "zsh", "zshrc" },
 }))
+
 -- toml
 lspconfig.taplo.setup(coq_setup({}))
+
 -- proto
 lspconfig.protols.setup(coq_setup({}))
+
 -- typescript
 lspconfig.tsserver.setup(coq_setup({}))
+
 -- python
--- pyright config: https://github.com/microsoft/pyright/blob/main/docs/configuration.md
-lspconfig.pyright.setup(coq_setup({
-	cmd = { "pyright-langserver", "--stdio" },
-}))
+-- https://github.com/astral-sh/ruff-lsp
+lspconfig.ruff_lsp.setup(coq_setup({}))
+-- disabling to use only ruff-lsp
+-- -- pyright config: https://github.com/microsoft/pyright/blob/main/docs/configuration.md
+-- lspconfig.pyright.setup(coq_setup({
+-- 	cmd = { "pyright-langserver", "--stdio" },
+-- }))
+
 -- lua
 lspconfig.lua_ls.setup({
 	settings = {
@@ -74,9 +84,11 @@ lspconfig.yamlls.setup(coq_setup({
 	-- on_init = yaml_on_init,
 	filetypes = { "yaml", "yml", "yamlfmt" },
 }))
+
 -- makefile
 lspconfig.efm.setup(coq_setup({
 	filetypes = { "make" },
 }))
+
 -- vimrc
 lspconfig.vimls.setup(coq_setup({}))

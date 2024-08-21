@@ -2,3 +2,4 @@ yamlfmt~=1.1.1
 neovim~=0.3.1
 pyright~=1.1.376
 ruff~=0.6.1
+ruff-lsp~=0.0.55
