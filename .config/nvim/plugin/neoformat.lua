@@ -43,7 +43,7 @@ vim.g.neoformat_enabled_yaml = { "prettier" }
 vim.g.neoformat_enabled_yml = { "prettier" }
 vim.g.neoformat_enabled_python = { "ruff_check", "ruff_fmt" }
 vim.g.neoformat_enabled_proto = { "buf" }
-vim.g.neoformat_enabled_typescript = {}
+vim.g.neoformat_enabled_typescript = { "prettier" }
 
 -- Auto format on save using Neoformat
 vim.cmd([[
