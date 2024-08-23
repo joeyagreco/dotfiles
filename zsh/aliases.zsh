@@ -61,7 +61,7 @@ alias venvdown='f_venvdown'
 alias gitco='git checkout'
 alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty --no-verify -m '\''empty commit'\'' && git push'
-# [g]it[c]ommit[n]o[v]ericy
+# [g]it[c]ommit[n]o[v]erify
 alias gcnv="git commit --no-verify"
 # list the n most recent git branches
 # [g]it[r]ecent[b]ranches
