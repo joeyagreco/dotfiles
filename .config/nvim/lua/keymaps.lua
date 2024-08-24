@@ -265,3 +265,7 @@ map("n", "x", '"_x', helpers.combine_tables(default_options, { desc = "make 'x' 
 -- Using ufo provider need remap `zR` and `zM`
 map("n", "zR", ufo.openAllFolds, helpers.combine_tables(default_options, { desc = "ufo open all folds" }))
 map("n", "zM", ufo.closeAllFolds, helpers.combine_tables(default_options, { desc = "ufo open all folds" }))
+
+-- keep selection selected after > and <
+map("v", ">", ">gv", helpers.combine_tables(default_options, { desc = "keep selection selected after >" }))
+map("v", "<", "<gv", helpers.combine_tables(default_options, { desc = "keep selection selected after <" }))
