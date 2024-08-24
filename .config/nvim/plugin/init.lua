@@ -58,6 +58,8 @@ require("packer").startup(function(use)
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 	-- git conflicts
 	use({ "akinsho/git-conflict.nvim", tag = "*" })
+	-- surround
+	use({ "kylechui/nvim-surround", tag = "*" })
 end)
 
 -- auto compile plugins when plugin file is modified
