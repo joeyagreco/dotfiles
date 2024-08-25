@@ -1,9 +1,7 @@
 import argparse
 import os
 import subprocess
-import sys
 from datetime import datetime
-from typing import Optional
 
 from util import (
     print_color,
