@@ -34,6 +34,7 @@ alias ic="ping 8.8.8.8"
 alias home='cd ~'
 alias ls='eza'
 alias cd='z'
+alias nukerepo="$BASH_SCRIPTS_PATH/nuke_repo.sh"
 # create a new note
 alias note="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/notes.py"
 # open up notes in nvim in a new tmux window
