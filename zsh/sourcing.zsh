@@ -45,9 +45,9 @@ autoload -U compinit promptinit
 # no duplicates in terminal command history
 setopt HIST_IGNORE_DUPS
 
-# use the whole line to search with up and down arrows for history
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
+# history scrolling based on first word in input
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search   # Up
