@@ -44,3 +44,15 @@ autoload -U compinit promptinit
 
 # no duplicates in terminal command history
 setopt HIST_IGNORE_DUPS
+
+# history search based on what is currently typed
+function history_search() {
+	if [[ $LBUFFER ]]; then
+		zle history-beginning-search-backward
+	else
+		zle up-line-or-history
+	fi
+}
+
+zle -N history_search
+bindkey '^[[A' history_search # Bind the up arrow key to the function
