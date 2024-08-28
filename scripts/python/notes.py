@@ -28,8 +28,8 @@ def initial_setup() -> None:
     # check if notes folder exists
     if not os.path.isdir(NOTES_DIR):
         # doesn't exist, do setup
-        selection = input(f"create notes directory at '{NOTES_DIR}'?:\n(y/N): ")
-        if selection == "y":
+        selection = input(f"create notes directory at '{NOTES_DIR}'?:\n(Y/n): ")
+        if selection == "Y":
             execute_command(f"mkdir {NOTES_DIR}")
             print_color("created!", color="green")
         else:

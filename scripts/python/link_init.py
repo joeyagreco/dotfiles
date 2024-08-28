@@ -50,8 +50,8 @@ if __name__ == "__main__":
             continue
         # this link is expected, prompt to create it
         command = f"ln -s {os.path.join(terminal_path, link)} {link}"
-        selection = input(f"create link '{link}'?\ncommand: '{command}'\n(y/N): ")
-        if selection == "y":
+        selection = input(f"create link '{link}'?\ncommand: '{command}'\n(Y/n): ")
+        if selection == "Y":
             print(f"creating link '{link}' ...")
             # ensure we are in the correct dir
             os.chdir(home_dir_path)
