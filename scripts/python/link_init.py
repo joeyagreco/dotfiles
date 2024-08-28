@@ -76,9 +76,7 @@ if __name__ == "__main__":
             skipped_count += 1
 
     color = "green"
-    if skipped_count > 0:
-        color = "yellow"
-    elif err_count > 0:
+    if err_count > 0:
         color = "red"
     print_color(
         f"\nlinking complete: {created_count} created - {err_count} errors - {skipped_count} skips\n\n",
