@@ -61,11 +61,11 @@ lspconfig.tsserver.setup(coq_setup({}))
 -- python
 -- https://github.com/astral-sh/ruff-lsp
 lspconfig.ruff_lsp.setup(coq_setup({}))
--- disabling to use only ruff-lsp
--- -- pyright config: https://github.com/microsoft/pyright/blob/main/docs/configuration.md
--- lspconfig.pyright.setup(coq_setup({
--- 	cmd = { "pyright-langserver", "--stdio" },
--- }))
+-- ruff lsp doesn't do "go to definition" well, so use pyright too
+-- pyright config: https://github.com/microsoft/pyright/blob/main/docs/configuration.md
+lspconfig.pyright.setup(coq_setup({
+	cmd = { "pyright-langserver", "--stdio" },
+}))
 
 -- lua
 lspconfig.lua_ls.setup({
