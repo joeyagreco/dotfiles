@@ -42,6 +42,7 @@ if __name__ == "__main__":
     home_dir_existing_links = os.listdir(home_dir_path)
     err_count = 0
     skipped_count = 0
+    created_count = 0
 
     for link in links:
         if link in home_dir_existing_links:
@@ -69,6 +70,7 @@ if __name__ == "__main__":
                     "success!",
                     color="green",
                 )
+                created_count += 1
         else:
             print(f"skipping creation of link '{link}' ...")
             skipped_count += 1
@@ -79,6 +81,6 @@ if __name__ == "__main__":
     elif err_count > 0:
         color = "red"
     print_color(
-        f"\nlinks creation completed with {err_count} errors and {skipped_count} skips\n\n",
+        f"\nlinking complete: {created_count} created - {err_count} errors - {skipped_count} skips\n\n",
         color=color,
     )
