@@ -46,6 +46,8 @@ vim.g.neoformat_enabled_yml = {}
 vim.g.neoformat_enabled_python = { "ruff_check", "ruff_fmt" }
 vim.g.neoformat_enabled_proto = { "buf" }
 vim.g.neoformat_enabled_typescript = { "prettier" }
+-- don't want to format .tsx files
+vim.g.neoformat_enabled_typescriptreact = {}
 
 -- Auto format on save using Neoformat
 vim.cmd([[
