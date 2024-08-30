@@ -36,6 +36,7 @@ vim.g.neoformat_python_ruff_fmt = {
 -- 	replace = 1,
 -- }
 
+-- to see what filetype to put here, run ":set filetype?" in any buffer to see what to put it as
 vim.g.neoformat_enabled_sh = { "shfmt" }
 vim.g.neoformat_enabled_zsh = { "shfmt" }
 vim.g.neoformat_enabled_go = { "gofmt", "goimports" }
