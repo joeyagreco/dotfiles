@@ -36,6 +36,7 @@ vim.g.neoformat_python_ruff_fmt = {
 -- 	replace = 1,
 -- }
 
+-- to see what filetype to put here, run ":set filetype?" in any buffer to see what to put it as
 vim.g.neoformat_enabled_sh = { "shfmt" }
 vim.g.neoformat_enabled_zsh = { "shfmt" }
 vim.g.neoformat_enabled_go = { "gofmt", "goimports" }
@@ -46,6 +47,8 @@ vim.g.neoformat_enabled_yml = {}
 vim.g.neoformat_enabled_python = { "ruff_check", "ruff_fmt" }
 vim.g.neoformat_enabled_proto = { "buf" }
 vim.g.neoformat_enabled_typescript = { "prettier" }
+-- don't want to format .tsx files
+vim.g.neoformat_enabled_typescriptreact = {}
 
 -- Auto format on save using Neoformat
 vim.cmd([[
