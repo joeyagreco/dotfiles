@@ -12,10 +12,6 @@ vicmd_symbol = "[<](green)"
 format = "[ $duration]($style)"
 style = "#fcff54"               # yellow
 
-[battery]
-charging_symbol = '🪫'
-full_symbol = '🔋'
-
 [git_branch]
 format = "[$branch]($style)"
 style = "bright-black"
@@ -36,6 +32,11 @@ format = '[( \($virtualenv\))]($style)'
 style = "bold red"
 symbol = ''
 version_format = ''
+
+[battery]
+disabled = true
+# charging_symbol = '🪫'
+# full_symbol = '🔋'
 
 [package]
 disabled = true
