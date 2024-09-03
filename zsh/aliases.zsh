@@ -15,7 +15,7 @@ alias tmk="tmux kill-session -t"
 # kill all sessions except the current
 alias tmkk="tmux kill-session -a"
 # list all tmux sessions
-alias tml="tmux list-sessions"
+alias tml="tmux list-sessions -F '#{session_name}'"
 # create a new named tmux session
 alias tmn="tmux new-session -A -s"
 
