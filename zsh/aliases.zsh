@@ -44,7 +44,7 @@ alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H
 alias cls='clear'
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
-#
+
 # PYTHON
 alias py="$PYTHON_COMMAND"
 # open up a project in pypi
