@@ -43,6 +43,9 @@ vim.opt.signcolumn = "yes"
 -- enable syntax highlighting
 vim.cmd("syntax on")
 
+-- line padding with H and L
+vim.opt.scrolloff = 5
+
 -- show line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true

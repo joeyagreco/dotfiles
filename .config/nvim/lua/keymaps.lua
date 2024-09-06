@@ -175,19 +175,19 @@ map("n", "<leader>w", "<cmd>w<cr>", helpers.combine_tables(default_options, { de
 -- redo
 map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }))
 
--- H and L to go to start and end of line (first/last char)
-map(
-	{ "n", "v" },
-	"H",
-	"^",
-	helpers.combine_tables(default_options, { desc = "go to first character in the current line" })
-)
-map(
-	{ "n", "v" },
-	"L",
-	"$",
-	helpers.combine_tables(default_options, { desc = "go to last character in the current line" })
-)
+-- -- H and L to go to start and end of line (first/last char)
+-- map(
+-- 	{ "n", "v" },
+-- 	"H",
+-- 	"^",
+-- 	helpers.combine_tables(default_options, { desc = "go to first character in the current line" })
+-- )
+-- map(
+-- 	{ "n", "v" },
+-- 	"L",
+-- 	"$",
+-- 	helpers.combine_tables(default_options, { desc = "go to last character in the current line" })
+-- )
 
 -- comment out / uncomment line and selection
 map(
