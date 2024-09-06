@@ -2,6 +2,7 @@
 local constants = require("constants")
 local nvim_tree = require("nvim-tree")
 
+-- :help nvim-tree-opts
 nvim_tree.setup({
 	sort = {
 		sorter = "case_sensitive",
@@ -47,5 +48,7 @@ nvim_tree.setup({
 		git_clean = false,
 		no_buffer = false,
 		no_bookmark = false,
+		-- always show these files in the tree
+		exclude = { ".env" },
 	},
 })
