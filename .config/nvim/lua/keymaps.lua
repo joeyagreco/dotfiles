@@ -14,14 +14,13 @@ local helpers = require("helpers")
 -- ff
 -- fr
 -- fs
+-- gb
 -- gd
--- gh
 -- gp
 -- gr
 -- gR
 -- gu
 -- ho
--- i
 -- K
 -- l
 -- L
@@ -105,11 +104,6 @@ map(
 -- rename symbol (change name)
 map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
--- auto import
-map("n", "<leader>i", function()
-	vim.lsp.buf.code_action({ source = { organizeImports = true } })
-end, helpers.combine_tables(default_options, { desc = "go to last buffer" }))
-
 -- see lsp info
 map("n", "<leader>L", function()
 	vim.diagnostic.open_float(nil, { source = "always" })
@@ -120,7 +114,7 @@ end, helpers.combine_tables(default_options, { desc = "see lsp info with source"
 ---------
 
 -- open up git history for current file
-map("n", "<leader>gh", function()
+map("n", "<leader>gb", function()
 	vim.cmd("DiffviewFileHistory %")
 end, helpers.combine_tables(default_options, { desc = "open up git history for current file" }))
 
@@ -174,20 +168,6 @@ map("n", "<leader>w", "<cmd>w<cr>", helpers.combine_tables(default_options, { de
 
 -- redo
 map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }))
-
--- -- H and L to go to start and end of line (first/last char)
--- map(
--- 	{ "n", "v" },
--- 	"H",
--- 	"^",
--- 	helpers.combine_tables(default_options, { desc = "go to first character in the current line" })
--- )
--- map(
--- 	{ "n", "v" },
--- 	"L",
--- 	"$",
--- 	helpers.combine_tables(default_options, { desc = "go to last character in the current line" })
--- )
 
 -- comment out / uncomment line and selection
 map(
