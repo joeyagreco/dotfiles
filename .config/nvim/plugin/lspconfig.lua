@@ -56,7 +56,7 @@ lspconfig.taplo.setup(coq_setup({}))
 lspconfig.protols.setup(coq_setup({}))
 
 -- typescript
-lspconfig.tsserver.setup(coq_setup({}))
+lspconfig.ts_ls.setup(coq_setup({}))
 
 -- python
 -- https://github.com/astral-sh/ruff-lsp
