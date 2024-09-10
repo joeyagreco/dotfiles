@@ -13,6 +13,6 @@ vim.api.nvim_create_user_command("Con", "GitConflictListQf", { desc = "open merg
 -- show and copy to clipboard the pwd of the current buffer
 vim.api.nvim_create_user_command("Pwd", function()
 	local pwd = vim.fn.expand("%:p:h")
-	vim.fn.setreg("+", pwd) -- Copy to system clipboard
+	vim.fn.setreg("+", pwd)
 	print(pwd)
-end, { desc = "Show and copy to clipboard the pwd of the current buffer" })
+end, { desc = "show and copy to clipboard the pwd of the current buffer" })
