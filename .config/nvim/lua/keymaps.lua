@@ -14,7 +14,6 @@ local helpers = require("helpers")
 -- ff
 -- fr
 -- fs
--- gb
 -- gd
 -- gp
 -- gr
@@ -112,11 +111,6 @@ end, helpers.combine_tables(default_options, { desc = "see lsp info with source"
 ---------
 -- GIT --
 ---------
-
--- open up git history for current file
-map("n", "<leader>gb", function()
-	vim.cmd("DiffviewFileHistory %")
-end, helpers.combine_tables(default_options, { desc = "open up git history for current file" }))
 
 -- copy url of current line in git
 map("n", "<leader>gu", function()

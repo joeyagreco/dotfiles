@@ -16,3 +16,6 @@ vim.api.nvim_create_user_command("Pwd", function()
 	vim.fn.setreg("+", pwd)
 	print(pwd)
 end, { desc = "show and copy to clipboard the pwd of the current buffer" })
+
+-- show git blame for current buffer
+vim.api.nvim_create_user_command("Blame", "DiffviewFileHistory %", { desc = "show git blame for current buffer" })

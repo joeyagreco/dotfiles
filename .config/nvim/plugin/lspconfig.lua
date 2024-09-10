@@ -72,8 +72,8 @@ lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				-- prevents "undefined global 'vim'"
-				globals = { "vim" },
+				-- prevents "undefined global '<thing>'"
+				globals = { "vim", "ngx" },
 			},
 		},
 	},
