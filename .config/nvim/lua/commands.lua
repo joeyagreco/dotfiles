@@ -19,3 +19,9 @@ end, { desc = "show and copy to clipboard the pwd of the current buffer" })
 
 -- show git blame for current buffer
 vim.api.nvim_create_user_command("Blame", "DiffviewFileHistory %", { desc = "show git blame for current buffer" })
+
+-- copy url of current line in git
+vim.api.nvim_create_user_command("Url", function()
+	vim.cmd("GitBlameCopyFileURL")
+	print("git url copied")
+end, { desc = "copy url of current line in git" })

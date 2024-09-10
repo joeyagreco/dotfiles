@@ -18,7 +18,6 @@ local helpers = require("helpers")
 -- gp
 -- gr
 -- gR
--- gu
 -- ho
 -- K
 -- l
@@ -112,12 +111,6 @@ end, helpers.combine_tables(default_options, { desc = "see lsp info with source"
 -- GIT --
 ---------
 
--- copy url of current line in git
-map("n", "<leader>gu", function()
-	vim.cmd("GitBlameCopyFileURL")
-	print("git url copied")
-end, helpers.combine_tables(default_options, { desc = "copy url of current line in git" }))
-
 -- reset current cursor hunk
 map(
 	"n",
@@ -156,9 +149,6 @@ map(
 	"<Nop>",
 	helpers.combine_tables(default_options, { desc = "disabled space in normal and visual mode" })
 )
-
--- save file
-map("n", "<leader>w", "<cmd>w<cr>", helpers.combine_tables(default_options, { desc = "save file" }))
 
 -- redo
 map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }))
