@@ -4,3 +4,5 @@ require("vim")
 require("keymaps")
 require("autocommands")
 require("commands")
+-- needs to be last
+require("config.lazy")
