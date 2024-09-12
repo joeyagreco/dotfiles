@@ -1,6 +1,6 @@
 return {
 	"kevinhwang91/nvim-ufo",
-	requires = "kevinhwang91/promise-async",
+	dependencies = "kevinhwang91/promise-async",
 	config = function()
 		-- https://github.com/kevinhwang91/nvim-ufo
 		local ufo = require("ufo")

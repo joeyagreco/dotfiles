@@ -1,8 +1,12 @@
--- we do theme first so in case we have an issue with config at least we can fix it while neovim looks nice
-require("theme")
+-- vim settings come before lazy
 require("vim")
-require("keymaps")
-require("autocommands")
-require("commands")
--- needs to be last
 require("config.lazy")
+-- we do theme before anything else so in case we have an issue with config at least we can fix it while neovim looks nice
+require("theme")
+-- TODO: use lazy autocommands: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
+require("autocommands")
+require("constants")
+require("helpers")
+require("commands")
+-- TODO: use lazy keymaps: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+require("keymaps")

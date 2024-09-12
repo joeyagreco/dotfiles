@@ -1,3 +1,12 @@
+-- since we show search count on lualine, we can disable it from the command line
+vim.opt.shortmess:append("S")
+
+-- always show the status bar and only show ONE status bar
+-- source: https://neovim.io/doc/user/options.html#'laststatus'
+-- i don't think this would be needed if globalstatus config played well with alpha dashboard
+-- but it doesn't so this is a workaround that seems to be unintrusive
+vim.o.laststatus = 3
+
 return {
 	"nvim-lualine/lualine.nvim",
 	requires = { "nvim-tree/nvim-web-devicons", opt = true },
@@ -64,14 +73,5 @@ return {
 				-- },
 			},
 		})
-
-		-- since we show search count on lualine, we can disable it from the command line
-		vim.opt.shortmess:append("S")
-
-		-- always show the status bar and only show ONE status bar
-		-- source: https://neovim.io/doc/user/options.html#'laststatus'
-		-- i don't think this would be needed if globalstatus config played well with alpha dashboard
-		-- but it doesn't so this is a workaround that seems to be unintrusive
-		vim.o.laststatus = 3
 	end,
 }

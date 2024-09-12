@@ -42,42 +42,44 @@ local map = vim.keymap.set
 -- search for a word
 -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 map(
-	"n",
-	"<leader>s",
-	telescope.extensions.live_grep_args.live_grep_args,
-	helpers.combine_tables(default_options, { desc = "search for words" })
+    "n",
+    "<leader>s",
+    telescope.extensions.live_grep_args.live_grep_args,
+    helpers.combine_tables(default_options, { desc = "search for words" })
 )
+-- map({ "n", "x" }, "<leader>s", telescope.extensions.live_grep_args.live_grep_args,
+--     { desc = "Down", expr = true, silent = true })
 
 -- find files
 map("n", "<leader>f", telescope_builtin.find_files, helpers.combine_tables(default_options, { desc = "find files" }))
 
 -- go to definition for whatever the cursor is on
 map(
-	"n",
-	"<leader>gd",
-	vim.lsp.buf.definition,
-	helpers.combine_tables(default_options, { desc = "go to definition for word under cursor" })
+    "n",
+    "<leader>gd",
+    vim.lsp.buf.definition,
+    helpers.combine_tables(default_options, { desc = "go to definition for word under cursor" })
 )
 
 -- find old (open up telescope search with previous search)
 map(
-	"n",
-	"<leader>o",
-	telescope_builtin.resume,
-	helpers.combine_tables(default_options, { desc = "resume previous search" })
+    "n",
+    "<leader>o",
+    telescope_builtin.resume,
+    helpers.combine_tables(default_options, { desc = "resume previous search" })
 )
 
 -- toggle recent files scoped to this directory
 map("n", "<leader>r", function()
-	telescope_builtin.oldfiles({ cwd = vim.fn.getcwd() })
+    telescope_builtin.oldfiles({ cwd = vim.fn.getcwd() })
 end, helpers.combine_tables(default_options, { desc = "see recent files" }))
 
 -- toggle recent files with no scope (show all recent files)
 map(
-	"n",
-	"<leader>R",
-	telescope_builtin.oldfiles,
-	helpers.combine_tables(default_options, { desc = "see recent files" })
+    "n",
+    "<leader>R",
+    telescope_builtin.oldfiles,
+    helpers.combine_tables(default_options, { desc = "see recent files" })
 )
 
 ---------
@@ -86,18 +88,18 @@ map(
 
 -- get lsp info for whatever the cursor is on
 map(
-	"n",
-	"K",
-	vim.lsp.buf.hover,
-	helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" })
+    "n",
+    "K",
+    vim.lsp.buf.hover,
+    helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" })
 )
 
 -- find usages (references) for whatever cursor is on
 map(
-	"n",
-	"<leader>u",
-	telescope_builtin.lsp_references,
-	helpers.combine_tables(default_options, { desc = "find references" })
+    "n",
+    "<leader>u",
+    telescope_builtin.lsp_references,
+    helpers.combine_tables(default_options, { desc = "find references" })
 )
 
 -- rename symbol (change name)
@@ -105,7 +107,7 @@ map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_option
 
 -- see lsp info
 map("n", "<leader>L", function()
-	vim.diagnostic.open_float(nil, { source = "always" })
+    vim.diagnostic.open_float(nil, { source = "always" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
 
 ---------
@@ -114,26 +116,26 @@ end, helpers.combine_tables(default_options, { desc = "see lsp info with source"
 
 -- reset current cursor hunk
 map(
-	"n",
-	"<leader>gr",
-	git_signs.reset_hunk,
-	helpers.combine_tables(default_options, { desc = "git reset current hunk" })
+    "n",
+    "<leader>gr",
+    git_signs.reset_hunk,
+    helpers.combine_tables(default_options, { desc = "git reset current hunk" })
 )
 
 -- reset all hunks in current file/buffer
 map(
-	"n",
-	"<leader>gR",
-	git_signs.reset_buffer,
-	helpers.combine_tables(default_options, { desc = "git reset current buffer" })
+    "n",
+    "<leader>gR",
+    git_signs.reset_buffer,
+    helpers.combine_tables(default_options, { desc = "git reset current buffer" })
 )
 
 -- preview current cursor hunk
 map(
-	"n",
-	"<leader>gp",
-	git_signs.preview_hunk,
-	helpers.combine_tables(default_options, { desc = "git preview current hunk" })
+    "n",
+    "<leader>gp",
+    git_signs.preview_hunk,
+    helpers.combine_tables(default_options, { desc = "git preview current hunk" })
 )
 
 -------------
@@ -145,10 +147,10 @@ map("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc
 
 -- disable space in normal and visual mode
 map(
-	{ "n", "v" },
-	"<Space>",
-	"<Nop>",
-	helpers.combine_tables(default_options, { desc = "disabled space in normal and visual mode" })
+    { "n", "v" },
+    "<Space>",
+    "<Nop>",
+    helpers.combine_tables(default_options, { desc = "disabled space in normal and visual mode" })
 )
 
 -- redo
@@ -156,25 +158,25 @@ map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }
 
 -- comment out / uncomment line and selection
 map(
-	"n",
-	"<leader>/",
-	comment.toggle.linewise.current,
-	helpers.combine_tables(default_options, { desc = "comment current line" })
+    "n",
+    "<leader>/",
+    comment.toggle.linewise.current,
+    helpers.combine_tables(default_options, { desc = "comment current line" })
 )
 
 map(
-	"v",
-	"<leader>/",
-	'<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
-	helpers.combine_tables(default_options, { desc = "comment current selection" })
+    "v",
+    "<leader>/",
+    '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
+    helpers.combine_tables(default_options, { desc = "comment current selection" })
 )
 
 -- clean and update plugins
 map(
-	"n",
-	"<leader>p",
-	helpers.clean_and_update_plugins,
-	helpers.combine_tables(default_options, { desc = "clean and update plugins" })
+    "n",
+    "<leader>p",
+    helpers.clean_and_update_plugins,
+    helpers.combine_tables(default_options, { desc = "clean and update plugins" })
 )
 
 -- close tab
@@ -197,31 +199,31 @@ map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = 
 
 -- toggle on / focus on explorer
 map("n", "<leader>e", function()
-	nvim_tree.tree.open({ focus = true })
+    nvim_tree.tree.open({ focus = true })
 end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
 
 -- focus from nvim tree -> main buffer
 map(
-	"n",
-	"<leader>E",
-	":wincmd l<CR>",
-	helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
+    "n",
+    "<leader>E",
+    ":wincmd l<CR>",
+    helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
 )
 
 -- 'if __name__ == "__main__"'
 map(
-	"n",
-	"<leader>inm",
-	'iif __name__ == "__main__":<Esc>o',
-	helpers.combine_tables(default_options, { desc = "if name == main" })
+    "n",
+    "<leader>inm",
+    'iif __name__ == "__main__":<Esc>o',
+    helpers.combine_tables(default_options, { desc = "if name == main" })
 )
 
 -- turn search highlighting off
 map(
-	"n",
-	"<leader>ho",
-	":nohlsearch<CR>",
-	helpers.combine_tables(default_options, { desc = "turn off vim search highlights" })
+    "n",
+    "<leader>ho",
+    ":nohlsearch<CR>",
+    helpers.combine_tables(default_options, { desc = "turn off vim search highlights" })
 )
 
 -- make "x" not copy text
