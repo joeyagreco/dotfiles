@@ -14,6 +14,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- https://lazy.folke.io/configuration
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
@@ -23,7 +24,18 @@ require("lazy").setup({
 	},
 	install = { colorscheme = { "habamax" } },
 	checker = { enabled = true },
+	change_detection = {
+		enabled = true,
+		notify = false,
+	},
 	defaults = {
 		version = "*",
+	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				-- "foo"
+			},
+		},
 	},
 })

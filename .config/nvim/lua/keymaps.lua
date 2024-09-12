@@ -11,9 +11,7 @@ local helpers = require("helpers")
 -- cn
 -- e
 -- E
--- ff
--- fr
--- fs
+-- f
 -- gd
 -- gp
 -- gr
@@ -22,12 +20,15 @@ local helpers = require("helpers")
 -- K
 -- l
 -- L
+-- o
 -- p
 -- qo
 -- qq
 -- qx
 -- r
 -- R
+-- s
+-- u
 -- w
 -- /
 
@@ -42,13 +43,13 @@ local map = vim.keymap.set
 -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 map(
 	"n",
-	"<leader>fs",
+	"<leader>s",
 	telescope.extensions.live_grep_args.live_grep_args,
 	helpers.combine_tables(default_options, { desc = "search for words" })
 )
 
 -- find files
-map("n", "<leader>ff", telescope_builtin.find_files, helpers.combine_tables(default_options, { desc = "find files" }))
+map("n", "<leader>f", telescope_builtin.find_files, helpers.combine_tables(default_options, { desc = "find files" }))
 
 -- go to definition for whatever the cursor is on
 map(
@@ -61,7 +62,7 @@ map(
 -- find old (open up telescope search with previous search)
 map(
 	"n",
-	"<leader>fo",
+	"<leader>o",
 	telescope_builtin.resume,
 	helpers.combine_tables(default_options, { desc = "resume previous search" })
 )
@@ -91,10 +92,10 @@ map(
 	helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" })
 )
 
--- find references for whatever cursor is on
+-- find usages (references) for whatever cursor is on
 map(
 	"n",
-	"<leader>fr",
+	"<leader>u",
 	telescope_builtin.lsp_references,
 	helpers.combine_tables(default_options, { desc = "find references" })
 )
