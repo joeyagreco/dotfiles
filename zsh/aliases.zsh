@@ -1,9 +1,15 @@
-# DOTFILES
+############
+# DOTFILES #
+############
+
 alias zzl="nvim $HOME/.zshrc$LOCAL_FIX"
 alias applyz="source $ZSHRC_FILE_PATH"
 alias applyt="tmux source-file $TMUX_FILE_PATH"
 
-# TMUX
+########
+# TMUX #
+########
+
 # attach to a session by name
 alias tma="tmux attach -t"
 # attach to the last session
@@ -19,14 +25,20 @@ alias tml="tmux list-sessions -F '#{session_name}'"
 # create a new named tmux session
 alias tmn="tmux new-session -A -s"
 
-# DOCKER
+##########
+# DOCKER #
+##########
+
 alias docker-compose="docker compose"
 # list all docker info in a nice way
 alias dps="docker ps --format '{{.ID}} {{.Image}} {{.Status}}'"
 # stop all running containers
 alias dstop='docker stop $(docker ps -q)'
 
-# GENERAL QOL
+###############
+# GENERAL QOL #
+###############
+
 # install any dependencies
 alias deps="install_deps"
 alias vi="vim"
@@ -45,7 +57,10 @@ alias cls='clear'
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
 
-# PYTHON
+##########
+# PYTHON #
+##########
+
 alias py="$PYTHON_COMMAND"
 # open up a project in pypi
 # o(pen)pypi
@@ -58,7 +73,10 @@ alias venv=$PYTHON_COMMAND "-m venv"
 alias venvup='f_venvup'
 alias venvdown='f_venvdown'
 
-# GIT
+#######
+# GIT #
+#######
+
 alias gitco='git checkout'
 alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty --no-verify -m '\''empty commit'\'' && git push'

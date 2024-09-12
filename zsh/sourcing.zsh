@@ -1,4 +1,7 @@
-# python
+##########
+# PYTHON #
+##########
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
@@ -9,16 +12,26 @@ export PYTHON_PATH=$(pyenv which python)
 # configure pyright
 export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 
-# golang
+##########
+# GOLANG #
+##########
+
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"
 eval "$(goenv init -)"
 eval "$(goenv rehash)"
 
-# cargo
+#########
+# CARGO #
+#########
+
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+###########
+# GENERAL #
+###########
 
 # set up syntax highlighting
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
