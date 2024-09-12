@@ -1,4 +1,4 @@
--- Define the custom filetype for files that start with "requirements" and end with ".txt"
+-- set filetype to requirements for all files that start with requirements and end with .txt
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "requirements*.txt",
 	callback = function()
@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	desc = "Set filetype to requirements for files matching requirements*.txt",
 })
 
+-- set filetype to yaml for .yamlfmt files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.yamlfmt",
 	callback = function()
@@ -22,5 +23,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight selection on yank",
 	callback = function()
 		vim.highlight.on_yank({ timeout = 100, visual = true })
+	end,
+})
+
+-- disable automatic comment insertion
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
 	end,
 })
