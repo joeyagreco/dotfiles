@@ -23,8 +23,8 @@ local helpers = require("helpers")
 -- o
 -- p
 -- qo
--- qq
 -- qx
+-- Q
 -- r
 -- R
 -- s
@@ -143,7 +143,7 @@ map(
 -------------
 
 -- quit vim
-map("n", "<leader>qq", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
+map("n", "<leader>Q", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
 
 -- disable space in normal and visual mode
 map(
