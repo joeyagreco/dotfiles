@@ -1,3 +1,4 @@
 return {
-	"marko-cerovac/material.nvim",
+    "marko-cerovac/material.nvim",
+    lazy = true,
 }

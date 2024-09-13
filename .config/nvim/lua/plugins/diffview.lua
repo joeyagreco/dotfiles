@@ -1,7 +1,8 @@
+-- https://github.com/sindrets/diffview.nvim
 return {
-	"sindrets/diffview.nvim",
-	config = function()
-		-- https://github.com/sindrets/diffview.nvim
-		require("diffview").setup()
-	end,
+    "sindrets/diffview.nvim",
+    lazy = true,
+    config = function()
+        require("diffview").setup()
+    end,
 }

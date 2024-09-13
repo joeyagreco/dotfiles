@@ -1,5 +1,6 @@
 return {
     "nvim-tree/nvim-tree.lua",
+    lazy = false,
     requires = {
         "nvim-tree/nvim-web-devicons",
     },

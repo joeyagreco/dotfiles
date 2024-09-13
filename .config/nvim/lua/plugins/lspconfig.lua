@@ -1,5 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
+    lazy = true,
     dependencies = { { "ms-jpq/coq_nvim", branch = "coq" }, { "ms-jpq/coq.artifacts", branch = "artifacts" } },
     config = function()
         local lspconfig = require("lspconfig")
