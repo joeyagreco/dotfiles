@@ -47,8 +47,6 @@ map(
     telescope.extensions.live_grep_args.live_grep_args,
     helpers.combine_tables(default_options, { desc = "search for words" })
 )
--- map({ "n", "x" }, "<leader>s", telescope.extensions.live_grep_args.live_grep_args,
---     { desc = "Down", expr = true, silent = true })
 
 -- find files
 map("n", "<leader>f", telescope_builtin.find_files, helpers.combine_tables(default_options, { desc = "find files" }))

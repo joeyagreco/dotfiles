@@ -1,4 +1,3 @@
-
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "requirements*.txt",
     callback = function()
