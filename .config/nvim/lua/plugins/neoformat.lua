@@ -32,6 +32,9 @@ return {
             stderr = 1,
         }
 
+        -- THESE ARE BUILT IN AND THIS SETUP SHOULD NOT BE NEEDED
+        -- THIS ISSUE STARTED HAPPENING AFTER SWITCHING TO LAZY
+        -- ISSUE START
         -- lua
         vim.g.neoformat_lua_stylua = {
             exe = "stylua",
@@ -39,13 +42,15 @@ return {
             stdin = 1,
         }
 
-        -- vim.g.neoformat_typescript_lintfix = {
-        -- 	exe = "npm",
-        -- 	args = { "run", "lint", "--fix" },
-        -- 	stdin = 0,
-        -- 	stderr = 1,
-        -- 	replace = 1,
+        -- -- typescript
+        -- vim.g.neoformat_typescript_prettier = {
+        --     exe = "prettier",
+        --     args = { "--write", vim.api.nvim_buf_get_name(0) },
+        --     stdin = 0,
+        --     stderr = 1,
+        --     replace = 1,
         -- }
+        -- ISSUE END
 
         -- to see what filetype to put here, run ":set filetype?" in any buffer to see what to put it as
         vim.g.neoformat_enabled_lua = { "stylua" }
