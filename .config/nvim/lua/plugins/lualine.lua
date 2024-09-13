@@ -10,7 +10,7 @@ vim.o.laststatus = 3
 -- https://github.com/nvim-lualine/lualine.nvim
 return {
     "nvim-lualine/lualine.nvim",
-    lazy = true,
+    lazy = false,
     requires = { "nvim-tree/nvim-web-devicons", opt = true },
     config = function()
         local lualine = require("lualine")

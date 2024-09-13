@@ -1,7 +1,7 @@
 -- https://github.com/kylechui/nvim-surround
 return {
     "kylechui/nvim-surround",
-    lazy = true,
+    lazy = false,
     config = function()
         local nvim_surround = require("nvim-surround")
         -- config: https://github.com/kylechui/nvim-surround/blob/main/lua/nvim-surround/config.lua

@@ -1,6 +1,6 @@
 return {
     "akinsho/git-conflict.nvim",
-    lazy = true,
+    lazy = false,
     config = function()
         local git_conflict = require("git-conflict")
 

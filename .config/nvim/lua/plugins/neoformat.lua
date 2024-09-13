@@ -1,7 +1,7 @@
 -- https://github.com/sbdchd/neoformat
 return {
     "sbdchd/neoformat",
-    lazy = true,
+    lazy = false,
     config = function()
         -- this is needed because by default, neoformat stops after a formatter succeeds
         vim.g.neoformat_run_all_formatters = 1

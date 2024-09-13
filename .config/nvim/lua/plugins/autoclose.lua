@@ -1,7 +1,7 @@
 -- https://github.com/m4xshen/autoclose.nvim
 return {
     "m4xshen/autoclose.nvim",
-    lazy = true,
+    lazy = false,
     config = function()
         require("autoclose").setup({
             options = {

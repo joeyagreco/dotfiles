@@ -1,7 +1,7 @@
 -- https://github.com/kevinhwang91/nvim-ufo
 return {
     "kevinhwang91/nvim-ufo",
-    lazy = true,
+    lazy = false,
     dependencies = "kevinhwang91/promise-async",
     config = function()
         local ufo = require("ufo")
