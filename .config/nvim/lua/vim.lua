@@ -107,3 +107,6 @@ vim.opt.magic = false
 vim.g.loaded_perl_provider = 0
 -- disable ruby
 vim.g.loaded_ruby_provider = 0
+
+-- stop things like Lazy from formatting
+vim.g.autoformat = false
