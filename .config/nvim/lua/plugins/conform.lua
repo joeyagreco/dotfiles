@@ -9,7 +9,15 @@ return {
             lua = { "stylua" },
             python = { "ruff_check", "ruff_fmt" },
             proto = { "buf_fmt" },
-            javascript = { "prettierd", "prettier" },
+            sh = { "shfmt" },
+            zsh = { "shfmt" },
+            go = { "gofmt", "goimports" },
+            javascript = { "prettier" },
+            typescript = { "prettier" },
+            -- don't want to format .tsx files
+            typescriptreact = {},
+            yml = {},
+            yaml = {},
         },
         formatters = {
             ruff_check = {
