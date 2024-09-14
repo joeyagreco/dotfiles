@@ -1,10 +1,11 @@
 local RUFF_CONFIG_FILE = vim.fn.expand("$HOME/ruff.toml")
 -- https://github.com/stevearc/conform.nvim
+-- see info with ":ConformInfo"
 return {
     "stevearc/conform.nvim",
     -- https://github.com/stevearc/conform.nvim?tab=readme-ov-file#options
     opts = {
-        log_level = 1,
+        log_level = vim.log.levels.INFO,
         formatters_by_ft = {
             lua = { "stylua" },
             python = { "ruff_check", "ruff_fmt" },
@@ -42,7 +43,7 @@ return {
         format_on_save = {
             -- These options will be passed to conform.format()
             timeout_ms = 500,
-            -- lsp_format = "fallback",
+            lsp_format = "never",
         },
     },
 }
