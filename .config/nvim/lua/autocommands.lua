@@ -33,10 +33,10 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- auto format on save using Neoformat
-vim.cmd([[
-  augroup fmt
-    autocmd!
-    autocmd BufWritePre * silent! undojoin | Neoformat
-  augroup END
-]])
+-- -- auto format on save using Neoformat
+-- vim.cmd([[
+--   augroup fmt
+--     autocmd!
+--     autocmd BufWritePre * silent! undojoin | Neoformat
+--   augroup END
+-- ]])

@@ -23,6 +23,7 @@ require("lazy").setup({
         enabled = false,
     },
     install = { colorscheme = { "marko-cerovac/material.nvim" } },
+    -- automatically check for plugin updates
     checker = { enabled = true },
     change_detection = {
         enabled = true,

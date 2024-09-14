@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e51f2b142d88bb666dcaa77d93a07f4b419aca70" },
   "autoclose.nvim": { "branch": "main", "commit": "b2077aa2c83df7ebc19b2a20a3a0654b24ae9c8f" },
+  "conform.nvim": { "branch": "master", "commit": "50649648851cd0e126dfedd0f3c33b900a6f1ef8" },
   "coq.artifacts": { "branch": "artifacts", "commit": "a1ffcee295905171d87b40ee456001d45b10329b" },
   "coq_nvim": { "branch": "coq", "commit": "4bc64cbba3eeadd16dc1d13c3becf1e8457ddce5" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
