@@ -17,10 +17,12 @@ export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 ##########
 
 export GOENV_ROOT="$HOME/.goenv"
+export PATH="$HOME/go/bin:$PATH"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"
 eval "$(goenv init -)"
 eval "$(goenv rehash)"
+
 
 #########
 # CARGO #

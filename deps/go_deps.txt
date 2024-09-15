@@ -2,3 +2,4 @@ mvdan.cc/sh/v3/cmd/shfmt@latest
 github.com/rhysd/actionlint/cmd/actionlint@latest
 golang.org/x/tools/gopls@latest
 github.com/google/yamlfmt/cmd/yamlfmt@latest
+golang.org/x/tools/cmd/goimports@latest
