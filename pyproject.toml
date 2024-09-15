@@ -1,3 +1,13 @@
 # https://microsoft.github.io/pyright/#/configuration
 [tool.pyright]
 reportGeneralTypeIssues = "warning"
+
+
+# https://github.com/astral-sh/ruff?tab=readme-ov-file#configuration
+[tool.ruff.lint]
+select = [
+   # isort
+   "I001",
+   # remove unused imports
+   "F401",
+]

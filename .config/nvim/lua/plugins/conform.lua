@@ -1,4 +1,4 @@
-local RUFF_CONFIG_FILE = vim.fn.expand("$HOME/ruff.toml")
+local RUFF_CONFIG_FILE = vim.fn.expand("$HOME/pyproject.toml")
 -- https://github.com/stevearc/conform.nvim
 -- see info with ":ConformInfo"
 return {
