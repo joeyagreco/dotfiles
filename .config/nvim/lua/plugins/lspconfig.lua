@@ -1,3 +1,5 @@
+local PYRIGHT_CONFIG_FILE = vim.fn.expand("$HOME/pyproject.toml")
+
 return {
     "neovim/nvim-lspconfig",
     lazy = false,
@@ -66,10 +68,11 @@ return {
         -- python
         -- https://github.com/astral-sh/ruff-lsp
         lspconfig.ruff_lsp.setup(coq_setup({}))
-        -- ruff lsp doesn't do "go to definition" well, so use pyright too
+        -- ruff_lsp doesn't do "go to definition" well, so use pyright too
         -- pyright config: https://github.com/microsoft/pyright/blob/main/docs/configuration.md
+        -- command line args: https://microsoft.github.io/pyright/#/command-line
         lspconfig.pyright.setup(coq_setup({
-            cmd = { "pyright-langserver", "--stdio" },
+            cmd = { "pyright-langserver", "--stdio", "--project", PYRIGHT_CONFIG_FILE },
         }))
 
         -- lua

@@ -1,0 +1,3 @@
+# https://microsoft.github.io/pyright/#/configuration
+[tool.pyright]
+reportGeneralTypeIssues = "warning"
