@@ -68,12 +68,10 @@ return {
         -- python
         -- https://github.com/astral-sh/ruff-lsp
         lspconfig.ruff_lsp.setup(coq_setup({}))
-        -- ruff_lsp doesn't do "go to definition" well, so use pyright too
-        -- pyright config: https://github.com/microsoft/pyright/blob/main/docs/configuration.md
-        -- command line args: https://microsoft.github.io/pyright/#/command-line
-        lspconfig.pyright.setup(coq_setup({
-            cmd = { "pyright-langserver", "--stdio", "--project", PYRIGHT_CONFIG_FILE },
-        }))
+        -- ruff_lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use python-lsp-server too
+        -- lspconfig docs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
+        -- LSP docs: https://github.com/python-lsp/python-lsp-server
+        lspconfig.pylsp.setup(coq_setup({}))
 
         -- lua
         lspconfig.lua_ls.setup({
