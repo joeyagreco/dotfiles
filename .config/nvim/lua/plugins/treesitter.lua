@@ -1,3 +1,5 @@
+-- check module status: :TSModuleInfo
+-- toggle highlighting: :TSBufToggle highlight
 return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
@@ -10,4 +12,8 @@ return {
             enable = true,
         },
     },
+    -- !! treesitter is not enabled unless this is run !!
+    config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+    end,
 }
