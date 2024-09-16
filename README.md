@@ -8,6 +8,9 @@
 
 ```sh
 export LOCAL_GIT_REPO_PATH="/path/to/git/repos/on/this/computer"
+# github prefix (profile name OR org name)
+# example: https://github.com/{THIS_VALUE}/{SOME_REPO}.git
+export GITHUB_PREFIX="foo"
 ```
 
 4. Install `Hack Nerd Font` from [this site](https://www.nerdfonts.com/font-downloads)

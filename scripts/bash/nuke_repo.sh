@@ -19,7 +19,7 @@ function f_nuke_repo() {
 		fi
 	fi
 
-	CLONE_COMMAND="git@github.com:superblocksteam/$REPO_NAME.git"
+	CLONE_COMMAND="git@github.com:$GITHUB_PREFIX/$REPO_NAME.git"
 	echo "cloning from $CLONE_COMMAND ..."
 	git clone "$CLONE_COMMAND" "$NUKE_PATH"
 	if [ $? -ne 0 ]; then
