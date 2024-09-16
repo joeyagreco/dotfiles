@@ -6,10 +6,11 @@ source "$ZSH_PATH/functions.zsh"
 source "$HOME/.zshrc$LOCAL_FIX"
 
 # CHECK FOR REQUIRED ENV VARS
-if [[ -z "$LOCAL_GIT_REPO_PATH" ]]; then
-	echo "LOCAL_GIT_REPO_PATH not set"
-fi
+# THESE MUST MANUALLY BE SET ON EACH MACHINE THAT USES THIS CONFIG
+required_vars=("LOCAL_GIT_REPO_PATH" "GITHUB_PREFIX")
 
-if [[ -z "$GITHUB_PREFIX" ]]; then
-	echo "GITHUB_PREFIX not set"
-fi
+for var in $required_vars; do
+    if [[ -z "${(P)var}" ]]; then
+        echo "$var not set"
+    fi
+done
