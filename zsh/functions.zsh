@@ -67,11 +67,6 @@ function install_deps() {
 
 	# install go, cargo, and npm deps
 	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/deps_init.py"
-
-	# make sure packer is installed for nvim
-	if [ ! -d "$PACKER_NVIM_PATH" ]; then
-		git clone --depth 1 https://github.com/wbthomason/packer.nvim "$PACKER_NVIM_PATH"
-	fi
 }
 
 function f_setup_python() {

@@ -27,7 +27,7 @@ return {
                 tabline = 500,
                 winbar = 300,
             },
-            -- disabled_filetypes = { "packer", "NvimTree" },
+            -- disabled_filetypes = { "NvimTree" },
         },
         -- not sure i prefer this to just disabling lualine when nvimtree is focused
         extensions = { "nvim-tree" },

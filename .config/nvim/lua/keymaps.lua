@@ -21,7 +21,6 @@ local helpers = require("helpers")
 -- l
 -- L
 -- o
--- p
 -- qo
 -- qx
 -- Q
@@ -167,14 +166,6 @@ map(
     "<leader>/",
     '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
     helpers.combine_tables(default_options, { desc = "comment current selection" })
-)
-
--- clean and update plugins
-map(
-    "n",
-    "<leader>p",
-    helpers.clean_and_update_plugins,
-    helpers.combine_tables(default_options, { desc = "clean and update plugins" })
 )
 
 -- close tab
