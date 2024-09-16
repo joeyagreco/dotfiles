@@ -1,46 +1,44 @@
-local PYRIGHT_CONFIG_FILE = vim.fn.expand("$HOME/pyproject.toml")
-
+-- this must be before requiring coq for autostart to work: https://github.com/ms-jpq/coq_nvim/issues/403
+-- if this is inside the config function, autocomplete does not work
+-- true = autostart
+-- shut-up = autostart and don't show startup message
+vim.g.coq_settings = {
+    auto_start = "shut-up",
+    -- autocomplete was noisy and inaccurate
+    -- can tweak these until they seem nice
+    clients = {
+        -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#lsp
+        lsp = {
+            enabled = true,
+        },
+        -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#snippets
+        snippets = {
+            enabled = false,
+        },
+        -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#treesitter
+        tree_sitter = {
+            enabled = true,
+        },
+        -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#buffers
+        buffers = {
+            enabled = false,
+        },
+        -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#paths
+        paths = {
+            enabled = true,
+        },
+        -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#ctags
+        tags = {
+            enabled = false,
+        },
+    },
+}
 return {
     "neovim/nvim-lspconfig",
     lazy = false,
     dependencies = { { "ms-jpq/coq_nvim", branch = "coq" }, { "ms-jpq/coq.artifacts", branch = "artifacts" } },
     config = function()
         local lspconfig = require("lspconfig")
-
-        -- this must be before requiring coq for autostart to work: https://github.com/ms-jpq/coq_nvim/issues/403
-        -- true = autostart
-        -- shut-up = autostart and don't show startup message
-        vim.g.coq_settings = {
-            auto_start = "shut-up",
-            -- autocomplete was noisy and inaccurate
-            -- can tweak these until they seem nice
-            clients = {
-                -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#lsp
-                lsp = {
-                    enabled = true,
-                },
-                -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#snippets
-                snippets = {
-                    enabled = false,
-                },
-                -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#treesitter
-                tree_sitter = {
-                    enabled = true,
-                },
-                -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#buffers
-                buffers = {
-                    enabled = false,
-                },
-                -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#paths
-                paths = {
-                    enabled = true,
-                },
-                -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#ctags
-                tags = {
-                    enabled = false,
-                },
-            },
-        }
         local coq = require("coq")
         local coq_setup = coq.lsp_ensure_capabilities
 
