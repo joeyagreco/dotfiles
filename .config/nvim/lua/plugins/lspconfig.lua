@@ -66,10 +66,8 @@ return {
         -- python
         -- https://github.com/astral-sh/ruff-lsp
         lspconfig.ruff_lsp.setup(coq_setup({}))
-        -- ruff_lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use python-lsp-server too
-        -- lspconfig docs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
-        -- LSP docs: https://github.com/python-lsp/python-lsp-server
-        lspconfig.pylsp.setup(coq_setup({}))
+        -- ruff_lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use pyright too
+        lspconfig.pyright.setup(coq_setup({}))
 
         -- lua
         lspconfig.lua_ls.setup(coq_setup({
