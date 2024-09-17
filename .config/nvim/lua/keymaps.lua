@@ -16,7 +16,7 @@ local helpers = require("helpers")
 -- gp
 -- gr
 -- gR
--- ho
+-- h
 -- K
 -- l
 -- L
@@ -210,7 +210,7 @@ map(
 -- turn search highlighting off
 map(
     "n",
-    "<leader>ho",
+    "<leader>h",
     ":nohlsearch<CR>",
     helpers.combine_tables(default_options, { desc = "turn off vim search highlights" })
 )
