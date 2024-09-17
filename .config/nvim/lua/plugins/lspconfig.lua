@@ -72,7 +72,7 @@ return {
         lspconfig.pylsp.setup(coq_setup({}))
 
         -- lua
-        lspconfig.lua_ls.setup({
+        lspconfig.lua_ls.setup(coq_setup({
             settings = {
                 Lua = {
                     diagnostics = {
@@ -81,7 +81,7 @@ return {
                     },
                 },
             },
-        })
+        }))
 
         -- yaml
         lspconfig.yamlls.setup(coq_setup({
