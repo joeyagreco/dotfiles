@@ -1,4 +1,4 @@
-function clearall() {
+function f_cls() {
 	# clear the terminal
 	clear
 

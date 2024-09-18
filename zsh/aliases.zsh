@@ -53,7 +53,7 @@ alias note="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/notes.py"
 alias nn="tmux new-window -c $NOTES_PATH nvim"
 # screenshot and save to downloads folder
 alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H%M%S').png"
-alias cls='clear'
+alias cls="f_cls"
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
 
