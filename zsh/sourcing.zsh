@@ -23,7 +23,6 @@ export PATH="$GOROOT/bin:$PATH"
 eval "$(goenv init -)"
 eval "$(goenv rehash)"
 
-
 #########
 # CARGO #
 #########
@@ -34,6 +33,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ###########
 # GENERAL #
 ###########
+
+# set up brew
+export PATH="/opt/homebrew/bin:$PATH"
 
 # set up syntax highlighting
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
