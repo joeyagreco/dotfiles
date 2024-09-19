@@ -11,6 +11,11 @@ return {
         view = {
             width = 40,
         },
+        actions = {
+            open_file = {
+                quit_on_open = true,
+            },
+        },
         renderer = {
             group_empty = true,
             icons = {
