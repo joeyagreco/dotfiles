@@ -32,11 +32,3 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.formatoptions:remove({ "c", "r", "o" })
     end,
 })
-
--- -- auto format on save using Neoformat
--- vim.cmd([[
---   augroup fmt
---     autocmd!
---     autocmd BufWritePre * silent! undojoin | Neoformat
---   augroup END
--- ]])

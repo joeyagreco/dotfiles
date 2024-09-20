@@ -153,7 +153,7 @@ map(
 -- redo
 map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }))
 
--- comment out / uncomment line and selection
+-- comment / uncomment line and selection
 map(
     "n",
     "<leader>/",
