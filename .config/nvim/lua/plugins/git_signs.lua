@@ -2,5 +2,5 @@
 -- to refresh, run: ":Gitsigns refresh"
 return {
     "lewis6991/gitsigns.nvim",
-    opts = {},
+    opts = { debug_mode = true },
 }
