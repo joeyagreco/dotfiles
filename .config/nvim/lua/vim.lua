@@ -27,6 +27,8 @@ vim.g.python3_host_prog = constants.PYTHON_PATH
 
 -- no splash screen on startup
 -- vim.opt.shortmess:append("I")
+-- dont show the intro message when starting up
+-- vim.opt.shortmess:append("atI")
 
 -- enable smart indenting (see https://stackoverflow.com/questions/1204149/smart-wrap-in-vim)
 vim.opt.breakindent = true
@@ -110,3 +112,6 @@ vim.g.loaded_ruby_provider = 0
 
 -- stop things like Lazy from formatting
 vim.g.autoformat = false
+
+-- add the g flag to search/replace by default
+vim.opt.gdefault = true

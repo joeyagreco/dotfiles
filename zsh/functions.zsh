@@ -63,7 +63,8 @@ function install_deps() {
 	brew update -q
 	brew bundle -q --file="$DEPS_DIR_PATH/Brewfile"
 	# commenting this out as it errors without sudo permissions
-	# brew cleanup -q
+	# uncommenting for now as im not seeing errors listed in above comment
+	brew cleanup -q
 
 	# install go, cargo, and npm deps
 	$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/deps_init.py"
