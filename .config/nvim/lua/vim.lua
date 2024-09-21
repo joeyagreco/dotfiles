@@ -44,7 +44,7 @@ vim.opt.signcolumn = "yes"
 vim.cmd("syntax on")
 
 -- line padding with H and L
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 7
 
 -- show line numbers
 vim.opt.number = true
