@@ -1,7 +1,8 @@
 -- https://github.com/f-person/git-blame.nvim
 return {
     "f-person/git-blame.nvim",
-    lazy = false,
+    lazy = true,
+    event = "BufEnter",
     opts = {
         enabled = true,
         date_format = "%b %-d, %Y",

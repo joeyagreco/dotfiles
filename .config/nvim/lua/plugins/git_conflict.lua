@@ -1,6 +1,7 @@
 return {
     "akinsho/git-conflict.nvim",
-    lazy = false,
+    lazy = true,
+    event = "BufEnter",
     opts = {
         default_mappings = {
             ours = "co",
