@@ -1,4 +1,3 @@
-local nvim_tree = require("nvim-tree.api")
 local comment = require("Comment.api")
 local ufo = require("ufo")
 local helpers = require("helpers")
@@ -113,19 +112,6 @@ map("n", "<leader>qx", ":cclose<CR>", helpers.combine_tables(default_options, { 
 
 -- go to last buffer
 map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))
-
--- toggle on / focus on explorer
-map("n", "<leader>e", function()
-    nvim_tree.tree.open({ focus = true })
-end, helpers.combine_tables(default_options, { desc = "open / focus explorer" }))
-
--- focus from nvim tree -> main buffer
-map(
-    "n",
-    "<leader>E",
-    ":wincmd l<CR>",
-    helpers.combine_tables(default_options, { desc = "focus from nvim tree -> main buffer" })
-)
 
 -- 'if __name__ == "__main__"'
 map(

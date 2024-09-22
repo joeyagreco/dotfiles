@@ -1,6 +1,22 @@
 return {
     "nvim-tree/nvim-tree.lua",
-    lazy = false,
+    lazy = true,
+    keys = {
+        {
+            "<leader>e",
+            ":lua require('nvim-tree.api').tree.open({focus = true})<CR>",
+            desc = "toggle / focus on explorer",
+            silent = true,
+            noremap = true,
+        },
+        {
+            "<leader>E",
+            ":wincmd l<CR>",
+            desc = "focus from nvim tree -> main buffer",
+            silent = true,
+            noremap = true,
+        },
+    },
     requires = {
         "nvim-tree/nvim-web-devicons",
     },
