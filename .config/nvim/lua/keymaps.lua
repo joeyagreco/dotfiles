@@ -1,5 +1,4 @@
 local nvim_tree = require("nvim-tree.api")
-local git_signs = require("gitsigns")
 local comment = require("Comment.api")
 local ufo = require("ufo")
 local helpers = require("helpers")
@@ -63,34 +62,6 @@ map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_option
 map("n", "<leader>L", function()
     vim.diagnostic.open_float(nil, { source = "always" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
-
----------
--- GIT --
----------
-
--- reset current cursor hunk
-map(
-    "n",
-    "<leader>gr",
-    git_signs.reset_hunk,
-    helpers.combine_tables(default_options, { desc = "git reset current hunk" })
-)
-
--- reset all hunks in current file/buffer
-map(
-    "n",
-    "<leader>gR",
-    git_signs.reset_buffer,
-    helpers.combine_tables(default_options, { desc = "git reset current buffer" })
-)
-
--- preview current cursor hunk
-map(
-    "n",
-    "<leader>gp",
-    git_signs.preview_hunk,
-    helpers.combine_tables(default_options, { desc = "git preview current hunk" })
-)
 
 -------------
 -- GENERAL --
