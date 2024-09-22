@@ -1,5 +1,3 @@
-local telescope_builtin = require("telescope.builtin")
-local telescope = require("telescope")
 local nvim_tree = require("nvim-tree.api")
 local git_signs = require("gitsigns")
 local comment = require("Comment.api")
@@ -38,45 +36,12 @@ local map = vim.keymap.set
 -- SEARCH --
 ------------
 
--- search for a word
--- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
-map(
-    "n",
-    "<leader>s",
-    telescope.extensions.live_grep_args.live_grep_args,
-    helpers.combine_tables(default_options, { desc = "search for words" })
-)
-
--- find files
-map("n", "<leader>f", telescope_builtin.find_files, helpers.combine_tables(default_options, { desc = "find files" }))
-
 -- go to definition for whatever the cursor is on
 map(
     "n",
     "<leader>gd",
     vim.lsp.buf.definition,
     helpers.combine_tables(default_options, { desc = "go to definition for word under cursor" })
-)
-
--- find old (open up telescope search with previous search)
-map(
-    "n",
-    "<leader>o",
-    telescope_builtin.resume,
-    helpers.combine_tables(default_options, { desc = "resume previous search" })
-)
-
--- toggle recent files scoped to this directory
-map("n", "<leader>r", function()
-    telescope_builtin.oldfiles({ cwd = vim.fn.getcwd() })
-end, helpers.combine_tables(default_options, { desc = "see recent files" }))
-
--- toggle recent files with no scope (show all recent files)
-map(
-    "n",
-    "<leader>R",
-    telescope_builtin.oldfiles,
-    helpers.combine_tables(default_options, { desc = "see recent files" })
 )
 
 ---------
@@ -89,14 +54,6 @@ map(
     "K",
     vim.lsp.buf.hover,
     helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" })
-)
-
--- find usages (references) for whatever cursor is on
-map(
-    "n",
-    "<leader>u",
-    telescope_builtin.lsp_references,
-    helpers.combine_tables(default_options, { desc = "find references" })
 )
 
 -- rename symbol (change name)

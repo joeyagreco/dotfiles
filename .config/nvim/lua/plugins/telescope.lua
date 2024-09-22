@@ -1,6 +1,51 @@
 return {
     "nvim-telescope/telescope.nvim",
-    lazy = false,
+    lazy = true,
+    keys = {
+        {
+            "<leader>s",
+            ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+            -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
+            desc = "search for a word",
+            silent = true,
+            noremap = true,
+        },
+        {
+            "<leader>f",
+            ":lua require('telescope.builtin').find_files()<CR>",
+            desc = "find files",
+            silent = true,
+            noremap = true,
+        },
+        {
+            "<leader>o",
+            ":lua require('telescope.builtin').resume()<CR>",
+            desc = "resume previous search",
+            silent = true,
+            noremap = true,
+        },
+        {
+            "<leader>r",
+            ":lua require('telescope.builtin').oldfiles({ cwd = vim.fn.getcwd() })<CR>",
+            desc = "toggle recent files scoped to this directory",
+            silent = true,
+            noremap = true,
+        },
+        {
+            "<leader>R",
+            ":lua require('telescope.builtin').oldfiles()<CR>",
+            desc = "toggle recent files with no scope (show ALL recent files)",
+            silent = true,
+            noremap = true,
+        },
+        {
+            "<leader>u",
+            ":lua require('telescope.builtin').lsp_references()<CR>",
+            desc = "find usages (references) for whatever the cursor is on",
+            silent = true,
+            noremap = true,
+        },
+    },
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" },
     config = function()
