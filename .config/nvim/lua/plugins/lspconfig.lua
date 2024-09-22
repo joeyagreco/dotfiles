@@ -17,7 +17,7 @@ vim.g.coq_settings = {
         },
         -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#treesitter
         tree_sitter = {
-            enabled = true,
+            enabled = false,
         },
         -- https://github.com/ms-jpq/coq_nvim?tab=readme-ov-file#buffers
         buffers = {
