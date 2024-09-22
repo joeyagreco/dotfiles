@@ -1,7 +1,8 @@
 -- https://github.com/m4xshen/autoclose.nvim
 return {
     "m4xshen/autoclose.nvim",
-    lazy = false,
+    lazy = true,
+    event = "InsertEnter",
     opts = {
         options = {
             disable_command_mode = true,

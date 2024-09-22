@@ -1,5 +1,7 @@
 return {
     "numToStr/Comment.nvim",
-    lazy = false,
+    -- used for keymaps so won't lazy load until those deps are removed
+    lazy = true,
+    event = "InsertEnter",
     opts = {},
 }

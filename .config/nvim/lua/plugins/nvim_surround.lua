@@ -8,6 +8,7 @@
 -- cs{target}{replacement}
 return {
     "kylechui/nvim-surround",
-    lazy = false,
+    lazy = true,
+    event = "InsertEnter",
     opts = {},
 }
