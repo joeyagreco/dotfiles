@@ -1,4 +1,3 @@
-local comment = require("Comment.api")
 local ufo = require("ufo")
 local helpers = require("helpers")
 
@@ -79,21 +78,6 @@ map(
 
 -- redo
 map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }))
-
--- comment / uncomment line and selection
-map(
-    "n",
-    "<leader>/",
-    comment.toggle.linewise.current,
-    helpers.combine_tables(default_options, { desc = "comment current line" })
-)
-
-map(
-    "v",
-    "<leader>/",
-    '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
-    helpers.combine_tables(default_options, { desc = "comment current selection" })
-)
 
 -- close tab
 map("n", "<leader>C", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
