@@ -1,4 +1,3 @@
-local ufo = require("ufo")
 local helpers = require("helpers")
 
 -- keep track of custom keymaps by letter to prevent collision delay
@@ -115,10 +114,6 @@ map(
 
 -- make "x" not copy text
 map("n", "x", '"_x', helpers.combine_tables(default_options, { desc = "make 'x' not copy text" }))
-
--- Using ufo provider need remap `zR` and `zM`
-map("n", "zR", ufo.openAllFolds, helpers.combine_tables(default_options, { desc = "ufo open all folds" }))
-map("n", "zM", ufo.closeAllFolds, helpers.combine_tables(default_options, { desc = "ufo open all folds" }))
 
 -- keep selection selected after > and <
 map("v", ">", ">gv", helpers.combine_tables(default_options, { desc = "keep selection selected after >" }))

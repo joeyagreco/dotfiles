@@ -29,7 +29,23 @@ end
 -- https://github.com/kevinhwang91/nvim-ufo
 return {
     "kevinhwang91/nvim-ufo",
-    lazy = false,
+    lazy = true,
+    keys = {
+        {
+            "zR",
+            ":lua require('ufo').openAllFolds()<CR>",
+            desc = "ufo open all folds",
+            silent = true,
+            noremap = true,
+        },
+        {
+            "zM",
+            ":lua require('ufo').closeAllFolds()<CR>",
+            desc = "ufo close all folds",
+            silent = true,
+            noremap = true,
+        },
+    },
     dependencies = "kevinhwang91/promise-async",
     opts = {
         provider_selector = function(bufnr, filetype, buftype)
