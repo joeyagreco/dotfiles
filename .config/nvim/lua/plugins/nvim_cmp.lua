@@ -24,7 +24,7 @@ return {
                 ["<CR>"] = cmp.mapping.confirm({ select = auto_select }),
             }),
             sources = cmp.config.sources({
-                { name = "nvim_lsp" },
+                -- { name = "nvim_lsp" },
                 { name = "lspconfig" },
                 { name = "path" },
             }, {
@@ -36,7 +36,7 @@ return {
                         -- width of the actual completion
                         abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
                         -- width of extra info to the right of the completions
-                        menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 0,
+                        menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 20,
                     }
 
                     for key, width in pairs(widths) do
