@@ -17,7 +17,7 @@ end
 return {
     "nvim-lualine/lualine.nvim",
     lazy = false,
-    requires = { "nvim-tree/nvim-web-devicons", opt = true },
+    dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
     opts = {
         options = {
             -- themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md

@@ -17,7 +17,7 @@ return {
             noremap = true,
         },
     },
-    requires = {
+    dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
     opts = {
