@@ -31,6 +31,7 @@ return {
     "kevinhwang91/nvim-ufo",
     lazy = true,
     keys = {
+        { "za", "za", desc = "toggle a fold", silent = true, noremap = true },
         {
             "zR",
             ":lua require('ufo').openAllFolds()<CR>",
