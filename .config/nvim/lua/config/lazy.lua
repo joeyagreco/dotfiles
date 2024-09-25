@@ -22,7 +22,7 @@ require("lazy").setup({
     rocks = {
         enabled = false,
     },
-    install = { colorscheme = { "marko-cerovac/material.nvim" } },
+    install = { colorscheme = { "material" } },
     -- automatically check for plugin updates
     checker = { enabled = true },
     change_detection = {
