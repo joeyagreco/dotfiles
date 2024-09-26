@@ -3,8 +3,7 @@ vim.opt.shortmess:append("S")
 
 -- always show the status bar and only show ONE status bar
 -- source: https://neovim.io/doc/user/options.html#'laststatus'
--- i don't think this would be needed if globalstatus config played well with alpha dashboard
--- but it doesn't so this is a workaround that seems to be unintrusive
+-- example why this is needed 1. open nvimtree 2. swap to buffer 3. swap back to nvimtree
 vim.o.laststatus = 3
 
 local function get_line_count()
