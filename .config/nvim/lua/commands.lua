@@ -9,9 +9,3 @@ vim.api.nvim_create_user_command("Pwd", function()
     vim.fn.setreg("+", pwd)
     print(pwd)
 end, { desc = "show and copy to clipboard the pwd of the current buffer" })
-
--- copy url of current line in git
-vim.api.nvim_create_user_command("Url", function()
-    vim.cmd("GitBlameCopyFileURL")
-    print("git url copied")
-end, { desc = "copy url of current line in git" })
