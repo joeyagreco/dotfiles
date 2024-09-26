@@ -3,10 +3,6 @@ vim.api.nvim_create_user_command("Err", function()
     vim.diagnostic.setloclist({ open = true })
 end, { desc = "Open LSP errors in quickfix list" })
 
--- open merge conflicts in quickfix list
--- mappings in plugin/git_conflict.lua
-vim.api.nvim_create_user_command("Con", "GitConflictListQf", { desc = "open merge conflicts in quickfix list" })
-
 -- show and copy to clipboard the pwd of the current buffer
 vim.api.nvim_create_user_command("Pwd", function()
     local pwd = vim.fn.expand("%:p:h")
