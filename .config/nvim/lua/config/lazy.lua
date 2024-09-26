@@ -15,6 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- https://lazy.folke.io/configuration
+-- https://lazy.folke.io/usage
 require("lazy").setup({
     spec = {
         { import = "plugins" },
