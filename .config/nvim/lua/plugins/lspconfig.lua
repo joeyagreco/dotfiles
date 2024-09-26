@@ -1,6 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
-    lazy = false,
+    lazy = true,
+    event = "BufEnter",
     config = function()
         local lspconfig = require("lspconfig")
 

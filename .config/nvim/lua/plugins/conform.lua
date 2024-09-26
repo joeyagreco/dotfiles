@@ -3,6 +3,8 @@ local RUFF_CONFIG_FILE = vim.fn.expand("$HOME/pyproject.toml")
 -- see info with ":ConformInfo"
 return {
     "stevearc/conform.nvim",
+    lazy = true,
+    event = "BufEnter",
     -- https://github.com/stevearc/conform.nvim?tab=readme-ov-file#options
     opts = {
         log_level = vim.log.levels.INFO,

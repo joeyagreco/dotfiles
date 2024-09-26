@@ -7,8 +7,6 @@ vim.opt.shortmess:append("S")
 -- but it doesn't so this is a workaround that seems to be unintrusive
 vim.o.laststatus = 3
 
-local gitblame = require("gitblame")
-
 local function get_line_count()
     return vim.api.nvim_buf_line_count(0) .. " lines"
 end
@@ -16,7 +14,8 @@ end
 -- https://github.com/nvim-lualine/lualine.nvim
 return {
     "nvim-lualine/lualine.nvim",
-    lazy = false,
+    lazy = true,
+    event = "BufEnter",
     dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
     opts = {
         options = {
@@ -59,7 +58,7 @@ return {
                     timeout = 500,
                 },
                 {
-                    gitblame.get_current_blame_text,
+                    require("gitblame").get_current_blame_text,
                 },
             },
             lualine_y = { "filetype" },
