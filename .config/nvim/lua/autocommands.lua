@@ -32,3 +32,10 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.formatoptions:remove({ "c", "r", "o" })
     end,
 })
+
+-- clear command line after hitting <CR>
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+    callback = function()
+        vim.cmd("echo ''")
+    end,
+})
