@@ -24,6 +24,8 @@ alias tmkk="tmux kill-session -a"
 alias tml="tmux list-sessions -F '#{session_name}'"
 # create a new named tmux session
 alias tmn="tmux new-session -A -s"
+# split the current pane into 4 equal panes
+alias four='tmux split-window -h \; split-window -v \; select-pane -L \; split-window -v'
 
 ##########
 # DOCKER #
