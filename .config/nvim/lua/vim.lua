@@ -90,9 +90,6 @@ vim.opt.softtabstop = 4
 vim.opt.smarttab = true
 vim.opt.smartindent = true
 
--- -- literal (not regex) searches
--- vim.opt.magic = false
-
 -- disable perl
 vim.g.loaded_perl_provider = 0
 -- disable ruby
