@@ -9,7 +9,18 @@ REPO_NAME=$1
 
 function f_nuke_repo() {
 	NUKE_PATH="$LOCAL_GIT_REPO_PATH/$REPO_NAME"
+	echo "you are about to nuke the repository at: $NUKE_PATH"
+	read -p "proceed? (Y/n) " confirm
+	confirm=${confirm:-Y}
+
+	if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+		echo "nuke aborted"
+		exit 0
+	fi
+
+	echo "☢️☢️☢️"
 	echo "nuking $NUKE_PATH ..."
+	echo "☢️☢️☢️"
 
 	if [ -d "$NUKE_PATH" ]; then
 		rm -rf "$NUKE_PATH"
