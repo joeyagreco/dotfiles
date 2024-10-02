@@ -12,6 +12,7 @@ return {
             enable = true,
         },
     },
+    build = ":TSUpdate",
     -- !! treesitter is not enabled unless this is run !!
     config = function(_, opts)
         require("nvim-treesitter.configs").setup(opts)

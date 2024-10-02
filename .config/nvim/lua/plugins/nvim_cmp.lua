@@ -1,3 +1,4 @@
+-- https://github.com/hrsh7th/nvim-cmp
 return {
     "hrsh7th/nvim-cmp",
     version = false, -- last release is way too old
@@ -9,7 +10,8 @@ return {
         "hrsh7th/cmp-path",
     },
     opts = function()
-        vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+        -- used for ghost text
+        -- vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
         local cmp = require("cmp")
         local defaults = require("cmp.config.default")()
         local auto_select = true
@@ -24,9 +26,9 @@ return {
                 ["<S-TAB>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<CR>"] = cmp.mapping.confirm({ select = auto_select }),
             }),
+            -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
             sources = cmp.config.sources({
-                -- { name = "nvim_lsp" },
-                { name = "lspconfig" },
+                { name = "nvim_lsp" },
                 { name = "path" },
             }, {
                 { name = "buffer" },
@@ -49,11 +51,13 @@ return {
                     return item
                 end,
             },
-            experimental = {
-                ghost_text = {
-                    hl_group = "CmpGhostText",
-                },
-            },
+
+            -- used for ghost text
+            -- experimental = {
+            --     ghost_text = {
+            --         hl_group = "CmpGhostText",
+            --     },
+            -- },
             sorting = defaults.sorting,
         }
     end,
