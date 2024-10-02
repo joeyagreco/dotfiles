@@ -17,6 +17,7 @@ return {
             go = { "gofmt", "goimports" },
             javascript = { "prettier" },
             typescript = { "prettier" },
+            -- https://github.com/rhysd/fixjson
             json = { "fixjson" },
             -- don't want to format .tsx files
             typescriptreact = {},
