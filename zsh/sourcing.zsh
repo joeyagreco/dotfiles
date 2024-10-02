@@ -69,3 +69,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search   # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+# set up custom macos keymaps
+hidutil property --set "$(cat $HOME/.macos_key_remaps.json)" >/dev/null 2>&1

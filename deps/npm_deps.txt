@@ -4,3 +4,4 @@ typescript-language-server
 bash-language-server
 yaml-language-server
 vim-language-server
+fixjson

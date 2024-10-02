@@ -1,0 +1,10 @@
+{
+    "_comment": "use this site for help: https://hidutil-generator.netlify.app/",
+    "UserKeyMapping": [
+        {
+            "_comment": "remap caps lock to backtick (`)",
+            "HIDKeyboardModifierMappingSrc": 30064771129,
+            "HIDKeyboardModifierMappingDst": 30064771125
+        }
+    ]
+}
