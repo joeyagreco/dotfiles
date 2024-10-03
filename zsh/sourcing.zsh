@@ -72,3 +72,10 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 # set up custom macos keymaps
 hidutil property --set "$(cat $HOME/.macos_key_remaps.json)" >/dev/null 2>&1
+
+# make sure tpm is cloned locally for tmux plugin management
+# Ensure TPM is installed in the home directory
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+	mkdir -p "$HOME/.tmux/plugins"
+	git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
