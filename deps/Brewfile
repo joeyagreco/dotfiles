@@ -1,23 +1,20 @@
 # Brewfile
 
 brew "nvim"
+brew "git"
 brew "tmux"
 brew "zsh"
 brew "starship"
 brew "neovim"
 brew "prettier"
 brew "stylua"
-# like grep but for files and folder names
-brew "fd"
 brew "pyenv"
+brew "goenv"
 brew "marksman"
-brew "universal-ctags"
 brew "mercurial"
 brew "lua-language-server"
 brew "efm-langserver"
-brew "goenv"
 brew "clang-format"
-brew "universal-ctags"
 # linter for bash scripts
 brew "shellcheck"
 brew "eza"
@@ -32,4 +29,3 @@ brew 'curl'
 # nice postgres cli tool
 brew "pgcli"
 brew "bufbuild/buf/buf"
-brew "git"
