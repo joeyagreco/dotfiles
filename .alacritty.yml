@@ -39,3 +39,6 @@ mouse:
     modifiers: None
   copy_on_selection: true
   save_to_clipboard: true
+
+selection:
+  save_to_clipboard: true 
