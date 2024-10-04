@@ -45,6 +45,10 @@ function c() {
 	fi
 }
 
+function f_setup() {
+	c "$1" && four && tmux new-window "nvim"
+}
+
 function install_deps() {
 	# create symlinks if needed
 	# THIS SHOULD BE FIRST
