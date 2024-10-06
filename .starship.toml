@@ -1,3 +1,4 @@
+# https://starship.rs/config/
 [directory]
 disabled = false
 home_symbol = "🏠"
@@ -63,4 +64,7 @@ disabled = true
 disabled = true
 
 [terraform]
+disabled = true
+
+[ruby]
 disabled = true

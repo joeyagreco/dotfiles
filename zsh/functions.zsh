@@ -59,6 +59,7 @@ function install_deps() {
 	f_setup_python
 	f_setup_golang
 	f_setup_cargo
+	f_setup_ruby
 
 	# install python package deps
 	pip install --upgrade --quiet pip
@@ -104,6 +105,15 @@ function f_setup_cargo() {
 		curl https://sh.rustup.rs -sSf | sh
 	fi
 	echo "finished setting up cargo"
+}
+
+function f_setup_ruby() {
+	# https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac
+	echo "setting up ruby"
+	source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+	source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
+	chruby ruby-3.3.5
+	echo "finished setting up ruby"
 }
 
 function f_opypi() {
