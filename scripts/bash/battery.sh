@@ -1,3 +1,5 @@
+#!/bin/bash
+
 battery_info=$(pmset -g batt)
 percentage=$(echo "$battery_info" | grep -Eo "\d+%" | head -1)
 
