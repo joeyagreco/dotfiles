@@ -61,6 +61,8 @@ alias cls="f_cls"
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
 alias slack='open -a "Slack"'
+# get path of last downloaded file in clipboard and in env var
+alias lastdownload=". $BASH_SCRIPTS_PATH/last_download.sh"
 
 ##########
 # PYTHON #

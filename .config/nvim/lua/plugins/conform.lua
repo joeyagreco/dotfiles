@@ -19,6 +19,7 @@ return {
             typescript = { "prettier" },
             -- https://github.com/rhysd/fixjson
             json = { "fixjson" },
+            html = { "htmlbeautifier" },
             -- don't want to format .tsx files
             typescriptreact = {},
             yml = {},
