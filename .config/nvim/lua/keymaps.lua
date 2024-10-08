@@ -96,13 +96,13 @@ map("n", "<leader>qx", ":cclose<CR>", helpers.combine_tables(default_options, { 
 -- go to last buffer
 map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 
--- 'if __name__ == "__main__"'
-map(
-    "n",
-    "<leader>inm",
-    'iif __name__ == "__main__":<Esc>o',
-    helpers.combine_tables(default_options, { desc = "if name == main" })
-)
+-- -- 'if __name__ == "__main__"'
+-- map(
+--     "n",
+--     "<leader>inm",
+--     'iif __name__ == "__main__":<Esc>o',
+--     helpers.combine_tables(default_options, { desc = "if name == main" })
+-- )
 
 -- turn search highlighting off
 map(
