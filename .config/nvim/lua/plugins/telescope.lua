@@ -52,6 +52,13 @@ return {
             silent = true,
             noremap = true,
         },
+        {
+            "<leader>d",
+            ":lua require('telescope.builtin').diagnostics({ bufnr=0 })<CR>",
+            desc = "show lsp diagnostics for current buffer",
+            silent = true,
+            noremap = true,
+        },
     },
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" },
