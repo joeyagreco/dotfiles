@@ -45,6 +45,13 @@ return {
             silent = true,
             noremap = true,
         },
+        {
+            "<leader>i",
+            ":lua require('telescope.builtin').lsp_document_symbols({symbols={'function', 'class', 'method', 'constructor', 'enum', 'interface'}})<CR>",
+            desc = "find lsp symbols in the current file",
+            silent = true,
+            noremap = true,
+        },
     },
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" },
