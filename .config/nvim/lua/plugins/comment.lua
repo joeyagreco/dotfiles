@@ -1,3 +1,5 @@
+-- https://github.com/numToStr/Comment.nvim
+
 return {
     "numtostr/comment.nvim",
     lazy = true,
@@ -19,4 +21,21 @@ return {
         },
     },
     opts = {},
+    config = function()
+        require("Comment").setup({})
+        local ft = require("Comment.ft")
+
+        -- Enable both line and block comments for filetypes that are not supported out of the box
+        -- https://github.com/numToStr/Comment.nvim?tab=readme-ov-file#%EF%B8%8F-filetypes--languages
+        -- NOTE: can also do something like this:
+        -- vim.api.nvim_create_autocmd("FileType", {
+        --     pattern = "proto",
+        --     callback = function()
+        --         vim.bo.commentstring = "//%s"
+        --     end,
+        -- })
+
+        -- proto
+        ft.set("proto", { "//%s", "/*%s*/" })
+    end,
 }
