@@ -37,5 +37,7 @@ return {
 
         -- proto
         ft.set("proto", { "//%s", "/*%s*/" })
+        -- go.mod
+        ft.set("gomod", { "//%s", "/*%s*/" })
     end,
 }
