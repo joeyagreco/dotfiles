@@ -25,12 +25,12 @@ if __name__ == "__main__":
         )
         exit(1)
 
-    terminal_path = os.path.join(
+    dotfiles_path = os.path.join(
         local_git_repo_path,
-        "terminal",
+        "dotfiles",
     )
     # filter out things we don't want to link
-    links = [l for l in os.listdir(terminal_path) if l not in IGNORE_THINGS]
+    links = [l for l in os.listdir(dotfiles_path) if l not in IGNORE_THINGS]
     # links now holds the things we want to create a sym link for in $HOME
     home_dir_path = os.environ.get("HOME")
     if home_dir_path is None:
@@ -49,7 +49,7 @@ if __name__ == "__main__":
             print(f"link '{link}' already exists, continuing...")
             continue
         # this link is expected, prompt to create it
-        command = f"ln -s {os.path.join(terminal_path, link)} {link}"
+        command = f"ln -s {os.path.join(dotfiles_path, link)} {link}"
         selection = input(f"create link '{link}'?\ncommand: '{command}'\n(Y/n): ")
         if selection == "Y":
             print(f"creating link '{link}' ...")
