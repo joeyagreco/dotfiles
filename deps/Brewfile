@@ -29,3 +29,6 @@ brew 'curl'
 # nice postgres cli tool
 brew "pgcli"
 brew "bufbuild/buf/buf"
+# for ruby
+brew "chruby" 
+brew "ruby-install"
