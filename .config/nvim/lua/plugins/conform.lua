@@ -8,6 +8,7 @@ return {
     -- https://github.com/stevearc/conform.nvim?tab=readme-ov-file#options
     opts = {
         log_level = vim.log.levels.INFO,
+        -- built in formatters: https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters
         formatters_by_ft = {
             lua = { "stylua" },
             python = { "ruff_check", "ruff_fmt" },
