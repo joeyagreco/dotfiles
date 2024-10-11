@@ -20,6 +20,7 @@ return {
             -- https://github.com/rhysd/fixjson
             json = { "fixjson" },
             html = { "htmlbeautifier" },
+            toml = { "taplo" },
             -- don't want to format .tsx files
             typescriptreact = {},
             yml = {},

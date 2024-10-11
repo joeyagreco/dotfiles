@@ -11,6 +11,8 @@ vicmd_symbol = "[<](green)"
 
 [cmd_duration]
 format = "[ $duration]($style)"
+min_time = 2_000                # in ms
+show_milliseconds = false
 style = "#fcff54"               # yellow
 
 [git_branch]
