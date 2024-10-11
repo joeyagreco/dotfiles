@@ -1,4 +1,4 @@
-# terminal
+# dotfiles 
 
 # Setting up a new computer
 
