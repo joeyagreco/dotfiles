@@ -1,30 +1,5 @@
 local helpers = require("helpers")
 
--- keep track of custom keymaps by letter to prevent collision delay
--- C
--- cn
--- e
--- E
--- f
--- gd
--- gp
--- gr
--- gR
--- h
--- K
--- l
--- L
--- o
--- qo
--- qx
--- Q
--- r
--- R
--- s
--- u
--- w
--- /
-
 local default_options = { noremap = true, silent = true }
 local map = vim.keymap.set
 

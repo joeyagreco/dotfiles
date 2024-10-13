@@ -15,13 +15,6 @@ return {
             silent = true,
             noremap = true,
         },
-        {
-            "<leader>E",
-            ":wincmd l<CR>",
-            desc = "focus from nvim tree -> main buffer",
-            silent = true,
-            noremap = true,
-        },
     },
     dependencies = {
         "nvim-tree/nvim-web-devicons",
