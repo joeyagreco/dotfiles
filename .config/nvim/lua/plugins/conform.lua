@@ -22,6 +22,7 @@ return {
             json = { "fixjson" },
             html = { "htmlbeautifier" },
             toml = { "taplo" },
+            terraform = { "terraform_fmt" },
             -- don't want to format .tsx files
             typescriptreact = {},
             yml = {},
