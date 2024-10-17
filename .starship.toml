@@ -70,3 +70,6 @@ disabled = true
 
 [ruby]
 disabled = true
+
+[aws]
+disabled = true
