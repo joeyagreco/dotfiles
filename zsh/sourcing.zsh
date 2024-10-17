@@ -12,6 +12,17 @@ export PYTHON_PATH=$(pyenv which python)
 # configure pyright
 export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 
+##############
+# JAVASCRIPT #
+##############
+
+# https://stackoverflow.com/questions/16904658/node-version-manager-install-nvm-command-not-found
+source ~/.nvm/nvm.sh
+# ensure we are using the right node version
+nvm alias default $(cat .node-version) >/dev/null
+# give node 2GB of memory
+export NODE_OPTIONS="--max-old-space-size=2000"
+
 ##########
 # GOLANG #
 ##########
@@ -29,6 +40,14 @@ eval "$(goenv rehash)"
 
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+########
+# RUBY #
+########
+
+# https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac
+source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
 
 ###########
 # GENERAL #

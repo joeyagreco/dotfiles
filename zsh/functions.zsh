@@ -111,8 +111,6 @@ function f_setup_cargo() {
 function f_setup_ruby() {
 	# https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac
 	echo "setting up ruby"
-	source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
-	source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
 	chruby ruby-3.3.5
 	echo "finished setting up ruby"
 }
@@ -121,8 +119,6 @@ function f_setup_javascript() {
 	echo "setting up javascript"
 	# TODO: add nvm
 	nvm install $(cat .node-version)
-	# give node 2GB of memory
-	export NODE_OPTIONS="--max-old-space-size=2000"
 	echo "finished setting up javascript"
 }
 
