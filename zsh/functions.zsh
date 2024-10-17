@@ -57,6 +57,7 @@ function install_deps() {
 
 	# setup for various languages
 	f_setup_python
+	f_setup_javascript
 	f_setup_golang
 	f_setup_cargo
 	f_setup_ruby
