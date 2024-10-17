@@ -1,14 +1,25 @@
+# THINGS THAT SHOULD GO HERE:
+# 1. anything that should run anytime a new shell is started
+
+################################
+# HIGH PRIO (should run first) #
+################################
+
+# install mise if needed
+# https://github.com/jdx/mise?tab=readme-ov-file
+if [ ! -f "$HOME/.local/bin/mise" ]; then
+	echo "Mise is not installed. Installing now..."
+	curl -s https://mise.run | sh
+fi
+
+# start mise
+eval "$(~/.local/bin/mise activate zsh)"
+
 ##########
 # PYTHON #
 ##########
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv rehash)"
-# used as a constant in nvim
-export PYTHON_PATH=$(pyenv which python)
+mise use -g python@$(cat .python-version) >/dev/null
 # configure pyright
 export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 
@@ -16,10 +27,7 @@ export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 # JAVASCRIPT #
 ##############
 
-# https://stackoverflow.com/questions/16904658/node-version-manager-install-nvm-command-not-found
-source ~/.nvm/nvm.sh
-# ensure we are using the right node version
-nvm alias default $(cat .node-version) >/dev/null
+mise use -g node@$(cat .node-version) >/dev/null
 # give node 2GB of memory
 export NODE_OPTIONS="--max-old-space-size=2000"
 
@@ -27,12 +35,9 @@ export NODE_OPTIONS="--max-old-space-size=2000"
 # GOLANG #
 ##########
 
-export GOENV_ROOT="$HOME/.goenv"
+mise use -g go@$(cat .go-version) >/dev/null
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"
-eval "$(goenv init -)"
-eval "$(goenv rehash)"
 
 #########
 # CARGO #
