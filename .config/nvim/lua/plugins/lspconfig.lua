@@ -9,6 +9,13 @@ return {
         -- https://github.com/hrsh7th/cmp-nvim-lsp?tab=readme-ov-file#capabilities
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+        -- good func to find root dir
+        local root_dir_func = function(fname)
+            -- https://github.com/neovim/nvim-lspconfig/blob/541f3a2781de481bb84883889e4d9f0904250a56/doc/lspconfig.txt#L294
+            -- locates the first parent directory containing a `.git` directory
+            return util.find_git_ancestor(fname) or vim.fn.getcwd()
+        end
+
         -- golang
         lspconfig.gopls.setup({ capabilities = capabilities })
 
@@ -39,16 +46,12 @@ return {
 
         -- python
         -- https://github.com/astral-sh/ruff-lsp
-        lspconfig.ruff_lsp.setup({ capabilities = capabilities })
+        lspconfig.ruff_lsp.setup({ capabilities = capabilities, root_dir = root_dir_func })
         -- ruff_lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use pyright too
         lspconfig.pyright.setup({
             capabilities = capabilities,
             -- tell pyright what the root dir of this python file is
-            root_dir = function(fname)
-                -- https://github.com/neovim/nvim-lspconfig/blob/541f3a2781de481bb84883889e4d9f0904250a56/doc/lspconfig.txt#L294
-                -- locates the first parent directory containing a `.git` directory
-                return util.find_git_ancestor(fname) or vim.fn.getcwd()
-            end,
+            root_dir = root_dir_func,
         })
 
         -- lua
