@@ -2,8 +2,3 @@
 python = "3.12"
 node = "23.0.0"
 go = "1.23.2"
-
-[settings]
-# disable all hints
-disable_hints = [ "*" ]
-quiet = true
