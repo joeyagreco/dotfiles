@@ -116,6 +116,15 @@ function f_setup_ruby() {
 	echo "finished setting up ruby"
 }
 
+function f_setup_javascript() {
+	echo "setting up javascript"
+	# TODO: add nvm
+	nvm install $(cat .node-version)
+	# give node 2GB of memory
+	export NODE_OPTIONS="--max-old-space-size=2000"
+	echo "finished setting up javascript"
+}
+
 function f_opypi() {
 	open "https://pypi.org/project/$1/"
 }
