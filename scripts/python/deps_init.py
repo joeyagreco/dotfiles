@@ -21,6 +21,9 @@ def install(*, deps_file_name: str, install_command: str) -> None:
         deps = [dep.strip() for dep in file.readlines()]
 
     for dep in deps:
+        if dep.startswith("#"):
+            # ignore commented lines
+            continue
         command = install_command.replace("{DEP}", dep)
         print(f"running command '{command}'")
         result = subprocess.run(command, shell=True)
