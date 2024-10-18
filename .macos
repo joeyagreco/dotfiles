@@ -1,0 +1,36 @@
+#!/bin/bash
+# https://macos-defaults.com/
+
+########
+# DOCK #
+########
+
+# orient dock to the left of the screen 
+defaults write com.apple.dock "orientation" -string "left" && killall Dock
+# autohide dock 
+defaults write com.apple.dock autohide -bool true && killall Dock
+# set dock autohide animation time
+defaults write com.apple.dock "autohide-time-modifier" -float "0.3" && killall Dock
+# set dock icon size
+defaults write com.apple.dock "tilesize" -int "48" && killall Dock
+# don't show recent apps in dock
+defaults write com.apple.dock "show-recents" -bool "false" && killall Dock
+# set animation effect for maximizing and minimizing windows
+defaults write com.apple.dock "mineffect" -string "scale" && killall Dock
+
+##########
+# FINDER #
+##########
+
+# show file extensions
+defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" && killall Finder
+# show hidden files
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
+# use list view
+defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv" && killall Finder
+# empty bin after 30 days
+defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true" && killall Finder
+# don't warn when changing file extension
+defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false" && killall Finder
+# hide all icons on desktop
+defaults write com.apple.finder "CreateDesktop" -bool "false" && killall Finder

@@ -3,7 +3,7 @@ links:
 	$(PYTHON_COMMAND) $(PYTHON_SCRIPTS_PATH)/link_init.py
 
 .PHONY: deps
-deps: links setup-cargo
+deps: links setup-cargo setup-macos
 	# install python package deps
 	pip install --upgrade --quiet pip
 	pip install --quiet -r $(DEPS_DIR_PATH)/requirements.txt
@@ -22,4 +22,8 @@ setup-cargo:
 		echo "cargo could not be found, installing..."; \
 		curl https://sh.rustup.rs -sSf | sh; \
 	fi
+
+.PHONY: setup-macos
+setup-macos:
+	@sudo ~/.macos
 
