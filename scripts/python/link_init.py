@@ -16,6 +16,7 @@ if __name__ == "__main__":
         "package-lock.json",
         "akeyless",
         ".ruff_cache",
+        ".mise.toml",
     ]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
     if local_git_repo_path is None:

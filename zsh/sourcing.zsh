@@ -45,14 +45,6 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # set up cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-########
-# RUBY #
-########
-
-# https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac
-source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
-source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
-
 ###########
 # GENERAL #
 ###########

@@ -44,7 +44,6 @@ alias dstop='docker stop $(docker ps -q)'
 ###############
 
 # install any dependencies
-alias deps="install_deps"
 alias vi="vim"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'

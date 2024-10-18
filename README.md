@@ -14,7 +14,7 @@ export GITHUB_PREFIX="foo"
 ```
 
 4. Install `Hack Nerd Font` from [this site](https://www.nerdfonts.com/font-downloads)
-5. Run `source ~/.zshrc.local && source ~/zsh/init.zsh && deps`
+5. Run `source ~/.zshrc.local && source ~/zsh/init.zsh && make deps`
 
 # Adding new things
 
