@@ -33,9 +33,10 @@ export NODE_OPTIONS="--max-old-space-size=2000"
 # GOLANG #
 ##########
 
-export PATH="$HOME/go/bin:$PATH"
-export PATH="$GOROOT/bin:$PATH"
 export GOPROXY=https://proxy.golang.org
+export GOROOT=$(go env GOROOT)
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 #########
 # CARGO #
