@@ -69,12 +69,6 @@ alias lastdownload=". $BASH_SCRIPTS_PATH/last_download.sh"
 ##########
 
 alias py="$PYTHON_COMMAND"
-# open up a project in pypi
-# o(pen)pypi
-alias opypi="f_opypi"
-# check name availability on pypi
-# a(vailability)pypi
-alias apypi=$PYTHON_COMMAND "$PYTHON_SCRIPTS_PATH/pypi_check.py"
 # use venv
 alias venv=$PYTHON_COMMAND "-m venv"
 alias venvup='f_venvup'

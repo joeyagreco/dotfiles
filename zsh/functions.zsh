@@ -110,7 +110,3 @@ function f_setup_javascript() {
 	echo "setting up javascript"
 	echo "finished setting up javascript"
 }
-
-function f_opypi() {
-	open "https://pypi.org/project/$1/"
-}
