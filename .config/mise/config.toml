@@ -1,4 +1,10 @@
+# https://mise.jdx.dev/configuration.html#global-config-config-mise-config-toml
+# https://mise.jdx.dev/configuration.html#configuration
 [tools]
 go = "1.23.2"
 node = "23.0.0"
-python = "3.12"
+python = [ "3.10", "3.12" ]
+
+[settings]
+disable_hints = [ "*" ]
+quiet = false

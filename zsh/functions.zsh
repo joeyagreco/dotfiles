@@ -108,8 +108,6 @@ function f_setup_ruby() {
 
 function f_setup_javascript() {
 	echo "setting up javascript"
-	# TODO: add nvm
-	nvm install $(cat .node-version)
 	echo "finished setting up javascript"
 }
 

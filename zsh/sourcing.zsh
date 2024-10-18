@@ -19,7 +19,6 @@ eval "$(~/.local/bin/mise activate zsh)"
 # PYTHON #
 ##########
 
-mise use -g python@$(cat ~/.python-version) >/dev/null
 # configure pyright
 export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 
@@ -27,7 +26,6 @@ export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 # JAVASCRIPT #
 ##############
 
-mise use -g node@$(cat ~/.node-version) >/dev/null
 # give node 2GB of memory
 export NODE_OPTIONS="--max-old-space-size=2000"
 
@@ -35,9 +33,9 @@ export NODE_OPTIONS="--max-old-space-size=2000"
 # GOLANG #
 ##########
 
-mise use -g go@$(cat ~/.go-version) >/dev/null
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"
+export GOPROXY=https://proxy.golang.org
 
 #########
 # CARGO #
