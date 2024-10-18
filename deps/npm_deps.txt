@@ -5,5 +5,4 @@ bash-language-server
 yaml-language-server
 vim-language-server
 fixjson
-# need to use this version as 1.1.385 breaks
-pyright@1.1.384
+pyright
