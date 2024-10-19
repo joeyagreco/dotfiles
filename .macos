@@ -1,6 +1,7 @@
 #!/bin/bash
 # https://macos-defaults.com/
 # https://gist.github.com/brandonb927/3195465/
+# https://emmer.dev/blog/automate-your-macos-defaults/
 
 ########
 # DOCK #
@@ -49,6 +50,15 @@ defaults write NSGlobalDomain com.apple.mouse.scaling -float "0.875"
 
 # increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+############
+# MENU BAR #
+############
+
+# always show bluetooth
+defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
+# show battery percentage
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
 #################
 # RESTART STUFF #
