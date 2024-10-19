@@ -1,6 +1,6 @@
 .PHONY: links 
 links:
-	$(PYTHON_COMMAND) $(PYTHON_SCRIPTS_PATH)/link_init.py
+	@$(PYTHON_COMMAND) $(PYTHON_SCRIPTS_PATH)/link_init.py
 
 .PHONY: deps
 deps: links setup-cargo setup-macos
@@ -18,7 +18,7 @@ deps: links setup-cargo setup-macos
 
 .PHONY: setup-cargo
 setup-cargo:
-	if ! command -v cargo >/dev/null 2>&1; then \
+	@if ! command -v cargo >/dev/null 2>&1; then \
 		echo "cargo could not be found, installing..."; \
 		curl https://sh.rustup.rs -sSf | sh; \
 	fi
