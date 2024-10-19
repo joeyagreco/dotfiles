@@ -11,7 +11,7 @@
 # orient dock to the left of the screen
 defaults write com.apple.dock "orientation" -string "left"
 # autohide dock
-defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool "true"
 # set dock autohide animation time
 defaults write com.apple.dock "autohide-time-modifier" -float "0.3"
 # set dock icon size
@@ -56,30 +56,30 @@ defaults write -g KeyRepeatDelay -float "0.5"
 defaults write -g KeyRepeatEnabled -bool "true"
 defaults write -g KeyRepeatInterval -float "0.083333333"
 # disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool "false"
 
 #########
 # SOUND #
 #########
 
 # increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int "40"
 
 ############
 # MENU BAR #
 ############
 
 # always show bluetooth
-defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
+defaults -currentHost write com.apple.controlcenter Bluetooth -int "18"
 # show battery percentage
-defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool "true"
 
 ###########
 # GENERAL #
 ###########
 
 # disable the warning before emptying the Trash
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
+defaults write com.apple.finder WarnOnEmptyTrash -bool "false"
 
 #################
 # RESTART STUFF #
