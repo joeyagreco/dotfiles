@@ -2,6 +2,7 @@
 # https://macos-defaults.com/
 # https://gist.github.com/brandonb927/3195465/
 # https://emmer.dev/blog/automate-your-macos-defaults/
+# https://gist.github.com/sickcodes/912973b2153b0738ff97621cde4c2bb5
 
 ########
 # DOCK #
@@ -44,6 +45,15 @@ defaults write com.apple.finder "CreateDesktop" -bool "false"
 # set mouse speed
 defaults write NSGlobalDomain com.apple.mouse.scaling -float "0.875"
 
+############
+# KEYBOARD #
+############
+
+# set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 0
+# disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
 #########
 # SOUND #
 #########
@@ -60,9 +70,17 @@ defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
 # show battery percentage
 defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
+###########
+# GENERAL #
+###########
+
+# disable the warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
 #################
 # RESTART STUFF #
 #################
 
 killall Dock
 killall Finder
+killall SystemUIServer
