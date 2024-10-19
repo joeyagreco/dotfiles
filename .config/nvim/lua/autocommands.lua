@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     callback = function()
         vim.bo.filetype = "requirements"
     end,
-    desc = "Set filetype to requirements for files matching requirements*.txt",
+    desc = "Set filetype to requirements",
 })
 
 -- set filetype to yaml
@@ -13,7 +13,16 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     callback = function()
         vim.bo.filetype = "yaml"
     end,
-    desc = "Set filetype to yaml for .yamlfmt files",
+    desc = "Set filetype to yaml",
+})
+
+-- set filetype to dosini
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = ".shellcheckrc",
+    callback = function()
+        vim.bo.filetype = "dosini"
+    end,
+    desc = "Set filetype to dosini",
 })
 
 -- set filetype to zsh
@@ -22,7 +31,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     callback = function()
         vim.bo.filetype = "zsh"
     end,
-    desc = "set filetype to zsh for .macos files",
+    desc = "set filetype to zsh",
 })
 
 -- highlight selection on yank
