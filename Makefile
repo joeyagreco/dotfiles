@@ -25,5 +25,5 @@ setup-cargo:
 
 .PHONY: setup-macos
 setup-macos:
-	@sudo ~/.macos
+	@~/.macos
 
