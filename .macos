@@ -1,13 +1,14 @@
 #!/bin/bash
 # https://macos-defaults.com/
+# https://gist.github.com/brandonb927/3195465/
 
 ########
 # DOCK #
 ########
 
-# orient dock to the left of the screen 
+# orient dock to the left of the screen
 defaults write com.apple.dock "orientation" -string "left"
-# autohide dock 
+# autohide dock
 defaults write com.apple.dock autohide -bool true
 # set dock autohide animation time
 defaults write com.apple.dock "autohide-time-modifier" -float "0.3"
@@ -35,10 +36,23 @@ defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
 # hide all icons on desktop
 defaults write com.apple.finder "CreateDesktop" -bool "false"
 
+#########
+# MOUSE #
+#########
+
+# set mouse speed
+defaults write NSGlobalDomain com.apple.mouse.scaling -float "0.875"
+
+#########
+# SOUND #
+#########
+
+# increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
 #################
 # RESTART STUFF #
 #################
 
 killall Dock
 killall Finder
-
