@@ -1,6 +1,6 @@
 {
     "_comment": "use this site for help: https://hidutil-generator.netlify.app/",
-    "_comment_2": "NOTE: something like this 0x700000039 will become something like this 30064771129 on save",
+    "_comment_2": "NOTE: something like this 0x700000039 (base 16 / hex) will become something like this 30064771129 (base 10 / decimal) on save",
     "UserKeyMapping": [
         {
             "_comment": "remap caps lock to escape",
