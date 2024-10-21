@@ -1,9 +1,15 @@
 {
     "_comment": "use this site for help: https://hidutil-generator.netlify.app/",
+    "_comment_2": "NOTE: something like this 0x700000039 will become something like this 30064771129 on save",
     "UserKeyMapping": [
         {
-            "_comment": "remap caps lock to backtick (`)",
+            "_comment": "remap caps lock to escape",
             "HIDKeyboardModifierMappingSrc": 30064771129,
+            "HIDKeyboardModifierMappingDst": 30064771113
+        },
+        {
+            "_comment": "remap escape to backtick (`)",
+            "HIDKeyboardModifierMappingSrc": 30064771113,
             "HIDKeyboardModifierMappingDst": 30064771125
         }
     ]
