@@ -26,15 +26,15 @@ export PYRIGHT_PYTHON_FORCE_VERSION='latest'
 # JAVASCRIPT #
 ##############
 
-# give node 2GB of memory
-export NODE_OPTIONS="--max-old-space-size=2000"
+# give node 4GB of memory
+export NODE_OPTIONS="--max-old-space-size=4000"
 
 ##########
 # GOLANG #
 ##########
 
 export GOPROXY=https://proxy.golang.org
-# commenting out as this seems to be somehow pointing to .goenv 
+# commenting out as this seems to be somehow pointing to .goenv
 # export GOROOT=$(go env GOROOT)
 # export GOPATH=$(go env GOPATH)
 # export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
