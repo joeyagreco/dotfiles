@@ -11,5 +11,10 @@ return {
     lazy = true,
     event = "BufEnter",
     -- https://github.com/folke/todo-comments.nvim?tab=readme-ov-file#%EF%B8%8F-configuration
-    opts = {},
+    opts = {
+        keywords = {
+            -- just adding "IMPORTANT", rest is default for "WARN"
+            WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX", "IMPORTANT" } },
+        },
+    },
 }
