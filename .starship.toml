@@ -73,3 +73,6 @@ disabled = true
 
 [aws]
 disabled = true
+
+[rust]
+disabled = true
