@@ -34,6 +34,15 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     desc = "set filetype to zsh",
 })
 
+-- set filetype to env
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = ".env*",
+    callback = function()
+        vim.bo.filetype = "env"
+    end,
+    desc = "set filetype to env",
+})
+
 -- highlight selection on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
