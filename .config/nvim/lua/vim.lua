@@ -100,3 +100,6 @@ vim.g.autoformat = false
 
 -- add the g flag to search/replace by default
 vim.opt.gdefault = true
+
+-- don't show mode since our status line shows it instead
+vim.o.showmode = false

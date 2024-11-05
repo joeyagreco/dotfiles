@@ -19,7 +19,7 @@ return {
     opts = {
         options = {
             -- themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-            theme = "auto",
+            theme = "material",
             refresh = {
                 statusline = 200,
                 tabline = 500,
