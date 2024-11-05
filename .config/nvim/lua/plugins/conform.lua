@@ -12,7 +12,6 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             python = { "ruff_check", "ruff_fmt" },
-            proto = { "buf_fmt" },
             sh = { "shfmt" },
             zsh = { "shfmt" },
             go = { "gofmt", "goimports" },
@@ -23,6 +22,7 @@ return {
             html = { "htmlbeautifier" },
             toml = { "taplo" },
             terraform = { "terraform_fmt" },
+            proto = { "buf" },
             -- don't want to format .tsx files
             typescriptreact = {},
             yml = {},
@@ -40,12 +40,6 @@ return {
                 stdin = true,
                 command = "ruff",
                 args = { "format", "-", "--config", RUFF_CONFIG_FILE, "-q" },
-            },
-            buf_fmt = {
-                inherit = false,
-                command = "buf",
-                args = { "format", "--write" },
-                replace = true,
             },
         },
         format_on_save = {
