@@ -70,8 +70,7 @@ return {
         -- yaml
         lspconfig.yamlls.setup({
             capabilities = capabilities,
-            -- on_init = yaml_on_init,
-            filetypes = { "yaml", "yml", "yamlfmt" },
+            filetypes = { "yaml", "yml" },
         })
 
         -- makefile

@@ -7,15 +7,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     desc = "Set filetype to requirements",
 })
 
--- set filetype to yaml
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "*.yamlfmt",
-    callback = function()
-        vim.bo.filetype = "yaml"
-    end,
-    desc = "Set filetype to yaml",
-})
-
 -- set filetype to dosini
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = ".shellcheckrc",
