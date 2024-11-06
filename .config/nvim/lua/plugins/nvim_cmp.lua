@@ -9,6 +9,7 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp-signature-help",
+        "hrsh7th/cmp-nvim-lsp-document-symbol",
     },
     opts = function()
         -- used for ghost text
@@ -33,6 +34,8 @@ return {
                 { name = "path" },
                 -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
                 { name = "nvim_lsp_signature_help" },
+                -- https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol
+                { name = "nvim_lsp_document_symbol" },
             }, {
                 { name = "buffer" },
             }),
