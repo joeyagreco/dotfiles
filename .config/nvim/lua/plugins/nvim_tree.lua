@@ -4,6 +4,8 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+local constants = require("constants")
+
 return {
     "nvim-tree/nvim-tree.lua",
     lazy = true,
@@ -52,8 +54,8 @@ return {
             update_cwd = true,
             update_root = true,
         },
-        -- -- set all local git directories as root dirs
-        -- root_dirs = constants.ALL_LOCAL_GIT_REPO_PATHS,
+        -- set all local git directories as root dirs
+        root_dirs = constants.ALL_LOCAL_GIT_REPO_PATHS,
         -- auto update tree based on cwd
         -- this allows us to just change the cwd and see the tree update automatically
         hijack_directories = {
