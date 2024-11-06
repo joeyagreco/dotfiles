@@ -8,6 +8,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
     },
     opts = function()
         -- used for ghost text
@@ -30,6 +31,8 @@ return {
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "path" },
+                -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
+                { name = "nvim_lsp_signature_help" },
             }, {
                 { name = "buffer" },
             }),
