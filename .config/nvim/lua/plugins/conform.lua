@@ -23,6 +23,7 @@ return {
             toml = { "taplo" },
             terraform = { "terraform_fmt" },
             proto = { "buf" },
+            css = { "prettier" },
             -- don't want to format .tsx files
             typescriptreact = {},
             yml = {},
