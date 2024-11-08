@@ -18,8 +18,6 @@ alias tmaa="tmux attach"
 alias tmd="tmux detach"
 # kill a session by name
 alias tmk="tmux kill-session -t"
-# kill all sessions except the current
-alias tmkk="tmux kill-session -a"
 # list all tmux sessions
 alias tml="tmux list-sessions -F '#{session_name}'"
 # create a new named tmux session
