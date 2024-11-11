@@ -3,10 +3,16 @@
 -- npm install tslib
 return {
     "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    cmd = { "Mark" },
     build = "cd app && yarn install",
     init = function()
         vim.g.mkdp_filetypes = { "markdown" }
     end,
     ft = { "markdown" },
+    config = function()
+        -- preview current markdown file in browser
+        vim.api.nvim_create_user_command("Mark", function()
+            vim.cmd("MarkdownPreview")
+        end, { desc = "preview current markdown file in browser" })
+    end,
 }
