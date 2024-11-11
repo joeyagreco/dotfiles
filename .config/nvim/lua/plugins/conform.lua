@@ -16,6 +16,7 @@ return {
             zsh = { "shfmt" },
             go = { "gofmt", "goimports" },
             javascript = { "prettier" },
+            javascriptreact = { "prettier" },
             typescript = { "prettier" },
             -- https://github.com/rhysd/fixjson
             json = { "fixjson" },
