@@ -15,13 +15,15 @@ window:
 
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
 # must be a "Nerd Font" for icons to work on nvim-tree
+# OLD FONTS:
+# - Hack Nerd Font
 font:
   size: 14.0
   normal:
-    family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Regular
   bold:
-    family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
 
 scrolling:
