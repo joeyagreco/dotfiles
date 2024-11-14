@@ -25,6 +25,24 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     desc = "set filetype to zsh",
 })
 
+-- set filetype to json
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.swcrc*",
+    callback = function()
+        vim.bo.filetype = "json"
+    end,
+    desc = "set filetype to json",
+})
+
+-- set filetype to conf
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { ".npmrc", ".nvmrc" },
+    callback = function()
+        vim.bo.filetype = "conf"
+    end,
+    desc = "set filetype to conf",
+})
+
 -- set filetype to env
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = ".env*",
