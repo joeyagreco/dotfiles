@@ -48,8 +48,6 @@ alias home='cd ~'
 alias ls='eza'
 alias cd='z'
 alias nukerepo="$BASH_SCRIPTS_PATH/nuke_repo.sh"
-# create a new note
-alias note="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/notes.py"
 # open up notes in nvim in a new tmux window
 alias nn="tmux new-window -c $NOTES_PATH nvim"
 # screenshot and save to downloads folder

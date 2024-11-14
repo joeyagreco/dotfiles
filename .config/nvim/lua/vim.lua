@@ -1,5 +1,3 @@
-local constants = require("constants")
-
 -- set leader to SPACE
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -10,8 +8,9 @@ vim.opt.inccommand = "split"
 -- use system clipboard
 vim.opt.clipboard = "unnamedplus"
 
+-- TODO: not sure if this is needed
 -- set python to use
-vim.g.python3_host_prog = constants.PYTHON_PATH
+-- vim.g.python3_host_prog = constants.PYTHON_PATH
 
 -- no splash screen on startup
 -- vim.opt.shortmess:append("I")
