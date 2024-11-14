@@ -34,6 +34,14 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     desc = "set filetype to env",
 })
 
+-- set filetype for helm files
+-- source: https://neovim.discourse.group/t/detect-helm-files-with-filetype-lua/3248
+vim.filetype.add({
+    pattern = {
+        [".*/templates/.*%.yaml"] = "helm",
+    },
+})
+
 -- highlight selection on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
