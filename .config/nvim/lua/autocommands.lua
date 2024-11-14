@@ -1,31 +1,14 @@
 -- set filetypes
-local function set_filetype_autocmds(filetype_map)
-    for filetype, patterns in pairs(filetype_map) do
-        vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-            pattern = patterns,
-            callback = function()
-                vim.bo.filetype = filetype
-            end,
-            desc = "Set filetype to " .. filetype,
-        })
-    end
-end
-
-set_filetype_autocmds({
-    requirements = { "requirements*.txt" },
-    dosini = { ".shellcheckrc" },
-    zsh = { ".macos" },
-    json = { "*.swcrc*" },
-    conf = { ".npmrc", ".nvmrc" },
-    env = { ".env*" },
-})
-
--- special cases for setting filetypes
--- set filetype for helm files
--- source: https://neovim.discourse.group/t/detect-helm-files-with-filetype-lua/3248
 vim.filetype.add({
     pattern = {
-        [".*/templates/.*%.yaml"] = "helm",
+        [".*/templates/.*%.yaml"] = "helm", -- https://neovim.discourse.group/t/detect-helm-files-with-filetype-lua/3248
+        ["requirements.*%.txt"] = "requirements",
+        [".shellcheckrc"] = "dosini",
+        [".macos"] = "zsh",
+        ["%.swcrc"] = "json",
+        [".npmrc"] = "conf",
+        [".nvmrc"] = "conf",
+        [".env.*"] = "env",
     },
 })
 
