@@ -1,8 +1,8 @@
 -- set filetypes
 local function set_filetype_autocmds(filetype_map)
-    for pattern, filetype in pairs(filetype_map) do
+    for filetype, patterns in pairs(filetype_map) do
         vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-            pattern = pattern,
+            pattern = patterns,
             callback = function()
                 vim.bo.filetype = filetype
             end,
@@ -12,13 +12,12 @@ local function set_filetype_autocmds(filetype_map)
 end
 
 set_filetype_autocmds({
-    ["requirements*.txt"] = "requirements",
-    [".shellcheckrc"] = "dosini",
-    [".macos"] = "zsh",
-    ["*.swcrc*"] = "json",
-    [".npmrc"] = "conf",
-    [".nvmrc"] = "conf",
-    [".env*"] = "env",
+    requirements = { "requirements*.txt" },
+    dosini = { ".shellcheckrc" },
+    zsh = { ".macos" },
+    json = { "*.swcrc*" },
+    conf = { ".npmrc", ".nvmrc" },
+    env = { ".env*" },
 })
 
 -- special cases for setting filetypes
