@@ -1,57 +1,27 @@
--- set filetype to requirements
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "requirements*.txt",
-    callback = function()
-        vim.bo.filetype = "requirements"
-    end,
-    desc = "Set filetype to requirements",
+-- set filetypes
+local function set_filetype_autocmds(filetype_map)
+    for pattern, filetype in pairs(filetype_map) do
+        vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+            pattern = pattern,
+            callback = function()
+                vim.bo.filetype = filetype
+            end,
+            desc = "Set filetype to " .. filetype,
+        })
+    end
+end
+
+set_filetype_autocmds({
+    ["requirements*.txt"] = "requirements",
+    [".shellcheckrc"] = "dosini",
+    [".macos"] = "zsh",
+    ["*.swcrc*"] = "json",
+    [".npmrc"] = "conf",
+    [".nvmrc"] = "conf",
+    [".env*"] = "env",
 })
 
--- set filetype to dosini
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = ".shellcheckrc",
-    callback = function()
-        vim.bo.filetype = "dosini"
-    end,
-    desc = "Set filetype to dosini",
-})
-
--- set filetype to zsh
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = ".macos",
-    callback = function()
-        vim.bo.filetype = "zsh"
-    end,
-    desc = "set filetype to zsh",
-})
-
--- set filetype to json
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "*.swcrc*",
-    callback = function()
-        vim.bo.filetype = "json"
-    end,
-    desc = "set filetype to json",
-})
-
--- set filetype to conf
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { ".npmrc", ".nvmrc" },
-    callback = function()
-        vim.bo.filetype = "conf"
-    end,
-    desc = "set filetype to conf",
-})
-
--- set filetype to env
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = ".env*",
-    callback = function()
-        vim.bo.filetype = "env"
-    end,
-    desc = "set filetype to env",
-})
-
+-- special cases for setting filetypes
 -- set filetype for helm files
 -- source: https://neovim.discourse.group/t/detect-helm-files-with-filetype-lua/3248
 vim.filetype.add({
