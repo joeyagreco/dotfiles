@@ -1,6 +1,7 @@
 -- set leader to SPACE
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+local LEADER = " "
+vim.g.mapleader = LEADER
+vim.g.maplocalleader = LEADER
 
 -- enable the live preview of substitution commands in a split window
 vim.opt.inccommand = "split"
@@ -21,6 +22,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.breakindent = true
 
 -- decrease updatetime to 250ms
+-- https://neovim.io/doc/user/options.html#'updatetime'
 vim.opt.updatetime = 250
 
 -- set completeopt to have a better completion experience
@@ -41,9 +43,6 @@ vim.opt.relativenumber = true
 
 -- enable 24-bit RGB colors
 vim.opt.termguicolors = true
-
--- always show the sign column
-vim.opt.signcolumn = "yes"
 
 -- disable compatibility with vi which can cause unexpected issues.
 vim.opt.compatible = false
