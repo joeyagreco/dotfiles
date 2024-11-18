@@ -35,6 +35,21 @@ map("n", "<leader>L", function()
     vim.diagnostic.open_float(nil, { source = "always" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
 
+-- open relative file links, similar to 'gs'
+vim.keymap.set("n", "GX", function()
+    local line = vim.fn.getline(".")
+    local match = string.match(line, "%[.-%]%((.-)%)")
+    if match then
+        -- get the directory of the current file
+        local current_file_dir = vim.fn.expand("%:p:h")
+        -- resolve the relative path to an absolute path
+        local absolute_path = vim.fn.fnamemodify(current_file_dir .. "/" .. match, ":p")
+        vim.cmd("edit " .. vim.fn.fnameescape(absolute_path))
+    else
+        print("no link under cursor")
+    end
+end, { desc = "open relative file links, similar to 'gx'" })
+
 -------------
 -- GENERAL --
 -------------
