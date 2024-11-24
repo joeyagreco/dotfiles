@@ -35,8 +35,8 @@ map("n", "<leader>L", function()
     vim.diagnostic.open_float(nil, { source = "always" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
 
--- open relative file links, similar to 'gs'
-vim.keymap.set("n", "GX", function()
+-- open relative file links, similar to 'gx'
+vim.keymap.set("n", "gX", function()
     local line = vim.fn.getline(".")
     local match = string.match(line, "%[.-%]%((.-)%)")
     if match then
