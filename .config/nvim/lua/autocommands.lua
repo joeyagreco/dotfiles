@@ -9,6 +9,7 @@ vim.filetype.add({
         [".npmrc"] = "conf",
         [".nvmrc"] = "conf",
         [".env.*"] = "env",
+        ["Dockerfile.*"] = "dockerfile",
     },
 })
 
