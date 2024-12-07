@@ -41,7 +41,6 @@ alias dstop='docker stop $(docker ps -q)'
 # GENERAL QOL #
 ###############
 
-# install any dependencies
 alias vi="vim"
 alias ic="ping 8.8.8.8"
 alias home='cd ~'
@@ -55,7 +54,6 @@ alias ss="screencapture -x $DOWNLOADS_PATH/terminal-screenshot-$(date '+%Y%m%d%H
 alias cls="f_cls"
 alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\nplugh\nxyxxy\nthud"'
 alias make='gmake'
-alias slack='open -a "Slack"'
 # get path of last downloaded file in clipboard and in env var
 alias lastdownload=". $BASH_SCRIPTS_PATH/last_download.sh"
 
