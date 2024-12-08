@@ -84,6 +84,8 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 osascript -e 'tell application "System Events" to make login item at end with properties {name:"Docker", path:"/Applications/Docker.app", hidden:false}'
 # firefox
 osascript -e 'tell application "System Events" to make login item at end with properties {name:"Firefox", path:"/Applications/Firefox.app", hidden:false}'
+# alacritty
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Alacritty", path:"/Applications/Alacritty.app", hidden:false}'
 
 ###########
 # GENERAL #
