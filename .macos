@@ -80,8 +80,10 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 
 # SEE ALL STARTUP ITEMS: osascript -e 'tell application "System Events" to get the name of every login item'
 
-# start docker desktop on startup
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Docker", path:"/Applications/Docker.app/Contents/MacOS/Docker", hidden:false}'
+# docker
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Docker", path:"/Applications/Docker.app", hidden:false}'
+# firefox
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Firefox", path:"/Applications/Firefox.app", hidden:false}'
 
 ###########
 # GENERAL #
