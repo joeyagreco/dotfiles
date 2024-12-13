@@ -26,3 +26,4 @@ brew 'curl'
 # nice postgres cli tool
 brew "pgcli"
 brew "bufbuild/buf/buf"
+brew "hashicorp/tap/terraform-ls"

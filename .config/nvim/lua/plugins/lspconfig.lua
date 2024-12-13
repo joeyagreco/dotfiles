@@ -1,3 +1,4 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 return {
     "neovim/nvim-lspconfig",
     lazy = true,
@@ -27,6 +28,11 @@ return {
         lspconfig.bashls.setup({
             capabilities = capabilities,
             filetypes = { "sh", "zsh", "zshrc" },
+        })
+
+        -- terraform
+        lspconfig.terraformls.setup({
+            capabilities = capabilities,
         })
 
         -- toml
