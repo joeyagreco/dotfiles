@@ -5,8 +5,8 @@ links:
 .PHONY: deps
 deps: links setup-cargo setup-macos
 	# install python package deps
-	pip install --upgrade --quiet pip
-	pip install --quiet -r $(DEPS_DIR_PATH)/requirements.txt
+	uv pip install --upgrade --quiet pip --system
+	uv pip install --quiet -r $(DEPS_DIR_PATH)/requirements.txt --system
 
 	# install brew deps
 	brew update -q
