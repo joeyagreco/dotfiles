@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# to get an idea of what to change for a particular setting
+# defaults read > before.txt
+# { MAKE CHANGE IN SETTINGS }
+# defaults read > after.txt
+# diff before.txt after.txt
+
 # https://macos-defaults.com/
 # https://gist.github.com/brandonb927/3195465/
 # https://emmer.dev/blog/automate-your-macos-defaults/
