@@ -81,11 +81,11 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 # SEE ALL STARTUP ITEMS: osascript -e 'tell application "System Events" to get the name of every login item'
 
 # docker
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Docker", path:"/Applications/Docker.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Docker", path:"/Applications/Docker.app", hidden:false}' >/dev/null
 # firefox
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Firefox", path:"/Applications/Firefox.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Firefox", path:"/Applications/Firefox.app", hidden:false}' >/dev/null
 # alacritty
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Alacritty", path:"/Applications/Alacritty.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Alacritty", path:"/Applications/Alacritty.app", hidden:false}' >/dev/null
 
 ###########
 # GENERAL #
@@ -93,6 +93,9 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 
 # disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool "false"
+
+# set to dark theme
+osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
 
 #################
 # RESTART STUFF #
