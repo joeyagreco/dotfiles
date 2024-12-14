@@ -27,3 +27,4 @@ brew 'curl'
 brew "pgcli"
 brew "bufbuild/buf/buf"
 brew "hashicorp/tap/terraform-ls"
+brew "uv"
