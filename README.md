@@ -1,9 +1,7 @@
-# dotfiles 
-
 # Setting up a new computer
 
 1. Clone this repo
-2. Create a `.zshrc.local` file in the root dir to keep local config
+2. Create a `.zshrc.local` file in ~
 3. Add this to `.zshrc.local` file:
 
 ```sh
