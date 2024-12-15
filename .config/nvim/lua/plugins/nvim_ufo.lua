@@ -1,7 +1,10 @@
 -- shows number of lines for folded text
 local handler = function(virt_text, lnum, end_lnum, width, truncate)
     local new_virt_text = {}
-    local suffix = (" 󰁂 %d "):format(end_lnum - lnum)
+    -- local collapse_char = "󰁂"
+    local collapse_char = "…"
+    local suffix = ("%s%s %d"):format(" ", collapse_char, end_lnum - lnum)
+
     local suf_width = vim.fn.strdisplaywidth(suffix)
     local target_width = width - suf_width
     local cur_width = 0
