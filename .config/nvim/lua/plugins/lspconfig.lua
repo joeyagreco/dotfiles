@@ -52,8 +52,8 @@ return {
 
         -- python
         -- https://github.com/astral-sh/ruff-lsp
-        lspconfig.ruff_lsp.setup({ capabilities = capabilities, root_dir = root_dir_func })
-        -- ruff_lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use pyright too
+        lspconfig.ruff.setup({ capabilities = capabilities, root_dir = root_dir_func })
+        -- ruff lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use pyright too
         lspconfig.pyright.setup({
             capabilities = capabilities,
             -- tell pyright what the root dir of this python file is
