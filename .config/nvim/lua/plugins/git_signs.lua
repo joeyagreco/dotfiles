@@ -2,6 +2,8 @@
 -- to refresh, run: ":Gitsigns refresh"
 return {
     "lewis6991/gitsigns.nvim",
+    -- pin to main due to this issue which is on version 0.9.0 but not main branch: https://github.com/lewis6991/gitsigns.nvim/issues/1127#issuecomment-2481495017
+    branch = "main",
     lazy = true,
     keys = {
         {
