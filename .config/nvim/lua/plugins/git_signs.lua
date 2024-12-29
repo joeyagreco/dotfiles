@@ -29,5 +29,5 @@ return {
         },
     },
     event = "BufEnter",
-    opts = { debug_mode = true },
+    opts = { debug_mode = false },
 }
