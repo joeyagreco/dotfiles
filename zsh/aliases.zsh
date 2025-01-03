@@ -78,7 +78,7 @@ alias emptycommit='git commit --allow-empty --no-verify -m '\''empty commit'\'' 
 alias gcnv="git commit --no-verify"
 # list the n most recent git branches
 # [g]it[r]ecent[b]ranches
-alias grb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n "
+alias grb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10"
 # push to branch that only exists locally and set upstream
 # [g]it[p]ush[u]pstream
 alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
