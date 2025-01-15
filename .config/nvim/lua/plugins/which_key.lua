@@ -1,6 +1,7 @@
 -- https://github.com/folke/which-key.nvim
 return {
     "folke/which-key.nvim",
+    lazy = true,
     event = "VeryLazy",
     -- configuration: https://github.com/folke/which-key.nvim?tab=readme-ov-file#%EF%B8%8F-configuration
     opts = {
