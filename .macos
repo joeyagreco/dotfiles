@@ -98,9 +98,6 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 # GENERAL #
 ###########
 
-# disable the warning before emptying the Trash
-defaults write com.apple.finder WarnOnEmptyTrash -bool "false"
-
 # set to dark theme
 osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
 
