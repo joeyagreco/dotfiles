@@ -21,7 +21,6 @@ return {
             -- https://github.com/rhysd/fixjson
             json = { "fixjson" },
             jsonc = { "fixjson" },
-            html = { "htmlbeautifier" },
             toml = { "taplo" },
             terraform = { "terraform_fmt" },
             proto = { "buf" },
