@@ -9,10 +9,6 @@ vim.opt.inccommand = "split"
 -- use system clipboard
 vim.opt.clipboard = "unnamedplus"
 
--- TODO: not sure if this is needed
--- set python to use
--- vim.g.python3_host_prog = constants.PYTHON_PATH
-
 -- no splash screen on startup
 -- vim.opt.shortmess:append("I")
 -- dont show the intro message when starting up
@@ -39,7 +35,7 @@ vim.opt.scrolloff = 7
 
 -- show line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- enable 24-bit RGB colors
 vim.opt.termguicolors = true
