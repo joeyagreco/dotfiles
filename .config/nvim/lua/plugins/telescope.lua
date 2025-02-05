@@ -71,7 +71,6 @@ return {
         local previewers = require("telescope.previewers")
 
         local handle_large_files = function(filepath, bufnr, opts)
-            print("handling file", filepath)
             -- size limit for previews (kb)
             local max_file_size_kb = 100
             local max_size_bytes = max_file_size_kb * 1024
