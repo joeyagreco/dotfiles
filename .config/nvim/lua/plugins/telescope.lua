@@ -71,14 +71,15 @@ return {
         local previewers = require("telescope.previewers")
 
         local handle_large_files = function(filepath, bufnr, opts)
-            -- size limit for previews (MB)
-            local max_file_size_mb = 1
-            local max_size = max_file_size_mb * 1024 * 1024
+            print("handling file", filepath)
+            -- size limit for previews (kb)
+            local max_file_size_kb = 64
+            local max_size_bytes = max_file_size_kb * 1024
             vim.loop.fs_stat(filepath, function(_, stat)
                 if not stat then
                     return
                 end
-                if stat.size > max_size then
+                if stat.size > max_size_bytes then
                     -- skip showing preview
                     return
                 else
