@@ -75,19 +75,13 @@ map(
 map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }))
 
 -- close tab
-map("n", "<leader>C", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
+map("n", "<leader>t", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
 
 -- open quickfix list
 map("n", "<leader>qo", ":copen<CR>", helpers.combine_tables(default_options, { desc = "open quickfix list" }))
 
 -- close quickfix list
 map("n", "<leader>qx", ":cclose<CR>", helpers.combine_tables(default_options, { desc = "close quickfix list" }))
-
--- -- open location list
--- map("n", "<leader>lo", ":lopen<CR>", helpers.combine_tables(default_options, { desc = "open location list" }))
---
--- -- close location list
--- map("n", "<leader>lx", ":lclose<CR>", helpers.combine_tables(default_options, { desc = "close location list" }))
 
 -- go to last buffer
 map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))
