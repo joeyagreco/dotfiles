@@ -70,6 +70,22 @@ return {
         local telescope = require("telescope")
         local previewers = require("telescope.previewers")
 
+        -- leaving this here in case i want to explore this in the future
+        -- potentially limit the preview amount for finders
+        -- local previewers_utils = require("telescope.previewers.utils")
+        -- local only_preview_part_of_file = function(filepath, bufnr, opts)
+        --     local max_bytes_to_show = 3000
+        --     local cmd = { "head", "-c", max_bytes_to_show, filepath }
+        --     previewers_utils.job_maker(cmd, bufnr, opts)
+        --
+        --     -- Manually set the filetype after loading
+        --     -- we do this to keep syntax highlighting in the preview
+        --     local filetype = vim.filetype.match({ filename = filepath })
+        --     if filetype then
+        --         vim.api.nvim_buf_set_option(bufnr, "filetype", filetype)
+        --     end
+        -- end
+
         local handle_large_files = function(filepath, bufnr, opts)
             -- size limit for previews (kb)
             local max_file_size_kb = 100
