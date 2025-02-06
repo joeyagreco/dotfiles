@@ -75,12 +75,4 @@ return {
             exclude = { ".env" },
         },
     },
-    -- idk if this is needed
-    -- config = function()
-    --     -- https://github.com/nvim-tree/nvim-tree.lua/blob/12a9a995a455d2c2466e47140663275365a5d2fc/doc/nvim-tree-lua.txt#L376
-    --     local constants = require("constants")
-    --     local nvim_tree = require("nvim-tree")
-    --
-    --     nvim_tree.root_dirs = constants.ALL_LOCAL_GIT_REPO_PATHS
-    -- end,
 }
