@@ -6,3 +6,4 @@ yaml-language-server
 vim-language-server
 fixjson
 pyright
+vscode-langservers-extracted

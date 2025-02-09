@@ -17,6 +17,9 @@ return {
             return util.find_git_ancestor(fname) or vim.fn.getcwd()
         end
 
+        -- css
+        lspconfig.cssls.setup({ capabilities = capabilities })
+
         -- golang
         lspconfig.gopls.setup({ capabilities = capabilities })
 

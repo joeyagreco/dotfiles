@@ -4,7 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     opts = {
-        ensure_installed = { "go", "gomod", "python", "typescript", "javascript", "terraform" },
+        ensure_installed = { "go", "gomod", "python", "typescript", "javascript", "terraform", "css" },
         highlight = {
             enable = true,
         },
