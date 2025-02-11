@@ -63,11 +63,5 @@ return {
             noremap = true,
         },
     },
-    opts = {
-        diagnostics = {
-            fzf_opts = {
-                ["--layout"] = "default", -- Show top file at the bottom
-            },
-        },
-    },
+    opts = {},
 }
