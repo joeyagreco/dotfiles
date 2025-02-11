@@ -26,7 +26,7 @@ return {
             proto = { "buf" },
             css = { "prettier" },
             -- don't want to format .tsx files
-            typescriptreact = {},
+            typescriptreact = { "prettier" },
             yml = {},
             yaml = {},
         },
