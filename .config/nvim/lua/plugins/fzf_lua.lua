@@ -27,7 +27,7 @@ return {
         },
         {
             "<leader>r",
-            ":lua require('fzf-lua').oldfiles({ cwd_only = true })<CR>",
+            ":lua require('fzf-lua').oldfiles({ cwd_only = true, stat_file = true })<CR>",
             desc = "toggle recent files scoped to this directory",
             silent = true,
             noremap = true,
@@ -63,5 +63,9 @@ return {
             noremap = true,
         },
     },
-    opts = {},
+    opts = {
+        oldfiles = {
+            include_current_session = true,
+        },
+    },
 }
