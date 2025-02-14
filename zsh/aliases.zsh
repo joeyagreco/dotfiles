@@ -85,3 +85,4 @@ alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 # list commits on current branch that have not been pushed to remote
 # [g]it[c]ommits[r]emote
 alias gcr='git log @{u}..HEAD'
+alias gcp='git commit -am "quick commit" && git push'
