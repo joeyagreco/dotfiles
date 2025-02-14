@@ -6,7 +6,7 @@ return {
     keys = {
         {
             "<leader>s",
-            ":lua require('fzf-lua').grep_project()<CR>",
+            ":lua require('fzf-lua').live_grep()<CR>",
             desc = "Search with filetype filtering and max results per file",
             silent = true,
             noremap = true,
