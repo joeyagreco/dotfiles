@@ -17,6 +17,7 @@ return {
             go = { "gofmt", "goimports" },
             javascript = { "prettier" },
             javascriptreact = { "prettier" },
+            html = { "prettier" },
             typescript = { "prettier" },
             -- https://github.com/rhysd/fixjson
             json = { "fixjson" },
