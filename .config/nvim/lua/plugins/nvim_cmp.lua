@@ -30,14 +30,14 @@ return {
             }),
             -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
             sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "path" },
+                { name = "nvim_lsp", priority = 1000 },
+                { name = "path", priority = 750 },
                 -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
-                { name = "nvim_lsp_signature_help" },
+                { name = "nvim_lsp_signature_help", priority = 500 },
                 -- https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol
-                { name = "nvim_lsp_document_symbol" },
+                { name = "nvim_lsp_document_symbol", priority = 500 },
             }, {
-                { name = "buffer" },
+                { name = "buffer", priority = 250 },
             }),
             formatting = {
                 format = function(entry, item)
