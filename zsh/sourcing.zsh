@@ -72,9 +72,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt NO_CASE_GLOB
 setopt EXTENDED_GLOB
 
-# # enable tab completion
-# autoload -U compinit promptinit
-
 # no duplicates in terminal command history
 setopt HIST_IGNORE_DUPS
 

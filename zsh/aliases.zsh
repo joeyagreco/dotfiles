@@ -76,7 +76,7 @@ alias gitf='git fetch --all'
 alias emptycommit='git commit --allow-empty --no-verify -m '\''empty commit'\'' && git push'
 # [g]it[c]ommit[n]o[v]erify
 alias gcnv="git commit --no-verify"
-# list the n most recent git branches
+# list the 10 most recent git branches
 # [g]it[r]ecent[b]ranches
 alias grb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10"
 # push to branch that only exists locally and set upstream
@@ -85,4 +85,5 @@ alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 # list commits on current branch that have not been pushed to remote
 # [g]it[c]ommits[r]emote
 alias gcr='git log @{u}..HEAD'
+# [g]it[c]ommit[p]ush
 alias gcp='git commit -am "quick commit" && git push'
