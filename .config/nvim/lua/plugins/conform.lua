@@ -26,7 +26,6 @@ return {
             terraform = { "terraform_fmt" },
             proto = { "buf" },
             css = { "prettier" },
-            -- don't want to format .tsx files
             typescriptreact = { "prettier" },
             xml = { "xmlstarlet" },
             yml = {},
