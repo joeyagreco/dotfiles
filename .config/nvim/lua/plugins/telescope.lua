@@ -120,7 +120,7 @@ return {
                 buffer_previewer_maker = handle_large_files,
                 path_display = { "smart" },
                 file_ignore_patterns = {
-                    -- removing this for now as fx in golang uses "/build" folders a lot and we do not want to ignore those
+                    -- removing this for now as fx in golang uses "/build" folders a lot and we do not want telescope to ignore those
                     -- "build/",
                     "dist/",
                     "node_modules/",
