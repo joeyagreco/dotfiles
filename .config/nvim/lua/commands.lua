@@ -22,3 +22,9 @@ vim.api.nvim_create_user_command("Lsp", function()
         print("attached: " .. table.concat(server_names, ", "))
     end
 end, { desc = "print names of attached LSP servers" })
+
+-- open up the current buffer's directory in the macos finder app
+vim.api.nvim_create_user_command("Finder", function()
+    local dir = vim.fn.expand("%:p:h")
+    vim.fn.system({ "open", dir })
+end, { desc = "open the current buffer's directory in finder" })
