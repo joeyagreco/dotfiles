@@ -21,7 +21,7 @@ return {
             -- themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
             theme = "material",
             refresh = {
-                statusline = 200,
+                statusline = 100,
                 tabline = 500,
                 winbar = 300,
             },
