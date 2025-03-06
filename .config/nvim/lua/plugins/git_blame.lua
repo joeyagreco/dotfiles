@@ -8,6 +8,7 @@ return {
         require("gitblame").setup({
             enabled = true,
             date_format = "%b %-d, %Y",
+            -- "this doesn't affect the performance of the plugin" - readme
             delay = 100, -- ms
             message_template = " <summary> • <author> • <date>",
             message_when_not_committed = "[ not committed ]",
