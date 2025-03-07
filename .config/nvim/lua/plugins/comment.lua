@@ -20,7 +20,7 @@ return {
             noremap = true,
         },
     },
-    cmd = { "Todo" },
+    cmd = { "Todo", "Note" },
     opts = {},
     config = function()
         require("Comment").setup({})
@@ -43,13 +43,18 @@ return {
         -- jsx
         ft.set("javascriptreact", { "{/*%s*/}", "{/*%s*/}" })
 
-        -- easy todo tag
-        vim.api.nvim_create_user_command("Todo", function()
-            local api = require("Comment.api")
-            api.toggle.linewise.current()
-            vim.cmd("normal! A ") -- 'A' moves to end of line and enters insert mode after a space
-            vim.api.nvim_put({ "TODO: @joeyagreco -  " }, "c", true, true)
-            vim.cmd("startinsert")
-        end, { desc = "Toggle comment, insert TODO with username, and enter insert mode" })
+        -- easy tags like "NOTE" and "TODO"
+        local function create_tag_command(name, tag)
+            vim.api.nvim_create_user_command(name, function()
+                local api = require("Comment.api")
+                api.toggle.linewise.current()
+                vim.cmd("normal! A ")
+                vim.api.nvim_put({ tag .. ": @joeyagreco -  " }, "c", true, true)
+                vim.cmd("startinsert")
+            end, { desc = "Toggle comment, insert " .. tag .. " with username, and enter insert mode" })
+        end
+
+        create_tag_command("Todo", "TODO")
+        create_tag_command("Note", "NOTE")
     end,
 }
