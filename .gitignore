@@ -25,3 +25,5 @@ akeyless
 .DS_Store
 
 .mise.toml
+
+packer
