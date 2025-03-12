@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 -- https://lazy.folke.io/configuration
 -- https://lazy.folke.io/usage
 -- lazy loading events: https://lazy.folke.io/usage#-user-events
+-- to disable a plugin, do "enabled = false" in that plugins object
 require("lazy").setup({
     spec = {
         { import = "plugins" },
@@ -33,12 +34,5 @@ require("lazy").setup({
     },
     defaults = {
         version = "*",
-    },
-    performance = {
-        rtp = {
-            disabled_plugins = {
-                -- "foo"
-            },
-        },
     },
 })
