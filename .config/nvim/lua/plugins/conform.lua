@@ -36,7 +36,9 @@ return {
                 inherit = false,
                 stdin = true,
                 command = "ruff",
-                args = { "check", "-", "--config", RUFF_CONFIG_FILE, "--fix", "-q" },
+                -- for now, don't need the config file but if we need in future use this format to use it
+                -- args = { "check", "-", "--config", RUFF_CONFIG_FILE, "--fix", "-q" },
+                args = { "check", "-", "--fix", "-q" },
             },
             ruff_fmt = {
                 inherit = false,
