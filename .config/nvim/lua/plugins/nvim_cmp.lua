@@ -24,9 +24,9 @@ return {
             },
             preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
             mapping = cmp.mapping.preset.insert({
-                ["<TAB>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<S-TAB>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<CR>"] = cmp.mapping.confirm({ select = auto_select }),
+                ["<TAB>"] = cmp.mapping.confirm({ select = auto_select }),
+                ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
             }),
             -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
             sources = cmp.config.sources({
