@@ -20,7 +20,8 @@ eval "$(~/.local/bin/mise activate zsh)"
 ##########
 
 # configure pyright
-export PYRIGHT_PYTHON_FORCE_VERSION='latest'
+# export PYRIGHT_PYTHON_FORCE_VERSION='latest'
+export PYRIGHT_PYTHON_FORCE_VERSION=$(mise current python)
 
 ##############
 # JAVASCRIPT #
