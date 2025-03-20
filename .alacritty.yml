@@ -32,6 +32,7 @@ scrolling:
   history: 10000
 
 mouse:
+  autohide: true
   double_click: {threshold: 300}
   triple_click: {threshold: 300}
   hide_when_typing: true
