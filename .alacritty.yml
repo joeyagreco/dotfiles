@@ -35,7 +35,7 @@ mouse:
   autohide: true
   double_click: {threshold: 300}
   triple_click: {threshold: 300}
-  hide_when_typing: true
+  # hide_when_typing: true
   hints:
     launcher:
       program: open
