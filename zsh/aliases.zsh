@@ -87,3 +87,6 @@ alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 alias gcr='git log @{u}..HEAD'
 # [g]it[c]ommit[p]ush
 alias gcp='git commit -am "quick commit" && git push'
+# commit with an ai generated message
+# [g]it[commit][ai]
+alias gcai="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/ai_git_commit_msg.py"
