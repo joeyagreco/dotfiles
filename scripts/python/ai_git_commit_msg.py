@@ -23,8 +23,6 @@ if __name__ == "__main__":
     result = subprocess.run(
         ["git", "diff", "--cached"],
         capture_output=True,
-        # stdout=subprocess.PIPE,
-        # stderr=subprocess.PIPE,
         text=True,
         check=True,
     )
