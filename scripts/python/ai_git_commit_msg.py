@@ -35,7 +35,7 @@ if __name__ == "__main__":
     )
     print("3")
 
-    print(result.stdout)
+    # print(result.stdout)
     response = OpenAI().chat.completions.create(
         model="gpt-4o-mini",
         messages=[
