@@ -6,7 +6,6 @@ from util import print_color
 if __name__ == "__main__":
     # first, check if there's anything that can be committed
     # we can exit early if not
-    print("1")
     result = subprocess.run(
         ["git", "diff", "--cached", "--name-only"],
         capture_output=True,
@@ -18,14 +17,6 @@ if __name__ == "__main__":
         exit(0)
 
     # get the diff and ask ai for a commit message
-
-    print("2")
-    # result = subprocess.run(
-    #     ["git", "diff", "--cached"],
-    #     capture_output=True,
-    #     text=True,
-    #     check=True,
-    # )
     result = subprocess.run(
         ["git", "diff", "--cached"],
         stdout=subprocess.PIPE,
@@ -33,9 +24,7 @@ if __name__ == "__main__":
         text=True,
         check=True,
     )
-    print("3")
 
-    # print(result.stdout)
     response = OpenAI().chat.completions.create(
         model="gpt-4o-mini",
         messages=[
@@ -48,8 +37,7 @@ if __name__ == "__main__":
         max_tokens=300,
     )
 
+    commit_message = response.choices[0].message.content
     # actually commit with the ai commit message
-    print(response.choices[0].message.content)
-    result = subprocess.run(
-        f"git commit -m '{response.choices[0].message.content}'", shell=True, check=True
-    )
+    print(commit_message)
+    result = subprocess.run(f"git commit -m '{commit_message}'", shell=True, check=True)
