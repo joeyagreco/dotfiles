@@ -10,8 +10,13 @@ env:
   # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
   TERM: xterm-256color
 
+window:
+  # no top bar when not in macos fullscreen
+  # this is nice for the amethyst workflow
+  decorations: none
+
+
 # NOTE: disabling for now since amethyst requires non-fullscreen
-# window:
 #   startup_mode: Fullscreen
 
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
