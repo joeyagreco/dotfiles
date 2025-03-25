@@ -104,6 +104,9 @@ osascript -e 'tell app "System Events" to tell appearance preferences to set dar
 # save screenshots to downloads folder
 defaults write com.apple.screencapture location ~/Downloads
 
+# disable automatically arranging spaces based on most recent use
+defaults write com.apple.dock workspaces-auto-swoosh -bool NO
+
 #################
 # RESTART STUFF #
 #################
