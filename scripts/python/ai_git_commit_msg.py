@@ -13,6 +13,11 @@ if __name__ == "__main__":
         text=True,
         check=True,
     )
+    if result.returncode != 0:
+        print_color(
+            f"command failed with code {result.returncode}",
+            color="red",
+        )
     if not bool(result.stdout.strip()):
         print_color("nothing to commit", "yellow")
         exit(0)
