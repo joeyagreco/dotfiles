@@ -20,9 +20,16 @@ if __name__ == "__main__":
     # get the diff and ask ai for a commit message
 
     print("2")
+    # result = subprocess.run(
+    #     ["git", "diff", "--cached"],
+    #     capture_output=True,
+    #     text=True,
+    #     check=True,
+    # )
     result = subprocess.run(
         ["git", "diff", "--cached"],
-        capture_output=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
         text=True,
         check=True,
     )
