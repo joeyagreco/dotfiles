@@ -1,0 +1,19 @@
+# https://github.com/ianyh/Amethyst/blob/v0.22.1/.amethyst.sample.yml
+
+layouts:
+  - fullscreen
+
+# First mod (default option + shift).
+mod1:
+  - command
+  - shift
+  # - control
+  # - command
+
+# Second mod (default option + shift + control).
+mod2:
+  - command
+  - shift
+  - control
+  # - command
+
