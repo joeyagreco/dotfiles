@@ -49,3 +49,12 @@ function c() {
 function f_setup() {
 	c "$1" && four && tmux new-window "nvim"
 }
+
+# function to repeat commands
+function repeat {
+	local count=$1
+	shift
+	for ((i = 1; i <= count; i++)); do
+		"$@"
+	done
+}
