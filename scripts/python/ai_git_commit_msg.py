@@ -38,6 +38,14 @@ if __name__ == "__main__":
     )
 
     commit_message = response.choices[0].message.content
+    assert isinstance(commit_message, str)
+
     # actually commit with the ai commit message
     print(commit_message)
     result = subprocess.run(f"git commit -m '{commit_message}'", shell=True, check=True)
+
+    subprocess.run(
+        ["git", "commit", "-m", commit_message],
+        text=True,
+        check=True,
+    )
