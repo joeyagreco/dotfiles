@@ -13,11 +13,6 @@ if __name__ == "__main__":
         text=True,
         check=True,
     )
-    if result.returncode != 0:
-        print_color(
-            f"command failed with code {result.returncode}",
-            color="red",
-        )
     if not bool(result.stdout.strip()):
         print_color("nothing to commit", "yellow")
         exit(0)
@@ -27,11 +22,13 @@ if __name__ == "__main__":
     print("2")
     result = subprocess.run(
         ["git", "diff", "--cached"],
-        shell=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        capture_output=True,
+        # stdout=subprocess.PIPE,
+        # stderr=subprocess.PIPE,
         text=True,
+        check=True,
     )
+    print("3")
 
     print(result.stdout)
     response = OpenAI().chat.completions.create(
@@ -47,16 +44,7 @@ if __name__ == "__main__":
     )
 
     # actually commit with the ai commit message
-
-    print("3")
     print(response.choices[0].message.content)
     result = subprocess.run(
-        f"git commit -m '{response.choices[0].message.content}'", shell=True
+        f"git commit -m '{response.choices[0].message.content}'", shell=True, check=True
     )
-
-    print("4")
-    if result.returncode != 0:
-        print_color(
-            f"command failed with code {result.returncode}",
-            color="red",
-        )
