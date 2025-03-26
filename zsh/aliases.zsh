@@ -82,11 +82,8 @@ alias grb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refnam
 # push to branch that only exists locally and set upstream
 # [g]it[p]ush[u]pstream
 alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
-# list commits on current branch that have not been pushed to remote
-# [g]it[c]ommits[r]emote
-alias gcr='git log @{u}..HEAD'
-# [g]it[c]ommit[p]ush
-alias gcp='git commit -am "quick commit" && git push'
+# [g]it[a]dd[c]ommit[p]ush
+alias gacp='git commit -am "quick commit" && git push'
 # commit with an ai generated message
-# [g]it[commit][ai]
+# [g]it[c]ommit[ai]
 alias gcai="$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/ai_git_commit_msg.py"
