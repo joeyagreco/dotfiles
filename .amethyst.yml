@@ -3,17 +3,29 @@
 layouts:
   - fullscreen
 
-# First mod (default option + shift).
+# first mod (default option + shift).
 mod1:
   - command
   - shift
   # - control
   # - command
 
-# Second mod (default option + shift + control).
+# second mod (default option + shift + control).
 mod2:
   - command
   - shift
   - control
   # - command
+
+# move to the next layout in the list.
+cycle-layout:
+  mod: mod1
+  key: z
+
+# true to display the name of the layout when a new layout is selected (default true).
+enables-layout-hud: true
+
+# true if menu bar icon should be hidden (default false).
+hide-menu-bar-icon: false
+
 
