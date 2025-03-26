@@ -1,5 +1,5 @@
 # https://github.com/ianyh/Amethyst/blob/v0.22.1/.amethyst.sample.yml
-# NOTE: sometimes for options to apply, you must run: defaults delete com.amethyst.Amethyst.plist and then start again
+# NOTE: sometimes for options to apply, you must run: 'defaults delete com.amethyst.Amethyst.plist' and then start again
 
 layouts:
   - fullscreen
