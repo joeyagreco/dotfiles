@@ -1,4 +1,5 @@
 # https://github.com/ianyh/Amethyst/blob/v0.22.1/.amethyst.sample.yml
+# NOTE: sometimes for options to apply, you must run: defaults delete com.amethyst.Amethyst.plist and then start again
 
 layouts:
   - fullscreen
@@ -38,8 +39,10 @@ enables-layout-hud: true
 # true if menu bar icon should be hidden (default false).
 hide-menu-bar-icon: false
 
-# true if screen frames should exclude the status bar. false if the screen frames should include the status bar (default false).
-# NOTE: this doesn't seem to work as there's still a gap when the menu bar is collapsed
-ignore-menu-bar: true
+# Padding to apply between windows and the top edge of the screen (in px, default 0).
+screen-padding-top: 0
 
+# NOTE: this doesn't seem to work as there's still a gap when the menu bar is collapsed
+# true if screen frames should exclude the status bar. false if the screen frames should include the status bar (default false).
+# ignore-menu-bar: true
 
