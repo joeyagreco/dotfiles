@@ -17,6 +17,16 @@ mod2:
   - control
   # - command
 
+# focus the next window in the list going counter-clockwise.
+focus-ccw:
+  mod: mod1
+  key: j
+
+# focus the next window in the list going clockwise.
+focus-cw:
+  mod: mod1
+  key: k
+
 # move to the next layout in the list.
 cycle-layout:
   mod: mod1
