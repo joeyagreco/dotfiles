@@ -1,4 +1,4 @@
-# Setting up a new computer
+# setting up a new computer
 
 1. Clone this repo
 2. Create a `.zshrc.local` file in ~
@@ -16,3 +16,8 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 5. Run `make links`
 5. Run `source ~/.zshrc.local && source ~/zsh/init.zsh && make deps`
 
+# upgrading neovim
+
+```sh
+brew upgrade nvim
+```
