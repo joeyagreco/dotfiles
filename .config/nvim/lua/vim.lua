@@ -97,3 +97,7 @@ vim.opt.gdefault = true
 
 -- don't show mode since our status line shows it instead
 vim.o.showmode = false
+
+-- this is opt-in as of nvim 0.11.0
+-- show diagnostics
+vim.diagnostic.config({ virtual_text = true })
