@@ -39,6 +39,8 @@ if __name__ == "__main__":
 
     commit_message = response.choices[0].message.content
     assert isinstance(commit_message, str)
+    # remove any leading or trailing backticks
+    commit_message.strip("`")
 
     # actually commit with the ai commit message
     print(commit_message)
