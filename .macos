@@ -96,6 +96,34 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 # amethyst
 osascript -e 'tell application "System Events" to make login item at end with properties {name:"Amethyst", path:"/Applications/Amethyst.app", hidden:false}' >/dev/null
 
+####################
+# SPOTLIGHT SEARCH #
+####################
+
+# to see current set, run: 'defaults read com.apple.spotlight orderedItems'
+defaults write com.apple.spotlight orderedItems -array \
+	'{"enabled" = 1; "name" = "APPLICATIONS";}' \
+	'{"enabled" = 1; "name" = "CALCULATOR";}' \
+	'{"enabled" = 1; "name" = "CONTACT";}' \
+	'{"enabled" = 1; "name" = "CONVERSION";}' \
+	'{"enabled" = 1; "name" = "DEFINITION";}' \
+	'{"enabled" = 1; "name" = "DOCUMENTS";}' \
+	'{"enabled" = 1; "name" = "EVENT_TODO";}' \
+	'{"enabled" = 1; "name" = "DIRECTORIES";}' \
+	'{"enabled" = 1; "name" = "FONTS";}' \
+	'{"enabled" = 1; "name" = "IMAGES";}' \
+	'{"enabled" = 1; "name" = "OTHER";}' \
+	'{"enabled" = 1; "name" = "PDF";}' \
+	'{"enabled" = 1; "name" = "SYSTEM_PREFS";}' \
+	'{"enabled" = 0; "name" = "MESSAGES";}' \
+	'{"enabled" = 0; "name" = "MOVIES";}' \
+	'{"enabled" = 0; "name" = "MUSIC";}' \
+	'{"enabled" = 0; "name" = "PRESENTATIONS";}' \
+	'{"enabled" = 0; "name" = "SIRI_SUGGESTIONS";}' \
+	'{"enabled" = 0; "name" = "SPREADSHEETS";}' \
+	'{"enabled" = 0; "name" = "TIPS";}' \
+	'{"enabled" = 0; "name" = "WEBSEARCH";}'
+
 ###########
 # GENERAL #
 ###########
@@ -118,3 +146,6 @@ defaults write com.apple.dock workspaces-auto-swoosh -bool NO
 killall Dock
 killall Finder
 killall SystemUIServer
+
+# erase and rebuild index for spotlight search 'mdutil' for more info
+mdutil -E
