@@ -81,8 +81,7 @@ alias gcnv="git commit --no-verify"
 alias grb="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10"
 # push to branch that only exists locally and set upstream
 # [g]it[p]ush[u]pstream
-# alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
-alias gpu='git push --set-upstream'
+alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 # [g]it[a]dd[c]ommit[p]ush
 alias gacp='git commit -am "quick commit" && git push'
 # commit with an ai generated message
