@@ -33,6 +33,8 @@ end
 return {
     "kevinhwang91/nvim-ufo",
     lazy = true,
+    -- disabled for now bc with nvim 0.11.0 theres an error
+    enabled = false,
     keys = {
         { "za", "za", desc = "toggle a fold", silent = true, noremap = true },
         {
