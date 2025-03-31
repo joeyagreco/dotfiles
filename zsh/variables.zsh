@@ -11,3 +11,5 @@ export BASH_SCRIPTS_PATH="$SCRIPTS_PATH/bash"
 export DOWNLOADS_PATH="$HOME/Downloads"
 export DEPS_DIR_PATH="$HOME/deps"
 export NOTES_PATH="$HOME/$LOCAL_FIX.notes"
+# dont try to update everything when we run a brew command
+export HOMEBREW_NO_AUTO_UPDATE=1
