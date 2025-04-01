@@ -4,4 +4,6 @@ return {
     event = "InsertEnter",
     config = true,
     opts = {},
+    -- disabling while trying out mini.pairs
+    enabled = false,
 }
