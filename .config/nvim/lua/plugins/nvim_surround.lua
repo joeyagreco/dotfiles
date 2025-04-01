@@ -11,4 +11,6 @@ return {
     lazy = true,
     event = "InsertEnter",
     opts = {},
+    -- disabling while trying out mini.surround
+    enabled = false,
 }
