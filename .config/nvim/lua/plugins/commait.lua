@@ -6,5 +6,6 @@ return {
             require("local_plugins.commait").setup()
         end,
         lazy = false,
+        enabled = false,
     },
 }
