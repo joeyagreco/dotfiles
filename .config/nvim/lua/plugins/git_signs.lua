@@ -1,6 +1,5 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 -- to refresh, run: ":Gitsigns refresh"
--- test 2
 return {
     "lewis6991/gitsigns.nvim",
     version = "*",
