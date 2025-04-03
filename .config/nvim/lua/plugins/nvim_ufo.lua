@@ -33,8 +33,9 @@ end
 return {
     "kevinhwang91/nvim-ufo",
     lazy = true,
-    -- disabled for now bc with nvim 0.11.0 theres an error
-    enabled = false,
+    -- version key isn't working so we pinning to the 1.4.0 commit hash for now
+    -- version = "1.4.0",
+    commit = "c15fed422506a130a62e5e79c2d754392231d7d8",
     keys = {
         { "za", "za", desc = "toggle a fold", silent = true, noremap = true },
         {
