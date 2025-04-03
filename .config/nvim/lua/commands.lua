@@ -6,7 +6,7 @@ vim.api.nvim_create_user_command("Pwd", function()
 end, { desc = "show and copy to clipboard the pwd of the current buffer" })
 
 vim.api.nvim_create_user_command("Lsp", function()
-    local attached_clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+    local attached_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
     if #attached_clients == 0 then
         print("nothing attached")
     else
