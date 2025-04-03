@@ -1,3 +1,9 @@
+-- https://github.com/kevinhwang91/nvim-ufo/issues/290#issuecomment-2775919030
+-- NOTE: @joeyagreco - this depends on treesitter being loaded, should probably have this there but since folds is a ufo concern, ill leave here for now
+vim.opt.foldmethod = "manual"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
+
 -- shows number of lines for folded text
 local handler = function(virt_text, lnum, end_lnum, width, truncate)
     local new_virt_text = {}
