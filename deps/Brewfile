@@ -19,8 +19,6 @@ brew "stern"
 brew "zoxide"
 # json querying + pretty printing
 brew 'jq'
-# keep ZSH up to date
-brew 'zsh'
 # a more up to date version of curl than what macOS offers
 brew 'curl'
 # nice postgres cli tool
