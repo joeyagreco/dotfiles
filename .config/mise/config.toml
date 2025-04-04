@@ -2,7 +2,6 @@
 # https://mise.jdx.dev/configuration.html#configuration
 [tools]
 go = "1.23.2"
-node = "23.0.0"
 python = [ "3.13" ]
 
 [settings]
