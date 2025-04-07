@@ -39,7 +39,7 @@ end
 return {
     "kevinhwang91/nvim-ufo",
     lazy = true,
-    commit = "c15fed422506a130a62e5e79c2d754392231d7d8",
+    version = "1.5.0",
     keys = {
         { "za", "za", desc = "toggle a fold", silent = true, noremap = true },
         {
