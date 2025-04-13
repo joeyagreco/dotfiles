@@ -18,7 +18,6 @@ brew "zoxide"
 brew "zsh"
 
 # language servers and formatters
-
 brew "bufbuild/buf/buf"
 brew "clang-format"
 brew "efm-langserver"
