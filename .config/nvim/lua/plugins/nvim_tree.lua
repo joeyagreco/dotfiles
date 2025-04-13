@@ -71,8 +71,8 @@ return {
             git_clean = false,
             no_buffer = false,
             no_bookmark = false,
-            -- always show these files in the tree
-            exclude = { ".env" },
+            -- always show files that match these patterns in the tree, even if the other filters keep them out
+            exclude = { ".env", ".*%.local.*" },
         },
     },
 }
