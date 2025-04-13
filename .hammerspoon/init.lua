@@ -1,11 +1,12 @@
-local function focusApp(name)
-    hs.application.launchOrFocus(name)
+-- Map of hotkey -> application name
+local appHotkeys = {
+    J = "Google Chrome",
+    K = "Alacritty",
+}
+
+-- Bind each key to launch/focus the corresponding app
+for key, appName in pairs(appHotkeys) do
+    hs.hotkey.bind({ "cmd", "shift" }, key, function()
+        hs.application.launchOrFocus(appName)
+    end)
 end
-
-hs.hotkey.bind({ "cmd", "shift" }, "J", function()
-    focusApp("Google Chrome")
-end)
-
-hs.hotkey.bind({ "cmd", "shift" }, "K", function()
-    focusApp("Alacritty")
-end)
