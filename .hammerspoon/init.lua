@@ -1,20 +1,24 @@
 local json = require("hs.json")
-local hotkeyFile = os.getenv("HOME") .. "/.hammerspoon/hotkeys.json"
-
-local file = io.open(hotkeyFile, "r")
-if not file then
-    error("Could not open hotkeys.json")
+local function loadHotkeys(path)
+    local file = io.open(path, "r")
+    if not file then
+        return {}
+    end
+    local content = file:read("*a")
+    file:close()
+    return json.decode(content) or {}
 end
 
-local content = file:read("*a")
-file:close()
+local home = os.getenv("HOME")
+local baseHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.json")
+local localHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.local.json")
 
-local appHotkeys = json.decode(content)
-if not appHotkeys then
-    error("Failed to parse hotkeys.json")
+-- Merge: localHotkeys override baseHotkeys
+for key, app in pairs(localHotkeys) do
+    baseHotkeys[key] = app
 end
 
-for key, appName in pairs(appHotkeys) do
+for key, appName in pairs(baseHotkeys) do
     hs.hotkey.bind({ "cmd", "shift" }, key, function()
         hs.application.launchOrFocus(appName)
     end)

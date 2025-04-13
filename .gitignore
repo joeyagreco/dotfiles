@@ -27,3 +27,5 @@ akeyless
 .mise.toml
 
 packer
+
+*.local.*
