@@ -1,4 +1,3 @@
-neovim
 typescript
 typescript-language-server
 bash-language-server
