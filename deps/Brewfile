@@ -3,28 +3,29 @@
 cask "hammerspoon"
 
 # general utils
-brew "nvim"
-brew "git"
-brew "tmux"
-brew "zsh"
-brew "starship"
-brew "neovim"
-brew "eza"
-brew "stern"
-brew "zoxide"
-brew 'jq'
-brew "uv"
 brew 'curl' # a more up to date version of curl than what macOS offers
+brew "eza"
+brew "git"
+brew 'jq'
+brew "neovim"
+brew "nvim"
 brew "pgcli" # nice postgres cli tool
+brew "starship"
+brew "stern"
+brew "tmux"
+brew "uv"
+brew "zoxide"
+brew "zsh"
 
 # language servers and formatters
-brew "prettier"
-brew "stylua"
-brew "marksman"
+
 brew "bufbuild/buf/buf"
+brew "clang-format"
+brew "efm-langserver"
 brew "hashicorp/tap/terraform-ls"
 brew "lua-language-server"
-brew "efm-langserver"
-brew "clang-format"
-brew "xmlstarlet"
+brew "marksman"
+brew "prettier"
 brew "shellcheck"
+brew "stylua"
+brew "xmlstarlet"
