@@ -1,7 +1,11 @@
 local json = require("hs.json")
-local function loadHotkeys(path)
+
+local function loadHotkeys(path, required)
     local file = io.open(path, "r")
     if not file then
+        if required then
+            hs.alert.show("Missing required hotkey config:\n" .. path)
+        end
         return {}
     end
     local content = file:read("*a")
@@ -10,8 +14,10 @@ local function loadHotkeys(path)
 end
 
 local home = os.getenv("HOME")
-local baseHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.json")
-local localHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.local.json")
+-- for base/global hotkey config
+local baseHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.json", true)
+-- for local machine overrides of hotkey config
+local localHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.local.json", false)
 
 -- Merge: localHotkeys override baseHotkeys
 for key, app in pairs(localHotkeys) do
