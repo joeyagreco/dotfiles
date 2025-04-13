@@ -70,7 +70,7 @@ return {
                 Lua = {
                     diagnostics = {
                         -- prevents "undefined global '<thing>'"
-                        globals = { "vim", "ngx" },
+                        globals = { "vim", "ngx", "hs" },
                     },
                 },
             },

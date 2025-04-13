@@ -95,6 +95,8 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 osascript -e 'tell application "System Events" to make login item at end with properties {name:"Alacritty", path:"/Applications/Alacritty.app", hidden:false}' >/dev/null
 # amethyst
 osascript -e 'tell application "System Events" to make login item at end with properties {name:"Amethyst", path:"/Applications/Amethyst.app", hidden:false}' >/dev/null
+# hammerspoon
+osascript -e 'tell application "System Events" to make login item at end with properties {name:"Hammerspoon", path:"/Applications/Hammerspoon.app", hidden:false}' >/dev/null
 
 ####################
 # SPOTLIGHT SEARCH #
