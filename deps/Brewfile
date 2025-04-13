@@ -1,30 +1,30 @@
 # Brewfile
 
+cask "hammerspoon"
+
+# general utils
 brew "nvim"
 brew "git"
 brew "tmux"
 brew "zsh"
 brew "starship"
 brew "neovim"
-brew "prettier"
-brew "stylua"
-brew "marksman"
-brew "lua-language-server"
-brew "efm-langserver"
-brew "clang-format"
-# linter for bash scripts
-brew "shellcheck"
 brew "eza"
 brew "stern"
 brew "zoxide"
-# json querying + pretty printing
 brew 'jq'
-# a more up to date version of curl than what macOS offers
-brew 'curl'
-# nice postgres cli tool
-brew "pgcli"
+brew "uv"
+brew 'curl' # a more up to date version of curl than what macOS offers
+brew "pgcli" # nice postgres cli tool
+
+# language servers and formatters
+brew "prettier"
+brew "stylua"
+brew "marksman"
 brew "bufbuild/buf/buf"
 brew "hashicorp/tap/terraform-ls"
-brew "uv"
-# format xml files
+brew "lua-language-server"
+brew "efm-langserver"
+brew "clang-format"
 brew "xmlstarlet"
+brew "shellcheck"
