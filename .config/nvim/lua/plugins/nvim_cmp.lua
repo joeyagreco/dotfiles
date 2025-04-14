@@ -30,14 +30,21 @@ return {
             }),
             -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
             sources = cmp.config.sources({
-                { name = "nvim_lsp", priority = 1000 },
+                { name = "nvim_lsp", priority = 1000, max_item_count = 15 },
                 { name = "path", priority = 750 },
                 -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
                 { name = "nvim_lsp_signature_help", priority = 500 },
                 -- https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol
                 { name = "nvim_lsp_document_symbol", priority = 500 },
             }, {
-                { name = "buffer", priority = 250 },
+                -- this autocomplete gives a lot of options and a LOT of them suck
+                -- limit it by keyword length and max item count
+                {
+                    name = "buffer",
+                    priority = 250,
+                    keyword_length = 1,
+                    max_item_count = 1,
+                },
             }),
             formatting = {
                 format = function(entry, item)

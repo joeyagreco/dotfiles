@@ -2,7 +2,6 @@
 return {
     "akinsho/git-conflict.nvim",
     lazy = true,
-    event = "BufEnter",
     cmd = { "Con" },
     config = function()
         require("git-conflict").setup({

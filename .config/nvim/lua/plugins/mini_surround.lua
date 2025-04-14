@@ -10,6 +10,8 @@
 return {
     "echasnovski/mini.surround",
     version = "*", -- stable
+    lazy = true,
+    event = "BufEnter",
     opts = {
         -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
         highlight_duration = 5000,

@@ -2,6 +2,8 @@
 return {
     "echasnovski/mini.pairs",
     version = "*", --stable
+    lazy = true,
+    event = "InsertEnter",
     opts = {
         -- In which modes mappings from this `config` should be created
         modes = { insert = true, command = false, terminal = false },
