@@ -52,12 +52,12 @@ return {
             },
             lualine_x = {
                 {
+                    require("gitblame").get_current_blame_text,
+                },
+                {
                     "searchcount",
                     maxcount = 9999,
                     timeout = 500,
-                },
-                {
-                    require("gitblame").get_current_blame_text,
                 },
             },
             lualine_y = { "filetype" },
