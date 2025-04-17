@@ -30,8 +30,10 @@ vim.opt.signcolumn = "yes"
 -- enable syntax highlighting
 vim.cmd("syntax on")
 
--- line padding with H and L
+-- keep n lines visible above or below the cursor at all times
 vim.opt.scrolloff = 5
+-- keep n lines visible to the left and right of the cursor at all times
+vim.opt.sidescrolloff = 30
 
 -- show line numbers
 vim.opt.number = true
