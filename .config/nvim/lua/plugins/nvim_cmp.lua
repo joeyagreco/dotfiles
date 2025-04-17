@@ -43,7 +43,7 @@ return {
                     name = "buffer",
                     priority = 250,
                     keyword_length = 1,
-                    max_item_count = 1,
+                    max_item_count = 3,
                 },
             }),
             formatting = {
