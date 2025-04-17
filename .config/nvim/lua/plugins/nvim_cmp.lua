@@ -42,7 +42,7 @@ return {
                 -- https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol
                 { name = "nvim_lsp_document_symbol", priority = 500 },
             }, {
-                -- this autocomplete gives a lot of options and a LOT of them suck
+                -- buffer gives a lot of options and a LOT of them suck
                 -- limit it by keyword length and max item count
                 {
                     name = "buffer",
@@ -52,6 +52,8 @@ return {
                 },
             }),
             formatting = {
+                -- determines the order that the items in a single autocomplete line are displayed in
+                fields = { "menu", "abbr", "kind" },
                 format = function(entry, item)
                     local widths = {
                         -- width of the actual completion
@@ -68,11 +70,11 @@ return {
 
                     -- set a unique icon for each source
                     local menu_icon = {
-                        nvim_lsp = "λ", -- lambda, for LSP-powered completion
-                        path = "", -- folder/file icon (Nerd Font: nf-custom-folder)
-                        nvim_lsp_signature_help = "", -- function/method (Nerd Font: nf-oct-file_code)
-                        nvim_lsp_document_symbol = "📄", -- document icon for symbols like functions/vars
-                        buffer = "Ω", -- omega, representing "from text buffer"
+                        nvim_lsp = "",
+                        path = "",
+                        nvim_lsp_signature_help = "",
+                        nvim_lsp_document_symbol = "",
+                        buffer = "Ω",
                     }
 
                     item.menu = menu_icon[entry.source.name]
