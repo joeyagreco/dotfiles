@@ -21,9 +21,6 @@ vim.opt.breakindent = true
 -- https://neovim.io/doc/user/options.html#'updatetime'
 vim.opt.updatetime = 250
 
--- set completeopt to have a better completion experience
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
 -- enable the sign column to prevent the screen from jumping
 vim.opt.signcolumn = "yes"
 

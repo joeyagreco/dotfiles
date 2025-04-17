@@ -1,3 +1,8 @@
+-- set completeopt to have a better completion experience
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+-- NOTE: @joeyagreco - here's a useful article for setup (and in the future for setting up snippets to work here): https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/
+
 -- https://github.com/hrsh7th/nvim-cmp
 return {
     "hrsh7th/nvim-cmp",
@@ -30,7 +35,7 @@ return {
             }),
             -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
             sources = cmp.config.sources({
-                { name = "nvim_lsp", priority = 1000, max_item_count = 15 },
+                { name = "nvim_lsp", priority = 1000, max_item_count = 10 },
                 { name = "path", priority = 750 },
                 -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
                 { name = "nvim_lsp_signature_help", priority = 500 },
@@ -60,6 +65,17 @@ return {
                             item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
                         end
                     end
+
+                    -- set a unique icon for each source
+                    local menu_icon = {
+                        nvim_lsp = "λ", -- lambda, for LSP-powered completion
+                        path = "", -- folder/file icon (Nerd Font: nf-custom-folder)
+                        nvim_lsp_signature_help = "", -- function/method (Nerd Font: nf-oct-file_code)
+                        nvim_lsp_document_symbol = "📄", -- document icon for symbols like functions/vars
+                        buffer = "Ω", -- omega, representing "from text buffer"
+                    }
+
+                    item.menu = menu_icon[entry.source.name]
 
                     return item
                 end,
