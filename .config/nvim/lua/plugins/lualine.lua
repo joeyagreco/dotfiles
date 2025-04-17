@@ -1,6 +1,9 @@
 -- since we show search count on lualine, we can disable it from the command line
 vim.opt.shortmess:append("S")
 
+-- don't show mode by default in vim since lualine shows it
+vim.opt.showmode = false
+
 -- always show the status bar and only show ONE status bar
 -- source: https://neovim.io/doc/user/options.html#'laststatus'
 -- example why this is needed 1. open nvimtree 2. swap to buffer 3. swap back to nvimtree
