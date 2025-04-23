@@ -118,7 +118,10 @@ return {
             defaults = {
                 -- don't show preview for large files
                 buffer_previewer_maker = handle_large_files,
-                path_display = { "smart" },
+                -- better than smart because this allows me to see the path enough to differentiate from things like:
+                -- "one/foo/bar/baz/main.py"
+                -- "two/foo/bar/baz/main.py"
+                path_display = { "truncate" },
                 file_ignore_patterns = {
                     -- removing this for now as fx in golang uses "/build" folders a lot and we do not want telescope to ignore those
                     -- "build/",
