@@ -44,6 +44,8 @@ defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
 defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
 # hide all icons on desktop
 defaults write com.apple.finder "CreateDesktop" -bool "false"
+# show path bar
+defaults write com.apple.finder "ShowPathbar" -bool "true"
 
 #########
 # MOUSE #
