@@ -23,13 +23,14 @@ window:
 # must be a "Nerd Font" for icons to work on nvim-tree
 # OLD FONTS:
 # - Hack Nerd Font
+# - JetBrainsMono Nerd Font
 font:
   size: 14.0
   normal:
-    family: JetBrainsMono Nerd Font
+    family: "JetBrainsMonoNL Nerd Font"
     style: Regular
   bold:
-    family: JetBrainsMono Nerd Font
+    family: "JetBrainsMonoNL Nerd Font"
     style: Bold
 
 scrolling:
