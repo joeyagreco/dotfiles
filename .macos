@@ -89,16 +89,20 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 
 # SEE ALL STARTUP ITEMS: osascript -e 'tell application "System Events" to get the name of every login item'
 
-# docker
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Docker", path:"/Applications/Docker.app", hidden:false}' >/dev/null
-# firefox
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Chrome", path:"/Applications/Google Chrome.app", hidden:false}' >/dev/null
-# alacritty
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Alacritty", path:"/Applications/Alacritty.app", hidden:false}' >/dev/null
-# amethyst
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Amethyst", path:"/Applications/Amethyst.app", hidden:false}' >/dev/null
-# hammerspoon
-osascript -e 'tell application "System Events" to make login item at end with properties {name:"Hammerspoon", path:"/Applications/Hammerspoon.app", hidden:false}' >/dev/null
+# set apps to start on startup
+apps=(
+	"Docker:/Applications/Docker.app"
+	"Chrome:/Applications/Google Chrome.app"
+	"Alacritty:/Applications/Alacritty.app"
+	"Amethyst:/Applications/Amethyst.app"
+	"Hammerspoon:/Applications/Hammerspoon.app"
+)
+
+for app in "${apps[@]}"; do
+	name="${app%%:*}"
+	path="${app#*:}"
+	osascript -e "tell application \"System Events\" to make login item at end with properties {name:\"$name\", path:\"$path\", hidden:false}" >/dev/null
+done
 
 ####################
 # SPOTLIGHT SEARCH #
