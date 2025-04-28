@@ -16,8 +16,8 @@ window:
   decorations: none
 
 
-# NOTE: disabling for now since amethyst requires non-fullscreen
-#   startup_mode: Fullscreen
+# NOTE: amethyst requires non-fullscreen
+  startup_mode: Maximized
 
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
 # must be a "Nerd Font" for icons to work on nvim-tree
@@ -28,10 +28,16 @@ font:
   size: 14.0
   normal:
     family: "JetBrainsMonoNL Nerd Font"
-    style: Regular
+    style: "Regular"
   bold:
     family: "JetBrainsMonoNL Nerd Font"
-    style: Bold
+    style: "Bold"
+  italic:
+    family: "JetBrainsMonoNL Nerd Font"
+    style: "Italic"
+  bold_italic:
+    family: "JetBrainsMonoNL Nerd Font"
+    style: "Bold Italic"
 
 scrolling:
   # How many lines of scrollback to keep,
