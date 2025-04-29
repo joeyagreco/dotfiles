@@ -29,3 +29,6 @@ for key, appName in pairs(baseHotkeys) do
         hs.application.launchOrFocus(appName)
     end)
 end
+
+-- don't want to see the dock icon
+hs.dockicon.hide()
