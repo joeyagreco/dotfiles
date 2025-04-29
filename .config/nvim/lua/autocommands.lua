@@ -10,6 +10,8 @@ vim.filetype.add({
         [".nvmrc"] = "conf",
         [".env.*"] = "env",
         ["Dockerfile.*"] = "dockerfile",
+        [".gitignore.*"] = "gitignore",
+        [".gitconfig.*"] = "gitconfig",
     },
 })
 

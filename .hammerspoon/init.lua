@@ -19,7 +19,7 @@ local baseHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.json", true)
 -- for local machine overrides of hotkey config
 local localHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.local.json", false)
 
--- Merge: localHotkeys override baseHotkeys
+-- merge: localHotkeys override baseHotkeys
 for key, app in pairs(localHotkeys) do
     baseHotkeys[key] = app
 end
