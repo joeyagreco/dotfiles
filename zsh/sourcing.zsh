@@ -52,7 +52,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ###########
 
 # apply local alacritty settings
-~/.alacritty.local.sh
+~/.config/alacritty/alacritty.local.sh
 
 # set up brew
 export PATH="/opt/homebrew/bin:$PATH"
