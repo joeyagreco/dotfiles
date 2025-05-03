@@ -25,5 +25,5 @@ setup-cargo:
 
 .PHONY: setup-macos
 setup-macos:
-	@~/.macos
+	@~/.config/macos/init.sh
 

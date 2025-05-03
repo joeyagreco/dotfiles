@@ -4,7 +4,6 @@ vim.filetype.add({
         [".*/templates/.*%.yaml"] = "helm", -- https://neovim.discourse.group/t/detect-helm-files-with-filetype-lua/3248
         ["requirements.*%.txt"] = "requirements",
         [".shellcheckrc"] = "dosini",
-        [".macos"] = "zsh",
         ["%.swcrc"] = "json",
         [".npmrc"] = "conf",
         [".nvmrc"] = "conf",

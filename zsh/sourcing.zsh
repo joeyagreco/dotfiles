@@ -88,7 +88,7 @@ bindkey "^[[A" up-line-or-beginning-search   # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
 # set up custom macos keymaps
-hidutil property --set "$(cat $HOME/.macos_key_remaps.json)" >/dev/null 2>&1
+hidutil property --set "$(cat $HOME/.config/macos/key_remaps.json)" >/dev/null 2>&1
 
 # make sure tpm is cloned locally for tmux plugin management
 # Ensure TPM is installed in the home directory
