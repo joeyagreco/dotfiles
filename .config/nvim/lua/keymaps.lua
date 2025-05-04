@@ -100,3 +100,9 @@ map("n", "x", '"_x', helpers.combine_tables(default_options, { desc = "make 'x' 
 -- keep selection selected after > and <
 map("v", ">", ">gv", helpers.combine_tables(default_options, { desc = "keep selection selected after >" }))
 map("v", "<", "<gv", helpers.combine_tables(default_options, { desc = "keep selection selected after <" }))
+
+-- toggle relative line numbers
+map("n", "<leader>n", function()
+    local relativeNumber = vim.opt.relativenumber:get()
+    vim.opt.relativenumber = not relativeNumber
+end, helpers.combine_tables(default_options, { desc = "toggle relative line numbers" }))
