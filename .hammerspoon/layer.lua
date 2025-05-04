@@ -2,18 +2,21 @@ local menubar = hs.menubar.new()
 local alert = hs.alert
 
 local layerModules = {}
+local layerIndexByName = {}
 local currentIndex = 1 -- Lua tables are 1-indexed
 
 local layerNames = {
-    "default",
+    "main",
     "numbers",
 }
 
+-- Load and register layers
 for _, name in ipairs(layerNames) do
     local ok, mod = pcall(require, "layers/" .. name)
 
     if ok and mod and mod.enter and mod.exit then
         table.insert(layerModules, mod)
+        layerIndexByName[name] = #layerModules
     else
         alert.show("Failed to load layer: " .. name)
     end
@@ -43,30 +46,30 @@ local function enterLayer(index)
     end
 end
 
-local function nextLayer()
-    local newIndex = currentIndex + 1
-    if newIndex > #layerModules then
-        newIndex = 1
+-- Bind explicit layer switch keys
+hs.hotkey.bind({ "cmd", "shift" }, "N", function()
+    alert.show("number layer...")
+    local index = layerIndexByName["numbers"]
+    if index then
+        enterLayer(index)
     end
-    enterLayer(newIndex)
-end
+end)
 
-local function prevLayer()
-    local newIndex = currentIndex - 1
-    if newIndex < 1 then
-        newIndex = #layerModules
+hs.hotkey.bind({ "cmd", "shift" }, "M", function()
+    alert.show("main layer...")
+    local index = layerIndexByName["main"]
+    if index then
+        enterLayer(index)
     end
-    enterLayer(newIndex)
-end
+end)
 
--- Hotkeys to cycle layers
-hs.hotkey.bind({ "cmd", "shift" }, "n", nextLayer)
-hs.hotkey.bind({ "cmd", "shift" }, "p", prevLayer)
+-- Start in default layer
+if layerIndexByName["main"] then
+    enterLayer(layerIndexByName["main"])
+end
 
 alert.show("Total layers: " .. tostring(#layerModules))
 
 return {
-    next = nextLayer,
-    prev = prevLayer,
     enter = enterLayer,
 }
