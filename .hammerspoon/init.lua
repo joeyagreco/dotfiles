@@ -32,3 +32,6 @@ end
 
 -- don't want to see the dock icon
 hs.dockicon.hide()
+
+-- set up layers
+require("layer")
