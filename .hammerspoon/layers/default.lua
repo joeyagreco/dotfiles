@@ -1,5 +1,5 @@
 return {
-    name = "Default",
+    name = "default",
     enter = function() end,
     exit = function() end,
 }

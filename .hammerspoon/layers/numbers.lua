@@ -14,7 +14,7 @@ local keymap = {
 }
 
 return {
-    name = "Numbers",
+    name = "numbers",
 
     enter = function()
         eventtapRemap = hs.eventtap

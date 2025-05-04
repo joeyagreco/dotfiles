@@ -1,3 +1,4 @@
+local menubar = hs.menubar.new()
 local alert = hs.alert
 
 local layerModules = {}
@@ -18,7 +19,10 @@ for _, name in ipairs(layerNames) do
     end
 end
 
--- Layer switching logic
+local function showMenuBarLayer(layerName)
+    menubar:setTitle(layerName .. "  ⌨️")
+end
+
 local function enterLayer(index)
     if index == currentIndex then
         return
@@ -32,6 +36,7 @@ local function enterLayer(index)
 
     local name = layerModules[currentIndex].name or ("Layer " .. currentIndex)
     alert.show("Switched to: " .. name)
+    showMenuBarLayer(name)
 
     if layerModules[currentIndex].enter then
         layerModules[currentIndex].enter()
