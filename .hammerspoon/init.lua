@@ -33,5 +33,20 @@ end
 -- don't want to see the dock icon
 hs.dockicon.hide()
 
+-- make it so focused and new windows automatically go to fullscreen (but NOT maximize)
+local window = require("hs.window")
+-- maximize new windows automatically
+window.filter.default:subscribe(window.filter.windowCreated, function(win)
+    hs.timer.doAfter(0.01, function()
+        win:maximize()
+    end)
+end)
+-- optionally maximize focused windows too
+window.filter.default:subscribe(window.filter.windowFocused, function(win)
+    hs.timer.doAfter(0.01, function()
+        win:maximize()
+    end)
+end)
+
 -- set up layers
 require("layer")

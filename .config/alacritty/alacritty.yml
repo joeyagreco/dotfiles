@@ -13,11 +13,9 @@ env:
 
 window:
   # no top bar when not in macos fullscreen
-  # this is nice for the amethyst workflow
   decorations: none
 
 
-# NOTE: amethyst requires non-fullscreen
   startup_mode: Maximized
 
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads

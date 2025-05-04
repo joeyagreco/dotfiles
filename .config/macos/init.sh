@@ -94,7 +94,6 @@ apps=(
 	"Docker:/Applications/Docker.app"
 	"Chrome:/Applications/Google Chrome.app"
 	"Alacritty:/Applications/Alacritty.app"
-	"Amethyst:/Applications/Amethyst.app"
 	"Hammerspoon:/Applications/Hammerspoon.app"
 )
 
@@ -143,7 +142,7 @@ osascript -e 'tell app "System Events" to tell appearance preferences to set dar
 defaults write com.apple.screencapture location ~/Downloads
 
 # disable automatically arranging spaces based on most recent use
-# specifically, this seems to take the short fade animation away when using amethyst
+# specifically, this seems to take the short fade animation away when switching windows
 # NOTE: this does not seem to work, manually switch OFF "Desktop and Dock" -> "Desktop and Stage Manger" -> "Stage Manager"
 defaults write com.apple.dock workspaces-auto-swoosh -bool NO
 
