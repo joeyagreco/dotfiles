@@ -12,18 +12,15 @@ local layers = {
     { name = "numbers", key = "N" },
 }
 
-local function showMenuBarLayer(layerName)
+local function updateMenuBarDisplay()
+    local layerName = layerModules[currentIndex].name or ("Layer " .. currentIndex)
     menubar:setTitle(layerName .. "  ⌨️")
-end
-
-local function getCurrentLayerName()
-    return layerModules[currentIndex].name or ("Layer " .. currentIndex)
 end
 
 -- layer switching logic
 local function enterLayer(index)
     if index == currentIndex then
-        showMenuBarLayer(getCurrentLayerName())
+        updateMenuBarDisplay()
         return
     end
 
@@ -33,7 +30,7 @@ local function enterLayer(index)
 
     currentIndex = index
 
-    showMenuBarLayer(getCurrentLayerName())
+    updateMenuBarDisplay()
 
     if layerModules[currentIndex].enter then
         layerModules[currentIndex].enter()
