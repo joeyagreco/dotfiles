@@ -49,4 +49,4 @@ window.filter.default:subscribe(window.filter.windowFocused, function(win)
 end)
 
 -- set up layers
-require("layer")
+-- require("layer")
