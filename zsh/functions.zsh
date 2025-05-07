@@ -51,6 +51,7 @@ function f_setup() {
 }
 
 # function to repeat commands
+# e.g. `repeat 3 echo 'foo'` -> foo foo foo
 function repeat {
 	local count=$1
 	shift
