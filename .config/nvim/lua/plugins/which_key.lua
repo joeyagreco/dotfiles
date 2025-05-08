@@ -1,7 +1,8 @@
 -- https://github.com/folke/which-key.nvim
 return {
     "folke/which-key.nvim",
-    lazy = true,
+    -- disabling for now due to this issue: https://github.com/folke/which-key.nvim/issues/981
+    lazy = false,
     keys = {
         {
             "<leader>W",
