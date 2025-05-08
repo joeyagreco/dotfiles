@@ -61,7 +61,7 @@ end, { desc = "open relative file links, similar to 'gx'" })
 -------------
 
 -- quit vim
-map("n", "<leader>Q", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
+map("n", "<leader>q", ":qa<CR>", helpers.combine_tables(default_options, { desc = "exit vim" }))
 
 -- disable space in normal and visual mode
 map(
@@ -74,14 +74,23 @@ map(
 -- redo
 map("n", "U", "<C-r>", helpers.combine_tables(default_options, { desc = "redo" }))
 
--- close tab
-map("n", "<leader>t", ":tabc<CR>", helpers.combine_tables(default_options, { desc = "close tab" }))
+-- close things
+--  - tabs
+--  - quickfix lists
+map("n", "<leader>t", function()
+    if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+        vim.cmd("cclose")
+    end
+    if #vim.api.nvim_list_tabpages() > 1 then
+        vim.cmd("tabclose")
+    end
+end, helpers.combine_tables(default_options, { desc = "close things" }))
 
--- open quickfix list
-map("n", "<leader>qo", ":copen<CR>", helpers.combine_tables(default_options, { desc = "open quickfix list" }))
-
--- close quickfix list
-map("n", "<leader>qx", ":cclose<CR>", helpers.combine_tables(default_options, { desc = "close quickfix list" }))
+-- -- open quickfix list
+-- map("n", "<leader>qo", ":copen<CR>", helpers.combine_tables(default_options, { desc = "open quickfix list" }))
+--
+-- -- close quickfix list
+-- map("n", "<leader>qx", ":cclose<CR>", helpers.combine_tables(default_options, { desc = "close quickfix list" }))
 
 -- go to last buffer
 map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))

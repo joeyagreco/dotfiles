@@ -18,7 +18,7 @@ vim.filetype.add({
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
     pattern = "*",
-    desc = "Highlight selection on yank",
+    desc = "highlight selection on yank",
     callback = function()
         vim.hl.on_yank({ timeout = 100, visual = true })
     end,
@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- disable automatic comment insertion
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
+    desc = "disable automatic comment insertion",
     callback = function()
         vim.opt_local.formatoptions:remove({ "c", "r", "o" })
     end,
@@ -34,6 +35,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- clear command line after hitting <CR>
 vim.api.nvim_create_autocmd("CmdlineLeave", {
+    desc = "clear command line after hitting <CR>",
     callback = function()
         vim.cmd("echo ''")
     end,
