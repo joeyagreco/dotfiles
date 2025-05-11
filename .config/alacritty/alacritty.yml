@@ -23,6 +23,7 @@ window:
 # OLD FONTS:
 # - Hack Nerd Font
 # - JetBrainsMono Nerd Font
+
 # NOTE: @joeyagreco - can use a .alacritty.local.sh file to overwrite these fonts locally 
 # NOTE: @joeyagreco - would look something like this:
 
