@@ -9,10 +9,6 @@ vim.opt.showmode = false
 -- example why this is needed 1. open nvimtree 2. swap to buffer 3. swap back to nvimtree
 vim.o.laststatus = 3
 
-local function get_line_count()
-    return vim.api.nvim_buf_line_count(0) .. " lines"
-end
-
 -- https://github.com/nvim-lualine/lualine.nvim
 return {
     "nvim-lualine/lualine.nvim",
@@ -52,6 +48,12 @@ return {
                         newfile = "", -- Text to show for newly created file before first write.
                     },
                 },
+                -- notify if file has no EOL
+                {
+                    function()
+                        return vim.bo.eol and "" or "[noeol]"
+                    end,
+                },
             },
             lualine_x = {
                 {
@@ -64,7 +66,12 @@ return {
                 },
             },
             lualine_y = { "filetype" },
-            lualine_z = { get_line_count },
+            lualine_z = {
+                -- line count for current buffer
+                function()
+                    return vim.api.nvim_buf_line_count(0) .. " lines"
+                end,
+            },
         },
     },
 }
