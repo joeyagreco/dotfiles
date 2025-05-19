@@ -330,15 +330,12 @@ function obj:_populateChooser(query)
         end
     end
     if #menuData == 0 then
-        table.insert(
-            menuData,
-            {
-                text = "",
-                subText = "《Clipboard is empty》",
-                action = "none",
-                image = hs.image.imageFromName("NSCaution"),
-            }
-        )
+        table.insert(menuData, {
+            text = "",
+            subText = "《Clipboard is empty》",
+            action = "none",
+            image = hs.image.imageFromName("NSCaution"),
+        })
     else
         table.insert(
             menuData,
@@ -489,7 +486,6 @@ end
 --- Parameters:
 ---  * None
 function obj:showClipboard()
-    hs.alert.show("showing clipboard jg")
     if self.selectorobj ~= nil then
         self.selectorobj:refreshChoicesCallback()
         self.prevFocusedWindow = hs.window.focusedWindow()
