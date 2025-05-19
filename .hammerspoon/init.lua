@@ -1,3 +1,9 @@
+-- shortcut to reload hammerspoon config
+hs.hotkey.bind({ "cmd", "shift" }, "r", function()
+    hs.reload()
+end)
+
+-- set up app switcher
 local json = require("hs.json")
 
 local function loadHotkeys(path, required)
