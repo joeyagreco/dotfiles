@@ -48,5 +48,8 @@ window.filter.default:subscribe(window.filter.windowFocused, function(win)
     end)
 end)
 
+-- set up spoons
+require("spoons")
+
 -- set up layers
 -- require("layer")
