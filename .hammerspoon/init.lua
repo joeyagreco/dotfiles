@@ -53,3 +53,5 @@ require("spoons")
 
 -- set up layers
 -- require("layer")
+
+hs.alert.show("reloaded hammerspoon config")
