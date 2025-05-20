@@ -1,3 +1,6 @@
+-- time how long it takes to load the config
+local start_time_ns = hs.timer.absoluteTime()
+
 -- shortcut to reload hammerspoon config
 hs.hotkey.bind({ "cmd", "shift" }, "r", function()
     hs.reload()
@@ -40,6 +43,7 @@ end
 hs.dockicon.hide()
 
 -- make it so focused and new windows automatically go to fullscreen (but NOT maximize)
+-- NOTE: @joeyagreco - this is SLOW (~7.6 seconds) but only on certain machines... figure out why
 local window = require("hs.window")
 -- maximize new windows automatically
 window.filter.default:subscribe(window.filter.windowCreated, function(win)
@@ -60,4 +64,6 @@ require("spoons")
 -- set up layers
 -- require("layer")
 
-hs.alert.show("reloaded hammerspoon config")
+local end_time_ns = hs.timer.absoluteTime()
+local elapsed_sec = (end_time_ns - start_time_ns) / 1e9
+hs.alert.show(string.format("reloaded hammerspoon config in %.1f seconds", elapsed_sec))
