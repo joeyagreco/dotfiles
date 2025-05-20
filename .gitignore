@@ -8,6 +8,7 @@ __pycache__
 .config/gcloud
 .config/pgcli
 .config/simple-update-notifier
+.config/fish
 
 .ruff_cache
 
