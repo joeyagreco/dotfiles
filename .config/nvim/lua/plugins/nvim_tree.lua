@@ -17,6 +17,13 @@ return {
             silent = true,
             noremap = true,
         },
+        {
+            "<leader>E",
+            ":lua require('nvim-tree.api').tree.close()<CR>",
+            desc = "close explorer",
+            silent = true,
+            noremap = true,
+        },
     },
     dependencies = {
         "nvim-tree/nvim-web-devicons",
