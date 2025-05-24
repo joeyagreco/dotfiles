@@ -34,7 +34,7 @@ vim.opt.sidescrolloff = 30
 
 -- show line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- enable 24-bit RGB colors
 vim.opt.termguicolors = true
