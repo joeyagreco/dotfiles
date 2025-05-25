@@ -1,12 +1,18 @@
--- time how long it takes to load the config
+-----------------------------------------------
+-- time how long it takes to load the config --
+-----------------------------------------------
 local start_time_ns = hs.timer.absoluteTime()
 
--- shortcut to reload hammerspoon config
+-------------------------------------------
+-- shortcut to reload hammerspoon config --
+-------------------------------------------
 hs.hotkey.bind({ "cmd", "shift" }, "r", function()
     hs.reload()
 end)
 
--- set up app switcher
+-------------------------
+-- set up app switcher --
+-------------------------
 local json = require("hs.json")
 
 local function loadHotkeys(path, required)
@@ -39,10 +45,9 @@ for key, appName in pairs(baseHotkeys) do
     end)
 end
 
--- don't want to see the dock icon
-hs.dockicon.hide()
-
--- make it so focused and new windows automatically go to fullscreen (but NOT maximize)
+------------------------------------------------------------------------------------------
+-- make it so focused and new windows automatically go to fullscreen (but NOT maximize) --
+------------------------------------------------------------------------------------------
 -- NOTE: @joeyagreco - this is SLOW (~7.6 seconds) but only on certain machines... figure out why
 local window = require("hs.window")
 -- maximize new windows automatically
@@ -58,12 +63,19 @@ window.filter.default:subscribe(window.filter.windowFocused, function(win)
     end)
 end)
 
--- set up spoons
+-------------------------------------
+-- don't want to see the dock icon --
+-------------------------------------
+hs.dockicon.hide()
+
+-------------------
+-- set up spoons --
+-------------------
 require("spoons")
 
--- set up layers
--- require("layer")
-
+-----------------------------
+-- alert on config runtime --
+-----------------------------
 local end_time_ns = hs.timer.absoluteTime()
 local elapsed_sec = (end_time_ns - start_time_ns) / 1e9
 hs.alert.show(string.format("reloaded hammerspoon config in %.1f seconds", elapsed_sec))
