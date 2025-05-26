@@ -52,10 +52,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ###########
 
 # apply local alacritty settings
-~/.config/alacritty/alacritty.local.sh
+"$HOME/.config/alacritty/alacritty.local.sh"
 
 # set up brew
-export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
 # set up syntax highlighting
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -65,7 +65,7 @@ eval "$(zoxide init zsh)"
 
 # set up starship
 # https://starship.rs/
-export STARSHIP_CONFIG=$STARSHIP_FILE_PATH
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
 
 # Case-insensitive (all), completion (comp) and listing (list).

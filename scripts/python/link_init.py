@@ -6,8 +6,8 @@ from util import (
 )
 
 if __name__ == "__main__":
-    # TODO: instead of using these ingore things just use the .gitignore file
-    IGNORE_THINGS = [
+    # TODO: instead of using these ignore things just use the .gitignore file
+    IGNORE_FILES = [
         "README.md",
         ".git",
         ".gitignore",
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     links = [
         l
         for l in os.listdir(dotfiles_path)
-        if l not in IGNORE_THINGS and l.split(".")[-1] not in IGNORE_EXTENSIONS
+        if l not in IGNORE_FILES and l.split(".")[-1] not in IGNORE_EXTENSIONS
     ]
     # links now holds the things we want to create a sym link for in $HOME
     home_dir_path = os.environ.get("HOME")

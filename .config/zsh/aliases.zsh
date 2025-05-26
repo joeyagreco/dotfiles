@@ -3,8 +3,8 @@
 ############
 
 alias zzl='nvim $HOME/.zshrc$LOCAL_FIX'
-alias applyz='source $ZSHRC_FILE_PATH'
-alias applyt='tmux source-file $TMUX_FILE_PATH'
+alias applyz='source $HOME/.zshrc'
+alias applyt='tmux source-file $HOME/.config/tmux/tmux.conf'
 
 ########
 # TMUX #
