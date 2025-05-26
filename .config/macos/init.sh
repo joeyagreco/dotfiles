@@ -148,6 +148,7 @@ defaults write com.apple.dock workspaces-auto-swoosh -bool NO
 
 # needed to have hammerspoon config in a non-default place
 # source: https://github.com/Hammerspoon/hammerspoon/issues/1734
+# NOTE: you will need to restart hammerspoon for this to work
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
 
 #################
