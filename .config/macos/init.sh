@@ -146,6 +146,10 @@ defaults write com.apple.screencapture location ~/Downloads
 # NOTE: this does not seem to work, manually switch OFF "Desktop and Dock" -> "Desktop and Stage Manger" -> "Stage Manager"
 defaults write com.apple.dock workspaces-auto-swoosh -bool NO
 
+# needed to have hammerspoon config in a non-default place
+# source: https://github.com/Hammerspoon/hammerspoon/issues/1734
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
+
 #################
 # RESTART STUFF #
 #################

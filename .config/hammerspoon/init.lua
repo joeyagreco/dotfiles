@@ -30,9 +30,9 @@ end
 
 local home = os.getenv("HOME")
 -- for base/global hotkey config
-local baseHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.json", true)
+local baseHotkeys = loadHotkeys(home .. "/.config/hammerspoon/hotkeys.json", true)
 -- for local machine additions and overrides of base hotkey config
-local localHotkeys = loadHotkeys(home .. "/.hammerspoon/hotkeys.local.json", false)
+local localHotkeys = loadHotkeys(home .. "/.config/hammerspoon/hotkeys.local.json", false)
 
 -- merge: localHotkeys override baseHotkeys
 for key, app in pairs(localHotkeys) do
