@@ -6,7 +6,7 @@ from util import (
 )
 
 if __name__ == "__main__":
-    # TODO: make this just use the .gitignore file
+    # TODO: instead of using these ingore things just use the .gitignore file
     IGNORE_THINGS = [
         "README.md",
         ".git",
@@ -18,6 +18,7 @@ if __name__ == "__main__":
         ".ruff_cache",
         ".mise.toml",
     ]
+    IGNORE_EXTENSIONS = ["log"]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
     if local_git_repo_path is None:
         print_color(
@@ -31,7 +32,11 @@ if __name__ == "__main__":
         "dotfiles",
     )
     # filter out things we don't want to link
-    links = [l for l in os.listdir(dotfiles_path) if l not in IGNORE_THINGS]
+    links = [
+        l
+        for l in os.listdir(dotfiles_path)
+        if l not in IGNORE_THINGS and l.split(".")[-1] not in IGNORE_EXTENSIONS
+    ]
     # links now holds the things we want to create a sym link for in $HOME
     home_dir_path = os.environ.get("HOME")
     if home_dir_path is None:
