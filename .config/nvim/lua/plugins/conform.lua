@@ -23,6 +23,7 @@ return {
             python = { "ruff_check", "ruff_fmt" },
             sh = { "shfmt" },
             terraform = { "terraform_fmt" },
+            hcl = { "terraform_fmt" },
             toml = { "taplo" },
             typescript = { "prettier" },
             typescriptreact = { "prettier" },
