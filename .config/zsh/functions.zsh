@@ -12,6 +12,14 @@ function port() {
 	lsof -i :"$1"
 }
 
+function portkill() {
+	if [ -z "$1" ]; then
+		echo "Usage: portkill <port>"
+		return 1
+	fi
+	lsof -i ":$1" -t | xargs kill -9 2>/dev/null
+}
+
 function f_venvup() {
 	$PYTHON_COMMAND -m venv "$1"
 	source "$1/bin/activate"
