@@ -83,7 +83,7 @@ alias grb='git for-each-ref --sort=-committerdate refs/heads/ --format="%(refnam
 # [g]it[p]ush[u]pstream
 alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 # [g]it[a]dd[c]ommit[p]ush
-alias gacp='git commit -am "quick commit" && git push'
+alias gacp='git add . && git commit -am "quick commit" && git push'
 # commit with an ai generated message
 # [g]it[c]ommit[ai]
 alias gcai='$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/ai_git_commit_msg.py'
