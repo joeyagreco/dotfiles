@@ -90,6 +90,12 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # set up custom macos keymaps
 hidutil property --set "$(cat $HOME/.config/macos/key_remaps.json)" >/dev/null 2>&1
 
+# set up vim mode in terminal
+# https://github.com/jeffreytse/zsh-vi-mode
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# when we do "vv", open in nvim instead of what's at $EDITOR
+export ZVM_VI_EDITOR=nvim
+
 # make sure tpm is cloned locally for tmux plugin management
 # Ensure TPM is installed in the home directory
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then

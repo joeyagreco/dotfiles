@@ -16,6 +16,7 @@ brew "tmux"
 brew "uv"
 brew "zoxide"
 brew "zsh"
+brew 'zsh-vi-mode' # vim mode in the terminal!
 
 # language servers and formatters
 brew "bufbuild/buf/buf"
@@ -28,3 +29,4 @@ brew "prettier"
 brew "shellcheck"
 brew "stylua"
 brew "xmlstarlet"
+
