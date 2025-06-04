@@ -18,7 +18,7 @@ map(
 map("n", "<leader>S", function()
     local word = vim.fn.expand("<cword>") -- get the word under the cursor
     vim.fn.setreg("/", word) -- store the word in the search register
-    vim.cmd("normal! n") -- move to the next occurrence cleanly
+    vim.cmd("set hlsearch") -- enable search highlighting to show matches
 end, helpers.combine_tables(default_options, { desc = "start a search for word under cursor" }))
 
 ---------
