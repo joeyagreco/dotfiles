@@ -42,6 +42,8 @@ return {
         ft.set("gomod", { "//%s", "/*%s*/" })
         -- jsx
         ft.set("javascriptreact", { "{/*%s*/}", "{/*%s*/}" })
+        -- env
+        ft.set("env", { "#%s" })
 
         -- easy tags like "NOTE" and "TODO"
         local function create_tag_command(name, tag)
