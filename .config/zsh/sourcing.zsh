@@ -66,7 +66,14 @@ eval "$(zoxide init zsh)"
 # set up starship
 # https://starship.rs/
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-eval "$(starship init zsh)"
+# NOTE: got this from here: https://github.com/starship/starship/issues/3418#issuecomment-1711630970
+# NOTE: this is to due to seeing this issue: https://github.com/starship/starship/issues/5522
+# Check that the function `starship_zle-keymap-select()` is defined.
+# xref: https://github.com/starship/starship/issues/3418
+type starship_zle-keymap-select >/dev/null ||
+	{
+		eval "$(starship init zsh)"
+	}
 
 # Case-insensitive (all), completion (comp) and listing (list).
 autoload -Uz compinit && compinit
