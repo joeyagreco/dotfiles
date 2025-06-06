@@ -7,4 +7,17 @@ function M.combine_tables(first_table, second_table)
     return first_table
 end
 
+-- usage as param in lazy plugin: cond = helpers.should_load_plugin({ exclude_filetypes = { "gitcommit" } }),
+function M.should_load_plugin(opts)
+    opts = opts or {}
+    local exclude = opts.exclude_filetypes or {}
+    local current_ft = vim.bo.filetype
+    for _, ft in ipairs(exclude) do
+        if current_ft == ft then
+            return false
+        end
+    end
+    return true
+end
+
 return M
