@@ -1,7 +1,13 @@
-[core]
-    editor = nvim
-
 [color]
 	# use colors in git commands that are capable of colored output when
 	# outputting to the terminal. (this is the default setting in git ≥ 1.8.4.)
 	ui = auto
+
+[commit]
+    # don't include git default commit template
+    status = false
+    template = ~/.config/git/commit_template.txt
+
+[core]
+    editor = vim
+
