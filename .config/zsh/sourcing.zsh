@@ -116,6 +116,15 @@ function zvm_after_lazy_keybindings() {
 	zvm_bindkey vicmd '^M' my_accept_line
 }
 
+###################
+# command history #
+###################
+
+setopt HIST_IGNORE_ALL_DUPS   # remove all previous entries matching new command
+setopt HIST_EXPIRE_DUPS_FIRST # expire duplicate entries first when trimming history
+setopt HIST_REDUCE_BLANKS     # remove extra blanks
+setopt HIST_IGNORE_SPACE      # don't record commands that start with a space
+
 #######
 # tpm #
 #######
