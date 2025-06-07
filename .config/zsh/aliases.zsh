@@ -56,8 +56,8 @@ alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\np
 alias make='gmake'
 # get path of last downloaded file in clipboard and in env var
 alias lastdownload='. $BASH_SCRIPTS_PATH/last_download.sh'
-# search through command history
-alias his='history 1 | fzf --tac'
+# search through command history and execute the command on select
+alias his='eval "$(fc -l -n 1 | fzf --tac)"'
 
 ##########
 # PYTHON #
