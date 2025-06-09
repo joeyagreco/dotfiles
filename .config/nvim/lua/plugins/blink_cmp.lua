@@ -9,7 +9,8 @@ return {
             ["<TAB>"] = { "accept", "fallback" },
             ["<C-n>"] = { "select_next", "fallback" },
             ["<C-p>"] = { "select_prev", "fallback" },
-            ["<Esc>"] = { "cancel", "fallback" },
+            -- closes menu, cancels autocomplete
+            ["<Esc>"] = { "fallback" },
         },
 
         appearance = {
