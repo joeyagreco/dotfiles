@@ -4,11 +4,13 @@ return {
     lazy = true,
     event = "BufEnter",
     config = function()
+        local blink = require("blink.cmp")
         local lspconfig = require("lspconfig")
         local util = require("lspconfig.util")
-        -- setting up capabilities with nvim-cmp
-        -- https://github.com/hrsh7th/cmp-nvim-lsp?tab=readme-ov-file#capabilities
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        -- setting up capabilities with blink-cmp
+        -- http://cmp.saghen.dev/installation.html#lsp-capabilities
+        -- NOTE: apparently this is not needed in nvim 0.11.0+ but keeping it in for now
+        local capabilities = blink.get_lsp_capabilities()
 
         -- good func to find root dir
         local root_dir_func = function(fname)
