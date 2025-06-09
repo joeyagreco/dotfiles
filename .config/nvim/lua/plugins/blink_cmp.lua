@@ -5,7 +5,7 @@ return {
     version = "1.*",
     opts = {
         keymap = {
-            preset = "none",
+            preset = "default",
             ["<TAB>"] = { "accept", "fallback" },
             ["<C-n>"] = { "select_next", "fallback" },
             ["<C-p>"] = { "select_prev", "fallback" },
