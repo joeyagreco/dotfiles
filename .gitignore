@@ -14,6 +14,7 @@ __pycache__
 .claude/projects
 .claude/statsig
 .claude/todos
+.claude/.update.lock
 
 .ruff_cache
 
