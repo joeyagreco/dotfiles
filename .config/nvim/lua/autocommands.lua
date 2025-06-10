@@ -7,7 +7,8 @@ vim.filetype.add({
         ["%.swcrc"] = "json",
         [".npmrc"] = "conf",
         [".nvmrc"] = "conf",
-        [".env*"] = "env",
+        [".*/%.env.*"] = "env", -- matches .env, .env.foo
+        [".*/.*%.env"] = "env", -- matches foo.env
         ["Dockerfile.*"] = "dockerfile",
         ["gitignore.*"] = "gitignore",
         ["gitconfig.*"] = "gitconfig",
