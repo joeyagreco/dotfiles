@@ -10,17 +10,17 @@ local function comment_prefix()
 end
 
 return {
-    s("todo", {
+    s({ trig = "todo", name = "todo comment" }, {
         f(function()
             return comment_prefix() .. " TODO: @joeyagreco - "
         end, {}),
     }),
-    s("note", {
+    s({ trig = "note", name = "note comment" }, {
         f(function()
             return comment_prefix() .. " NOTE: @joeyagreco - "
         end, {}),
     }),
-    s("fixme", {
+    s({ trig = "fixme", name = "fixme comment" }, {
         f(function()
             return comment_prefix() .. " FIXME: @joeyagreco - "
         end, {}),
