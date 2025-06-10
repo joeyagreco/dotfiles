@@ -4,6 +4,8 @@ return {
     "saghen/blink.cmp",
     dependencies = { "echasnovski/mini.icons", "L3MON4D3/LuaSnip" },
     version = "1.*",
+    lazy = true,
+    event = "InsertEnter",
     opts = {
         keymap = {
             preset = "default",
