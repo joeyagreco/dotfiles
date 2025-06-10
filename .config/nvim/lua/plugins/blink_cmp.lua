@@ -1,4 +1,5 @@
 -- https://github.com/Saghen/blink.cmp
+-- DOCS: https://cmp.saghen.dev/
 return {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
