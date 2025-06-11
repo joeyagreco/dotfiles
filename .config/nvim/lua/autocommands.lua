@@ -12,7 +12,7 @@ vim.filetype.add({
         ["Dockerfile.*"] = "dockerfile",
         ["gitignore.*"] = "gitignore",
         ["gitconfig.*"] = "gitconfig",
-        ["*.zsh"] = "bash",
+        [".*/.*%.zsh"] = "bash",
     },
 })
 
