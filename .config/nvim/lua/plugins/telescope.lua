@@ -127,7 +127,7 @@ return {
                     -- "build/",
                     "dist/",
                     "node_modules/",
-                    ".git/",
+                    "^.git/",
                 },
                 hidden = true,
                 vimgrep_arguments = {
