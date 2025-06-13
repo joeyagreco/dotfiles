@@ -21,27 +21,4 @@ return {
         },
     },
     opts = {},
-    config = function()
-        require("Comment").setup({})
-        local ft = require("Comment.ft")
-
-        -- Enable both line and block comments for filetypes that are not supported out of the box
-        -- https://github.com/numToStr/Comment.nvim
-        -- NOTE: can also do something like this:
-        -- vim.api.nvim_create_autocmd("FileType", {
-        --     pattern = "proto",
-        --     callback = function()
-        --         vim.bo.commentstring = "//%s"
-        --     end,
-        -- })
-
-        -- proto
-        ft.set("proto", { "//%s", "/*%s*/" })
-        -- go.mod
-        ft.set("gomod", { "//%s", "/*%s*/" })
-        -- jsx
-        ft.set("javascriptreact", { "{/*%s*/}", "{/*%s*/}" })
-        -- env
-        ft.set("env", { "#%s" })
-    end,
 }

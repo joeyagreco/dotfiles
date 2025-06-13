@@ -42,3 +42,21 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
         vim.cmd("echo ''")
     end,
 })
+
+-- define comment strings for various filetypes
+local commentstrings = {
+    openscad = "// %s",
+    env = "# %s",
+    proto = "// %s",
+    gomod = "// %s",
+    javascriptreact = "{/* %s */}",
+}
+
+for ft, cs in pairs(commentstrings) do
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = ft,
+        callback = function()
+            vim.bo.commentstring = cs
+        end,
+    })
+end
