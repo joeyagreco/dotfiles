@@ -20,4 +20,12 @@ function M.should_load_plugin(opts)
     return true
 end
 
+-- define plugin load priority
+-- (default is 50)
+-- https://lazy.folke.io/spec#spec-loading
+M.plugin_priority = {
+    THEME = 1001,
+    TELESCOPE = 1000,
+}
+
 return M

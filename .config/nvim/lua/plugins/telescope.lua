@@ -1,7 +1,25 @@
+local helpers = require("helpers")
+
 -- https://github.com/nvim-telescope/telescope.nvim
 return {
     "nvim-telescope/telescope.nvim",
-    lazy = true,
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
+        -- NOTE: if seeing this error: "'fzf' extension doesn't exist or isn't installed"
+        -- do this:
+        -- cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
+        -- rm -rf build  # Remove any partially built files
+        -- cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
+        -- cmake --build build --config Release
+        {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+        },
+    },
+    priority = helpers.plugin_priority.TELESCOPE,
+    lazy = false,
     keys = {
         {
             "<leader>s",
@@ -63,21 +81,6 @@ return {
         },
     },
     tag = "0.1.8",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-live-grep-args.nvim",
-        -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
-        -- NOTE: if seeing this error: "'fzf' extension doesn't exist or isn't installed"
-        -- do this:
-        -- cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
-        -- rm -rf build  # Remove any partially built files
-        -- cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
-        -- cmake --build build --config Release
-        {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
-        },
-    },
     config = function()
         local actions = require("telescope.actions")
         local lga_actions = require("telescope-live-grep-args.actions")

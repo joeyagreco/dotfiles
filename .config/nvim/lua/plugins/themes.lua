@@ -1,3 +1,4 @@
+local helpers = require("helpers")
 -- MATERIAL
 -- https://github.com/marko-cerovac/material.nvim
 -- return {
@@ -8,4 +9,4 @@
 
 -- NIGHTFOX
 -- https://github.com/EdenEast/nightfox.nvim
-return { "EdenEast/nightfox.nvim", lazy = false }
+return { "EdenEast/nightfox.nvim", lazy = false, priority = helpers.plugin_priority.THEME }
