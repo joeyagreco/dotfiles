@@ -18,6 +18,7 @@ if __name__ == "__main__":
         ".ruff_cache",
         ".mise.toml",
         "CLAUDE.md",
+        ".swp",
     ]
     IGNORE_EXTENSIONS = ["log"]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
