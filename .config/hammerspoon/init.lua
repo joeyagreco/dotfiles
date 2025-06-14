@@ -13,6 +13,14 @@ end)
 -------------------------
 -- set up app switcher --
 -------------------------
+
+for _, app in ipairs(hs.application.runningApplications()) do
+    print(string.format("%s -> %s", app:name(), app:bundleID() or "no bundle ID"))
+end
+
+hs.hotkey.bind({ "cmd", "shift" }, "M", function()
+    hs.application.launchOrFocusByBundleID("org.openscad.OpenSCAD")
+end)
 local json = require("hs.json")
 
 local function loadHotkeys(path, required)
@@ -79,3 +87,7 @@ require("spoons")
 local end_time_ns = hs.timer.absoluteTime()
 local elapsed_sec = (end_time_ns - start_time_ns) / 1e9
 hs.alert.show(string.format("reloaded hammerspoon config in %.1f seconds", elapsed_sec))
+
+hs.hotkey.bind({ "cmd", "shift" }, "M", function()
+    hs.application.launchOrFocusByBundleID("org.openscad.OpenSCAD")
+end)
