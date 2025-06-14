@@ -1,8 +1,20 @@
 {
-  "H": "1Password",
-  "J": "Google Chrome",
-  "K": "Alacritty",
-  ";": "Postman",
-  "S": "Settings",
-  "F": "Finder"
+  "H": {
+    "appname": "1Password"
+  },
+  "J": {
+    "appname": "Google Chrome"
+  },
+  "K": {
+    "appname": "Alacritty"
+  },
+  ";": {
+    "appname": "Postman"
+  },
+  "S": {
+    "appname": "Settings"
+  },
+  "F": {
+    "appname": "Finder"
+  }
 }
