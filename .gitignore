@@ -3,6 +3,7 @@
 __pycache__
 *.pyc
 
+!.config
 .config/efm-langserver
 .config/op
 .config/gcloud
