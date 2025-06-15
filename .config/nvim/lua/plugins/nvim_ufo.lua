@@ -39,6 +39,7 @@ end
 return {
     "kevinhwang91/nvim-ufo",
     lazy = true,
+    event = { "BufEnter" }, -- this shouldn't be needed, but when added this fixes this issue: https://github.com/kevinhwang91/nvim-ufo/issues/290
     version = "1.5.0",
     keys = {
         { "za", "za", desc = "toggle a fold", silent = true, noremap = true },
