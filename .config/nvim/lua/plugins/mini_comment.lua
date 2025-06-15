@@ -1,7 +1,7 @@
 -- https://github.com/echasnovski/mini.comment
 return {
     "echasnovski/mini.comment",
-    version = false,
+    version = "*",
     lazy = true,
     keys = {
         {
