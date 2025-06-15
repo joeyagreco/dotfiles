@@ -4,13 +4,8 @@ return {
     lazy = true,
     event = "BufEnter",
     config = function()
-        local blink = require("blink.cmp")
         local lspconfig = require("lspconfig")
         local util = require("lspconfig.util")
-        -- setting up capabilities with blink-cmp
-        -- http://cmp.saghen.dev/installation.html#lsp-capabilities
-        -- NOTE: apparently this is not needed in nvim 0.11.0+ but keeping it in for now
-        local capabilities = blink.get_lsp_capabilities()
 
         -- good func to find root dir
         local root_dir_func = function(fname)
@@ -20,54 +15,45 @@ return {
         end
 
         -- css
-        lspconfig.cssls.setup({ capabilities = capabilities })
+        lspconfig.cssls.setup({})
 
         -- golang
-        lspconfig.gopls.setup({ capabilities = capabilities })
+        lspconfig.gopls.setup({})
 
         -- markdown
-        lspconfig.marksman.setup({ capabilities = capabilities })
+        lspconfig.marksman.setup({})
 
         -- zsh
         -- NOTE: use .shellcheckrc for configuration
         lspconfig.bashls.setup({
-            capabilities = capabilities,
             filetypes = { "sh", "zsh", "zshrc" },
         })
 
         -- terraform
-        lspconfig.terraformls.setup({
-            capabilities = capabilities,
-        })
+        lspconfig.terraformls.setup({})
 
         -- toml
-        lspconfig.taplo.setup({
-            capabilities = capabilities,
-        })
+        lspconfig.taplo.setup({})
 
         -- proto
-        lspconfig.protols.setup({
-            capabilities = capabilities,
-        })
+        lspconfig.protols.setup({})
 
         -- typescript
-        lspconfig.ts_ls.setup({
-            capabilities = capabilities,
-        })
+        lspconfig.ts_ls.setup({})
 
         -- python
         -- https://github.com/astral-sh/ruff-lsp
-        lspconfig.ruff.setup({ capabilities = capabilities, root_dir = root_dir_func })
+        lspconfig.ruff.setup({
+            root_dir = root_dir_func,
+        })
         -- ruff lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use pyright too
         lspconfig.pyright.setup({
-            capabilities = capabilities,
             -- tell pyright what the root dir of this python file is
             root_dir = root_dir_func,
         })
 
         -- lua
         lspconfig.lua_ls.setup({
-            capabilities = capabilities,
             settings = {
                 Lua = {
                     diagnostics = {
@@ -80,19 +66,15 @@ return {
 
         -- yaml
         lspconfig.yamlls.setup({
-            capabilities = capabilities,
             filetypes = { "yaml", "yml" },
         })
 
         -- makefile
         lspconfig.efm.setup({
-            capabilities = capabilities,
             filetypes = { "make" },
         })
 
         -- vimrc
-        lspconfig.vimls.setup({
-            capabilities = capabilities,
-        })
+        lspconfig.vimls.setup({})
     end,
 }
