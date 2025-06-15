@@ -1,3 +1,4 @@
+-- https://github.com/nvim-treesitter/nvim-treesitter
 -- check module status: :TSModuleInfo
 -- toggle highlighting: :TSBufToggle highlight
 return {
