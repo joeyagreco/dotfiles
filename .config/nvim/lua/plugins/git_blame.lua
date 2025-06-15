@@ -2,7 +2,6 @@
 return {
     "f-person/git-blame.nvim",
     lazy = true,
-    event = "BufEnter",
     cmd = { "Url" },
     config = function()
         require("gitblame").setup({
