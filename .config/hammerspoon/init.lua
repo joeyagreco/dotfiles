@@ -78,6 +78,11 @@ hs.dockicon.hide()
 -------------------
 require("spoons")
 
+-----------------
+-- url opener --
+-----------------
+require("url_opener")
+
 -----------------------------
 -- alert on config runtime --
 -----------------------------
