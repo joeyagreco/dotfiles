@@ -1,0 +1,99 @@
+{
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/neovim.txt",
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "type": "os",
+      "key": "os",
+      "keyColor": "blue",
+      "format": "{name} {version}",
+    },
+    {
+      "type": "kernel",
+      "key": "kernel",
+      "keyColor": "blue",
+    },
+    {
+      "type": "uptime",
+      "key": "uptime",
+      "keyColor": "blue",
+    },
+    {
+      "type": "memory",
+      "key": "memory",
+      "keyColor": "yellow",
+      "percent": {
+        "type": 3, // Show both percentage number and bar
+        "green": 30, // Values below 30% in green
+        "yellow": 70, // 30-70% in yellow, >70% in red
+      },
+    },
+    {
+      "type": "cpu",
+      "key": "cpu",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "gpu",
+      "key": "gpu",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "disk",
+      "key": "disk",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "shell",
+      "key": "shell",
+      "keyColor": "#9370DB",
+    },
+    {
+      "type": "terminal",
+      "key": "terminal",
+      "keyColor": "#9370DB",
+    },
+    {
+      "type": "localip",
+      "key": "local ip",
+      "keyColor": "#CC5500",
+    },
+    {
+      "type": "battery",
+      "key": "battery",
+      "keyColor": "#CC5500",
+    },
+  ],
+}
+
+//
+//                      ..'          joeygreco@MacBookPro
+//                  ,xNMM.           --------------------
+//                .OMMMMo            OS: macOS Sequoia 15.5 arm64
+//                lMM"               Host: MacBook Pro (16-inch, 2021)
+//      .;loddo:.  .olloddol;.       Kernel: Darwin 24.5.0
+//    cKMMMMMMMMMMNWMMMMMMMMMM0:     Uptime: 29 days, 19 hours, 50 mins
+//  .KMMMMMMMMMMMMMMMMMMMMMMMWd.     Packages: 191 (brew), 13 (brew-cask)
+//  XMMMMMMMMMMMMMMMMMMMMMMMX.       Shell: zsh 5.9
+// ;MMMMMMMMMMMMMMMMMMMMMMMM:        Display (Color LCD): 3456x2234 @ 120 Hz (as 1728x1117) in 16" [Built-in]
+// :MMMMMMMMMMMMMMMMMMMMMMMM:        DE: Aqua
+// .MMMMMMMMMMMMMMMMMMMMMMMMX.       WM: Quartz Compositor 278.4.7
+//  kMMMMMMMMMMMMMMMMMMMMMMMMWd.     WM Theme: Multicolor (Dark)
+//  'XMMMMMMMMMMMMMMMMMMMMMMMMMMk    Font: .AppleSystemUIFont [System], Helvetica [User]
+//   'XMMMMMMMMMMMMMMMMMMMMMMMMK.    Cursor: Fill - Black, Outline - White (55px)
+//     kMMMMMMMMMMMMMMMMMMMMMMd      Terminal: tmux 3.5a
+//      ;KMMMMMMMWXXWMMMMMMMk.       CPU: Apple M1 Pro (10) @ 3.23 GHz
+//        "cooc*"    "*coo'"         GPU: Apple M1 Pro (16) @ 1.30 GHz [Integrated]
+//                                   Memory: 26.45 GiB / 32.00 GiB (83%)
+//                                   Swap: 16.42 GiB / 18.00 GiB (91%)
+//                                   Disk (/): 415.62 GiB / 460.43 GiB (90%) - apfs [Read-only]
+//                                   Local IP (en0): 192.168.1.246/24
+//                                   Battery (bq40z651): 91% (7 hours, 31 mins remaining) [Discharging]
+//                                   Locale: en_US.UTF-8
+//
+//
+//

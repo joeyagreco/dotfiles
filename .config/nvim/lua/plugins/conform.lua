@@ -17,7 +17,7 @@ return {
             javascriptreact = { "prettier" },
             -- https://github.com/rhysd/fixjson
             json = { "fixjson" },
-            jsonc = { "fixjson" },
+            jsonc = { "prettier" },
             lua = { "stylua" },
             proto = { "buf" },
             python = { "ruff_check", "ruff_fmt" },
