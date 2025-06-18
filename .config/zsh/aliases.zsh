@@ -61,6 +61,7 @@ alias lastdownload='. $BASH_SCRIPTS_PATH/last_download.sh'
 # 3. the selected command is opened in vim
 # 4. on save/exit, the command in the editor is executed
 alias his='fc -e vim "$(fc -ln 1 | fzf --tac)"'
+alias info='fastfetch'
 
 ##########
 # PYTHON #
