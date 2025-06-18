@@ -17,6 +17,7 @@ brew "uv"
 brew "zoxide"
 brew "zsh"
 brew 'zsh-vi-mode' # vim mode in the terminal!
+brew 'fastfetch'
 
 # language servers and formatters
 brew "bufbuild/buf/buf"
