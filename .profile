@@ -1,5 +1,5 @@
 # for shell completion
-# https://docs.brew.sh/Shell-Completon
+# https://docs.brew.sh/Shell-Completion
 if type brew &>/dev/null; then
 	HOMEBREW_PREFIX="$(brew --prefix)"
 	if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
