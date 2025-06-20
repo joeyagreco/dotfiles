@@ -42,6 +42,12 @@ return {
             })
         end, { desc = "see all keymaps" })
 
+        -- search nvim package files
+        -- this is useful for finding the source code of plugin functions
+        vim.api.nvim_create_user_command("Pack", function()
+            telescope.extensions.live_grep_args.live_grep_args({ cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") })
+        end, { desc = "search nvim package files" })
+
         local handle_large_files = function(filepath, bufnr, opts)
             -- size limit for previews (kb)
             local max_file_size_kb = 100
