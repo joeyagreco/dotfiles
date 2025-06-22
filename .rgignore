@@ -1,3 +1,5 @@
-# added so nvim/telescope can find .env files in search.. see: https://github.com/LunarVim/LunarVim/discussions/3770#discussioncomment-11523524
+# use this to make things searchable in telescope that are gitignored
+# see: https://github.com/LunarVim/LunarVim/discussions/3770#discussioncomment-11523524
 !.env
 !*/.env
+!*local*
