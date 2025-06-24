@@ -4,6 +4,7 @@ return {
     "lewis6991/gitsigns.nvim",
     version = "*",
     lazy = true,
+    event = "BufEnter",
     keys = {
         {
             "<leader>gr",
@@ -27,6 +28,5 @@ return {
             noremap = true,
         },
     },
-    event = "BufEnter",
-    opts = { debug_mode = false },
+    opts = {},
 }
