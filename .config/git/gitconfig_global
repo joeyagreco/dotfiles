@@ -12,17 +12,17 @@
 	editor = vim
 
 [alias]
-	co=checkout
-	f=fetch --all
+	co = checkout
+	f = fetch --all
 	empty = "!git commit --allow-empty --no-verify -m 'empty commit' && git push"
 	# [c]ommit[n]o[v]erify
-	cnv=commit --no-verify
+	cnv = commit --no-verify
 	# list the 10 most recent git branches
 	# [r]ecent[b]ranches
-	recent="!sh -c git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10"
+	recent = "!sh -c git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10"
 	# push to branch that only exists locally and set upstream
 	# [p]ush[u]pstream
-	pu="!sh -c git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
+	pu = "!sh -c 'git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'"
 	# [a]dd[c]ommit[p]ush
 	acp = "!sh -c 'git add . && git commit -am \"quick commit\" && git push'"
 	# commit with an ai generated message
