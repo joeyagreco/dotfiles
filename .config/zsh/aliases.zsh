@@ -72,24 +72,3 @@ alias py='$PYTHON_COMMAND'
 alias venv='$PYTHON_COMMAND -m venv'
 alias venvup='f_venvup'
 alias venvdown='f_venvdown'
-
-#######
-# GIT #
-#######
-
-alias gitco='git checkout'
-alias gitf='git fetch --all'
-alias emptycommit='git commit --allow-empty --no-verify -m '\''empty commit'\'' && git push'
-# [g]it[c]ommit[n]o[v]erify
-alias gcnv='git commit --no-verify'
-# list the 10 most recent git branches
-# [g]it[r]ecent[b]ranches
-alias grb='git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)" | head -n 10'
-# push to branch that only exists locally and set upstream
-# [g]it[p]ush[u]pstream
-alias gpu='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
-# [g]it[a]dd[c]ommit[p]ush
-alias gacp='git add . && git commit -am "quick commit" && git push'
-# commit with an ai generated message
-# [g]it[c]ommit[ai]
-alias gcai='$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/ai_git_commit_msg.py'
