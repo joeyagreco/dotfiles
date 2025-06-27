@@ -7,3 +7,8 @@ EXAMPLE:
 // This is Not Good 
 // this is good
 ```
+
+## testing
+
+### golang
+- always format as table tests
