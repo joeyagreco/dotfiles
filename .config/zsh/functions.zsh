@@ -58,12 +58,3 @@ function f_setup() {
 	c "$1" && four && tmux new-window "nvim"
 }
 
-# function to repeat commands
-# e.g. `repeat 3 echo 'foo'` -> foo foo foo
-function repeat {
-	local count=$1
-	shift
-	for ((i = 1; i <= count; i++)); do
-		"$@"
-	done
-}
