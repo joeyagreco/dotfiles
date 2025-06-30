@@ -88,8 +88,8 @@ vim.g.loaded_perl_provider = 0
 -- disable ruby
 vim.g.loaded_ruby_provider = 0
 
--- stop things like Lazy from formatting
-vim.g.autoformat = false
+-- -- stop things like Lazy from formatting
+-- vim.g.autoformat = false
 
 -- add the g flag to search/replace by default
 vim.opt.gdefault = true
