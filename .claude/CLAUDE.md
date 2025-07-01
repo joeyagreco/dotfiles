@@ -8,6 +8,18 @@ EXAMPLE:
 // this is good
 ```
 
+- makefiles should follow this format for commands:
+
+```makefile
+.PHONY: foo 
+foo:
+	@echo 'foo'
+
+.PHONY: bar 
+bar:
+	@echo 'bar'
+```
+
 ## testing
 
 ### golang
