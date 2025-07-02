@@ -33,7 +33,7 @@ alias setup='f_setup'
 
 alias docker-compose='docker compose'
 # list all docker info in a nice way
-alias dps='docker ps --format "{{.ID}} {{.Image}} {{.Status}}"'
+alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}"'
 # stop all running containers
 alias dstop='docker stop $(docker ps -q)'
 
