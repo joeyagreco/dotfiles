@@ -1,5 +1,9 @@
 # CLAUDE.md
 
+## terminal/shell
+- cd is aliased to zoxide
+    - `cd=z`
+
 ## code formatting
 - comments should be in all lower case
 ```
