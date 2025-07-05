@@ -45,7 +45,6 @@ alias vi='vim'
 alias ic='ping 8.8.8.8'
 alias home='cd ~'
 alias ls='eza'
-unalias cd
 # alias cd='z'
 alias nukerepo='$BASH_SCRIPTS_PATH/nuke_repo.sh'
 # open up notes in nvim in a new tmux window
