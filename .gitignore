@@ -16,6 +16,7 @@ __pycache__
 .claude/statsig
 .claude/todos
 .claude/.update.lock
+.claude/shell-snapshots
 
 .ruff_cache
 
