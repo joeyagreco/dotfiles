@@ -97,3 +97,5 @@ vim.opt.gdefault = true
 -- this is opt-in as of nvim 0.11.0
 -- show diagnostics
 vim.diagnostic.config({ virtual_text = true })
+
+vim.opt.swapfile = false
