@@ -56,9 +56,19 @@ return {
         lspconfig.lua_ls.setup({
             settings = {
                 Lua = {
+                    -- START: add vim to the runtime
+                    runtime = {
+                        version = "LuaJIT", -- neovim uses luajit
+                        path = vim.split(package.path, ";"),
+                    },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                        checkThirdParty = false,
+                    },
+                    -- END: add vim to the runtime
                     diagnostics = {
                         -- prevents "undefined global '<thing>'"
-                        globals = { "vim", "ngx", "hs", "spoon" },
+                        globals = { "ngx", "hs", "spoon" },
                     },
                 },
             },
