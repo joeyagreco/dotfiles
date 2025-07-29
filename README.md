@@ -18,6 +18,8 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 
 # upgrading neovim
 
-```sh
-brew upgrade nvim
-```
+1. check [releases page](https://github.com/neovim/neovim/releases)
+2. check current version: `nvim -v`
+3. update `brew update && brew upgrade nvim`
+4. check current version: `nvim -v`
+
