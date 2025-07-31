@@ -73,6 +73,9 @@ vim.opt.showcmd = true
 -- set the commands to save in history, default number is 20.
 vim.opt.history = 1000
 
+-- enable wildmenu for : command autocomplete when <TAB> is pressed
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"
 -- ignore specific file types in wildmenu
 vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
