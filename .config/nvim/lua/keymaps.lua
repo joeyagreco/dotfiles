@@ -110,6 +110,10 @@ map("n", "x", '"_x', helpers.combine_tables(default_options, { desc = "make 'x' 
 map("v", ">", ">gv", helpers.combine_tables(default_options, { desc = "keep selection selected after >" }))
 map("v", "<", "<gv", helpers.combine_tables(default_options, { desc = "keep selection selected after <" }))
 
+-- move selected text up and down
+map("v", "J", ":m '>+1<CR>gv=gv", helpers.combine_tables(default_options, { desc = "move selected text down" }))
+map("v", "K", ":m '<-2<CR>gv=gv", helpers.combine_tables(default_options, { desc = "move selected text up" }))
+
 -- -- toggle relative line numbers
 -- map("n", "<leader>n", function()
 --     local relativeNumber = vim.opt.relativenumber:get()
