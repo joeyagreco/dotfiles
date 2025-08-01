@@ -10,6 +10,7 @@ __pycache__
 .config/pgcli
 .config/simple-update-notifier
 .config/fish
+.config/gh
 
 # claude code
 .claude/projects
