@@ -102,3 +102,6 @@ vim.opt.gdefault = true
 vim.diagnostic.config({ virtual_text = true })
 
 vim.opt.swapfile = false
+
+-- remove visual selection range when entering command mode
+vim.keymap.set("v", ":", ":<C-u>", { noremap = true })
