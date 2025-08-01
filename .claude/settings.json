@@ -10,7 +10,8 @@
     "deny": []
   },
   "feedbackSurveyState": {
-    "lastShownTime": 1753977827379
-  }
+    "lastShownTime": 1754070804755
+  },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json"
 }
 
