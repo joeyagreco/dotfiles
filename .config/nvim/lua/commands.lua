@@ -25,11 +25,22 @@ vim.api.nvim_create_user_command("Finder", function()
 end, { desc = "open the current buffer's directory in finder" })
 
 -- copy git-relative path to current buffer to clipboard with @{} format
-vim.api.nvim_create_user_command("Claude", function()
+vim.api.nvim_create_user_command("Claude", function(opts)
     local full_path = vim.fn.expand("%:p")
     local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
     local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
-    local clipboard_text = "@" .. relative_path
+
+    -- check for visual selection using range info
+    local line_suffix = ""
+    if opts.range > 0 then
+        if opts.line1 == opts.line2 then
+            line_suffix = "#L" .. opts.line1
+        else
+            line_suffix = "#L" .. opts.line1 .. "-" .. opts.line2
+        end
+    end
+
+    local clipboard_text = "@" .. relative_path .. line_suffix
     vim.fn.setreg("+", clipboard_text)
     print('"' .. clipboard_text .. '" copied to clipboard')
-end, { desc = "copy git-relative path to current buffer to clipboard with @{} format" })
+end, { desc = "copy git-relative path to current buffer to clipboard with @{} format", range = true })
