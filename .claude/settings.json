@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
       "WebFetch(domain:github.com)",
@@ -10,8 +11,7 @@
     "deny": []
   },
   "feedbackSurveyState": {
-    "lastShownTime": 1754070804755
-  },
-  "$schema": "https://json.schemastore.org/claude-code-settings.json"
+    "lastShownTime": 1754090047522
+  }
 }
 
