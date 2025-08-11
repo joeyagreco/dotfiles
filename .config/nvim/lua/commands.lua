@@ -30,13 +30,17 @@ vim.api.nvim_create_user_command("Claude", function(opts)
     local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
     local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
 
-    -- check for visual selection using visual marks
+    -- check for visual selection using range from opts
     local line_suffix = ""
+
+    -- use visual marks directly since range doesn't work as expected
     local start_line = vim.fn.line("'<")
     local end_line = vim.fn.line("'>")
+    local current_line = vim.fn.line(".")
 
-    -- if we have valid visual marks and they're different from default (1)
-    if start_line > 0 and end_line > 0 and (start_line ~= 1 or end_line ~= 1 or vim.fn.mode():match("[vV]")) then
+    -- use visual marks only if cursor is within the visual selection range
+    -- this indicates the selection is fresh/current
+    if current_line >= start_line and current_line <= end_line and start_line ~= end_line then
         if start_line == end_line then
             line_suffix = "#L" .. start_line
         else
