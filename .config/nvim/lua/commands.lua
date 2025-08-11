@@ -25,6 +25,7 @@ vim.api.nvim_create_user_command("Finder", function()
 end, { desc = "open the current buffer's directory in finder" })
 
 -- copy git-relative path to current buffer to clipboard with @{} format
+-- NOTE: there's a bug where if you do a visual line selection with this command and then don't move the cursor and run it again it will still have the line selected
 vim.api.nvim_create_user_command("Claude", function(opts)
     local full_path = vim.fn.expand("%:p")
     local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
@@ -38,9 +39,10 @@ vim.api.nvim_create_user_command("Claude", function(opts)
     local end_line = vim.fn.line("'>")
     local current_line = vim.fn.line(".")
 
-    -- use visual marks only if cursor is within the visual selection range
-    -- this indicates the selection is fresh/current
-    if current_line >= start_line and current_line <= end_line and start_line ~= end_line then
+    -- use visual marks if cursor is within selection range and it's not too far from current line
+    -- this helps distinguish fresh selections from stale marks
+    local max_distance = 10 -- adjust as needed
+    if current_line >= start_line and current_line <= end_line and (end_line - start_line) <= max_distance then
         if start_line == end_line then
             line_suffix = "#L" .. start_line
         else
