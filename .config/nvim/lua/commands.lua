@@ -54,3 +54,42 @@ vim.api.nvim_create_user_command("Claude", function(opts)
     vim.fn.setreg("+", clipboard_text)
     print('"' .. clipboard_text .. '" copied to clipboard')
 end, { desc = "copy git-relative path to current buffer to clipboard with @{} format", range = true })
+
+-- TODO: @joeyagreco - replace :Url command with this command once we have confirmed its resiliant
+
+-- generate github url for current buffer file and copy to clipboard
+vim.api.nvim_create_user_command("Git", function()
+    local full_path = vim.fn.expand("%:p")
+    local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
+
+    if vim.v.shell_error ~= 0 then
+        print("error: not in a git repository")
+        return
+    end
+
+    local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
+    local remote_url = vim.fn.system("git config --get remote.origin.url"):gsub("\n", "")
+
+    if vim.v.shell_error ~= 0 then
+        print("error: no remote origin found")
+        return
+    end
+
+    -- convert ssh url to https url if needed
+    local github_url = remote_url
+    if remote_url:match("^git@github%.com:") then
+        github_url = remote_url:gsub("^git@github%.com:", "https://github.com/"):gsub("%.git$", "")
+    elseif remote_url:match("%.git$") then
+        github_url = remote_url:gsub("%.git$", "")
+    end
+
+    local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
+    if vim.v.shell_error ~= 0 then
+        print("error: could not get current branch")
+        return
+    end
+
+    local full_url = github_url .. "/blob/" .. current_branch .. "/" .. relative_path
+    vim.fn.setreg("+", full_url)
+    print('"' .. full_url .. '" copied to clipboard')
+end, { desc = "generate github url for current buffer file and copy to clipboard" })
