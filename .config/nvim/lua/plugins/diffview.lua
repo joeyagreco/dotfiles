@@ -8,8 +8,8 @@ return {
         require("diffview").setup({
             keymaps = {
                 file_panel = {
-                    -- this will open the current selected file in the :Dif file tree in a new buffer and close the dif view:w
-                    ["ge"] = function()
+                    -- this will open the current selected file in the :Dif file tree in a new buffer and close the dif view
+                    ["go"] = function()
                         local line = vim.api.nvim_get_current_line()
                         local filename = line:match("^%s*[MAD?!]?%s*[^%s]*%s*([^%s]+)")
 
