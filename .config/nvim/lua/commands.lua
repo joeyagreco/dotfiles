@@ -89,7 +89,23 @@ vim.api.nvim_create_user_command("Git", function()
         return
     end
 
-    local full_url = github_url .. "/blob/" .. current_branch .. "/" .. relative_path
+    -- check for visual selection
+    local line_suffix = ""
+    local start_line = vim.fn.line("'<")
+    local end_line = vim.fn.line("'>")
+    local current_line = vim.fn.line(".")
+
+    -- use visual marks if cursor is within selection range and it's not too far from current line
+    local max_distance = 10
+    if current_line >= start_line and current_line <= end_line and (end_line - start_line) <= max_distance then
+        if start_line == end_line then
+            line_suffix = "#L" .. start_line
+        else
+            line_suffix = "#L" .. start_line .. "-L" .. end_line
+        end
+    end
+
+    local full_url = github_url .. "/blob/" .. current_branch .. "/" .. relative_path .. line_suffix
     vim.fn.setreg("+", full_url)
     print('"' .. full_url .. '" copied to clipboard')
-end, { desc = "generate github url for current buffer file and copy to clipboard" })
+end, { desc = "generate github url for current buffer file and copy to clipboard", range = true })
