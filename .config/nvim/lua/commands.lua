@@ -5,6 +5,21 @@ vim.api.nvim_create_user_command("Pwd", function()
     print('"' .. pwd .. '" copied to clipboard')
 end, { desc = "show and copy to clipboard the pwd of the current buffer" })
 
+-- show and copy to clipboard the pwd of the current buffer relative to git root
+vim.api.nvim_create_user_command("Pwdg", function()
+    local full_path = vim.fn.expand("%:p:h")
+    local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
+    
+    if vim.v.shell_error ~= 0 then
+        print("error: not in a git repository")
+        return
+    end
+    
+    local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
+    vim.fn.setreg("+", relative_path)
+    print('"' .. relative_path .. '" copied to clipboard')
+end, { desc = "show and copy to clipboard the pwd of the current buffer relative to git root" })
+
 vim.api.nvim_create_user_command("Lsp", function()
     local attached_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
     if #attached_clients == 0 then
