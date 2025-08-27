@@ -14,11 +14,7 @@ return {
                 if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
                     return
                 end
-                -- use lsp formatting for .scad files
-                if vim.bo[bufnr].filetype == "openscad" then
-                    return { timeout_ms = 500, lsp_format = "fallback" }
-                end
-                return { timeout_ms = 500, lsp_format = "never" }
+                return { timeout_ms = 500, lsp_format = "fallback" }
             end,
             log_level = vim.log.levels.INFO,
             -- built in formatters: https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters
@@ -32,6 +28,7 @@ return {
                 json = { "fixjson" },
                 jsonc = { "prettier" },
                 lua = { "stylua" },
+                openscad = {},
                 proto = { "buf" },
                 python = { "ruff_check", "ruff_fmt" },
                 sh = { "shfmt" },
