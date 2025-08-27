@@ -28,7 +28,7 @@ return {
                 json = { "fixjson" },
                 jsonc = { "prettier" },
                 lua = { "stylua" },
-                openscad = {},
+                openscad = {}, -- uses topiary and openscad-lsp for autoformat
                 proto = { "buf" },
                 python = { "ruff_check", "ruff_fmt" },
                 sh = { "shfmt" },
