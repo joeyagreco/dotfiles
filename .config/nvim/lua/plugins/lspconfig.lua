@@ -74,6 +74,9 @@ return {
             },
         })
 
+        -- openscad
+        lspconfig.openscad_lsp.setup({})
+
         -- yaml
         lspconfig.yamlls.setup({
             filetypes = { "yaml", "yml" },
