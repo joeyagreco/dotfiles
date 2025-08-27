@@ -14,6 +14,10 @@ return {
                 if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
                     return
                 end
+                -- use lsp formatting for .scad files
+                if vim.bo[bufnr].filetype == "openscad" then
+                    return { timeout_ms = 500, lsp_format = "fallback" }
+                end
                 return { timeout_ms = 500, lsp_format = "never" }
             end,
             log_level = vim.log.levels.INFO,
