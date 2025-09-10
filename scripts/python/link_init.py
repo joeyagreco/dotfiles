@@ -3,6 +3,7 @@ import subprocess
 
 from util import (
     print_color,
+    print_color_v2,
 )
 
 if __name__ == "__main__":
@@ -54,7 +55,13 @@ if __name__ == "__main__":
 
     for link in links:
         if link in home_dir_existing_links:
-            print(f"link '{link}' already exists, continuing...")
+            print_color_v2(
+                [
+                    {"text": "link "},
+                    {"text": f"'{link}'", "color": "green"},
+                    {"text": " already exists, continuing..."},
+                ]
+            )
             continue
         # this link is expected, prompt to create it
         command = f"ln -s {os.path.join(dotfiles_path, link)} {link}"
