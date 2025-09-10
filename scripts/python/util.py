@@ -1,15 +1,17 @@
-from typing import List, NotRequired, TypedDict
+from typing import List, Literal, NotRequired, TypedDict
+
+Color = Literal["red", "green", "yellow", "blue", "magenta", "cyan", "white", "reset"]
 
 ColorPart = TypedDict(
     "ColorPart",
     {
         "text": str,
-        "color": NotRequired[str],
+        "color": NotRequired[Color],
     },
 )
 
 
-def print_color(text: str, color: str = "") -> None:
+def print_color(text: str, color: Color = "reset") -> None:
     color_codes = {
         "red": "\033[91m",
         "green": "\033[92m",

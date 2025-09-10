@@ -90,8 +90,14 @@ if __name__ == "__main__":
             print(f"skipping creation of link '{link}' ...")
             skipped_count += 1
 
-    color = "green" if err_count == 0 else "red"
-    print_color(
-        f"\nlinking complete: {created_count} created - {err_count} errors - {skipped_count} skips\n\n",
-        color=color,
+    print_color_v2(
+        [
+            {"text": "\nlinking complete: "},
+            {"text": f"{created_count} created", "color": "green"},
+            {"text": " - "},
+            {"text": f"{err_count} errors", "color": "red"},
+            {"text": " - "},
+            {"text": f"{skipped_count} skips", "color": "yellow"},
+            {"text": "\n\n"},
+        ]
     )
