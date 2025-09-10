@@ -30,6 +30,16 @@ export PYRIGHT_PYTHON_FORCE_VERSION=$(mise current python)
 # give node 4GB of memory
 export NODE_OPTIONS="--max-old-space-size=4000"
 
+# nvm auto version use
+# credit: @elliotf
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+
 ##########
 # GOLANG #
 ##########
