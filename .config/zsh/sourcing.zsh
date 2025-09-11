@@ -1,6 +1,3 @@
-# THINGS THAT SHOULD GO HERE:
-# 1. anything that should run anytime a new shell is started
-
 ################################
 # HIGH PRIO (should run first) #
 ################################
@@ -8,7 +5,7 @@
 # install mise if needed
 # https://github.com/jdx/mise?tab=readme-ov-file
 if [ ! -f "$HOME/.local/bin/mise" ]; then
-	echo "Mise is not installed. Installing now..."
+	echo "mise is not installed. installing now..."
 	curl -s https://mise.run | sh
 fi
 
@@ -70,9 +67,6 @@ export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 # set up syntax highlighting
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# set up zoxide
-eval "$(zoxide init zsh)"
-
 # set up starship
 # https://starship.rs/
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
@@ -85,11 +79,11 @@ type starship_zle-keymap-select >/dev/null ||
 		eval "$(starship init zsh)"
 	}
 
-# Case-insensitive (all), completion (comp) and listing (list).
+# case-insensitive (all), completion (comp) and listing (list).
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# Case-insensitive for command execution.
+# case-insensitive for command execution.
 setopt NO_CASE_GLOB
 setopt EXTENDED_GLOB
 

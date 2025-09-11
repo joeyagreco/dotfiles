@@ -14,7 +14,6 @@ brew "starship"
 brew "stern"
 brew "tmux"
 brew "uv"
-brew "zoxide"
 brew "zsh"
 brew 'zsh-vi-mode' # vim mode in the terminal!
 brew 'fastfetch'
