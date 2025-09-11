@@ -12,7 +12,7 @@ end)
 
 -- google search shortcut
 hs.hotkey.bind({ "cmd", "shift" }, "z", function()
-    local button, text = hs.dialog.textPrompt("Google Search", "Enter search query:", "", "Search", "Cancel")
+    local button, text = hs.dialog.textPrompt("Search Google", "", "", "Search", "Cancel")
     if button == "Search" and text ~= "" then
         local encoded_query = hs.http.encodeForQuery(text)
         local search_url = "https://www.google.com/search?q=" .. encoded_query
