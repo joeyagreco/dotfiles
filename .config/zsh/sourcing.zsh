@@ -27,6 +27,11 @@ export PYRIGHT_PYTHON_FORCE_VERSION=$(mise current python)
 # give node 4GB of memory
 export NODE_OPTIONS="--max-old-space-size=4000"
 
+# load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion
+
 # nvm auto version use
 # credit: @elliotf
 autoload -U add-zsh-hook
