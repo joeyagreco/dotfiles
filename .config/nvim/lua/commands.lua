@@ -9,12 +9,12 @@ end, { desc = "show and copy to clipboard the pwd of the current buffer" })
 vim.api.nvim_create_user_command("Pwdg", function()
     local full_path = vim.fn.expand("%:p:h")
     local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
-    
+
     if vim.v.shell_error ~= 0 then
         print("error: not in a git repository")
         return
     end
-    
+
     local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
     vim.fn.setreg("+", relative_path)
     print('"' .. relative_path .. '" copied to clipboard')
@@ -124,3 +124,9 @@ vim.api.nvim_create_user_command("Git", function()
     vim.fn.setreg("+", full_url)
     print('"' .. full_url .. '" copied to clipboard')
 end, { desc = "generate github url for current buffer file and copy to clipboard", range = true })
+
+vim.api.nvim_create_user_command("Commit", function()
+    -- vim.cmd("GitBlameOpenCommitURL")
+    vim.cmd("GitBlameCopyCommitURL")
+    print("commit url copied to clipboard")
+end, { desc = "copy commit url for commit that current line comes from" })
