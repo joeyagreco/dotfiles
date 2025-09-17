@@ -9,6 +9,7 @@ vim.filetype.add({
         [".nvmrc"] = "conf",
         [".eslintignore"] = "gitignore",
         [".*/%.env.*"] = "env", -- matches .env, .env.foo
+        ["env%..*"] = "env", -- matches env.foo
         [".*/.*%.env"] = "env", -- matches foo.env
         ["Dockerfile.*"] = "dockerfile",
         ["gitignore.*"] = "gitignore",
