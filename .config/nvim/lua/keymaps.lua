@@ -119,3 +119,7 @@ map("v", "K", ":m '<-2<CR>gv=gv", helpers.combine_tables(default_options, { desc
 --     local relativeNumber = vim.opt.relativenumber:get()
 --     vim.opt.relativenumber = not relativeNumber
 -- end, helpers.combine_tables(default_options, { desc = "toggle relative line numbers" }))
+
+-- toggle comments
+map("n", "<leader>/", "gcc", helpers.combine_tables({ remap = true }, { desc = "toggle comment (line)" }))
+map("x", "<leader>/", "gc", helpers.combine_tables({ remap = true }, { desc = "toggle comment (visual)" }))
