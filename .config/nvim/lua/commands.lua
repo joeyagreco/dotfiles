@@ -125,8 +125,15 @@ vim.api.nvim_create_user_command("Git", function()
     print('"' .. full_url .. '" copied to clipboard')
 end, { desc = "generate github url for current buffer file and copy to clipboard", range = true })
 
-vim.api.nvim_create_user_command("Commit", function()
-    -- vim.cmd("GitBlameOpenCommitURL")
-    vim.cmd("GitBlameCopyCommitURL")
-    print("commit url copied to clipboard")
-end, { desc = "copy commit url for commit that current line comes from" })
+vim.api.nvim_create_user_command(
+    "Commit",
+    function(opts)
+        vim.cmd("GitBlameCopyCommitURL")
+        print("commit url copied to clipboard")
+
+        if opts.args and opts.args ~= "" then
+            vim.cmd("GitBlameOpenCommitURL")
+        end
+    end,
+    { desc = "copy commit url for commit that current line comes from. open as well with `:Commit open`", nargs = "?" }
+)
