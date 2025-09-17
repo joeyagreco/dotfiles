@@ -6,6 +6,7 @@ local i = ls.insert_node
 
 return {
     s("cl", fmt('console.log("{}");', { i(1) })),
+    s("fc", fmt('function {}({}) {{\n    {}\n}}', { i(1, "name"), i(2), i(0) })),
     s({
         trig = "afta",
         name = "afterAll block",

@@ -9,7 +9,8 @@ return {
     opts = {
         keymap = {
             preset = "default",
-            ["<TAB>"] = { "accept", "fallback" },
+            ["<TAB>"] = { "snippet_forward", "accept", "fallback" },
+            ["<S-TAB>"] = { "snippet_backward", "fallback" },
             ["<C-n>"] = { "select_next", "fallback" },
             ["<C-p>"] = { "select_prev", "fallback" },
             -- closes menu, cancels autocomplete

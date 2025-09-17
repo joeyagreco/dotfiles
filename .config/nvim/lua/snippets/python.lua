@@ -5,6 +5,7 @@ local i = ls.insert_node
 
 return {
     s({ trig = "cl", name = "print statement" }, { t("print("), i(0), t(")") }),
+    s({ trig = "fc", name = "function" }, { t("def "), i(1, "name"), t("("), i(2), t("):"), t({ "", "    " }), i(0) }),
     s(
         { trig = "inm", name = 'if __name__ == "__main__":' },
         { t('if __name__ == "__main__":'), t({ "", "    " }), i(0) }
