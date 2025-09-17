@@ -38,7 +38,7 @@ map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_option
 
 -- see lsp info
 map("n", "<leader>L", function()
-    vim.diagnostic.open_float(nil, { source = "always" })
+    vim.diagnostic.open_float(nil, { source = "always", focusable = true })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
 
 -- open relative file links, similar to 'gx'
