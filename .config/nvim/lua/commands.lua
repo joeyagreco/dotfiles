@@ -70,61 +70,6 @@ vim.api.nvim_create_user_command("Claude", function(opts)
     print('"' .. clipboard_text .. '" copied to clipboard')
 end, { desc = "copy git-relative path to current buffer to clipboard with @{} format", range = true })
 
--- TODO: @joeyagreco - replace :Url command with this command once we have confirmed its resiliant
-
--- generate github url for current buffer file and copy to clipboard
-vim.api.nvim_create_user_command("Git", function()
-    local full_path = vim.fn.expand("%:p")
-    local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
-
-    if vim.v.shell_error ~= 0 then
-        print("error: not in a git repository")
-        return
-    end
-
-    local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
-    local remote_url = vim.fn.system("git config --get remote.origin.url"):gsub("\n", "")
-
-    if vim.v.shell_error ~= 0 then
-        print("error: no remote origin found")
-        return
-    end
-
-    -- convert ssh url to https url if needed
-    local github_url = remote_url
-    if remote_url:match("^git@github%.com:") then
-        github_url = remote_url:gsub("^git@github%.com:", "https://github.com/"):gsub("%.git$", "")
-    elseif remote_url:match("%.git$") then
-        github_url = remote_url:gsub("%.git$", "")
-    end
-
-    local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
-    if vim.v.shell_error ~= 0 then
-        print("error: could not get current branch")
-        return
-    end
-
-    -- check for visual selection
-    local line_suffix = ""
-    local start_line = vim.fn.line("'<")
-    local end_line = vim.fn.line("'>")
-    local current_line = vim.fn.line(".")
-
-    -- use visual marks if cursor is within selection range and it's not too far from current line
-    local max_distance = 10
-    if current_line >= start_line and current_line <= end_line and (end_line - start_line) <= max_distance then
-        if start_line == end_line then
-            line_suffix = "#L" .. start_line
-        else
-            line_suffix = "#L" .. start_line .. "-L" .. end_line
-        end
-    end
-
-    local full_url = github_url .. "/blob/" .. current_branch .. "/" .. relative_path .. line_suffix
-    vim.fn.setreg("+", full_url)
-    print('"' .. full_url .. '" copied to clipboard')
-end, { desc = "generate github url for current buffer file and copy to clipboard", range = true })
-
 vim.api.nvim_create_user_command(
     "Commit",
     function(opts)
