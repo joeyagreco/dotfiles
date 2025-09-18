@@ -79,3 +79,6 @@ disabled = true
 
 [buf]
 disabled = true
+
+[helm]
+disabled = true
