@@ -15,9 +15,6 @@ return {
             max_commit_summary_length = 50,
         })
         -- copy url of current line in git
-        vim.api.nvim_create_user_command("Url", function()
-            vim.cmd("GitBlameCopyFileURL")
-            print("git url copied")
-        end, { desc = "copy url of current line in git" })
+        vim.cmd("command! -range Url call execute('<line1>,<line2>GitBlameCopyFileURL') | echo 'git url copied'")
     end,
 }
