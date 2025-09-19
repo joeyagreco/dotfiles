@@ -104,4 +104,5 @@ vim.diagnostic.config({ virtual_text = true })
 vim.opt.swapfile = false
 
 -- remove visual selection range when entering command mode
-vim.keymap.set("v", ":", ":<C-u>", { noremap = true })
+-- NOTE: @joeyagreco - i added this so visual selection command line looked cleaner when you press ":", but this also breaks things: https://github.com/f-person/git-blame.nvim/issues/154
+-- vim.keymap.set("v", ":", ":<C-u>", { noremap = true })
