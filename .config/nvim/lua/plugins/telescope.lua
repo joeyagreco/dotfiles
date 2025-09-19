@@ -42,11 +42,20 @@ return {
             })
         end, { desc = "see all keymaps" })
 
-        -- search nvim package files
+        vim.api.nvim_create_user_command("Commands", function()
+            builtin.commands({
+                layout_strategy = "horizontal",
+                layout_config = { width = 0.6, height = 0.5 },
+                sorting_strategy = "ascending",
+                prompt_title = "⚡ Commands",
+            })
+        end, { desc = "see all commands" })
+
+        -- search nvim package / plugin files
         -- this is useful for finding the source code of plugin functions
         vim.api.nvim_create_user_command("Pack", function()
             telescope.extensions.live_grep_args.live_grep_args({ cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") })
-        end, { desc = "search nvim package files" })
+        end, { desc = "search nvim package / plugin files" })
 
         local handle_large_files = function(filepath, bufnr, opts)
             -- size limit for previews (kb)
@@ -100,6 +109,21 @@ return {
             pickers = {
                 find_files = {
                     hidden = true,
+                },
+                commands = {
+                    entry_maker = function(entry)
+                        local make_entry = require("telescope.make_entry")
+                        local default_entry = make_entry.gen_from_commands({})(entry)
+
+                        -- add description to ordinal for searching
+                        local desc = ""
+                        if entry.definition and entry.definition.desc then
+                            desc = " " .. entry.definition.desc
+                        end
+                        default_entry.ordinal = entry.name .. desc
+
+                        return default_entry
+                    end,
                 },
             },
             extensions = {
