@@ -14,4 +14,5 @@ return {
     s({ trig = "str_", name = "__str__ function" }, { t("def __str__(self):"), t({ "", "    " }), i(0) }),
     s({ trig = "repr_", name = "__repr__ function" }, { t("def __repr__(self):"), t({ "", "    " }), i(0) }),
     s({ trig = "eq_", name = "__eq__ function" }, { t("def __eq__(self):"), t({ "", "    " }), i(0) }),
+    s({ trig = '"""', name = "docstring" }, { t('"""'), t({ "", "" }), i(0), t({ "", '"""' }) }),
 }
