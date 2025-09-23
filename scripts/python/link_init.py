@@ -36,9 +36,9 @@ if __name__ == "__main__":
     )
     # filter out things we don't want to link
     links = [
-        l
-        for l in os.listdir(dotfiles_path)
-        if l not in IGNORE_FILES and l.split(".")[-1] not in IGNORE_EXTENSIONS
+        link
+        for link in os.listdir(dotfiles_path)
+        if link not in IGNORE_FILES and link.split(".")[-1] not in IGNORE_EXTENSIONS
     ]
     # links now holds the things we want to create a sym link for in $HOME
     home_dir_path = os.environ.get("HOME")
