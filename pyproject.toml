@@ -1,5 +1,24 @@
+# https://docs.astral.sh/ruff/linter/#rule-selection
 # https://github.com/astral-sh/ruff?tab=readme-ov-file#configuration
+# LIST OF RULES: https://docs.astral.sh/ruff/rules/
 [tool.ruff.lint]
+ignore = [
+   "UP013", # https://docs.astral.sh/ruff/rules/convert-typed-dict-functional-to-class/
+]
+select = [
+   # pycodestyle
+   "E",
+   # Pyflakes
+   "F",
+   # pyupgrade
+   "UP",
+   # flake8-bugbear
+   "B",
+   # flake8-simplify
+   "SIM",
+   # isort
+   "I",
+]
 
 [tool.pyright]
 # we want to use only ruff for stuff, so disable the things that we already see ruff reporting on
