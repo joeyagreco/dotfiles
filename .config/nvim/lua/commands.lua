@@ -40,35 +40,15 @@ vim.api.nvim_create_user_command("Finder", function()
 end, { desc = "open the current buffer's directory in finder" })
 
 -- copy git-relative path to current buffer to clipboard with @{} format
--- NOTE: there's a bug where if you do a visual line selection with this command and then don't move the cursor and run it again it will still have the line selected
-vim.api.nvim_create_user_command("Claude", function(opts)
-    local full_path = vim.fn.expand("%:p")
-    local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
-    local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
-
-    -- check for visual selection using range from opts
-    local line_suffix = ""
-
-    -- use visual marks directly since range doesn't work as expected
-    local start_line = vim.fn.line("'<")
-    local end_line = vim.fn.line("'>")
-    local current_line = vim.fn.line(".")
-
-    -- use visual marks if cursor is within selection range and it's not too far from current line
-    -- this helps distinguish fresh selections from stale marks
-    local max_distance = 10 -- adjust as needed
-    if current_line >= start_line and current_line <= end_line and (end_line - start_line) <= max_distance then
-        if start_line == end_line then
-            line_suffix = "#L" .. start_line
-        else
-            line_suffix = "#L" .. start_line .. "-" .. end_line
-        end
-    end
-
-    local clipboard_text = "@" .. relative_path .. line_suffix
-    vim.fn.setreg("+", clipboard_text)
-    print('"' .. clipboard_text .. '" copied to clipboard')
-end, { desc = "copy git-relative path to current buffer to clipboard with @{} format", range = true })
+-- if no visual selection, will copy current file like @foo/bar.py
+-- if visual selection for a single line, will copy current file and visual selection like @foo/bar.py#L9
+-- if visual selection for multiple lines, will copy current file and visual selection like @foo/bar.py#L18-24
+-- will print something like '"@foo/bar.py#L8" copied to clipboard'
+vim.api.nvim_create_user_command(
+    "Claude",
+    function(opts) end,
+    { desc = "copy git-relative path to current buffer to clipboard with @{} format", range = true }
+)
 
 vim.api.nvim_create_user_command(
     "Commit",
