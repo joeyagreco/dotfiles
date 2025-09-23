@@ -1,5 +1,4 @@
--- https://github.com/kevinhwang91/nvim-ufo/issues/290#issuecomment-2775919030
-vim.opt.foldmethod = "manual"
+vim.opt.foldmethod = "manual" -- https://github.com/kevinhwang91/nvim-ufo/issues/290#issuecomment-2775919030
 vim.opt.foldexpr = nil
 vim.opt.foldlevel = 999
 vim.opt.foldenable = true
