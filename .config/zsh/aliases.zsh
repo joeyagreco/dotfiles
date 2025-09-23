@@ -30,8 +30,6 @@ alias setup='f_setup'
 ########
 # NVIM #
 ########
-# NOTE: we can manage nvim versions here
-export NVIM_VERSION='v0.11.2'
 alias nvim="$HOME/bin/nvim/$NVIM_VERSION/bin/nvim"
 
 ##########
