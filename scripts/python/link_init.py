@@ -19,6 +19,7 @@ if __name__ == "__main__":
         ".ruff_cache",
         ".mise.toml",
         "CLAUDE.md",
+        "AGENTS.md",
         ".swp",
     ]
     IGNORE_EXTENSIONS = ["log"]
