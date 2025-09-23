@@ -17,7 +17,7 @@ def install(*, deps_file_name: str, install_command: str) -> None:
     err_count = 0
     success_count = 0
 
-    with open(DEPS_FILE_PATH, "r") as file:
+    with open(DEPS_FILE_PATH) as file:
         deps = [dep.strip() for dep in file.readlines()]
 
     for dep in deps:
