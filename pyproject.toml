@@ -1,2 +1,7 @@
 # https://github.com/astral-sh/ruff?tab=readme-ov-file#configuration
 [tool.ruff.lint]
+
+[tool.pyright]
+# we want to use only ruff for stuff, so disable the things that we already see ruff reporting on
+reportUndefinedVariable = false
+reportUnusedExpression = false
