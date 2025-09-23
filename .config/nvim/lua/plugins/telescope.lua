@@ -201,7 +201,7 @@ return {
         {
             "<leader>i",
             -- symbols are defined here starting on line 556: https://mlir.llvm.org/doxygen/include_2mlir_2Tools_2lsp-server-support_2Protocol_8h_source.html
-            ":lua require('telescope.builtin').lsp_document_symbols({symbols={'function', 'class', 'method', 'constructor', 'enum', 'interface', 'foo'}})<CR>",
+            ":lua require('telescope.builtin').lsp_document_symbols({symbols={'function', 'class', 'method', 'constructor', 'enum', 'interface'}})<CR>",
             desc = "find lsp symbols in the current file",
             silent = true,
             noremap = true,
