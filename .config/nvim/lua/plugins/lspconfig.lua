@@ -42,9 +42,18 @@ return {
         lspconfig.ts_ls.setup({})
 
         -- python
-        -- https://github.com/astral-sh/ruff-lsp
+        -- https://github.com/astral-sh/ruff
+        -- NOTE: see pyproject.toml for config under tool.ruff.lint
         lspconfig.ruff.setup({
             root_dir = root_dir_func,
+            cmd = { "ruff", "server", "--preview" },
+            init_options = {
+                settings = {
+                    -- enable all ruff rules
+                    lint = { enable = true },
+                    format = { enable = true },
+                },
+            },
         })
         -- ruff lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use pyright too
         lspconfig.pyright.setup({
@@ -80,9 +89,9 @@ return {
             filetypes = { "openscad" },
             settings = {
                 openscad = {
-                    indent = "    "
-                }
-            }
+                    indent = "    ",
+                },
+            },
         })
 
         -- yaml
