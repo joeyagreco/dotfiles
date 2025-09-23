@@ -17,6 +17,7 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 5. Run `source ~/.zshrc.local && source ~/zsh/init.zsh && make deps`
 
 # upgrading neovim
+credit to this [guide](https://dineshpandiyan.com/blog/install-neovim-macos/) for inspiration
 
 ## new way (with downloaded local versions)
 1. check [releases page](https://github.com/neovim/neovim/releases)
