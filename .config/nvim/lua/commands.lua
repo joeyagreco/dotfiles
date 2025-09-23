@@ -44,11 +44,33 @@ end, { desc = "open the current buffer's directory in finder" })
 -- if visual selection for a single line, will copy current file and visual selection like @foo/bar.py#L9
 -- if visual selection for multiple lines, will copy current file and visual selection like @foo/bar.py#L18-24
 -- will print something like '"@foo/bar.py#L8" copied to clipboard'
-vim.api.nvim_create_user_command(
-    "Claude",
-    function(opts) end,
-    { desc = "copy git-relative path to current buffer to clipboard with @{} format", range = true }
-)
+vim.api.nvim_create_user_command("Claude", function(opts)
+    local full_path = vim.fn.expand("%:p")
+    local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
+
+    if vim.v.shell_error ~= 0 then
+        print("error: not in a git repository")
+        return
+    end
+
+    local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
+    local result = "@" .. relative_path
+
+    -- handle visual selection
+    if opts.range == 2 then
+        local start_line = opts.line1
+        local end_line = opts.line2
+
+        if start_line == end_line then
+            result = result .. "#L" .. start_line
+        else
+            result = result .. "#L" .. start_line .. "-" .. end_line
+        end
+    end
+
+    vim.fn.setreg("+", result)
+    print('"' .. result .. '" copied to clipboard')
+end, { desc = "copy git-relative path to current buffer to clipboard with @{} format", range = true })
 
 vim.api.nvim_create_user_command(
     "Commit",
