@@ -1,14 +1,2 @@
 # https://github.com/astral-sh/ruff?tab=readme-ov-file#configuration
 [tool.ruff.lint]
-select = [
-   # pycodestyle errors
-   "E",
-   # pycodestyle warnings
-   "W",
-   # pyflakes
-   "F",
-   # isort
-   "I",
-   # pep8 naming
-   "N",
-]
