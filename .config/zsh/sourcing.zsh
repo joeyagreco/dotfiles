@@ -47,10 +47,6 @@ add-zsh-hook chpwd load-nvmrc
 ##########
 
 export GOPROXY=https://proxy.golang.org
-# commenting out as this seems to be somehow pointing to .goenv
-# export GOROOT=$(go env GOROOT)
-# export GOPATH=$(go env GOPATH)
-# export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 #########
 # CARGO #
