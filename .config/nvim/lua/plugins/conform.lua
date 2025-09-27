@@ -49,7 +49,9 @@ return {
                     command = "ruff",
                     -- for now, don't need the config file but if we need in future use this format to use it
                     -- args = { "check", "-", "--config", RUFF_CONFIG_FILE, "--fix", "-q" },
-                    args = { "check", "-", "--fix", "-q" },
+                    -- manually select "I" to autosort imports
+                    -- https://stackoverflow.com/questions/77876253/sort-imports-alphabetically-with-ruff
+                    args = { "check", "-", "--fix", "-q", "--select", "I" },
                 },
                 ruff_fmt = {
                     inherit = false,
