@@ -18,6 +18,7 @@ __pycache__
 .claude/todos
 .claude/.update.lock
 .claude/shell-snapshots
+.claude/history.jsonl
 
 .ruff_cache
 
