@@ -3,6 +3,10 @@
 	# outputting to the terminal. (this is the default setting in git ≥ 1.8.4.)
 	ui = auto
 
+[user]
+	email = joeyagreco@gmail.com
+	name = joeyagreco
+
 [commit]
 	# don't include git default commit template
 	status = false

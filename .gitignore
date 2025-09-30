@@ -11,6 +11,7 @@ __pycache__
 .config/simple-update-notifier
 .config/fish
 .config/gh
+.config/uv
 
 # claude code
 .claude/projects
@@ -19,6 +20,7 @@ __pycache__
 .claude/.update.lock
 .claude/shell-snapshots
 .claude/history.jsonl
+.claude/file-history
 
 .ruff_cache
 
