@@ -55,11 +55,11 @@ history = 10000
 save_to_clipboard = true
 
 [terminal.shell]
-args = ["-l"]
+args = [ "-l" ]
 program = "/bin/zsh"
 
 [window]
-decorations = "none" # no top bar when not in macos fullscreen
+decorations = "none"       # no top bar when not in macos fullscreen
 startup_mode = "Maximized"
 
 [terminal]
