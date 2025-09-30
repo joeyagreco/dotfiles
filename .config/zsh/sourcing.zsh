@@ -63,6 +63,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 "$HOME/.config/alacritty/alacritty.local.sh"
 
 # set up brew
+export HOMEBREW_PREFIX="$(brew --prefix)"
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
 # set up syntax highlighting
