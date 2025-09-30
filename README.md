@@ -16,6 +16,9 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 5. Run `make links`
 5. Run `source ~/.zshrc.local && source ~/zsh/init.zsh && make deps`
 
+# installing/updating alacritty
+1. download the latest stable `.dmg` file from the [github releases page](https://github.com/alacritty/alacritty/releases)
+
 # upgrading neovim
 credit to this [guide](https://dineshpandiyan.com/blog/install-neovim-macos/) for inspiration
 
