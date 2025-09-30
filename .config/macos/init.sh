@@ -53,6 +53,8 @@ defaults write com.apple.finder "ShowPathbar" -bool "true"
 
 # set mouse speed
 defaults write NSGlobalDomain com.apple.mouse.scaling -float "0.875"
+# flip scroll direction (disable natural scrolling)
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool "false"
 
 ############
 # KEYBOARD #
