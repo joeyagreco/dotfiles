@@ -44,21 +44,7 @@ family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [mouse]
-autohide = true
-copy_on_selection = true
-save_to_clipboard = true
-
-[mouse.double_click]
-threshold = 300
-
-[mouse.hints]
-modifiers = "None"
-
-[mouse.hints.launcher]
-program = "open"
-
-[mouse.triple_click]
-threshold = 300
+hide_when_typing = true
 
 [scrolling]
 # how many lines of scrollback to keep,
