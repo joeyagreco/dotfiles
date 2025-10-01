@@ -11,7 +11,7 @@ local rep = extras.rep
 return {
     s("cl", fmt('echo("{}: ", {});', { i(1), rep(1) })),
     s(
-        "mod",
+        "fc",
         fmt(
             [[module {}() {{
   {}
