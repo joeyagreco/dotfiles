@@ -7,8 +7,6 @@ brew 'curl' # a more up to date version of curl than what macOS offers
 brew "eza"
 brew "git"
 brew 'jq'
-brew "neovim"
-brew "nvim"
 brew "pgcli" # nice postgres cli tool
 brew "starship"
 brew "stern"
