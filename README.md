@@ -20,9 +20,12 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 1. download the latest stable `.dmg` file from the [github releases page](https://github.com/alacritty/alacritty/releases)
 
 # upgrading neovim
-credit to this [guide](https://dineshpandiyan.com/blog/install-neovim-macos/) for inspiration
 
-## new way (with downloaded local versions)
+## new way (using mise)
+1. set version `mise use neovim@{VERSION}`
+
+## old way (with downloaded local versions)
+### credit to this [guide](https://dineshpandiyan.com/blog/install-neovim-macos/) for inspiration
 1. check [releases page](https://github.com/neovim/neovim/releases)
 2. check current version: `nvim -v`
 3. run `xattr -c ./nvim-macos-arm64.tar.gz` (to avoid "unknown developer" warning)

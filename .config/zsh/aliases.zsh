@@ -27,11 +27,6 @@ alias four='tmux split-window -h \; split-window -v \; select-pane -L \; split-w
 # set up a new tmux session for coding in the given repo
 alias setup='f_setup'
 
-########
-# NVIM #
-########
-alias nvim="$HOME/bin/nvim/$NVIM_VERSION/bin/nvim"
-
 ##########
 # DOCKER #
 ##########
