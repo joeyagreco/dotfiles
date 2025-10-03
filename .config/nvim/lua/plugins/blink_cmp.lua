@@ -9,7 +9,7 @@ return {
     opts = {
         keymap = {
             preset = "default",
-            ["<TAB>"] = { "snippet_forward", "accept", "fallback" },
+            ["<TAB>"] = { "accept", "snippet_forward", "fallback" },
             ["<S-TAB>"] = { "snippet_backward", "fallback" },
             ["<C-n>"] = { "select_next", "fallback" },
             ["<C-p>"] = { "select_prev", "fallback" },
@@ -23,6 +23,13 @@ return {
 
         completion = {
             documentation = { auto_show = false },
+
+            trigger = {
+                -- don't show completions when in a snippet
+                -- NOTE: @joeyagreco - THIS IS IMPORTANT SO PRESSING TAB THROUGH SNIPPET PLACEHOLDERS FEELS GOOD
+                -- NOTE: @joeyagreco - I.E. IF WE PRESS TAB TO GO TO NEXT BUT THERES AN AUTOCOMPLETE SUGGESTION, WE WILL AUTOCOMPLETE INSTEAD OF GOING TO NEXT PLACEHOLDER
+                show_in_snippet = false,
+            },
 
             menu = {
                 draw = {
