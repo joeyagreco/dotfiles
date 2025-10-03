@@ -52,5 +52,5 @@ if __name__ == "__main__":
     # go
     install(deps_file_name="go_deps.txt", install_command="go install {DEP}")
 
-    # # cargo
-    # install(deps_file_name="cargo_deps.txt", install_command="cargo install -q {DEP}")
+    # cargo
+    install(deps_file_name="cargo_deps.txt", install_command="cargo install -q {DEP}")
