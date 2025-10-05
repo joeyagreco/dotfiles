@@ -2,6 +2,6 @@
 return {
     "Bekaboo/dropbar.nvim",
     lazy = true,
-    event = "BufEnter",
+    event = "VeryLazy",
     opts = {},
 }

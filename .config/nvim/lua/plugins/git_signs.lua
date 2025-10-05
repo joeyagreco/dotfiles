@@ -4,7 +4,7 @@ return {
     "lewis6991/gitsigns.nvim",
     version = "*",
     lazy = true,
-    event = "BufEnter",
+    event = "VeryLazy",
     keys = {
         {
             "<leader>gr",

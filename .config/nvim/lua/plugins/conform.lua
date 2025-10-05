@@ -4,7 +4,7 @@ local RUFF_CONFIG_FILE = vim.fn.expand("$HOME/pyproject.toml")
 return {
     "stevearc/conform.nvim",
     lazy = true,
-    event = "BufEnter",
+    event = "VeryLazy",
     cmd = { "Format" },
     -- https://github.com/stevearc/conform.nvim?tab=readme-ov-file#options
     config = function()

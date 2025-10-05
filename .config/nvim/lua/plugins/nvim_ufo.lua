@@ -38,7 +38,7 @@ end
 return {
     "kevinhwang91/nvim-ufo",
     lazy = true,
-    event = { "BufEnter" }, -- this shouldn't be needed, but when added this fixes this issue: https://github.com/kevinhwang91/nvim-ufo/issues/290
+    event = { "VeryLazy" }, -- this shouldn't be needed, but when added this fixes this issue: https://github.com/kevinhwang91/nvim-ufo/issues/290
     -- pinning to this version because of this issue: https://github.com/kevinhwang91/nvim-ufo/issues/309
     version = "5b75cf5fdb74054fc8badb2e7ca9911dc0470d94",
     keys = {
