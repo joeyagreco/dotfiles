@@ -3,7 +3,7 @@
 return {
     "sindrets/diffview.nvim",
     lazy = true,
-    cmd = { "Blame", "Dif" },
+    cmd = { "Blame", "Dif", "DifBranch" },
     config = function()
         require("diffview").setup({
             keymaps = {
@@ -54,5 +54,16 @@ return {
             require("diffview")
             vim.cmd("DiffviewFileHistory %")
         end, { desc = "show git blame for current buffer" })
+
+        -- compare current changes against a specific branch
+        vim.api.nvim_create_user_command("DifBranch", function(opts)
+            local branch = opts.args
+            if branch == "" or branch == nil then
+                -- TODO: for some reason we get a bad error the first time we don't give a branch name, after that we get this nice error
+                vim.notify("please provide a branch name", vim.log.levels.ERROR)
+                return
+            end
+            require("diffview").open(branch)
+        end, { nargs = "*", complete = "file", desc = "compare diff against specific branch" })
     end,
 }
