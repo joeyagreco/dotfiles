@@ -1,46 +1,42 @@
-.vscode
+# custom
+*_dnc.*
+*.local.*
 
+# general
+node_modules
+.DS_Store
+.mise.toml
+.ruff_cache
+.swp
+.vscode
 __pycache__
 *.pyc
 
-!.config
-.config/efm-langserver
-.config/op
-.config/gcloud
-.config/pgcli
-.config/simple-update-notifier
-.config/fish
-.config/gh
-.config/uv
-
-# claude code
-.claude/projects
-.claude/statsig
-.claude/todos
-.claude/.update.lock
-.claude/shell-snapshots
-.claude/history.jsonl
-.claude/file-history
-
-.ruff_cache
-
-node_modules
-
+# lockfiles
 Brewfile.lock.json
 package-lock.json
 
-
+# random
 akeyless
-
-
-*_dnc.*
-
-.DS_Store
-
-.mise.toml
-
 packer
 
-*.local.*
+# .config
+!.config
+.config/efm-langserver
+.config/fish
+.config/gcloud
+.config/gh
+.config/graphite
+.config/op
+.config/pgcli
+.config/simple-update-notifier
+.config/uv
 
-.swp
+# claude code
+.claude/file-history
+.claude/history.jsonl
+.claude/projects
+.claude/shell-snapshots
+.claude/statsig
+.claude/todos
+.claude/.update.lock
