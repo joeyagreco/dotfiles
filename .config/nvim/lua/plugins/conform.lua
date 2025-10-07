@@ -1,4 +1,19 @@
 local RUFF_CONFIG_FILE = vim.fn.expand("$HOME/pyproject.toml")
+
+-- load machine-local format exclusions from ~/.config/nvim/local/format_exclusions.local.lua
+-- this file is not committed to git and should return a table like:
+-- return {
+--     { filetype = "python", path_pattern = "^/Users/joey/Code/foo/" },
+-- }
+local format_exclusions = {}
+local exclusions_file = vim.fn.expand("$HOME/.config/nvim/local/format_exclusions.local.lua")
+if vim.fn.filereadable(exclusions_file) == 1 then
+    local ok, exclusions = pcall(dofile, exclusions_file)
+    if ok and type(exclusions) == "table" then
+        format_exclusions = exclusions
+    end
+end
+
 -- https://github.com/stevearc/conform.nvim
 -- see info with ":ConformInfo"
 return {
@@ -10,10 +25,21 @@ return {
     config = function()
         require("conform").setup({
             format_on_save = function(bufnr)
-                -- Disable with a global or buffer-local variable
+                -- disable with a global or buffer-local variable
                 if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
                     return
                 end
+
+                -- check machine-local exclusions for formatting
+                -- we skip formatting if we have an exclusion for this file/filetype
+                local bufname = vim.api.nvim_buf_get_name(bufnr)
+                local filetype = vim.bo[bufnr].filetype
+                for _, exclusion in ipairs(format_exclusions) do
+                    if exclusion.filetype == filetype and bufname:match(exclusion.path_pattern) then
+                        return
+                    end
+                end
+
                 return { timeout_ms = 500, lsp_format = "fallback" }
             end,
             log_level = vim.log.levels.INFO,
