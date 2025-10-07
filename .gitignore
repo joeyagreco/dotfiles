@@ -33,6 +33,7 @@ packer
 .config/uv
 
 # claude code
+.claude/debug
 .claude/file-history
 .claude/history.jsonl
 .claude/projects
