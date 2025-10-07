@@ -7,4 +7,5 @@ python = [ "3.13" ]
 
 [settings]
 disable_hints = [ "*" ]
+idiomatic_version_file_enable_tools = [ "python" ]
 quiet = false
