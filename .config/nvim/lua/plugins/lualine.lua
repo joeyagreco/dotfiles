@@ -44,7 +44,7 @@ return {
             },
             lualine_c = {
                 -- set symbol based on state of buffer
-                -- this functionality exists in the below "filename" object, however, the only option is to put this symbol AFTER the path
+                -- this functionality exists in the "filename".symbols object below this, however, the only option is to put this symbol AFTER the path
                 -- i want the symbol BEFORE the path so it's in a consistent place for my eyes to look
                 {
                     function()
