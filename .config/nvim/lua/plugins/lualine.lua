@@ -43,6 +43,31 @@ return {
                 end,
             },
             lualine_c = {
+                -- set symbol based on state of buffer
+                -- this functionality exists in the below "filename" object, however, the only option is to put this symbol AFTER the path
+                -- i want the symbol BEFORE the path so it's in a consistent place for my eyes to look
+                {
+                    function()
+                        local symbols = {}
+                        if vim.fn.expand("%") == "" then
+                            table.insert(symbols, "") -- unnamed
+                        end
+                        if vim.bo.modified then
+                            table.insert(symbols, "") -- modified
+                        end
+                        if vim.bo.modifiable == false or vim.bo.readonly == true then
+                            table.insert(symbols, "") -- readonly
+                        end
+                        if
+                            vim.bo.buftype == ""
+                            and vim.fn.filereadable(vim.fn.expand("%")) == 0
+                            and vim.fn.expand("%") ~= ""
+                        then
+                            table.insert(symbols, "") -- newfile
+                        end
+                        return table.concat(symbols, "")
+                    end,
+                },
                 {
                     "filename",
                     -- 0: Just the filename
@@ -52,10 +77,10 @@ return {
                     -- 4: Filename and parent dir, with tilde as the home directory
                     path = 1,
                     symbols = {
-                        modified = "", -- Text to show when the file is modified.
-                        readonly = "", -- Text to show when the file is non-modifiable or readonly.
-                        unnamed = "", -- Text to show for unnamed buffers.
-                        newfile = "", -- Text to show for newly created file before first write.
+                        modified = "", -- text to show when the file is modified.
+                        readonly = "", -- text to show when the file is non-modifiable or readonly.
+                        unnamed = "", -- text to show for unnamed buffers.
+                        newfile = "", -- text to show for newly created file before first write.
                     },
                 },
                 -- notify if file has no EOL
