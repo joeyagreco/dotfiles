@@ -1,11 +1,25 @@
+[alias]
+		# [a]dd[c]ommit[p]ush
+	acp     = "!sh -c 'git add . && git commit -am \"quick commit\" && git push'"
+	; 	# [c]ommit[ai]
+	; cai     = "!sh -c '$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/ai_git_commit_msg.py'"
+	co      = checkout
+	cnv     = commit --no-verify
+		# empty commit
+	empty   = "!git commit --allow-empty --no-verify -m 'empty commit' && git push"
+	f       = fetch --all
+		# [p]ush[u]pstream
+	pu      = "!sh -c 'git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'"
+	st      = stash --all 
+	lg      = log --graph --decorate --oneline
+
+[branch]
+    sort = -committerdate
+
 [color]
 	# use colors in git commands that are capable of colored output when
 	# outputting to the terminal. (this is the default setting in git ≥ 1.8.4.)
 	ui = auto
-
-[user]
-	email = joeyagreco@gmail.com
-	name = joeyagreco
 
 [commit]
 	# don't include git default commit template
@@ -15,19 +29,15 @@
 [core]
 	editor = vim
 
-[alias]
-		# [a]dd[c]ommit[p]ush
-	acp     = "!sh -c 'git add . && git commit -am \"quick commit\" && git push'"
-		# [c]ommit[ai]
-	cai     = "!sh -c '$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/ai_git_commit_msg.py'"
-	co      = checkout
-	cnv     = commit --no-verify
-		# empty commit
-	empty   = "!git commit --allow-empty --no-verify -m 'empty commit' && git push"
-	f       = fetch --all
-		# [p]ush[u]pstream
-	pu      = "!sh -c 'git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'"
-		# see 10 most recent branches
-	recent  = "!git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10"
-	st      = stash -u 
-	lg      = log --graph --decorate --oneline
+[maintenance]
+    auto = true
+    strategy = incremental
+
+[user]
+	email = joeyagreco@gmail.com
+	name = joeyagreco
+
+
+
+
+
