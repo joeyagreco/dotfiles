@@ -61,18 +61,11 @@ for key, appConfig in pairs(baseHotkeys) do
     end)
 end
 
-------------------------------------------------------------------------------------------
--- make it so focused and new windows automatically go to fullscreen (but NOT maximize) --
-------------------------------------------------------------------------------------------
--- NOTE: @joeyagreco - this is SLOW (~7.6 seconds) but only on certain machines... figure out why
+----------------------------------------------------------------------------------
+-- make it so focused windows automatically go to fullscreen (but NOT maximize) --
+----------------------------------------------------------------------------------
 local window = require("hs.window")
--- maximize new windows automatically
-window.filter.default:subscribe(window.filter.windowCreated, function(win)
-    hs.timer.doAfter(0.01, function()
-        win:maximize()
-    end)
-end)
--- optionally maximize focused windows too
+-- maximize focused windows
 window.filter.default:subscribe(window.filter.windowFocused, function(win)
     hs.timer.doAfter(0.01, function()
         win:maximize()
