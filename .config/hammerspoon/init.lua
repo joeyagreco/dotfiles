@@ -65,13 +65,14 @@ end
 -- make it so focused windows automatically go to fullscreen (but NOT maximize) --
 ----------------------------------------------------------------------------------
 
--- use application watcher instead of window.filter (avoids expensive window enumeration)
+--NOTE: use application watcher instead of window.filter (avoids expensive window enumeration and long hammerspoon reload times)
+local appWatcher = nil
 if appWatcher then
     appWatcher:stop()
     appWatcher = nil
 end
 
-appWatcher = hs.application.watcher.new(function(appName, eventType, appObject)
+appWatcher = hs.application.watcher.new(function(_, eventType, _)
     if eventType == hs.application.watcher.activated then
         hs.timer.doAfter(0.01, function()
             local win = hs.window.focusedWindow()
