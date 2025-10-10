@@ -64,26 +64,33 @@ end
 ----------------------------------------------------------------------------------
 -- make it so focused windows automatically go to fullscreen (but NOT maximize) --
 ----------------------------------------------------------------------------------
-local window = require("hs.window")
--- maximize focused windows
-window.filter.default:subscribe(window.filter.windowFocused, function(win)
-    hs.timer.doAfter(0.01, function()
-        -- only maximize if the window is standard and not already small
-        -- (i.e. don't try to maximize the popup that asks for fingerprint auth)
-        if win:isStandard() then
-            local frame = win:frame()
-            local screen = win:screen():frame()
-            local widthRatio = frame.w / screen.w
-            local heightRatio = frame.h / screen.h
 
-            -- only maximize if window takes up at least 40% of screen in either dimension
-            -- NOTE: @joeyagreco - may have to tweak this number
-            if widthRatio > 0.4 or heightRatio > 0.4 then
-                win:maximize()
+-- use application watcher instead of window.filter (avoids expensive window enumeration)
+if appWatcher then
+    appWatcher:stop()
+    appWatcher = nil
+end
+
+appWatcher = hs.application.watcher.new(function(appName, eventType, appObject)
+    if eventType == hs.application.watcher.activated then
+        hs.timer.doAfter(0.01, function()
+            local win = hs.window.focusedWindow()
+            if win and win:isStandard() then
+                local frame = win:frame()
+                local screen = win:screen():frame()
+                local widthRatio = frame.w / screen.w
+                local heightRatio = frame.h / screen.h
+
+                -- only maximize if window takes up at least 40% of screen in either dimension
+                -- NOTE: @joeyagreco - may have to tweak this number
+                if widthRatio > 0.4 or heightRatio > 0.4 then
+                    win:maximize()
+                end
             end
-        end
-    end)
+        end)
+    end
 end)
+appWatcher:start()
 
 -------------------------------------
 -- don't want to see the dock icon --
