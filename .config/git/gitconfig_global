@@ -10,7 +10,7 @@
 	f       = fetch --all
 		# [p]ush[u]pstream
 	pu      = "!sh -c 'git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'"
-	st      = stash --all 
+	st      = stash --include-untracked
 	lg      = log --graph --decorate --oneline
 
 [branch]
