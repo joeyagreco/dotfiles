@@ -61,6 +61,7 @@ alias lastdownload='. $BASH_SCRIPTS_PATH/last_download.sh'
 # 4. on save/exit, the command in the editor is executed
 alias his='fc -e vim "$(fc -ln 1 | fzf --tac)"'
 alias info='fastfetch'
+alias speed='networkquality'
 
 ##########
 # PYTHON #
