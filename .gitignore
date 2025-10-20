@@ -31,6 +31,8 @@ packer
 .config/pgcli
 .config/simple-update-notifier
 .config/uv
+# aws vpn client
+.config/AWS*CLIENT
 
 # claude code
 .claude/debug
