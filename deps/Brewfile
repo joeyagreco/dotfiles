@@ -3,19 +3,20 @@
 cask "hammerspoon"
 
 # general utils
+brew 'btop'
 brew 'curl' # a more up to date version of curl than what macOS offers
 brew "eza"
+brew 'fastfetch'
 brew "git"
 brew 'jq'
 brew "pgcli" # nice postgres cli tool
 brew "starship"
 brew "stern"
+brew 'ripgrep'
 brew "tmux"
 brew "uv"
 brew "zsh"
 brew 'zsh-vi-mode' # vim mode in the terminal!
-brew 'fastfetch'
-brew 'ripgrep'
 
 # language servers and formatters
 brew "bufbuild/buf/buf"
