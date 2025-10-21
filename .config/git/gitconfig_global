@@ -1,6 +1,7 @@
 [alias]
 		# [a]dd[c]ommit[p]ush
 	acp     = "!sh -c 'git add . && git commit -am \"quick commit\" && git push'"
+	acpu    = "!sh -c 'git add . && git commit -am \"quick commit\" && git pu'"
 	; 	# [c]ommit[ai]
 	; cai     = "!sh -c '$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/ai_git_commit_msg.py'"
 	co      = checkout
