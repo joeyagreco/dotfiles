@@ -170,12 +170,11 @@ return {
                 local finders = require("telescope.finders")
                 local conf = require("telescope.config").values
                 local make_entry = require("telescope.make_entry")
-                local actions = require("telescope.actions")
                 local action_state = require("telescope.actions.state")
 
                 pickers
                     .new({}, {
-                        prompt_title = "find files (rg filter)",
+                        prompt_title = "Find Files (Args)",
                         finder = finders.new_dynamic({
                             entry_maker = make_entry.gen_from_file({}),
                             fn = function(prompt)
@@ -200,7 +199,11 @@ return {
                                     pattern_arg = vim.fn.shellescape(pattern)
                                 end
 
-                                local cmd = "rg --files --hidden " .. flags .. " 2>/dev/null | rg " .. pattern_arg .. " 2>/dev/null"
+                                local cmd = "rg --files --hidden "
+                                    .. flags
+                                    .. " 2>/dev/null | rg "
+                                    .. pattern_arg
+                                    .. " 2>/dev/null"
                                 local results = vim.fn.systemlist(cmd)
                                 -- return empty list if command failed
                                 if vim.v.shell_error ~= 0 then
