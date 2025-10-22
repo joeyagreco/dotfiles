@@ -10,8 +10,8 @@
     ],
     "deny": []
   },
+  "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754090047522
   }
 }
-

@@ -4,4 +4,6 @@ __pycache__
 node_modules/
 .mise.toml
 *.local*
+# yah this one shouldn't be here but for now i will keep it
+pyrightconfig.json
 
