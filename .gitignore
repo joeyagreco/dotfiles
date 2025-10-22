@@ -30,6 +30,7 @@ packer
 .config/op
 .config/pgcli
 .config/simple-update-notifier
+.config/temporalio
 .config/uv
 # aws vpn client
 .config/AWS*CLIENT
