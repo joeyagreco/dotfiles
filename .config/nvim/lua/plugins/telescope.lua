@@ -170,6 +170,8 @@ return {
                 local finders = require("telescope.finders")
                 local conf = require("telescope.config").values
                 local make_entry = require("telescope.make_entry")
+                local actions = require("telescope.actions")
+                local action_state = require("telescope.actions.state")
 
                 pickers
                     .new({}, {
@@ -190,12 +192,29 @@ return {
                                     flags = prompt:match("^.-%s+(%-[%w%-]+.*)$")
                                 end
 
-                                local cmd = "rg --files --hidden " .. flags .. " | rg " .. vim.fn.shellescape(pattern)
+                                -- if pattern is already quoted, don't shellescape it
+                                local pattern_arg
+                                if pattern:match('^".*"$') or pattern:match("^'.*'$") then
+                                    pattern_arg = pattern
+                                else
+                                    pattern_arg = vim.fn.shellescape(pattern)
+                                end
+
+                                local cmd = "rg --files --hidden " .. flags .. " | rg " .. pattern_arg
                                 return vim.fn.systemlist(cmd)
                             end,
                         }),
                         previewer = conf.file_previewer({}),
                         sorter = require("telescope.sorters").empty(),
+                        attach_mappings = function(prompt_bufnr, map)
+                            -- quote the entire prompt
+                            map("i", "<C-q>", function()
+                                local current_picker = action_state.get_current_picker(prompt_bufnr)
+                                local prompt_text = current_picker:_get_prompt()
+                                current_picker:set_prompt('"' .. prompt_text .. '"')
+                            end)
+                            return true
+                        end,
                     })
                     :find()
             end,
