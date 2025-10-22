@@ -165,7 +165,69 @@ return {
         },
         {
             "<leader>f",
-            ":lua require('telescope.builtin').find_files()<CR>",
+            -- old way of doing this: ":lua require('telescope.builtin').find_files()<CR>",
+            -- new way of doing this to match how we search with <leader>s (with quoting keymaps and rg flag search)
+            function()
+                local pickers = require("telescope.pickers")
+                local finders = require("telescope.finders")
+                local conf = require("telescope.config").values
+                local make_entry = require("telescope.make_entry")
+                local action_state = require("telescope.actions.state")
+
+                pickers
+                    .new({}, {
+                        prompt_title = "Find Files (Args)",
+                        finder = finders.new_dynamic({
+                            entry_maker = make_entry.gen_from_file({}),
+                            fn = function(prompt)
+                                if not prompt or prompt == "" then
+                                    return vim.fn.systemlist("rg --files --hidden")
+                                end
+
+                                -- parse rg flags from prompt (e.g., "deps -tpy" -> pattern="deps", flags="-tpy")
+                                local pattern = prompt
+                                local flags = ""
+                                local flag_match = prompt:match("(.-)%s+(%-[%w%-]+.*)$")
+                                if flag_match then
+                                    pattern = flag_match
+                                    flags = prompt:match("^.-%s+(%-[%w%-]+.*)$")
+                                end
+
+                                -- if pattern is already quoted, don't shellescape it
+                                local pattern_arg
+                                if pattern:match('^".*"$') or pattern:match("^'.*'$") then
+                                    pattern_arg = pattern
+                                else
+                                    pattern_arg = vim.fn.shellescape(pattern)
+                                end
+
+                                local cmd = "rg --files --hidden "
+                                    .. flags
+                                    .. " 2>/dev/null | rg "
+                                    .. pattern_arg
+                                    .. " 2>/dev/null"
+                                local results = vim.fn.systemlist(cmd)
+                                -- return empty list if command failed
+                                if vim.v.shell_error ~= 0 then
+                                    return {}
+                                end
+                                return results
+                            end,
+                        }),
+                        previewer = conf.file_previewer({}),
+                        sorter = require("telescope.sorters").empty(),
+                        attach_mappings = function(prompt_bufnr, map)
+                            -- quote the entire prompt
+                            map("i", "<C-q>", function()
+                                local current_picker = action_state.get_current_picker(prompt_bufnr)
+                                local prompt_text = current_picker:_get_prompt()
+                                current_picker:set_prompt('"' .. prompt_text .. '" ')
+                            end)
+                            return true
+                        end,
+                    })
+                    :find()
+            end,
             desc = "find files",
             silent = true,
             noremap = true,
