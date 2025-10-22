@@ -165,6 +165,8 @@ return {
         },
         {
             "<leader>f",
+            -- old way of doing this: ":lua require('telescope.builtin').find_files()<CR>",
+            -- new way of doing this to match how we search with <leader>s (with quoting keymaps and rg flag search)
             function()
                 local pickers = require("telescope.pickers")
                 local finders = require("telescope.finders")
