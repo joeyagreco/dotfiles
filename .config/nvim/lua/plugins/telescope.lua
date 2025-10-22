@@ -219,7 +219,7 @@ return {
                             map("i", "<C-q>", function()
                                 local current_picker = action_state.get_current_picker(prompt_bufnr)
                                 local prompt_text = current_picker:_get_prompt()
-                                current_picker:set_prompt('"' .. prompt_text .. '"')
+                                current_picker:set_prompt('"' .. prompt_text .. '" ')
                             end)
                             return true
                         end,
