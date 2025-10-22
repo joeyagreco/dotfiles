@@ -200,8 +200,13 @@ return {
                                     pattern_arg = vim.fn.shellescape(pattern)
                                 end
 
-                                local cmd = "rg --files --hidden " .. flags .. " | rg " .. pattern_arg
-                                return vim.fn.systemlist(cmd)
+                                local cmd = "rg --files --hidden " .. flags .. " 2>/dev/null | rg " .. pattern_arg .. " 2>/dev/null"
+                                local results = vim.fn.systemlist(cmd)
+                                -- return empty list if command failed
+                                if vim.v.shell_error ~= 0 then
+                                    return {}
+                                end
+                                return results
                             end,
                         }),
                         previewer = conf.file_previewer({}),
