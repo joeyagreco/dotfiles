@@ -165,7 +165,40 @@ return {
         },
         {
             "<leader>f",
-            ":lua require('telescope.builtin').find_files()<CR>",
+            function()
+                local pickers = require("telescope.pickers")
+                local finders = require("telescope.finders")
+                local conf = require("telescope.config").values
+                local make_entry = require("telescope.make_entry")
+
+                pickers
+                    .new({}, {
+                        prompt_title = "find files (rg filter)",
+                        finder = finders.new_dynamic({
+                            entry_maker = make_entry.gen_from_file({}),
+                            fn = function(prompt)
+                                if not prompt or prompt == "" then
+                                    return vim.fn.systemlist("rg --files --hidden")
+                                end
+
+                                -- parse rg flags from prompt (e.g., "deps -tpy" -> pattern="deps", flags="-tpy")
+                                local pattern = prompt
+                                local flags = ""
+                                local flag_match = prompt:match("(.-)%s+(%-[%w%-]+.*)$")
+                                if flag_match then
+                                    pattern = flag_match
+                                    flags = prompt:match("^.-%s+(%-[%w%-]+.*)$")
+                                end
+
+                                local cmd = "rg --files --hidden " .. flags .. " | rg " .. vim.fn.shellescape(pattern)
+                                return vim.fn.systemlist(cmd)
+                            end,
+                        }),
+                        previewer = conf.file_previewer({}),
+                        sorter = require("telescope.sorters").empty(),
+                    })
+                    :find()
+            end,
             desc = "find files",
             silent = true,
             noremap = true,
