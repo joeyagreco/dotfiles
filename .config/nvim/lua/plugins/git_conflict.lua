@@ -5,6 +5,15 @@ return {
     -- event = "VeryLazy",
     config = function()
         require("git-conflict").setup({
+            -- NOTE: @joeyagreco - unsure if these commented out options are needed or not. lsp is complaining. can validate next conflict resolution
+
+            -- disable_diagnostics = false,
+            -- list_opener = "copen",
+            -- highlights = {
+            --     current = "DiffText",
+            --     incoming = "DiffAdd",
+            -- },
+            -- debug = false,
             default_mappings = {
                 ours = "co",
                 theirs = "ct",
