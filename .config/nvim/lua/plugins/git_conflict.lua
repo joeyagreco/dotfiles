@@ -1,8 +1,8 @@
 -- https://github.com/akinsho/git-conflict.nvim
 return {
     "akinsho/git-conflict.nvim",
-    lazy = true,
-    cmd = { "Con" },
+    -- NOTE: @joeyagreco - if we lazy load this plugin it does not seem to work, for now just don't lazy load
+    -- event = "VeryLazy",
     config = function()
         require("git-conflict").setup({
             default_mappings = {
