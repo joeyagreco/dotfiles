@@ -55,6 +55,6 @@ function c() {
 
 # set up a new tmux session for coding in the given repo
 function f_setup() {
-	c "$1" && four && tmux new-window "nvim"
+	c "$1" && three && tmux new-window "nvim"
 }
 

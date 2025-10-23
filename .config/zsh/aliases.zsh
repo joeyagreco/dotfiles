@@ -22,6 +22,8 @@ alias tmk='tmux kill-session -t'
 alias tml='tmux list-sessions -F "#{session_name}"'
 # create a new named tmux session
 alias tmn='tmux new-session -A -s'
+# split the current pane into 3 panes (2 vertical stack on the left and 1 on the right)
+alias three='tmux split-window -h \; select-pane -L \; split-window -v'
 # split the current pane into 4 equal panes
 alias four='tmux split-window -h \; split-window -v \; select-pane -L \; split-window -v'
 # set up a new tmux session for coding in the given repo
