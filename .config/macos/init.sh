@@ -80,8 +80,8 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # MENU BAR #
 ############
 
-# only show bluetooth in control center, not menu bar
-defaults -currentHost write com.apple.controlcenter Bluetooth -int "4"
+# make sure bluetooth is showing in both control center and menu bar
+defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
 # show battery percentage
 defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool "true"
 
