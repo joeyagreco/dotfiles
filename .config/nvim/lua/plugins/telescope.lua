@@ -203,7 +203,7 @@ return {
 
                                 local cmd = "rg --files --hidden "
                                     .. flags
-                                    .. " 2>/dev/null | rg "
+                                    .. " 2>/dev/null | rg --ignore-case "
                                     .. pattern_arg
                                     .. " 2>/dev/null"
                                 local results = vim.fn.systemlist(cmd)
