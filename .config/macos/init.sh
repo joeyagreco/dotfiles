@@ -109,6 +109,8 @@ done
 # SPOTLIGHT SEARCH #
 ####################
 
+# NOTE: @joeyagreco - sadly i think in newer OS you have to actually set these in Settings under Spotlight
+
 # to see current set, run: 'defaults read com.apple.spotlight orderedItems'
 defaults write com.apple.spotlight orderedItems -array \
 	'{"enabled" = 1; "name" = "APPLICATIONS";}' \
