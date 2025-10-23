@@ -35,6 +35,9 @@
     auto = true
     strategy = incremental
 
+[pull]
+	rebase = true
+
 [user]
 	email = joeyagreco@gmail.com
 	name = joeyagreco
