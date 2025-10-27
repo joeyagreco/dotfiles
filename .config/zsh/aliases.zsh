@@ -65,7 +65,7 @@ alias his='fc -e vim "$(fc -ln 1 | fzf --tac)"'
 alias info='fastfetch'
 alias speed='networkquality'
 # create a pr with github. this will likely go through iteration as i discover what is smoothest
-alias pr='gh pr create'
+alias pr='$BASH_SCRIPTS_PATH/pr.sh'
 
 ##########
 # PYTHON #
