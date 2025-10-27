@@ -21,13 +21,13 @@ You are reviewing CI failures from the GitHub CI for the current branch.
 ## Output
 Provide:
 1. **CI Failures**: 
-   - Related to PR changes
-   - Possibly unrelated/flaky
-2. **Root Causes**: What's failing and why
-3. **Recommended Actions**: Concrete next steps
-
-Do Not Provide:
-1. **PR Context**: What changed (from files/description)
+   - What failures in the CI are directly related to changes made in this PR?
+   - What failures in the CI are NOT directly related to changes made in this PR?
+2. **Root Causes**:
+    - What checks are failing?
+    - Why are they failing?
+3. **Recommended Actions**:
+    - What are the concrete next steps
 
 ## Strategy
 - Make multiple targeted queries rather than one massive dump
