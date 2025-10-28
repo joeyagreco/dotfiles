@@ -12,7 +12,7 @@
 		# [p]ush[u]pstream
 	pu      = "!sh -c 'git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'"
 	st      = stash --include-untracked
-	lg      = log --graph --decorate --oneline
+	lg      = log --oneline
 	rl      = reflog --oneline
 
 [branch]
