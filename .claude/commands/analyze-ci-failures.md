@@ -34,3 +34,6 @@ Provide:
 - Start broad, then filter progressively based on findings
 - If output is empty, broaden your grep patterns
 - Use `2>&1` to capture all output streams
+
+## Rules 
+- If the CI is currently running, you do not need to wait; do NOT wait for the CI to finish and check again
