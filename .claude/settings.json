@@ -9,7 +9,9 @@
       "Bash(rg:*)",
       "Bash(git log:*)",
       "Bash(cat:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(docker ps:*)",
+      "Bash(lsof:*)"
     ],
     "deny": []
   },
