@@ -64,16 +64,26 @@ while true; do
 			echo "=========================================="
 			# terminal bell
 			printf '\a'
-			# macos notification
-			osascript -e "display notification \"✓ All checks passed!\" with title \"PR #$PR_NUMBER CI Complete\""
+			# persistent alert dialog with option to open pr
+			BUTTON=$(osascript -e "display dialog \"✓ All checks passed!\" with title \"PR #$PR_NUMBER CI Complete\" buttons {\"OK\", \"Open PR\"} default button \"Open PR\"" 2>/dev/null | grep -o "button returned:[^,]*" | cut -d: -f2)
+			# workaround for cursor disappearing after applescript dialog
+			osascript -e 'tell application "System Events" to key code 126 using {shift down}' 2>/dev/null
+			if [ "$BUTTON" = "Open PR" ]; then
+				gh pr view "$PR_NUMBER" --web
+			fi
 			exit 0
 		else
 			echo "✗ some checks failed"
 			echo "=========================================="
 			# terminal bell
 			printf '\a'
-			# macos notification
-			osascript -e "display notification \"✗ Some checks failed\" with title \"PR #$PR_NUMBER CI Complete\""
+			# persistent alert dialog with option to open pr
+			BUTTON=$(osascript -e "display dialog \"✗ Some checks failed\" with title \"PR #$PR_NUMBER CI Complete\" buttons {\"OK\", \"Open PR\"} default button \"Open PR\"" 2>/dev/null | grep -o "button returned:[^,]*" | cut -d: -f2)
+			# workaround for cursor disappearing after applescript dialog
+			osascript -e 'tell application "System Events" to key code 126 using {shift down}' 2>/dev/null
+			if [ "$BUTTON" = "Open PR" ]; then
+				gh pr view "$PR_NUMBER" --web
+			fi
 			exit 1
 		fi
 	fi
