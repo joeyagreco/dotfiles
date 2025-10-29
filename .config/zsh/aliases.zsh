@@ -66,6 +66,7 @@ alias info='fastfetch'
 alias speed='networkquality'
 # create a pr with github. this will likely go through iteration as i discover what is smoothest
 alias pr='$BASH_SCRIPTS_PATH/pr.sh'
+alias prchecks='$BASH_SCRIPTS_PATH/watch-github-pr-ci-status.sh'
 
 ##########
 # PYTHON #
