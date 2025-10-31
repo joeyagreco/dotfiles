@@ -1,6 +1,7 @@
 # https://alacritty.org/config-alacritty.html
 # may need to run `sudo ln -s /Applications/Alacritty.app/Contents/MacOS/Alacritty /usr/local/bin/alacritty`
 
+
 [env]
 # for true color support
 # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
@@ -63,3 +64,9 @@ decorations = "none"       # no top bar when not in macos fullscreen
 startup_mode = "Maximized"
 
 [terminal]
+
+# NOTE: - this is so i can do SHIFT+RETURN while in claude code for a new line lol
+[[keyboard.bindings]]
+chars = "\n"
+key = "Return"
+mods = "Shift"
