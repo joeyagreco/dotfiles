@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# first, set up custom keymaps
+hidutil property --set "$(cat $HOME/.config/macos/key_remaps.json)" >/dev/null 2>&1
+
 # to get an idea of what to change for a particular setting
 # defaults read > before.txt
 # { MAKE CHANGE IN SETTINGS }

@@ -27,16 +27,53 @@ export PYRIGHT_PYTHON_FORCE_VERSION=$(mise current python)
 # give node 4GB of memory
 export NODE_OPTIONS="--max-old-space-size=4000"
 
-# load nvm
+# NOTE: we do these lazy loadings to save ~500ms every time this is sourced
+
+# lazy load nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion
+
+# placeholder nvm function that loads the real nvm on first use
+nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
+
+# lazy load node
+node() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  node "$@"
+}
+
+# lazy load npm
+npm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  npm "$@"
+}
+
+# lazy load npx
+npx() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  npx "$@"
+}
 
 # nvm auto version use
 # credit: @elliotf
 autoload -U add-zsh-hook
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
+    # ensure nvm is loaded before using it
+    if ! command -v nvm &> /dev/null || [[ "$(type -w nvm)" == "nvm: function" ]]; then
+      unset -f nvm node npm npx 2>/dev/null
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    fi
     nvm use
   fi
 }
@@ -99,9 +136,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search   # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
-
-# set up custom macos keymaps
-hidutil property --set "$(cat $HOME/.config/macos/key_remaps.json)" >/dev/null 2>&1
 
 ###############################
 # set up vim mode in terminal #
