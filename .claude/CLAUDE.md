@@ -24,3 +24,7 @@ bar:
 
 ### golang
 - always format as table tests
+
+## git
+- always use `git` or `gh`
+- never use `gt`

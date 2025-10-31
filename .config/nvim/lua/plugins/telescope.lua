@@ -6,17 +6,6 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-live-grep-args.nvim",
-        -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
-        -- NOTE: if seeing this error: "'fzf' extension doesn't exist or isn't installed"
-        -- do this:
-        -- cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim
-        -- rm -rf build  # Remove any partially built files
-        -- cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
-        -- cmake --build build --config Release
-        {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
-        },
     },
     priority = helpers.plugin_priority.TELESCOPE,
     lazy = false,
@@ -131,17 +120,8 @@ return {
                     mappings = {
                         i = {
                             ["<C-q>"] = lga_actions.quote_prompt(),
-                            -- freeze the current list and start a fuzzy search in the frozen list
-                            ["<C-r>"] = actions.to_fuzzy_refine,
                         },
                     },
-                },
-                fzf = {
-                    fuzzy = true, -- false will only do exact matching
-                    override_generic_sorter = true, -- override the generic sorter
-                    override_file_sorter = true, -- override the file sorter
-                    case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-                    -- the default case_mode is "smart_case"
                 },
             },
         })
@@ -152,7 +132,6 @@ return {
 
         -- these MUST be loaded last
         telescope.load_extension("live_grep_args")
-        telescope.load_extension("fzf")
     end,
     keys = {
         {
