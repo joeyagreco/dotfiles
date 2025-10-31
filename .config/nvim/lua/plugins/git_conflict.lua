@@ -15,12 +15,12 @@ return {
             -- },
             -- debug = false,
             default_mappings = {
+                next = "cn",
+                prev = "cp",
                 ours = "co",
                 theirs = "ct",
                 none = "c0",
                 both = "cb",
-                next = "cc",
-                prev = "CC",
             },
         })
         -- open merge conflicts in quickfix list
