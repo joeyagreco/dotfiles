@@ -106,3 +106,20 @@ vim.opt.swapfile = false
 -- remove visual selection range when entering command mode
 -- NOTE: @joeyagreco - i added this so visual selection command line looked cleaner when you press ":", but this also breaks things: https://github.com/f-person/git-blame.nvim/issues/154
 -- vim.keymap.set("v", ":", ":<C-u>", { noremap = true })
+
+-- NOTE: @joeyagreco - this is just to suppress warnings that pop up sometimes
+local notify = vim.notify
+vim.notify = function(msg, level, opts)
+    if
+        type(msg) == "string"
+        -- suppress lsp offset encoding warnings when multiple clients are attached
+        -- filter out warnings about position_encoding and offset_encoding
+        and (
+            msg:find("position_encoding param is required")
+            or msg:find("multiple different client offset_encodings detected")
+        )
+    then
+        return
+    end
+    notify(msg, level, opts)
+end

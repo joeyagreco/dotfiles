@@ -13,7 +13,7 @@ TERM = "xterm-256color"
 # - Hack Nerd Font
 # - JetBrainsMono Nerd Font
 
-# NOTE: @joeyagreco - can use a .alacritty.local.sh file to overwrite these fonts locally (JetBrainsMono / JetBrainsMonoNL)
+# NOTE: @joeyagreco - can use an alacritty.local.sh file to overwrite these fonts locally (JetBrainsMono / JetBrainsMonoNL)
 # NOTE: @joeyagreco - would look something like this:
 
 ###############################################################
