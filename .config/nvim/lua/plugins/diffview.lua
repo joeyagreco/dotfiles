@@ -8,39 +8,28 @@ return {
         require("diffview").setup({
             keymaps = {
                 file_panel = {
-                    -- this will open the current selected file in the :Dif file tree in a new buffer and close the dif view
+                    -- open the current selected file in a new buffer and close the dif view
                     ["go"] = function()
-                        local line = vim.api.nvim_get_current_line()
-                        local filename = line:match("^%s*[MAD?!]?%s*[^%s]*%s*([^%s]+)")
+                        local lib = require("diffview.lib")
+                        local view = lib.get_current_view()
 
-                        if filename then
-                            -- get git root directory
-                            local handle = io.popen("git rev-parse --show-toplevel 2>/dev/null")
-                            local git_root = handle:read("*a"):gsub("\n", "")
-                            handle:close()
-
-                            -- try to find the file in the git repo
-                            local find_cmd = string.format("find %s -name %s -type f", git_root, filename)
-                            local find_handle = io.popen(find_cmd)
-                            local found_files = find_handle:read("*a")
-                            find_handle:close()
-
-                            local files = {}
-                            for file in found_files:gmatch("[^\r\n]+") do
-                                table.insert(files, file)
-                            end
-
-                            if #files > 0 then
-                                local file_to_open = files[1] -- use first match
-                                print("Opening: " .. file_to_open)
-                                vim.cmd("DiffviewClose")
-                                vim.schedule(function()
-                                    vim.cmd("edit " .. vim.fn.fnameescape(file_to_open))
-                                end)
-                            else
-                                print("Could not find file: " .. filename)
-                            end
+                        if not view then
+                            vim.notify("no diffview found", vim.log.levels.ERROR)
+                            return
                         end
+
+                        local file = view:infer_cur_file()
+
+                        if not file or not file.absolute_path then
+                            vim.notify("no file selected", vim.log.levels.ERROR)
+                            return
+                        end
+
+                        local file_path = file.absolute_path
+                        vim.cmd("DiffviewClose")
+                        vim.schedule(function()
+                            vim.cmd("edit " .. vim.fn.fnameescape(file_path))
+                        end)
                     end,
                 },
             },
