@@ -3,7 +3,7 @@
 return {
     "sindrets/diffview.nvim",
     lazy = true,
-    cmd = { "Blame", "Dif", "DifBranch" },
+    cmd = { "Blame", "DifBranch" },
     config = function()
         require("diffview").setup({
             keymaps = {
@@ -35,8 +35,9 @@ return {
             },
         })
 
-        -- open git dif view
-        vim.api.nvim_create_user_command("Dif", ":lua require('diffview').open()<CR>", { desc = "Open DiffView" })
+        -- TODO: @joeyagreco - decide if i wanna use this or the <leader>D keymap
+        -- -- open git dif view
+        -- vim.api.nvim_create_user_command("Dif", ":lua require('diffview').open()<CR>", { desc = "Open DiffView" })
 
         -- show git blame for current buffer
         vim.api.nvim_create_user_command("Blame", function()
@@ -55,4 +56,14 @@ return {
             require("diffview").open(branch)
         end, { nargs = "*", complete = "file", desc = "compare diff against specific branch" })
     end,
+
+    keys = {
+        {
+            "<leader>D",
+            ":lua require('diffview').open()<CR>",
+            desc = "open git dif view",
+            silent = true,
+            noremap = true,
+        },
+    },
 }
