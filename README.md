@@ -14,28 +14,12 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 
 4. Install `JetBrainsMono Nerd Font` from [this site](https://www.nerdfonts.com/font-downloads)
 5. Run `make links`
-5. Run `source ~/.zshrc.local && source ~/zsh/init.zsh && make deps`
+5. Run `source ~/.zshrc.local && source ~/.config/zsh/init.zsh && make deps`
 
 # installing/updating alacritty
 1. download the latest stable `.dmg` file from the [github releases page](https://github.com/alacritty/alacritty/releases)
 
 # upgrading neovim
 
-## new way (using mise)
+1. check [releases page](https://github.com/neovim/neovim/releases) to see the latest version
 1. set version `mise use neovim@{VERSION}`
-
-## old way (with downloaded local versions)
-### credit to this [guide](https://dineshpandiyan.com/blog/install-neovim-macos/) for inspiration
-1. check [releases page](https://github.com/neovim/neovim/releases)
-2. check current version: `nvim -v`
-3. run `xattr -c ./nvim-macos-arm64.tar.gz` (to avoid "unknown developer" warning)
-4. `tar xzvf nvim-macos-arm64.tar.gz`
-5. create a new directory for the version `mkdir {dotfiles_root}/bin/nvim/{new_version}`
-6. copy to bin dir `cp -r ~/Downloads/nvim-macos-arm64/* ~/bin/nvim/{nvim_version_named_folder}/`
-7. now running `~/bin/nvim/{nvim_version_named_folder}/bin/nvim` should run nvim
-
-## old way (with brew)
-1. check [releases page](https://github.com/neovim/neovim/releases)
-2. check current version: `nvim -v`
-3. update `brew update && brew upgrade nvim`
-4. check current version: `nvim -v`
