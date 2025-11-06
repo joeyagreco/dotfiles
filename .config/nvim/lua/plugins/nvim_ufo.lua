@@ -59,10 +59,46 @@ return {
         },
     },
     dependencies = "kevinhwang91/promise-async",
-    opts = {
-        provider_selector = function(bufnr, filetype, buftype)
-            return { "treesitter", "indent" }
-        end,
-        fold_virt_text_handler = handler,
-    },
+    config = function()
+        -- filters out nested folds that share the same start line (e.g. parameters inside python functions)
+        -- NOTE: @joeyagreco - this makes it so i can fold a python function with multi-line function signature and it folds the function instead of just folding the signature
+        local function customTreesitterProvider(bufnr)
+            local ts_provider = require("ufo.provider.treesitter")
+            local ranges = ts_provider.getFolds(bufnr)
+
+            if not ranges then
+                return ranges
+            end
+
+            local ft = vim.bo[bufnr].filetype
+            if ft == "python" then
+                local filtered = {}
+                for i, range in ipairs(ranges) do
+                    local is_nested = false
+                    for j, other in ipairs(ranges) do
+                        if i ~= j and range.startLine == other.startLine and range.endLine < other.endLine then
+                            is_nested = true
+                            break
+                        end
+                    end
+                    if not is_nested then
+                        table.insert(filtered, range)
+                    end
+                end
+                return filtered
+            end
+
+            return ranges
+        end
+
+        require("ufo").setup({
+            provider_selector = function(bufnr, filetype, buftype)
+                if filetype == "python" then
+                    return customTreesitterProvider
+                end
+                return { "treesitter", "indent" }
+            end,
+            fold_virt_text_handler = handler,
+        })
+    end,
 }
