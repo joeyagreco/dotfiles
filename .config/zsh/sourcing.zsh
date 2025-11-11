@@ -2,6 +2,11 @@
 # HIGH PRIO (should run first) #
 ################################
 
+
+# NOTE: @joeyagreco - ideally, this lives in our setup-macos script, but we need this to run on startup :/
+# first, set up custom keymaps
+hidutil property --set "$(cat $HOME/.config/macos/key_remaps.json)" >/dev/null 2>&1
+
 # install mise if needed
 # https://github.com/jdx/mise?tab=readme-ov-file
 if [ ! -f "$HOME/.local/bin/mise" ]; then
