@@ -154,7 +154,7 @@ return {
                 local make_entry = require("telescope.make_entry")
                 local action_state = require("telescope.actions.state")
 
-                -- TODO: @joeyagreco - make this function generic and use it for all pickers (find files, live grep, recent files, etc)
+                -- TODO: make this function generic and use it for all pickers (find files, live grep, recent files, etc)
                 pickers
                     .new({}, {
                         prompt_title = "Find Files (Args)",
@@ -189,9 +189,10 @@ return {
                                     .. flags
                                     .. " 2>/dev/null | rg --ignore-case "
                                     .. pattern_arg
-                                    .. " 2>/dev/null | sort" -- NOTE: @joeyagreco - here we pipe into `sort` so we get a deterministic order. if this causes performance issues, we can remove
+                                    .. " 2>/dev/null | sort" -- NOTE: here we pipe into `sort` so we get a deterministic order. if this causes performance issues, we can remove
                                 local results = vim.fn.systemlist(cmd)
                                 -- return empty list if command failed
+                                -- NOTE: we could also show the error after some timeout (the error should always be an invalid rg query error)
                                 if vim.v.shell_error ~= 0 then
                                     return {}
                                 end
