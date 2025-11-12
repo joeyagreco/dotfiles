@@ -174,6 +174,9 @@ return {
                                     flags = prompt:match("^.-%s+(%-[%w%-]+.*)$")
                                 end
 
+                                -- trim trailing whitespace from pattern so that we get the same results for >"foo"< and >"foo" < (note the trailing space after the 2nd quote)
+                                pattern = pattern:match("^%s*(.-)%s*$")
+
                                 -- if pattern is already quoted, don't shellescape it
                                 local pattern_arg
                                 if pattern:match('^".*"$') or pattern:match("^'.*'$") then
