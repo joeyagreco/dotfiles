@@ -202,6 +202,20 @@ return {
                                 local prompt_text = current_picker:_get_prompt()
                                 current_picker:set_prompt('"' .. prompt_text .. '" ')
                             end)
+                            -- add glob pattern
+                            map("i", "<C-g>", function()
+                                local current_picker = action_state.get_current_picker(prompt_bufnr)
+                                local prompt_text = current_picker:_get_prompt()
+                                current_picker:set_prompt(prompt_text .. '--glob ""')
+                                -- move cursor inside the quotes
+                                vim.schedule(function()
+                                    vim.api.nvim_feedkeys(
+                                        vim.api.nvim_replace_termcodes("<Left>", true, false, true),
+                                        "n",
+                                        true
+                                    )
+                                end)
+                            end)
                             return true
                         end,
                     })
