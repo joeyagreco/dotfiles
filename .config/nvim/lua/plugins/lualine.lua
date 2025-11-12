@@ -14,7 +14,6 @@ return {
     "nvim-lualine/lualine.nvim",
     lazy = true,
     event = "BufEnter", -- "VeryLazy" gives a bit of a delay on open before showing, so keeping at "BufEnter" for now
-    dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
     opts = {
         options = {
             -- themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
