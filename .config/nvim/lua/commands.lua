@@ -1,13 +1,13 @@
--- show and copy to clipboard the pwd of the current buffer
+-- show and copy to clipboard the full path of the current buffer
 vim.api.nvim_create_user_command("Pwd", function()
-    local pwd = vim.fn.expand("%:p:h")
-    vim.fn.setreg("+", pwd)
-    print('"' .. pwd .. '" copied to clipboard')
-end, { desc = "show and copy to clipboard the pwd of the current buffer" })
+    local full_path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", full_path)
+    print('"' .. full_path .. '" copied to clipboard')
+end, { desc = "show and copy to clipboard the full path of the current buffer" })
 
--- show and copy to clipboard the pwd of the current buffer relative to git root
+-- show and copy to clipboard the full path of the current buffer relative to git root
 vim.api.nvim_create_user_command("Pwdg", function()
-    local full_path = vim.fn.expand("%:p:h")
+    local full_path = vim.fn.expand("%:p")
     local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
 
     if vim.v.shell_error ~= 0 then
@@ -18,7 +18,7 @@ vim.api.nvim_create_user_command("Pwdg", function()
     local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
     vim.fn.setreg("+", relative_path)
     print('"' .. relative_path .. '" copied to clipboard')
-end, { desc = "show and copy to clipboard the pwd of the current buffer relative to git root" })
+end, { desc = "show and copy to clipboard the full path of the current buffer relative to git root" })
 
 vim.api.nvim_create_user_command("Lsp", function()
     local attached_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
