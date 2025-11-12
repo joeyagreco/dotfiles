@@ -59,6 +59,14 @@ return {
         lspconfig.pyright.setup({
             -- tell pyright what the root dir of this python file is
             root_dir = root_dir_func,
+            before_init = function(_, config)
+                -- use mise's python interpreter (this allows our LSP to hook into external libs)
+                local python_path = vim.fn.exepath("python3") or vim.fn.exepath("python")
+                if python_path ~= "" then
+                    config.settings.python = config.settings.python or {}
+                    config.settings.python.pythonPath = python_path
+                end
+            end,
         })
 
         -- lua
