@@ -90,6 +90,7 @@ return {
             },
         })
 
+        -- NOTE: due to the local exclusions file support added above, this may no longer be needed
         -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#command-to-toggle-format-on-save
         vim.api.nvim_create_user_command("Format", function(args)
             vim.b.disable_autoformat = not vim.b.disable_autoformat
