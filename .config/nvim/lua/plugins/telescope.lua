@@ -120,6 +120,7 @@ return {
                     mappings = {
                         i = {
                             ["<C-q>"] = lga_actions.quote_prompt(),
+                            ["<C-g>"] = lga_actions.quote_prompt({ postfix = ' --glob ""' }),
                         },
                     },
                 },
@@ -153,6 +154,7 @@ return {
                 local make_entry = require("telescope.make_entry")
                 local action_state = require("telescope.actions.state")
 
+                -- TODO: @joeyagreco - make this function generic and use it for all pickers (find files, live grep, recent files, etc)
                 pickers
                     .new({}, {
                         prompt_title = "Find Files (Args)",
