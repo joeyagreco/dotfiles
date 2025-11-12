@@ -189,7 +189,7 @@ return {
                                     .. flags
                                     .. " 2>/dev/null | rg --ignore-case "
                                     .. pattern_arg
-                                    .. " 2>/dev/null"
+                                    .. " 2>/dev/null | sort" -- NOTE: @joeyagreco - here we pipe into `sort` so we get a deterministic order. if this causes performance issues, we can remove
                                 local results = vim.fn.systemlist(cmd)
                                 -- return empty list if command failed
                                 if vim.v.shell_error ~= 0 then
