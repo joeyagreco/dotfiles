@@ -12,7 +12,8 @@
       "Bash(sed:*)",
       "Bash(docker ps:*)",
       "Bash(lsof:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   },
