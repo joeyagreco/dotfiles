@@ -168,7 +168,7 @@ function zvm_after_lazy_keybindings() {
 setopt HIST_IGNORE_ALL_DUPS   # remove all previous entries matching new command
 setopt HIST_EXPIRE_DUPS_FIRST # expire duplicate entries first when trimming history
 setopt HIST_REDUCE_BLANKS     # remove extra blanks
-setopt HIST_IGNORE_SPACE      # don't record commands that start with a space
+unsetopt HIST_IGNORE_SPACE    # record commands that start with a space
 
 #######
 # tpm #
