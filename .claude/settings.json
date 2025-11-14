@@ -14,7 +14,8 @@
       "Bash(lsof:*)",
       "Bash(tree:*)",
       "Bash(grep:*)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(gh pr list:*)"
     ],
     "deny": []
   },
