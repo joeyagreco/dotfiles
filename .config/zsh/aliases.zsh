@@ -57,11 +57,6 @@ alias foo='echo "foo\nbar\nbaz\nqux\nquux\ncorge\ngrault\ngarply\nwaldo\nfred\np
 alias make='gmake'
 # get path of last downloaded file in clipboard and in env var
 alias lastdownload='. $BASH_SCRIPTS_PATH/last_download.sh'
-# 1. search through command history using fzf
-# 2. select a command
-# 3. the selected command is opened in vim
-# 4. on save/exit, the command in the editor is executed
-alias his='fc -e vim "$(fc -ln 1 | fzf --tac)"'
 alias info='fastfetch'
 alias speed='networkquality'
 # create a pr with github. this will likely go through iteration as i discover what is smoothest

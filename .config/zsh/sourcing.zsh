@@ -142,6 +142,18 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search   # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+# fzf history search with ctrl+r
+fzf-history-widget() {
+  local selected
+  selected=$(fc -rl 1 | fzf --tac --no-sort --exact --query="$LBUFFER" | awk '{$1=""; print substr($0,2)}')
+  if [ -n "$selected" ]; then
+    LBUFFER="$selected"
+  fi
+  zle reset-prompt
+}
+zle -N fzf-history-widget
+bindkey "^R" fzf-history-widget
+
 ###############################
 # set up vim mode in terminal #
 ###############################
