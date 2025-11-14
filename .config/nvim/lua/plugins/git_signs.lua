@@ -29,14 +29,26 @@ return {
         },
         {
             "<leader>gn",
-            ":lua require('gitsigns').next_hunk()<CR>",
+            function()
+                if require("gitsigns").next_hunk() then
+                    vim.defer_fn(function()
+                        vim.cmd("normal! zz")
+                    end, 10) -- NOTE: - REALLY hate the 10ms delay here but doesn't seem to center unless i have it
+                end
+            end,
             desc = "git next hunk",
             silent = true,
             noremap = true,
         },
         {
             "<leader>gp",
-            ":lua require('gitsigns').prev_hunk()<CR>",
+            function()
+                if require("gitsigns").prev_hunk() then
+                    vim.defer_fn(function()
+                        vim.cmd("normal! zz")
+                    end, 10) -- NOTE: - REALLY hate the 10ms delay here but doesn't seem to center unless i have it
+                end
+            end,
             desc = "git previous hunk",
             silent = true,
             noremap = true,
