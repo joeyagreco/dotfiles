@@ -2,7 +2,7 @@
 
 ## Test Naming and Documentation
 
-When writing tests, use descriptive test names that clearly convey what is being tested. Avoid using docstrings to describe tests unless additional information needs to be conveyed beyond what can be inferred from the test name itself.
+When writing tests, use descriptive test names that clearly convey what is being tested. Never use docstrings in unit tests.
 
 **Good examples:**
 ```python
@@ -16,7 +16,7 @@ def test_empty_list_returns_none():
     # test implementation
 ```
 
-**Use docstrings only when needed:**
+**Bad example:**
 ```python
 def test_complex_algorithm_performance():
     """
