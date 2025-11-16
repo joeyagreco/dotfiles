@@ -1,7 +1,6 @@
 [alias]
 		# [a]dd[c]ommit[p]ush
 	acp     = "!sh -c 'git add . && git commit -am \"quick commit\" && git push'"
-	acpu    = "!sh -c 'git add . && git commit -am \"quick commit\" && git pu'"
 	; 	# [c]ommit[ai]
 	; cai     = "!sh -c '$PYTHON_COMMAND $PYTHON_SCRIPTS_PATH/ai_git_commit_msg.py'"
 	co      = checkout
@@ -9,8 +8,6 @@
 		# empty commit
 	empty   = "!git commit --allow-empty --no-verify -m 'empty commit' && git push"
 	f       = fetch --all
-		# [p]ush[u]pstream
-	pu      = "!sh -c 'git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'"
 	st      = stash --include-untracked
 	lg      = log --oneline
 	rl      = reflog --oneline
