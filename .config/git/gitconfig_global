@@ -38,6 +38,9 @@
 [pull]
 	rebase = true
 
+[push]
+	autoSetupRemote = true
+
 [user]
 	email = joeyagreco@gmail.com
 	name = joeyagreco
