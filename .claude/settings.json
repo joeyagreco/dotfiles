@@ -15,7 +15,9 @@
       "Bash(tree:*)",
       "Bash(grep:*)",
       "Bash(echo:*)",
-      "Bash(gh pr list:*)"
+      "Bash(gh pr list:*)",
+      "playwright__Click",
+      "playwright__Hover mouse"
     ],
     "deny": []
   },
