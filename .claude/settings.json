@@ -17,7 +17,8 @@
       "Bash(echo:*)",
       "Bash(gh pr list:*)",
       "playwright__Click",
-      "playwright__Hover mouse"
+      "playwright__Hover mouse",
+      "playwright__Page snapshot"
     ],
     "deny": []
   },
