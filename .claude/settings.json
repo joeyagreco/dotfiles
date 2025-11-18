@@ -2,8 +2,6 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(find:*)",
       "Bash(ls:*)",
       "Bash(rg:*)",
@@ -17,9 +15,12 @@
       "Bash(grep:*)",
       "Bash(echo:*)",
       "Bash(gh pr list:*)",
+      "Bash(docker logs:*)",
       "playwright__Click",
       "playwright__Hover mouse",
-      "playwright__Page snapshot"
+      "playwright__Page snapshot",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ],
     "deny": []
   },
