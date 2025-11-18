@@ -8,6 +8,7 @@
       "Bash(ls:*)",
       "Bash(rg:*)",
       "Bash(git log:*)",
+      "Bash(git describe:*)",
       "Bash(cat:*)",
       "Bash(sed:*)",
       "Bash(docker ps:*)",
