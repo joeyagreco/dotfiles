@@ -158,20 +158,22 @@ bindkey "^R" fzf-history-widget
 # set up vim mode in terminal #
 ###############################
 
-# https://github.com/jeffreytse/zsh-vi-mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# when we do "vv", open in nvim instead of what's at $EDITOR
-export ZVM_VI_EDITOR=nvim
-# custom function to accept line and switch to insert mode
-function my_accept_line() {
-	zle accept-line
-	zvm_enter_insert_mode
-}
-# set up custom keybinding after zsh-vi-mode initialization
-function zvm_after_lazy_keybindings() {
-	zvm_define_widget my_accept_line
-	zvm_bindkey vicmd '^M' my_accept_line
-}
+# NOTE: @joeyagreco - disabling for now as not sure i need/want this
+
+# # https://github.com/jeffreytse/zsh-vi-mode
+# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# # when we do "vv", open in nvim instead of what's at $EDITOR
+# export ZVM_VI_EDITOR=nvim
+# # custom function to accept line and switch to insert mode
+# function my_accept_line() {
+# 	zle accept-line
+# 	zvm_enter_insert_mode
+# }
+# # set up custom keybinding after zsh-vi-mode initialization
+# function zvm_after_lazy_keybindings() {
+# 	zvm_define_widget my_accept_line
+# 	zvm_bindkey vicmd '^M' my_accept_line
+# }
 
 ###################
 # command history #
