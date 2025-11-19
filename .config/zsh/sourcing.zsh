@@ -15,7 +15,12 @@ if [ ! -f "$HOME/.local/bin/mise" ]; then
 fi
 
 # start mise
-eval "$(~/.local/bin/mise activate zsh)"
+# eval "$(~/.local/bin/mise activate zsh)"
+
+# NOTE: @joeyagreco - im doing the below instead of the above to speed up sourcing times
+
+# use mise shims instead of activation for faster startup
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 ##########
 # PYTHON #
@@ -105,7 +110,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 "$HOME/.config/alacritty/alacritty.local.sh"
 
 # set up brew
-export HOMEBREW_PREFIX="$(brew --prefix)"
+if [[ -z "$HOMEBREW_PREFIX" ]]; then
+	export HOMEBREW_PREFIX="$(brew --prefix)"
+fi
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
 # set up syntax highlighting
