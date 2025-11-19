@@ -28,7 +28,8 @@ export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # configure pyright
 # export PYRIGHT_PYTHON_FORCE_VERSION='latest'
-export PYRIGHT_PYTHON_FORCE_VERSION=$(mise current python)
+# NOTE: commented out since it is slow on sourcing. unsure if needed.
+# export PYRIGHT_PYTHON_FORCE_VERSION=$(mise current python)
 
 ##############
 # JAVASCRIPT #
