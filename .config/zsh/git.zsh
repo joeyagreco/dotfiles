@@ -15,6 +15,3 @@ set_git_global_if_unset core.excludesfile "$HOME/.config/git/gitignore_global"
 # set a global gitconfig file
 # to check that this was set properly, run this: git config --get include.path
 set_git_global_if_unset include.path "$HOME/.config/git/gitconfig_global"
-
-# run git commands
-git maintenance start # pretty sure this is idempotent

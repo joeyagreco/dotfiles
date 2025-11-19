@@ -124,7 +124,7 @@ type starship_zle-keymap-select >/dev/null ||
 	}
 
 # case-insensitive (all), completion (comp) and listing (list).
-autoload -Uz compinit && compinit
+autoload -Uz compinit -C && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # case-insensitive for command execution.
