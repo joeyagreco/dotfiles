@@ -15,3 +15,6 @@ NEVER have local imports unless it is 100% necessary.
 For big numbers, use _ to make numbers more clear
 BAD: `foo = 1000`
 GOOD: `foo = 1_000`
+
+### __init__.py files
+Do not add anything inside of `__init__.py` files unless it is absolutely necessary or you are explicitly asked to.
