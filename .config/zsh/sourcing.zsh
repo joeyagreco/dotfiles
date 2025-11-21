@@ -183,6 +183,10 @@ bindkey "^R" fzf-history-widget
 # 	zvm_bindkey vicmd '^M' my_accept_line
 # }
 
+# needed for:
+# - claude code
+export PATH="$HOME/.local/bin:$PATH"
+
 ###################
 # command history #
 ###################
