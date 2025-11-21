@@ -70,7 +70,7 @@ return {
                 -- "one/foo/bar/baz/main.py"
                 -- "two/foo/bar/baz/main.py"
                 -- HOWEVER, fo long paths i need to see the end instead of the start of the path
-                path_display = { "smart" },
+                path_display = { "truncate" },
                 file_ignore_patterns = {
                     -- removing this for now as fx in golang uses "/build" folders a lot and we do not want telescope to ignore those
                     -- "build/",
