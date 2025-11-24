@@ -16,9 +16,9 @@
       "Bash(echo:*)",
       "Bash(gh pr list:*)",
       "Bash(docker logs:*)",
-      "playwright__Click",
-      "playwright__Hover mouse",
-      "playwright__Page snapshot",
+      "Playwright__Click",
+      "Playwright__Hover_mouse",
+      "Playwright__Page_snapshot",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)"
     ],
