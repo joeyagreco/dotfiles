@@ -150,6 +150,9 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search   # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+# use emacs keybindings (ctrl+a, ctrl+e, etc)
+bindkey -e
+
 # fzf history search with ctrl+r
 fzf-history-widget() {
   local selected
