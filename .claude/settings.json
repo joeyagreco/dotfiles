@@ -10,6 +10,7 @@
       "Bash(cat:*)",
       "Bash(sed:*)",
       "Bash(docker ps:*)",
+      "Bash(docker inspect:*)",
       "Bash(lsof:*)",
       "Bash(tree:*)",
       "Bash(grep:*)",
@@ -29,5 +30,6 @@
   "alwaysThinkingEnabled": false,
   "feedbackSurveyState": {
     "lastShownTime": 1754090047522
-  }
+  },
+  "model": "opus"
 }
