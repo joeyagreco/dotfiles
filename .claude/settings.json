@@ -15,10 +15,12 @@
       "Bash(grep:*)",
       "Bash(echo:*)",
       "Bash(gh pr list:*)",
+      "Bash(gh pr diff:*)",
       "Bash(docker logs:*)",
       "Playwright__Click",
       "Playwright__Hover_mouse",
       "Playwright__Page_snapshot",
+      "Playwright__List_network_requests",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)"
     ],
