@@ -48,7 +48,7 @@ return {
 
         local handle_large_files = function(filepath, bufnr, opts)
             -- size limit for previews (kb)
-            local max_file_size_kb = 100
+            local max_file_size_kb = 200
             local max_size_bytes = max_file_size_kb * 1024
             vim.loop.fs_stat(filepath, function(_, stat)
                 if not stat then
