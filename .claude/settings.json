@@ -23,7 +23,8 @@
       "Playwright__Page_snapshot",
       "Playwright__List_network_requests",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch"
     ],
     "deny": []
   },
