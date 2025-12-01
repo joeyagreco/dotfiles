@@ -9,7 +9,7 @@ source "$HOME/.zshrc$LOCAL_FIX"
 # CHECK FOR REQUIRED ENV VARS
 # THESE MUST MANUALLY BE SET ON EACH MACHINE THAT USES THIS CONFIG
 # (typically just set in ~/.zshrc.local)
-required_vars=("LOCAL_GIT_REPO_PATH" "GITHUB_PREFIX" "OPENAI_API_KEY")
+required_vars=("LOCAL_GIT_REPO_PATH" "GITHUB_PREFIX")
 
 for var in $required_vars; do
     if [[ -z "${(P)var}" ]]; then
