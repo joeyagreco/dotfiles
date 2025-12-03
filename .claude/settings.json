@@ -23,7 +23,9 @@
       "Playwright__Click",
       "Playwright__Hover_mouse",
       "Playwright__List_network_requests",
+      "Playwright__Navigate",
       "Playwright__Page_snapshot",
+      "Playwright__Wait",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebSearch"
