@@ -11,6 +11,7 @@
       "Bash(find:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
+      "Bash(gh run list:*)",
       "Bash(git describe:*)",
       "Bash(git log:*)",
       "Bash(grep:*)",
