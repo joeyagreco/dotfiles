@@ -17,6 +17,7 @@
       "Bash(grep:*)",
       "Bash(ls:*)",
       "Bash(lsof:*)",
+      "Bash(npm run typecheck:*)",
       "Bash(rg:*)",
       "Bash(sed:*)",
       "Bash(tree:*)",
