@@ -142,6 +142,9 @@ setopt EXTENDED_GLOB
 # no duplicates in terminal command history
 setopt HIST_IGNORE_DUPS
 
+# use emacs keybindings (ctrl+a, ctrl+e, etc)
+bindkey -e
+
 # history scrolling based on first word in input
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
@@ -149,9 +152,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search   # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
-
-# use emacs keybindings (ctrl+a, ctrl+e, etc)
-bindkey -e
 
 # fzf history search with ctrl+r
 fzf-history-widget() {
