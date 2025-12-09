@@ -17,12 +17,16 @@ TERM = "xterm-256color"
 # NOTE: @joeyagreco - would look something like this:
 
 ###############################################################
-# FONT="JetBrainsMono Nerd Font"
+# FONT="JetBrainsMonoNL Nerd Font"
 #
-# alacritty msg config "font.normal.family='${FONT}'"
-# alacritty msg config "font.bold.family='${FONT}'"
-# alacritty msg config "font.italic.family='${FONT}'"
-# alacritty msg config "font.bold_italic.family='${FONT}'"
+# # only send alacritty messages if we're running inside alacritty
+# if [[ "$TERM_PROGRAM" == "Alacritty" ]] && [[ -n "$ALACRITTY_SOCKET" ]]; then
+# 	alacritty msg config "font.normal.family='${FONT}'" 2>/dev/null &
+# 	alacritty msg config "font.bold.family='${FONT}'" 2>/dev/null &
+# 	alacritty msg config "font.italic.family='${FONT}'" 2>/dev/null &
+# 	alacritty msg config "font.bold_italic.family='${FONT}'" 2>/dev/null &
+# 	wait
+# fi
 ###############################################################
 
 [font]
