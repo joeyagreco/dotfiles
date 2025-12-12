@@ -44,3 +44,5 @@ packer
 .claude/statsig
 .claude/todos
 .claude/.update.lock
+.claude/plugins
+.claude/plans
