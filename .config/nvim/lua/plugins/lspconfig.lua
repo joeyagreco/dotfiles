@@ -4,6 +4,9 @@ return {
     lazy = true,
     event = "BufEnter",
     config = function()
+        -- reduce lsp log verbosity (prevents huge log files)
+        vim.lsp.set_log_level("WARN")
+
         local lspconfig = require("lspconfig")
         local util = require("lspconfig.util")
 

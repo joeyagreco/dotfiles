@@ -62,3 +62,11 @@ for ft, cs in pairs(commentstrings) do
         end,
     })
 end
+
+-- force-kill lsp servers on quit to prevent slow shutdown
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    desc = "force stop all lsp clients on quit",
+    callback = function()
+        vim.lsp.stop_client(vim.lsp.get_clients(), true)
+    end,
+})
