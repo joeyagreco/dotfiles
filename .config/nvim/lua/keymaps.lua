@@ -26,19 +26,16 @@ end, helpers.combine_tables(default_options, { desc = "start a search for word u
 ---------
 
 -- get lsp info for whatever the cursor is on
-map(
-    "n",
-    "K",
-    vim.lsp.buf.hover,
-    helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" })
-)
+map("n", "K", function()
+    vim.lsp.buf.hover({ border = "rounded" })
+end, helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" }))
 
 -- rename symbol (change name)
 map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
 -- see lsp info
 map("n", "<leader>L", function()
-    vim.diagnostic.open_float(nil, { source = "always", focusable = true })
+    vim.diagnostic.open_float(nil, { source = "always", focusable = true, border = "rounded" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
 
 -- open relative file links, similar to 'gx'
