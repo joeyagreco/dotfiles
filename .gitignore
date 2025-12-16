@@ -46,3 +46,5 @@ packer
 .claude/.update.lock
 .claude/plugins
 .claude/plans
+.claude/stats-cache.json
+.claude/ide
