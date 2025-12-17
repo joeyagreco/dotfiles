@@ -70,3 +70,16 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
         vim.lsp.stop_client(vim.lsp.get_clients(), true)
     end,
 })
+
+-- restore cursor position to where it was when reopening a file
+-- this will persist across restarts of nvim
+vim.api.nvim_create_autocmd("BufReadPost", {
+    desc = "restore cursor position when reopening a file",
+    callback = function()
+        local mark = vim.api.nvim_buf_get_mark(0, '"')
+        local line_count = vim.api.nvim_buf_line_count(0)
+        if mark[1] > 0 and mark[1] <= line_count then
+            vim.api.nvim_win_set_cursor(0, mark)
+        end
+    end,
+})
