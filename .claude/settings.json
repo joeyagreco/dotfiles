@@ -34,9 +34,14 @@
     ],
     "deny": []
   },
-  "alwaysThinkingEnabled": false,
+  "model": "opus",
+  "enabledPlugins": {
+    "github@claude-plugins-official": true,
+    "linear@claude-plugins-official": true,
+    "notion@claude-plugins-official": true,
+    "slack@claude-plugins-official": true
+  },
   "feedbackSurveyState": {
     "lastShownTime": 1754090047522
-  },
-  "model": "opus"
+  }
 }
