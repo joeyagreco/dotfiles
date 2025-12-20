@@ -30,8 +30,9 @@ map("n", "K", function()
     vim.lsp.buf.hover({ border = "rounded" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" }))
 
--- rename symbol (change name)
-map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
+-- TODO: @joeyagreco - testing using "grn" to accomplish same thing
+-- -- rename symbol (change name)
+-- map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
 
 -- see lsp info
 map("n", "<leader>L", function()
