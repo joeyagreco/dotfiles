@@ -5,6 +5,7 @@ return {
     lazy = true,
     cmd = { "Blame", "DifBranch" },
     config = function()
+        local actions = require("diffview.actions")
         require("diffview").setup({
             keymaps = {
                 file_panel = {
@@ -39,6 +40,13 @@ return {
                         end,
                         { desc = "open file and close diffview" },
                     },
+                    -- press j and k to select buffers on hover (to view them)
+                    -- 1. disable j/k moving cursor without selecting (we want hover to select)
+                    { "n", "j", false },
+                    { "n", "k", false },
+                    -- 2. j/k now select the entry (opens the diff)
+                    { "n", "j", actions.select_next_entry, { desc = "open diff for next file" } },
+                    { "n", "k", actions.select_prev_entry, { desc = "open diff for previous file" } },
                 },
             },
         })
