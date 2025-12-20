@@ -64,7 +64,15 @@ return {
     keys = {
         {
             "<leader>D",
-            ":lua require('diffview').open()<CR>",
+            function()
+                local changed = vim.fn.systemlist("git diff --name-only")
+                -- don't open an empty diffview if there are no files changed
+                if vim.v.shell_error ~= 0 or #changed == 0 then
+                    vim.notify("no files changed", vim.log.levels.INFO)
+                    return
+                end
+                require("diffview").open()
+            end,
             desc = "open git dif view",
             silent = true,
             noremap = true,
