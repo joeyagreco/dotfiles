@@ -8,29 +8,37 @@ return {
         require("diffview").setup({
             keymaps = {
                 file_panel = {
-                    -- open the current selected file in a new buffer and close the dif view
-                    ["go"] = function()
-                        local lib = require("diffview.lib")
-                        local view = lib.get_current_view()
+                    -- press ENTER to open the currently selected file in the explorer
+                    -- 1. must disable default <cr> behavior (which just opens the diff)
+                    { "n", "<cr>", false },
+                    -- 2. create a new keymap to open the current selected file in a new buffer and close the dif view
+                    {
+                        "n",
+                        "<cr>",
+                        function()
+                            local lib = require("diffview.lib")
+                            local view = lib.get_current_view()
 
-                        if not view then
-                            vim.notify("no diffview found", vim.log.levels.ERROR)
-                            return
-                        end
+                            if not view then
+                                vim.notify("no diffview found", vim.log.levels.ERROR)
+                                return
+                            end
 
-                        local file = view:infer_cur_file()
+                            local file = view:infer_cur_file()
 
-                        if not file or not file.absolute_path then
-                            vim.notify("no file selected", vim.log.levels.ERROR)
-                            return
-                        end
+                            if not file or not file.absolute_path then
+                                vim.notify("no file selected", vim.log.levels.ERROR)
+                                return
+                            end
 
-                        local file_path = file.absolute_path
-                        vim.cmd("DiffviewClose")
-                        vim.schedule(function()
-                            vim.cmd("edit " .. vim.fn.fnameescape(file_path))
-                        end)
-                    end,
+                            local file_path = file.absolute_path
+                            vim.cmd("DiffviewClose")
+                            vim.schedule(function()
+                                vim.cmd("edit " .. vim.fn.fnameescape(file_path))
+                            end)
+                        end,
+                        { desc = "open file and close diffview" },
+                    },
                 },
             },
         })
