@@ -35,10 +35,6 @@ return {
             },
         })
 
-        -- TODO: @joeyagreco - decide if i wanna use this or the <leader>D keymap
-        -- -- open git dif view
-        -- vim.api.nvim_create_user_command("Dif", ":lua require('diffview').open()<CR>", { desc = "Open DiffView" })
-
         -- show git blame for current buffer
         vim.api.nvim_create_user_command("Blame", function()
             require("diffview")
