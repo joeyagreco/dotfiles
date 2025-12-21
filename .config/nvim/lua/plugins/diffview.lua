@@ -73,9 +73,11 @@ return {
         {
             "<leader>D",
             function()
+                -- check for both tracked changes and untracked files
                 local changed = vim.fn.systemlist("git diff --name-only")
-                -- don't open an empty diffview if there are no files changed
-                if vim.v.shell_error ~= 0 or #changed == 0 then
+                local untracked = vim.fn.systemlist("git ls-files --others --exclude-standard")
+                local has_changes = (vim.v.shell_error == 0 and (#changed > 0 or #untracked > 0))
+                if not has_changes then
                     vim.notify("⚠️no files changed!", vim.log.levels.INFO)
                     return
                 end
