@@ -100,6 +100,14 @@ function M.live_grep()
         if ft then
             pcall(vim.api.nvim_set_option_value, "filetype", ft, { buf = preview_buf })
         end
+
+        -- highlight the match line
+        local ns = vim.api.nvim_create_namespace("picker_preview_match")
+        vim.api.nvim_buf_clear_namespace(preview_buf, ns, 0, -1)
+        local match_line_idx = entry.lnum - start_line -- 0-indexed
+        if match_line_idx >= 0 and match_line_idx < #preview_lines then
+            vim.api.nvim_buf_add_highlight(preview_buf, ns, "CursorLine", match_line_idx, 0, -1)
+        end
     end
 
     local function update_selection()
