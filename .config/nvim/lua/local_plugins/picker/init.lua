@@ -125,11 +125,39 @@ function M.live_grep()
         -- trim whitespace
         local search_term = query:match("^%s*(.-)%s*$")
 
+        -- parse rg flags from query (e.g., "foo" -tpy -> pattern="foo", flags="-tpy")
+        local flags = {}
+        local pattern = search_term
+
+        -- check for flags after quoted string: "pattern" -flags
+        local quoted_match = search_term:match('^(["\'].+["\'])%s+(%-[%w%-]+.*)$')
+        if quoted_match then
+            pattern = quoted_match
+            local flags_str = search_term:match('^["\'].+["\']%s+(%-[%w%-]+.*)$')
+            if flags_str then
+                for flag in flags_str:gmatch("%-[%w%-]+") do
+                    table.insert(flags, flag)
+                end
+            end
+        else
+            -- check for flags after unquoted pattern: pattern -flags
+            local unquoted_match = search_term:match("^(.-)%s+(%-[%w%-]+.*)$")
+            if unquoted_match then
+                pattern = unquoted_match
+                local flags_str = search_term:match("^.-%s+(%-[%w%-]+.*)$")
+                if flags_str then
+                    for flag in flags_str:gmatch("%-[%w%-]+") do
+                        table.insert(flags, flag)
+                    end
+                end
+            end
+        end
+
         -- handle quoted strings - strip quotes for literal search
-        if search_term:match('^".*"$') then
-            search_term = search_term:match('^"(.-)"$') or search_term
-        elseif search_term:match("^'.*'$") then
-            search_term = search_term:match("^'(.-)'$") or search_term
+        if pattern:match('^".*"$') then
+            pattern = pattern:match('^"(.-)"$') or pattern
+        elseif pattern:match("^'.*'$") then
+            pattern = pattern:match("^'(.-)'$") or pattern
         end
 
         local cmd = {
@@ -144,8 +172,15 @@ function M.live_grep()
             "--hidden",
             "--glob",
             "!.git",
-            search_term,
         }
+
+        -- add user flags
+        for _, flag in ipairs(flags) do
+            table.insert(cmd, flag)
+        end
+
+        -- add search pattern
+        table.insert(cmd, pattern)
 
         local output = vim.fn.systemlist(cmd)
         results = {}
