@@ -138,16 +138,26 @@ function M.live_grep()
         local output = vim.fn.systemlist(cmd)
         results = {}
 
+        -- get mini.icons
+        local icons_ok, mini_icons = pcall(require, "mini.icons")
+
         for _, line in ipairs(output) do
             -- parse rg output: filename:line:col:text
             local filename, lnum, col, text = line:match("^(.+):(%d+):(%d+):(.*)$")
             if filename then
+                local icon, hl = "", nil
+                if icons_ok then
+                    icon, hl = mini_icons.get("file", filename)
+                    icon = icon .. " "
+                end
                 table.insert(results, {
                     filename = filename,
                     lnum = tonumber(lnum),
                     col = tonumber(col),
                     text = text,
-                    display = string.format("%s:%s:%s", filename, lnum, text),
+                    icon = icon,
+                    icon_hl = hl,
+                    display = string.format("%s%s:%s:%s", icon, filename, lnum, text),
                 })
             end
         end
@@ -164,6 +174,17 @@ function M.live_grep()
         end
 
         vim.api.nvim_buf_set_lines(results_buf, 0, -1, false, display_lines)
+
+        -- apply icon highlights
+        local ns = vim.api.nvim_create_namespace("picker_icons")
+        vim.api.nvim_buf_clear_namespace(results_buf, ns, 0, -1)
+        for i, entry in ipairs(results) do
+            if entry.icon_hl then
+                -- highlight just the icon (first 2 chars: icon + space)
+                vim.api.nvim_buf_add_highlight(results_buf, ns, entry.icon_hl, i - 1, 0, #entry.icon)
+            end
+        end
+
         selected_idx = 1
         update_selection()
     end
