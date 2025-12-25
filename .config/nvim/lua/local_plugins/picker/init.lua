@@ -128,6 +128,8 @@ function M.live_grep()
             "--ignore-case",
             "--fixed-strings",
             "--hidden",
+            "--glob",
+            "!.git",
             query,
         }
 
