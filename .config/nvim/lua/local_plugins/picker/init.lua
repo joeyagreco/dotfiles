@@ -252,7 +252,6 @@ function M.live_grep()
 end
 
 function M.setup()
-    vim.api.nvim_create_user_command("Grep", M.live_grep, { desc = "custom live grep picker" })
     vim.keymap.set("n", "<leader>ts", M.live_grep, { desc = "custom live grep picker", silent = true })
 end
 
