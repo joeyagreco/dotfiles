@@ -112,6 +112,8 @@ function M.live_grep()
         update_preview()
     end
 
+    local icons_ok, mini_icons = pcall(require, "mini.icons")
+
     local function do_search(query)
         if not query or query == "" then
             results = {}
@@ -138,11 +140,11 @@ function M.live_grep()
         local output = vim.fn.systemlist(cmd)
         results = {}
 
-        -- get mini.icons
-        local icons_ok, mini_icons = pcall(require, "mini.icons")
-
+        local max_results = 100
         for _, line in ipairs(output) do
-            -- parse rg output: filename:line:col:text
+            if #results >= max_results then
+                break
+            end
             local filename, lnum, col, text = line:match("^(.+):(%d+):(%d+):(.*)$")
             if filename then
                 local icon, hl = "", nil
@@ -162,12 +164,6 @@ function M.live_grep()
             end
         end
 
-        -- limit results for performance
-        local max_results = 100
-        if #results > max_results then
-            results = vim.list_slice(results, 1, max_results)
-        end
-
         local display_lines = {}
         for _, entry in ipairs(results) do
             table.insert(display_lines, entry.display)
@@ -180,7 +176,6 @@ function M.live_grep()
         vim.api.nvim_buf_clear_namespace(results_buf, ns, 0, -1)
         for i, entry in ipairs(results) do
             if entry.icon_hl then
-                -- highlight just the icon (first 2 chars: icon + space)
                 vim.api.nvim_buf_add_highlight(results_buf, ns, entry.icon_hl, i - 1, 0, #entry.icon)
             end
         end
@@ -206,26 +201,17 @@ function M.live_grep()
     vim.api.nvim_set_option_value("buftype", "prompt", { buf = input_buf })
     vim.fn.prompt_setprompt(input_buf, "> ")
 
-    -- debounce timer for search
-    local search_timer = nil
-    local debounce_ms = 150
-
     vim.api.nvim_buf_attach(input_buf, false, {
         on_lines = function()
-            if search_timer then
-                vim.fn.timer_stop(search_timer)
-            end
-            search_timer = vim.fn.timer_start(debounce_ms, function()
-                vim.schedule(function()
-                    if not vim.api.nvim_buf_is_valid(input_buf) then
-                        return
-                    end
-                    local lines = vim.api.nvim_buf_get_lines(input_buf, 0, 1, false)
-                    local query = lines[1] or ""
-                    -- remove prompt prefix
-                    query = query:gsub("^> ", "")
-                    do_search(query)
-                end)
+            vim.schedule(function()
+                if not vim.api.nvim_buf_is_valid(input_buf) then
+                    return
+                end
+                local lines = vim.api.nvim_buf_get_lines(input_buf, 0, 1, false)
+                local query = lines[1] or ""
+                -- remove prompt prefix
+                query = query:gsub("^> ", "")
+                do_search(query)
             end)
         end,
     })
