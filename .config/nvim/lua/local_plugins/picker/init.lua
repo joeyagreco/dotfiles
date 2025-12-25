@@ -7,18 +7,20 @@ function M.live_grep()
 
     -- calculate dimensions
     local ui = vim.api.nvim_list_uis()[1]
-    local width = math.floor(ui.width * 0.6)
+    local total_width = math.floor(ui.width * 0.8)
+    local total_height = math.floor(ui.height * 0.7)
+    local left_width = math.floor(total_width * 0.4)
+    local right_width = total_width - left_width - 1 -- -1 for gap
     local input_height = 1
-    local results_height = 15
-    local preview_height = 10
-    local start_row = math.floor(ui.height * 0.15)
-    local start_col = math.floor((ui.width - width) / 2)
+    local results_height = total_height - input_height - 2 -- -2 for border gap
+    local start_row = math.floor((ui.height - total_height) / 2)
+    local start_col = math.floor((ui.width - total_width) / 2)
 
-    -- create input buffer and window
+    -- create input buffer and window (top left)
     local input_buf = vim.api.nvim_create_buf(false, true)
     local input_win = vim.api.nvim_open_win(input_buf, true, {
         relative = "editor",
-        width = width,
+        width = left_width,
         height = input_height,
         row = start_row,
         col = start_col,
@@ -28,11 +30,11 @@ function M.live_grep()
         title_pos = "center",
     })
 
-    -- create results buffer and window
+    -- create results buffer and window (bottom left, below input)
     local results_buf = vim.api.nvim_create_buf(false, true)
     local results_win = vim.api.nvim_open_win(results_buf, false, {
         relative = "editor",
-        width = width,
+        width = left_width,
         height = results_height,
         row = start_row + input_height + 2,
         col = start_col,
@@ -43,14 +45,14 @@ function M.live_grep()
     })
     vim.api.nvim_set_option_value("cursorline", true, { win = results_win })
 
-    -- create preview buffer and window
+    -- create preview buffer and window (right side, full height)
     local preview_buf = vim.api.nvim_create_buf(false, true)
     local preview_win = vim.api.nvim_open_win(preview_buf, false, {
         relative = "editor",
-        width = width,
-        height = preview_height,
-        row = start_row + input_height + results_height + 4,
-        col = start_col,
+        width = right_width,
+        height = total_height,
+        row = start_row,
+        col = start_col + left_width + 2, -- +2 for gap
         style = "minimal",
         border = "rounded",
         title = " Preview ",
