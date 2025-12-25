@@ -122,6 +122,16 @@ function M.live_grep()
             return
         end
 
+        -- trim whitespace
+        local search_term = query:match("^%s*(.-)%s*$")
+
+        -- handle quoted strings - strip quotes for literal search
+        if search_term:match('^".*"$') then
+            search_term = search_term:match('^"(.-)"$') or search_term
+        elseif search_term:match("^'.*'$") then
+            search_term = search_term:match("^'(.-)'$") or search_term
+        end
+
         local cmd = {
             "rg",
             "--color=never",
@@ -134,7 +144,7 @@ function M.live_grep()
             "--hidden",
             "--glob",
             "!.git",
-            query,
+            search_term,
         }
 
         local output = vim.fn.systemlist(cmd)
@@ -253,6 +263,15 @@ function M.live_grep()
 
     -- open selected
     vim.keymap.set("i", "<CR>", open_selected, kopts)
+
+    -- quote the current search
+    vim.keymap.set("i", "<C-q>", function()
+        local lines = vim.api.nvim_buf_get_lines(input_buf, 0, 1, false)
+        local query = (lines[1] or ""):gsub("^> ", "")
+        vim.api.nvim_buf_set_lines(input_buf, 0, 1, false, { "> \"" .. query .. "\" " })
+        -- move cursor to end
+        vim.api.nvim_win_set_cursor(input_win, { 1, #("> \"" .. query .. "\" ") })
+    end, kopts)
 
     -- start in insert mode
     vim.cmd("startinsert!")
