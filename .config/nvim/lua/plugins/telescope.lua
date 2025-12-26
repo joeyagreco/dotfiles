@@ -136,14 +136,14 @@ return {
         telescope.load_extension("live_grep_args")
     end,
     keys = {
-        {
-            "<leader>s",
-            ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-            -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
-            desc = "search for a word",
-            silent = true,
-            noremap = true,
-        },
+        -- {
+        --     "<leader>s",
+        --     ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+        --     -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
+        --     desc = "search for a word",
+        --     silent = true,
+        --     noremap = true,
+        -- },
         {
             "<leader>f",
             -- old way of doing this: ":lua require('telescope.builtin').find_files()<CR>",

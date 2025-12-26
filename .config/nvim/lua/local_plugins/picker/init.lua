@@ -393,7 +393,7 @@ function M.live_grep()
 end
 
 function M.setup()
-    vim.keymap.set("n", "<leader>ts", M.live_grep, { desc = "custom live grep picker", silent = true })
+    vim.keymap.set("n", "<leader>s", M.live_grep, { desc = "custom live grep picker", silent = true })
 end
 
 return M
