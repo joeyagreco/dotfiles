@@ -44,35 +44,35 @@ function M.open(opts)
     local start_row = math.floor((ui.height - total_height) / 2)
     local start_col = math.floor((ui.width - total_width) / 2)
 
-    -- create input buffer and window
-    local input_buf = vim.api.nvim_create_buf(false, true)
-    vim.b[input_buf].minipairs_disable = true
-    local input_win = vim.api.nvim_open_win(input_buf, true, {
-        relative = "editor",
-        width = left_width,
-        height = input_height,
-        row = start_row,
-        col = start_col,
-        style = "minimal",
-        border = "rounded",
-        title = " " .. opts.title .. " ",
-        title_pos = "center",
-    })
-
-    -- create results buffer and window
+    -- create results buffer and window (top left)
     local results_buf = vim.api.nvim_create_buf(false, true)
     local results_win = vim.api.nvim_open_win(results_buf, false, {
         relative = "editor",
         width = left_width,
         height = results_height,
-        row = start_row + input_height + 2,
+        row = start_row,
         col = start_col,
         style = "minimal",
         border = "rounded",
         title = " Results ",
         title_pos = "center",
     })
-    vim.api.nvim_set_option_value("cursorline", true, { win = results_win })
+    vim.api.nvim_set_option_value("cursorline", false, { win = results_win })
+
+    -- create input buffer and window (bottom left, below results)
+    local input_buf = vim.api.nvim_create_buf(false, true)
+    vim.b[input_buf].minipairs_disable = true
+    local input_win = vim.api.nvim_open_win(input_buf, true, {
+        relative = "editor",
+        width = left_width,
+        height = input_height,
+        row = start_row + results_height + 2,
+        col = start_col,
+        style = "minimal",
+        border = "rounded",
+        title = " " .. opts.title .. " ",
+        title_pos = "center",
+    })
 
     -- create preview buffer and window
     local preview_buf = vim.api.nvim_create_buf(false, true)
@@ -160,25 +160,40 @@ function M.open(opts)
             return
         end
         if #results > 0 and selected_idx >= 1 and selected_idx <= #results then
-            vim.api.nvim_win_set_cursor(results_win, { selected_idx, 0 })
+            -- convert to reversed display position with padding (first result at bottom)
+            local padding = math.max(0, results_height - #results)
+            local display_row = padding + #results - selected_idx + 1
+            vim.api.nvim_win_set_cursor(results_win, { display_row, 0 })
+            vim.api.nvim_set_option_value("cursorline", true, { win = results_win })
+        else
+            vim.api.nvim_set_option_value("cursorline", false, { win = results_win })
         end
         update_preview()
     end
 
     local function render_results()
+        -- reverse display so first result is at bottom (near search input)
         local display_lines = {}
-        for _, entry in ipairs(results) do
-            table.insert(display_lines, entry.display)
+
+        -- pad with empty lines to stick results to bottom
+        local padding = math.max(0, results_height - #results)
+        for _ = 1, padding do
+            table.insert(display_lines, "")
+        end
+
+        for i = #results, 1, -1 do
+            table.insert(display_lines, results[i].display)
         end
 
         vim.api.nvim_buf_set_lines(results_buf, 0, -1, false, display_lines)
 
-        -- apply icon highlights
+        -- apply icon highlights (also reversed, accounting for padding)
         local ns = vim.api.nvim_create_namespace("picker_icons")
         vim.api.nvim_buf_clear_namespace(results_buf, ns, 0, -1)
         for i, entry in ipairs(results) do
+            local display_idx = padding + #results - i -- reversed index with padding (0-indexed)
             if entry.icon_hl and entry.icon then
-                vim.api.nvim_buf_set_extmark(results_buf, ns, i - 1, 0, {
+                vim.api.nvim_buf_set_extmark(results_buf, ns, display_idx, 0, {
                     end_col = #entry.icon,
                     hl_group = entry.icon_hl,
                 })
@@ -232,30 +247,31 @@ function M.open(opts)
     vim.keymap.set({ "i", "n" }, "<Esc>", close_all, kopts)
     vim.keymap.set("i", "<CR>", open_selected, kopts)
 
+    -- navigation is inverted because display is reversed (first result at bottom)
     vim.keymap.set("i", "<C-n>", function()
-        if selected_idx < #results then
-            selected_idx = selected_idx + 1
+        if selected_idx > 1 then
+            selected_idx = selected_idx - 1
             update_selection()
         end
     end, kopts)
 
     vim.keymap.set("i", "<C-p>", function()
-        if selected_idx > 1 then
-            selected_idx = selected_idx - 1
-            update_selection()
-        end
-    end, kopts)
-
-    vim.keymap.set("i", "<Down>", function()
         if selected_idx < #results then
             selected_idx = selected_idx + 1
             update_selection()
         end
     end, kopts)
 
-    vim.keymap.set("i", "<Up>", function()
+    vim.keymap.set("i", "<Down>", function()
         if selected_idx > 1 then
             selected_idx = selected_idx - 1
+            update_selection()
+        end
+    end, kopts)
+
+    vim.keymap.set("i", "<Up>", function()
+        if selected_idx < #results then
+            selected_idx = selected_idx + 1
             update_selection()
         end
     end, kopts)
