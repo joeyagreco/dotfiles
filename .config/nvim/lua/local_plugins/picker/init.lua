@@ -106,7 +106,11 @@ function M.live_grep()
         vim.api.nvim_buf_clear_namespace(preview_buf, ns, 0, -1)
         local match_line_idx = entry.lnum - start_line -- 0-indexed
         if match_line_idx >= 0 and match_line_idx < #preview_lines then
-            vim.api.nvim_buf_add_highlight(preview_buf, ns, "CursorLine", match_line_idx, 0, -1)
+            vim.api.nvim_buf_set_extmark(preview_buf, ns, match_line_idx, 0, {
+                end_col = #preview_lines[match_line_idx + 1],
+                hl_group = "CursorLine",
+                hl_eol = true,
+            })
         end
     end
 
@@ -138,10 +142,10 @@ function M.live_grep()
         local pattern = search_term
 
         -- check for flags after quoted string: "pattern" -flags
-        local quoted_match = search_term:match('^(["\'].+["\'])%s+(%-[%w%-]+.*)$')
+        local quoted_match = search_term:match("^([\"'].+[\"'])%s+(%-[%w%-]+.*)$")
         if quoted_match then
             pattern = quoted_match
-            local flags_str = search_term:match('^["\'].+["\']%s+(%-[%w%-]+.*)$')
+            local flags_str = search_term:match("^[\"'].+[\"']%s+(%-[%w%-]+.*)$")
             if flags_str then
                 for flag in flags_str:gmatch("%-[%w%-]+") do
                     table.insert(flags, flag)
@@ -229,7 +233,10 @@ function M.live_grep()
         vim.api.nvim_buf_clear_namespace(results_buf, ns, 0, -1)
         for i, entry in ipairs(results) do
             if entry.icon_hl then
-                vim.api.nvim_buf_add_highlight(results_buf, ns, entry.icon_hl, i - 1, 0, #entry.icon)
+                vim.api.nvim_buf_set_extmark(results_buf, ns, i - 1, 0, {
+                    end_col = #entry.icon,
+                    hl_group = entry.icon_hl,
+                })
             end
         end
 
@@ -311,9 +318,9 @@ function M.live_grep()
     vim.keymap.set("i", "<C-q>", function()
         local lines = vim.api.nvim_buf_get_lines(input_buf, 0, 1, false)
         local query = (lines[1] or ""):gsub("^> ", "")
-        vim.api.nvim_buf_set_lines(input_buf, 0, 1, false, { "> \"" .. query .. "\" " })
+        vim.api.nvim_buf_set_lines(input_buf, 0, 1, false, { '> "' .. query .. '" ' })
         -- move cursor to end
-        vim.api.nvim_win_set_cursor(input_win, { 1, #("> \"" .. query .. "\" ") })
+        vim.api.nvim_win_set_cursor(input_win, { 1, #('> "' .. query .. '" ') })
     end, kopts)
 
     -- start in insert mode
