@@ -18,6 +18,7 @@ function M.live_grep()
 
     -- create input buffer and window (top left)
     local input_buf = vim.api.nvim_create_buf(false, true)
+    vim.b[input_buf].minipairs_disable = true -- disable autopairs in picker
     local input_win = vim.api.nvim_open_win(input_buf, true, {
         relative = "editor",
         width = left_width,
