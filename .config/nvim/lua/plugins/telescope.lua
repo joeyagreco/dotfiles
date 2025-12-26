@@ -239,13 +239,13 @@ return {
             silent = true,
             noremap = true,
         },
-        {
-            "<leader>r",
-            ":lua require('telescope.builtin').oldfiles({ cwd = vim.fn.getcwd() })<CR>",
-            desc = "toggle recent files scoped to this directory",
-            silent = true,
-            noremap = true,
-        },
+        -- {
+        --     "<leader>r",
+        --     ":lua require('telescope.builtin').oldfiles({ cwd = vim.fn.getcwd() })<CR>",
+        --     desc = "toggle recent files scoped to this directory",
+        --     silent = true,
+        --     noremap = true,
+        -- },
         {
             "<leader>R",
             ":lua require('telescope.builtin').oldfiles()<CR>",

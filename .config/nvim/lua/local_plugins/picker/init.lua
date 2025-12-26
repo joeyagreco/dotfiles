@@ -202,14 +202,13 @@ function M.open(opts)
     end
 
     local function do_search(query)
-        if not query or query == "" then
-            results = {}
+        results = opts.search(query or "")
+        if #results == 0 then
             vim.api.nvim_buf_set_lines(results_buf, 0, -1, false, {})
             vim.api.nvim_buf_set_lines(preview_buf, 0, -1, false, {})
+            vim.api.nvim_set_option_value("cursorline", false, { win = results_win })
             return
         end
-
-        results = opts.search(query)
         render_results()
         selected_idx = 1
         update_selection()
@@ -292,6 +291,9 @@ function M.open(opts)
     end
 
     vim.cmd("startinsert!")
+
+    -- run initial search with empty query (for pickers that show results immediately)
+    do_search("")
 end
 
 -- helper to parse rg-style flags from query
@@ -338,6 +340,9 @@ function M.live_grep()
     M.open({
         title = "Grep",
         search = function(query)
+            if not query or query == "" then
+                return {}
+            end
             local pattern, flags = M.parse_query_with_flags(query)
 
             local cmd = {
@@ -392,8 +397,58 @@ function M.live_grep()
     })
 end
 
+-- recent files source (scoped to cwd)
+function M.recent_files()
+    local cwd = vim.fn.getcwd()
+
+    M.open({
+        title = "Recent Files",
+        search = function(query)
+            local oldfiles = vim.v.oldfiles
+            local entries = {}
+            local max_results = 100
+            local pattern = query:lower()
+
+            for _, filepath in ipairs(oldfiles) do
+                if #entries >= max_results then
+                    break
+                end
+
+                -- check if file is within cwd
+                local is_in_cwd = vim.startswith(filepath, cwd .. "/")
+                -- check if file exists
+                local exists = vim.fn.filereadable(filepath) == 1
+
+                if is_in_cwd and exists then
+                    -- filter by query
+                    local matches = pattern == "" or filepath:lower():find(pattern, 1, true)
+                    if matches then
+                        -- make path relative to cwd
+                        local relative_path = filepath:sub(#cwd + 2)
+                        local icon, hl = get_icon(filepath)
+                        table.insert(entries, {
+                            filename = filepath,
+                            lnum = 1,
+                            col = 1,
+                            icon = icon,
+                            icon_hl = hl,
+                            display = icon .. relative_path,
+                        })
+                    end
+                end
+            end
+
+            return entries
+        end,
+        on_select = function(entry)
+            vim.cmd("edit " .. vim.fn.fnameescape(entry.filename))
+        end,
+    })
+end
+
 function M.setup()
-    vim.keymap.set("n", "<leader>s", M.live_grep, { desc = "custom live grep picker", silent = true })
+    vim.keymap.set("n", "<leader>s", M.live_grep, { desc = "grep within repo", silent = true })
+    vim.keymap.set("n", "<leader>r", M.recent_files, { desc = "recent files", silent = true })
 end
 
 return M
