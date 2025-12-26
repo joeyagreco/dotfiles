@@ -247,32 +247,29 @@ function M.open(opts)
     vim.keymap.set("i", "<CR>", open_selected, kopts)
 
     -- navigation is inverted because display is reversed (first result at bottom)
+    -- wraps around at edges
     vim.keymap.set("i", "<C-n>", function()
-        if selected_idx > 1 then
-            selected_idx = selected_idx - 1
-            update_selection()
-        end
+        if #results == 0 then return end
+        selected_idx = selected_idx > 1 and selected_idx - 1 or #results
+        update_selection()
     end, kopts)
 
     vim.keymap.set("i", "<C-p>", function()
-        if selected_idx < #results then
-            selected_idx = selected_idx + 1
-            update_selection()
-        end
+        if #results == 0 then return end
+        selected_idx = selected_idx < #results and selected_idx + 1 or 1
+        update_selection()
     end, kopts)
 
     vim.keymap.set("i", "<Down>", function()
-        if selected_idx > 1 then
-            selected_idx = selected_idx - 1
-            update_selection()
-        end
+        if #results == 0 then return end
+        selected_idx = selected_idx > 1 and selected_idx - 1 or #results
+        update_selection()
     end, kopts)
 
     vim.keymap.set("i", "<Up>", function()
-        if selected_idx < #results then
-            selected_idx = selected_idx + 1
-            update_selection()
-        end
+        if #results == 0 then return end
+        selected_idx = selected_idx < #results and selected_idx + 1 or 1
+        update_selection()
     end, kopts)
 
     -- quote the current search
