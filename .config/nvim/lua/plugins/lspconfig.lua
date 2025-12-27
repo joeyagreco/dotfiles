@@ -63,11 +63,20 @@ return {
             -- tell pyright what the root dir of this python file is
             root_dir = root_dir_func,
             before_init = function(_, config)
-                -- use mise's python interpreter (this allows our LSP to hook into external libs)
-                local python_path = vim.fn.exepath("python3") or vim.fn.exepath("python")
-                if python_path ~= "" then
+                -- look for .venv in the project root (for uv projects)
+                -- NOTE: @joeyagreco - this allows pyright to find installed external libs !
+                local root = config.root_dir
+                local venv_path = root and (root .. "/.venv/bin/python")
+                if venv_path and vim.fn.executable(venv_path) == 1 then
                     config.settings.python = config.settings.python or {}
-                    config.settings.python.pythonPath = python_path
+                    config.settings.python.pythonPath = venv_path
+                else
+                    -- fallback to mise's python interpreter
+                    local python_path = vim.fn.exepath("python3") or vim.fn.exepath("python")
+                    if python_path ~= "" then
+                        config.settings.python = config.settings.python or {}
+                        config.settings.python.pythonPath = python_path
+                    end
                 end
             end,
         })
