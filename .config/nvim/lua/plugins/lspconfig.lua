@@ -5,7 +5,7 @@ return {
     event = "BufEnter",
     config = function()
         -- reduce lsp log verbosity (prevents huge log files)
-        vim.lsp.set_log_level("WARN")
+        vim.lsp.set_log_level("ERROR")
 
         local lspconfig = require("lspconfig")
         local util = require("lspconfig.util")
