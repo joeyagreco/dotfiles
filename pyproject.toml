@@ -20,7 +20,7 @@ select = [
    "I",
 ]
 
-[tool.pyright]
-# we want to use only ruff for stuff, so disable the things that we already see ruff reporting on
-reportUndefinedVariable = false
-reportUnusedExpression = false
+# [tool.pyright]
+# # we want to use only ruff for stuff, so disable the things that we already see ruff reporting on
+# reportUndefinedVariable = false
+# reportUnusedExpression = false
