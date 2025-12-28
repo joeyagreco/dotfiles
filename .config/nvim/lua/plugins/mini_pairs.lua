@@ -2,6 +2,8 @@
 return {
     "echasnovski/mini.pairs",
     version = "*", --stable
+    -- NOTE: @joeyagreco - testing having this disabled for a while
+    enabled = false,
     lazy = true,
     event = "InsertEnter",
     opts = {
