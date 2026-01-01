@@ -145,6 +145,11 @@ setopt HIST_IGNORE_DUPS
 # use emacs keybindings (ctrl+a, ctrl+e, etc)
 bindkey -e
 
+# ctrl-n to edit current command in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^n' edit-command-line
+
 # history scrolling based on first word in input
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
