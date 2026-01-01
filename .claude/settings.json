@@ -40,5 +40,9 @@
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754090047522
+  },
+  "attribution": {
+    "commitMessages": false,
+    "prDescriptions": false
   }
 }
