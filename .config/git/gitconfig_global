@@ -8,7 +8,7 @@
 	f       = fetch --all
 	st      = stash --include-untracked
 	lg      = log --oneline
-	br      = "!git branch | head -5"
+	br      = "!git branch | head -10"
 
 [branch]
     sort = -committerdate
