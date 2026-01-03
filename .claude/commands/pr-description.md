@@ -27,3 +27,4 @@ Structure the body with:
 - Infer the purpose from the code changes
 - Be concise but comprehensive
 - Do not include implementation details unless they're architecturally significant
+- Do NOT add any attribution footer (e.g., "Generated with Claude Code")
