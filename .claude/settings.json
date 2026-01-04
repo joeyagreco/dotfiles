@@ -20,6 +20,7 @@
       "Bash(lsof:*)",
       "Bash(npm run typecheck:*)",
       "Bash(rg:*)",
+      "Bash(ruff:*)",
       "Bash(sed:*)",
       "Bash(tree:*)",
       "Playwright__Click",
