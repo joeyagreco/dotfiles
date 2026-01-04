@@ -103,16 +103,17 @@ return {
             },
         })
 
-        -- openscad
-        lspconfig.openscad_lsp.setup({
-            cmd = { "openscad-lsp", "--stdio" },
-            filetypes = { "openscad" },
-            settings = {
-                openscad = {
-                    indent = "    ",
-                },
-            },
-        })
+        -- NOTE: @joeyagreco - turning off for now since it's weird
+        -- -- openscad
+        -- lspconfig.openscad_lsp.setup({
+        --     cmd = { "openscad-lsp", "--stdio" },
+        --     filetypes = { "openscad" },
+        --     settings = {
+        --         openscad = {
+        --             indent = "    ",
+        --         },
+        --     },
+        -- })
 
         -- yaml
         lspconfig.yamlls.setup({
