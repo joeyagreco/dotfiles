@@ -13,6 +13,7 @@
       "Bash(gh pr list:*)",
       "Bash(gh run list:*)",
       "Bash(git describe:*)",
+      "Bash(git fetch:*)",
       "Bash(git log:*)",
       "Bash(git show:*)",
       "Bash(grep:*)",
