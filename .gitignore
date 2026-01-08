@@ -36,15 +36,16 @@ packer
 .config/AWS*CLIENT
 
 # claude code
+.claude/.update.lock
+.claude/cache
 .claude/debug
 .claude/file-history
 .claude/history.jsonl
+.claude/ide
+.claude/plans
+.claude/plugins
 .claude/projects
 .claude/shell-snapshots
+.claude/stats-cache.json
 .claude/statsig
 .claude/todos
-.claude/.update.lock
-.claude/plugins
-.claude/plans
-.claude/stats-cache.json
-.claude/ide
