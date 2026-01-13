@@ -35,9 +35,11 @@
       "WebFetch",
       "WebSearch"
     ],
+    "ask": [],
     "deny": []
   },
   "model": "opus",
+  "disableBypassPermissionsMode": "disable",
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true
   },
