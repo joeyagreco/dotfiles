@@ -10,7 +10,8 @@ You are generating and updating a pull request title and description for the cur
 2. **Update the PR**: `gh pr edit --title "TITLE" --body "BODY"`
 
 ## Title Guidelines
-- Use conventional commit format when appropriate (feat:, fix:, docs:, refactor:, etc.)
+- If you have an issue or ticket number, prefix the title of the PR with it like so "[FOO-123] Some Title"
+- Otherwise, use conventional commit format (feat:, fix:, docs:, refactor:, etc.)
 - Keep it concise but descriptive (max ~72 characters)
 - Focus on WHAT the change does, not HOW
 
