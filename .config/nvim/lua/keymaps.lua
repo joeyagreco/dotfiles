@@ -30,10 +30,6 @@ map("n", "K", function()
     vim.lsp.buf.hover({ border = "rounded" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info for word under cursor" }))
 
--- TODO: @joeyagreco - testing using "grn" to accomplish same thing
--- -- rename symbol (change name)
--- map("n", "<leader>cn", vim.lsp.buf.rename, helpers.combine_tables(default_options, { desc = "rename symbol" }))
-
 -- see lsp info
 map("n", "<leader>L", function()
     vim.diagnostic.open_float(nil, { source = "always", focusable = true, border = "rounded" })
@@ -84,12 +80,6 @@ map("n", "<leader>t", function()
     end
 end, helpers.combine_tables(default_options, { desc = "close things" }))
 
--- -- open quickfix list
--- map("n", "<leader>qo", ":copen<CR>", helpers.combine_tables(default_options, { desc = "open quickfix list" }))
---
--- -- close quickfix list
--- map("n", "<leader>qx", ":cclose<CR>", helpers.combine_tables(default_options, { desc = "close quickfix list" }))
-
 -- go to last buffer
 map("n", "<leader>l", "<C-^>", helpers.combine_tables(default_options, { desc = "go to last buffer" }))
 
@@ -111,12 +101,6 @@ map("v", "<", "<gv", helpers.combine_tables(default_options, { desc = "keep sele
 -- move selected text up and down
 map("v", "J", ":m '>+1<CR>gv=gv", helpers.combine_tables(default_options, { desc = "move selected text down" }))
 map("v", "K", ":m '<-2<CR>gv=gv", helpers.combine_tables(default_options, { desc = "move selected text up" }))
-
--- -- toggle relative line numbers
--- map("n", "<leader>n", function()
---     local relativeNumber = vim.opt.relativenumber:get()
---     vim.opt.relativenumber = not relativeNumber
--- end, helpers.combine_tables(default_options, { desc = "toggle relative line numbers" }))
 
 -- toggle comments
 map("n", "<leader>/", "gcc", helpers.combine_tables({ remap = true }, { desc = "toggle comment (line)" }))
