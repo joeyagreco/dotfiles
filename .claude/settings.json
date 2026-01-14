@@ -25,6 +25,7 @@
       "Bash(ruff:*)",
       "Bash(sed:*)",
       "Bash(tree:*)",
+      "Bash(xargs:*)",
       "Playwright__Click",
       "Playwright__Hover_mouse",
       "Playwright__List_network_requests",
