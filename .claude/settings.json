@@ -6,6 +6,7 @@
       "Bash(cat:*)",
       "Bash(docker build:*)",
       "Bash(docker inspect:*)",
+      "Bash(docker network prune:*)",
       "Bash(docker logs:*)",
       "Bash(docker ps:*)",
       "Bash(docker restart:*)",
