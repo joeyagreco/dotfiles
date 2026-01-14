@@ -24,6 +24,7 @@
       "Bash(rg:*)",
       "Bash(ruff:*)",
       "Bash(sed:*)",
+      "Bash(sort:*)",
       "Bash(tree:*)",
       "Bash(wc:*)",
       "Bash(xargs:*)",
