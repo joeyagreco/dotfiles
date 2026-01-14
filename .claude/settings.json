@@ -4,6 +4,7 @@
   "permissions": {
     "allow": [
       "Bash(cat:*)",
+      "Bash(docker build:*)",
       "Bash(docker inspect:*)",
       "Bash(docker logs:*)",
       "Bash(docker ps:*)",
