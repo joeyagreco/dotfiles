@@ -18,3 +18,8 @@ GOOD: `foo = 1_000`
 
 ### __init__.py files
 Do not add anything inside of `__init__.py` files unless it is absolutely necessary or you are explicitly asked to.
+
+### function parameters
+Functions with more than 1 parameter should use `*` to enforce keyword arguments.
+BAD: `def foo(a, b, c): ...`
+GOOD: `def foo(*, a, b, c): ...`
