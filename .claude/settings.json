@@ -5,6 +5,7 @@
     "allow": [
       "Bash(cat:*)",
       "Bash(docker:*)",
+      "Bash(uv:*)",
       "Bash(echo:*)",
       "Bash(find:*)",
       "Bash(gh pr diff:*)",
