@@ -8,7 +8,8 @@
 	f       = fetch --all
 	st      = stash --include-untracked
 	lg      = log --oneline
-	br      = "!git branch | head -10"
+		# interactive selection for branches
+	br      = "!f() { branch=$(git branch | fzf --bind 'j:down,k:up' --no-multi | sed 's/^[* ]*//'); [ -n \"$branch\" ] && git checkout \"$branch\"; }; f"
 
 [branch]
     sort = -committerdate
