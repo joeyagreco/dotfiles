@@ -60,8 +60,10 @@ alias make='gmake'
 alias lastdownload='. $BASH_SCRIPTS_PATH/last_download.sh'
 alias info='fastfetch'
 alias speed='networkquality'
-# create a pr with github. this will likely go through iteration as i discover what is smoothest
+# create a pr with github
 alias pr='$BASH_SCRIPTS_PATH/pr.sh'
+# create a pr with github and use claude to set the description and title of the pr
+alias prd='gh pr create --fill --draft && echo "setting pr title and description with claude..." && claude "/pr-description-and-title" --print'
 alias prchecks='$BASH_SCRIPTS_PATH/watch-github-pr-ci-status.sh'
 
 ##########
