@@ -35,20 +35,25 @@ map("n", "<leader>L", function()
     vim.diagnostic.open_float(nil, { source = "always", focusable = true, border = "rounded" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
 
--- open relative file links, similar to 'gx'
+-- open file references like @path/to/file.py#L123
 vim.keymap.set("n", "gX", function()
     local line = vim.fn.getline(".")
-    local match = string.match(line, "%[.-%]%((.-)%)")
-    if match then
-        -- get the directory of the current file
-        local current_file_dir = vim.fn.expand("%:p:h")
-        -- resolve the relative path to an absolute path
-        local absolute_path = vim.fn.fnamemodify(current_file_dir .. "/" .. match, ":p")
+    -- match @path/to/file#L123 pattern
+    local path, line_num = string.match(line, "@([^@%s]+)#L(%d+)")
+    if path then
+        -- get git root directory
+        local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+        if vim.v.shell_error ~= 0 then
+            print("not in a git repository")
+            return
+        end
+        local absolute_path = git_root .. "/" .. path
         vim.cmd("edit " .. vim.fn.fnameescape(absolute_path))
+        vim.cmd(":" .. line_num)
     else
-        print("no link under cursor")
+        print("no @path#L123 reference found on line")
     end
-end, { desc = "open relative file links, similar to 'gx'" })
+end, { desc = "open file reference like @path/to/file#L123" })
 
 -------------
 -- GENERAL --
