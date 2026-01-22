@@ -35,11 +35,14 @@ map("n", "<leader>L", function()
     vim.diagnostic.open_float(nil, { source = "always", focusable = true, border = "rounded" })
 end, helpers.combine_tables(default_options, { desc = "see lsp info with source" }))
 
--- open file references like @path/to/file.py#L123
+-- open file references like @path/to/file.py or @path/to/file.py#L123
 vim.keymap.set("n", "gX", function()
     local line = vim.fn.getline(".")
-    -- match @path/to/file#L123 pattern
-    local path, line_num = string.match(line, "@([^@%s]+)#L(%d+)")
+    -- match @path/to/file with optional #L123
+    local path, line_num = string.match(line, "@([^@%s#]+)#L(%d+)")
+    if not path then
+        path = string.match(line, "@([^@%s#]+)")
+    end
     if path then
         -- get git root directory
         local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
@@ -49,11 +52,13 @@ vim.keymap.set("n", "gX", function()
         end
         local absolute_path = git_root .. "/" .. path
         vim.cmd("edit " .. vim.fn.fnameescape(absolute_path))
-        vim.cmd(":" .. line_num)
+        if line_num then
+            vim.cmd(":" .. line_num)
+        end
     else
-        print("no @path#L123 reference found on line")
+        print("no @path reference found on line")
     end
-end, { desc = "open file reference like @path/to/file#L123" })
+end, { desc = "open file reference like @path/to/file.py#L123" })
 
 -------------
 -- GENERAL --
