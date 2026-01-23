@@ -64,7 +64,6 @@ alias speed='networkquality'
 alias pr='$BASH_SCRIPTS_PATH/pr.sh'
 # create a pr with github and use claude to set the description and title of the pr
 alias prd='gh pr create --fill --draft && printf "\nsetting pr title and description with claude...\n\n" && claude "/pr-description-and-title" --print'
-alias prchecks='$BASH_SCRIPTS_PATH/watch-github-pr-ci-status.sh'
 
 ##########
 # PYTHON #
