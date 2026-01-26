@@ -16,7 +16,7 @@ You are generating and updating a pull request title and description for the cur
 - Focus on WHAT the change does, not HOW
 
 ## Description Guidelines
-If there is already useful information in the description, use it when generating your new description.
+IMPORTANT: If there is already useful information in the description (like links, images, etc), use it when generating your new description.
 
 Structure the body with:
 
