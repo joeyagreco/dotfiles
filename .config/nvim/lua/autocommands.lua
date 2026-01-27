@@ -1,5 +1,8 @@
 -- set filetypes
 vim.filetype.add({
+    extension = {
+        j2 = "jinja",
+    },
     pattern = {
         [".*/templates/.*%.yaml"] = "helm", -- https://neovim.discourse.group/t/detect-helm-files-with-filetype-lua/3248
         ["requirements.*%.txt"] = "requirements",
