@@ -5,7 +5,6 @@
     "allow": [
       "Bash(cat:*)",
       "Bash(docker:*)",
-      "Bash(uv:*)",
       "Bash(echo:*)",
       "Bash(find:*)",
       "Bash(gh pr diff:*)",
@@ -14,6 +13,7 @@
       "Bash(gh repo view:*)",
       "Bash(gh run list:*)",
       "Bash(gh run view:*)",
+      "Bash(gh workflow list:*)",
       "Bash(git describe:*)",
       "Bash(git fetch:*)",
       "Bash(git log:*)",
@@ -27,6 +27,7 @@
       "Bash(sed:*)",
       "Bash(sort:*)",
       "Bash(tree:*)",
+      "Bash(uv:*)",
       "Bash(wc:*)",
       "Bash(xargs:*)",
       "Playwright__Click",
