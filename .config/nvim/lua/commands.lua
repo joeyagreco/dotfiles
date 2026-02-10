@@ -84,3 +84,32 @@ vim.api.nvim_create_user_command(
     end,
     { desc = "copy commit url for commit that current line comes from. open as well with `:Commit open`", nargs = "?" }
 )
+
+-- open the github pr that introduced the current line
+vim.api.nvim_create_user_command("Pr", function()
+    local file = vim.fn.expand("%:p")
+    local line = vim.fn.line(".")
+    local blame = vim.fn.system("git blame -L " .. line .. "," .. line .. " --porcelain " .. vim.fn.shellescape(file))
+
+    if vim.v.shell_error ~= 0 then
+        print("error: git blame failed")
+        return
+    end
+
+    local sha = blame:match("^(%x+)")
+    if not sha or sha:match("^0+$") then
+        print("error: line is uncommitted")
+        return
+    end
+
+    local url = vim.fn.system("gh pr list --search " .. sha .. " --state merged --json url --jq '.[0].url'"):gsub("\n", "")
+
+    if vim.v.shell_error ~= 0 or url == "" or url == "null" then
+        print("error: no pr found for commit " .. sha:sub(1, 7))
+        return
+    end
+
+    vim.fn.setreg("+", url)
+    vim.fn.system({ "open", url })
+    print("opened " .. url)
+end, { desc = "open the github pr that introduced the current line" })
