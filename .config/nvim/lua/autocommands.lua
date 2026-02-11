@@ -85,3 +85,21 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         end
     end,
 })
+
+-- preserve scroll position when switching buffers
+-- without this, neovim centers the cursor when returning to a buffer
+vim.api.nvim_create_autocmd("BufLeave", {
+    desc = "save window view before leaving buffer",
+    callback = function()
+        vim.b.saved_winview = vim.fn.winsaveview()
+    end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    desc = "restore window view when entering buffer",
+    callback = function()
+        if vim.b.saved_winview then
+            vim.fn.winrestview(vim.b.saved_winview)
+        end
+    end,
+})
