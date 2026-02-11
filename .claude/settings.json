@@ -39,15 +39,16 @@
       "WebFetch",
       "WebSearch"
     ],
-    "ask": [],
-    "deny": []
+    "deny": [],
+    "ask": []
   },
   "model": "opus",
-  "disableBypassPermissionsMode": "disable",
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true
   },
+  "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047522
-  }
+  },
+  "fastMode": true
 }
