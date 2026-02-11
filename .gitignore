@@ -50,3 +50,4 @@ packer
 .claude/stats-cache.json
 .claude/statsig
 .claude/todos
+.claude/usage-data
