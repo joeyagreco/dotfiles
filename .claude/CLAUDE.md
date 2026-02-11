@@ -17,6 +17,10 @@
 - avoid formal bullet-point-style prose in paragraphs - let it flow naturally
 - no need for perfect grammar or formal structure
 
+## python
+- use `*` to enforce keyword-only arguments when a function has multiple parameters (e.g. `def foo(*, name, age)`)
+- avoid default values in function signatures
+
 ## code formatting
 - new comments should be in all lower case
     - if existing comments do not follow this rule.. do NOT change them to conform
