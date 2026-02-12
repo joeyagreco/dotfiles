@@ -6,8 +6,6 @@
     - when in doubt, present the plan and wait for approval.
 
 ## writing style (for comments, PR descriptions, docs, slack messages, etc.)
-- use lowercase for almost everything, including sentence starts
-- use common abbreviations when they're obvious (DD for Datadog, etc.)
 - keep it casual and conversational - "stuff like", "sadly", "so basically"
 - be concise - cut the fluff, get to the point
 - for links/references, use "(source)" or "see X for more" instead of inline URLs when possible
@@ -15,7 +13,6 @@
 - use parenthetical asides naturally like "(if we want it)"
 - don't over-explain - trust the reader to follow along
 - avoid formal bullet-point-style prose in paragraphs - let it flow naturally
-- no need for perfect grammar or formal structure
 
 ## python
 - use `*` to enforce keyword-only arguments when a function has multiple parameters (e.g. `def foo(*, name, age)`)
