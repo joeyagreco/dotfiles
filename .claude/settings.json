@@ -31,6 +31,7 @@
       "Bash(wc:*)",
       "Bash(xargs:*)",
       "Playwright__Click",
+      "Playwright__Get_console_messages",
       "Playwright__Hover_mouse",
       "Playwright__List_network_requests",
       "Playwright__Navigate",
