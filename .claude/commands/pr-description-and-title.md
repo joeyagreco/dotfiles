@@ -27,6 +27,7 @@ Structure the body with:
    - Focus on user-facing or architecturally significant changes
 
 ## Rules
+- Use proper casing (standard capitalization) for the title and description, not lowercase
 - Infer the purpose from the code changes
 - Be concise but comprehensive
 - Do not include implementation details unless they're architecturally significant
