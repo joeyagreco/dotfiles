@@ -11,7 +11,7 @@ You are generating and updating a pull request title and description for the cur
 
 ## Title Guidelines
 - If you have an issue or ticket number, prefix the title of the PR with it like so "[FOO-123] Some Title"
-- Otherwise, use conventional commit format (feat:, fix:, docs:, refactor:, etc.)
+- Otherwise, use conventional commit format (Feat:, Fix:, Docs:, Refactor:, etc.)
 - Keep it concise but descriptive (max ~72 characters)
 - Focus on WHAT the change does, not HOW
 
