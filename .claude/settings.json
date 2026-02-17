@@ -22,6 +22,7 @@
       "Bash(ls:*)",
       "Bash(lsof:*)",
       "Bash(npm ls:*)",
+      "Bash(npx vite build:*)",
       "Bash(npm run typecheck:*)",
       "Bash(rg:*)",
       "Bash(ruff:*)",
