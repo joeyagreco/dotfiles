@@ -47,9 +47,9 @@
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true
   },
+  "fastMode": true,
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047522
-  },
-  "fastMode": true
+  }
 }
