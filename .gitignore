@@ -52,3 +52,5 @@ packer
 .claude/tasks
 .claude/todos
 .claude/usage-data
+.claude/backups
+.claude/telemetry
