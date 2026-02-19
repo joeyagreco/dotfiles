@@ -7,48 +7,16 @@ return {
         -- reduce lsp log verbosity (prevents huge log files)
         vim.lsp.set_log_level("ERROR")
 
-        local lspconfig = require("lspconfig")
-        local util = require("lspconfig.util")
-
-        -- good func to find root dir
-        local root_dir_func = function(fname)
-            -- https://github.com/neovim/nvim-lspconfig/blob/541f3a2781de481bb84883889e4d9f0904250a56/doc/lspconfig.txt#L294
-            -- locates the first parent directory containing a `.git` directory
-            return util.find_git_ancestor(fname) or vim.fn.getcwd()
-        end
-
-        -- css
-        lspconfig.cssls.setup({})
-
-        -- golang
-        lspconfig.gopls.setup({})
-
-        -- markdown
-        lspconfig.marksman.setup({})
-
         -- zsh
         -- NOTE: use .shellcheckrc for configuration
-        lspconfig.bashls.setup({
+        vim.lsp.config("bashls", {
             filetypes = { "sh", "zsh", "zshrc" },
         })
-
-        -- terraform
-        lspconfig.terraformls.setup({})
-
-        -- toml
-        lspconfig.taplo.setup({})
-
-        -- proto
-        lspconfig.protols.setup({})
-
-        -- typescript
-        lspconfig.ts_ls.setup({})
 
         -- python
         -- -- https://github.com/astral-sh/ruff
         -- -- NOTE: see pyproject.toml for config under tool.ruff.lint
-        -- lspconfig.ruff.setup({
-        --     root_dir = root_dir_func,
+        -- vim.lsp.config("ruff", {
         --     cmd = { "ruff", "server", "--preview" },
         --     init_options = {
         --         settings = {
@@ -59,9 +27,7 @@ return {
         --     },
         -- })
         -- ruff lsp doesn't do "go to definition" at all (source: https://github.com/astral-sh/ruff-lsp/issues/57#issuecomment-1399540768), so use pyright too
-        lspconfig.pyright.setup({
-            -- tell pyright what the root dir of this python file is
-            root_dir = root_dir_func,
+        vim.lsp.config("pyright", {
             before_init = function(_, config)
                 -- look for .venv in the project root (for uv projects)
                 -- NOTE: @joeyagreco - this allows pyright to find installed external libs !
@@ -82,7 +48,7 @@ return {
         })
 
         -- lua
-        lspconfig.lua_ls.setup({
+        vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
                     -- START: add vim to the runtime
@@ -105,7 +71,7 @@ return {
 
         -- NOTE: @joeyagreco - turning off for now since it's weird
         -- -- openscad
-        -- lspconfig.openscad_lsp.setup({
+        -- vim.lsp.config("openscad_lsp", {
         --     cmd = { "openscad-lsp", "--stdio" },
         --     filetypes = { "openscad" },
         --     settings = {
@@ -116,16 +82,30 @@ return {
         -- })
 
         -- yaml
-        lspconfig.yamlls.setup({
+        vim.lsp.config("yamlls", {
             filetypes = { "yaml", "yml" },
         })
 
         -- makefile
-        lspconfig.efm.setup({
+        vim.lsp.config("efm", {
             filetypes = { "make" },
         })
 
-        -- vimrc
-        lspconfig.vimls.setup({})
+        -- enable all servers
+        vim.lsp.enable({
+            "bashls",
+            "cssls",
+            "efm",
+            "gopls",
+            "lua_ls",
+            "marksman",
+            "protols",
+            "pyright",
+            "taplo",
+            "terraformls",
+            "ts_ls",
+            "vimls",
+            "yamlls",
+        })
     end,
 }
