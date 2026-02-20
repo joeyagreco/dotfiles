@@ -50,7 +50,6 @@
     "commit-commands@claude-plugins-official": true
   },
   "fastMode": true,
-  "apiKeyHelper": "echo $CLAUDE_CODE_API_KEY",
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047522
