@@ -54,3 +54,4 @@ packer
 .claude/usage-data
 .claude/backups
 .claude/telemetry
+.claude/mcp-needs-auth-cache.json

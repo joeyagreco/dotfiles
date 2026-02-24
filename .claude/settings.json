@@ -52,6 +52,10 @@
   "fastMode": true,
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
-    "lastShownTime": 1754090047522
+    "lastShownTime": 1754090047822
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
   }
 }
