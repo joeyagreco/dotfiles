@@ -22,8 +22,8 @@
       "Bash(ls:*)",
       "Bash(lsof:*)",
       "Bash(npm ls:*)",
-      "Bash(npx vite build:*)",
       "Bash(npm run typecheck:*)",
+      "Bash(npx vite build:*)",
       "Bash(rg:*)",
       "Bash(ruff:*)",
       "Bash(sed:*)",
@@ -40,7 +40,8 @@
       "Playwright__Page_snapshot",
       "Playwright__Wait",
       "WebFetch",
-      "WebSearch"
+      "WebSearch",
+      "mcp__claude_ai_Linear__get_issue"
     ],
     "deny": [],
     "ask": []
