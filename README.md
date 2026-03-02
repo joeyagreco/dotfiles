@@ -20,10 +20,8 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 1. download the latest stable `.dmg` file from the [github releases page](https://github.com/alacritty/alacritty/releases)
 
 # upgrading neovim
-
 1. check [releases page](https://github.com/neovim/neovim/releases) to see the latest version
 1. set version `mise use neovim@{VERSION}`
 
 # upgrading tmux
-
 1. check the [releases page](https://github.com/tmux/tmux/releases) to see the latest version
