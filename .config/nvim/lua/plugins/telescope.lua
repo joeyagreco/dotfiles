@@ -9,7 +9,7 @@ return {
     },
     priority = helpers.plugin_priority.TELESCOPE,
     lazy = false,
-    tag = "0.1.8",
+    tag = "v0.2.1",
     config = function()
         local actions = require("telescope.actions")
         local lga_actions = require("telescope-live-grep-args.actions")
