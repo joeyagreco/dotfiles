@@ -48,6 +48,10 @@
     "ask": []
   },
   "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true
   },

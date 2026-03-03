@@ -55,3 +55,4 @@ packer
 .claude/backups
 .claude/telemetry
 .claude/mcp-needs-auth-cache.json
+.claude/policy-limits.json
