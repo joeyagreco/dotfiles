@@ -100,29 +100,18 @@ return {
                     end
                 end
 
-                local make_entry = require("fzf-lua.make_entry")
-                local contents = function(cb)
-                    local co = coroutine.running()
-                    local entry_opts = {
-                        cwd = vim.fn.getcwd(),
-                        file_icons = true,
-                        color_icons = true,
-                    }
-                    for _, file in ipairs(files) do
-                        local entry = make_entry.file(file, entry_opts)
-                        if entry then
-                            cb(entry, function() coroutine.resume(co) end)
-                            coroutine.yield()
-                        end
-                    end
-                    cb(nil)
+                -- make paths relative to cwd
+                local relative_files = {}
+                for _, file in ipairs(files) do
+                    table.insert(relative_files, file:sub(#cwd + 1))
                 end
 
-                require("fzf-lua").fzf_exec(contents, {
+                require("fzf-lua").fzf_exec(relative_files, {
                     actions = require("fzf-lua").defaults.actions.files,
                     previewer = "builtin",
                     file_icons = true,
                     color_icons = true,
+                    cwd = vim.fn.getcwd(),
                     fzf_opts = { ["--no-sort"] = true, ["--ansi"] = true },
                 })
             end,
