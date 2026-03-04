@@ -94,7 +94,7 @@ return {
                 -- append oldfiles not already in the buffer list
                 for _, file in ipairs(vim.v.oldfiles) do
                     local full = vim.fn.fnamemodify(file, ":p")
-                    if not seen[full] and vim.startswith(full, cwd) and vim.uv.fs_stat(full) then
+                    if full ~= current_file and not seen[full] and vim.startswith(full, cwd) and vim.uv.fs_stat(full) then
                         table.insert(files, full)
                         seen[full] = true
                     end
