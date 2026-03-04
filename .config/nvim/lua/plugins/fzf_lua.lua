@@ -142,9 +142,9 @@ return {
                         if not entry.text then
                             return true
                         end
-                        local kind = entry.text:match("^%[(.-)%]")
+                        local kind = entry.text:match("%[(.-)%]")
                         if not kind then
-                            return true
+                            return false
                         end
                         local allowed = {
                             Function = true,
