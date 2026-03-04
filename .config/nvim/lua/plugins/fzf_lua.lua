@@ -166,10 +166,9 @@ return {
             "<leader>d",
             function()
                 require("fzf-lua").diagnostics_document({
-                    -- hide the filename, only show line:col and diagnostic text
-                    filename_only = true,
                     multiline = false,
-                    fzf_opts = { ["--with-nth"] = "2..", ["--ansi"] = true },
+                    cwd = vim.fn.expand("%:p:h"),
+                    headers = false,
                 })
             end,
             desc = "show lsp diagnostics for current buffer",
