@@ -5,47 +5,14 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-live-grep-args.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     priority = helpers.plugin_priority.TELESCOPE,
-    lazy = false,
+    lazy = true,
     tag = "v0.2.1",
     config = function()
         local actions = require("telescope.actions")
-        local lga_actions = require("telescope-live-grep-args.actions")
         local telescope = require("telescope")
         local previewers = require("telescope.previewers")
-        local builtin = require("telescope.builtin")
-
-        -----------------------
-        -- set user commands --
-        -----------------------
-
-        -- see all keymaps
-        vim.api.nvim_create_user_command("Keys", function()
-            builtin.keymaps({
-                layout_strategy = "horizontal",
-                layout_config = { width = 0.6, height = 0.5 },
-                sorting_strategy = "ascending",
-                prompt_title = "🔑 Keymaps",
-            })
-        end, { desc = "see all keymaps" })
-
-        vim.api.nvim_create_user_command("Commands", function()
-            builtin.commands({
-                layout_strategy = "horizontal",
-                layout_config = { width = 0.6, height = 0.5 },
-                sorting_strategy = "ascending",
-                prompt_title = "⚡ Commands",
-            })
-        end, { desc = "see all commands" })
-
-        -- search nvim package / plugin files
-        -- this is useful for finding the source code of plugin functions
-        vim.api.nvim_create_user_command("Pack", function()
-            telescope.extensions.live_grep_args.live_grep_args({ cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") })
-        end, { desc = "search nvim package / plugin files" })
 
         local handle_large_files = function(filepath, bufnr, opts)
             -- size limit for previews (kb)
@@ -117,157 +84,6 @@ return {
                     end,
                 },
             },
-            extensions = {
-                live_grep_args = {
-                    mappings = {
-                        i = {
-                            ["<C-q>"] = lga_actions.quote_prompt(),
-                            ["<C-g>"] = lga_actions.quote_prompt({ postfix = ' --glob ""' }),
-                        },
-                    },
-                },
-            },
         })
-
-        ---------------------
-        -- load extensions --
-        ---------------------
-
-        -- these MUST be loaded last
-        telescope.load_extension("fzf")
-        telescope.load_extension("live_grep_args")
     end,
-    keys = {
-        {
-            "<leader>f",
-            -- old way of doing this: ":lua require('telescope.builtin').find_files()<CR>",
-            -- new way of doing this to match how we search with <leader>s (with quoting keymaps and rg flag search)
-            function()
-                local pickers = require("telescope.pickers")
-                local finders = require("telescope.finders")
-                local conf = require("telescope.config").values
-                local make_entry = require("telescope.make_entry")
-                local action_state = require("telescope.actions.state")
-
-                -- TODO: make this function generic and use it for all pickers (find files, live grep, recent files, etc)
-                pickers
-                    .new({}, {
-                        prompt_title = "Find Files (Args)",
-                        finder = finders.new_dynamic({
-                            entry_maker = make_entry.gen_from_file({}),
-                            fn = function(prompt)
-                                if not prompt or prompt == "" then
-                                    return vim.fn.systemlist("rg --files --hidden")
-                                end
-
-                                -- parse rg flags from prompt (e.g., "deps -tpy" -> pattern="deps", flags="-tpy")
-                                local pattern = prompt
-                                local flags = ""
-                                local flag_match = prompt:match("(.-)%s+(%-[%w%-]+.*)$")
-                                if flag_match then
-                                    pattern = flag_match
-                                    flags = prompt:match("^.-%s+(%-[%w%-]+.*)$")
-                                end
-
-                                -- trim trailing whitespace from pattern so that we get the same results for >"foo"< and >"foo" < (note the trailing space after the 2nd quote)
-                                pattern = pattern:match("^%s*(.-)%s*$")
-
-                                -- if pattern is already quoted, don't shellescape it
-                                local pattern_arg
-                                if pattern:match('^".*"$') or pattern:match("^'.*'$") then
-                                    pattern_arg = pattern
-                                else
-                                    pattern_arg = vim.fn.shellescape(pattern)
-                                end
-
-                                local cmd = "rg --files --hidden "
-                                    .. flags
-                                    .. " 2>/dev/null | rg --ignore-case "
-                                    .. pattern_arg
-                                    .. " 2>/dev/null | sort" -- NOTE: here we pipe into `sort` so we get a deterministic order. if this causes performance issues, we can remove
-                                local results = vim.fn.systemlist(cmd)
-                                -- return empty list if command failed
-                                -- NOTE: we could also show the error after some timeout (the error should always be an invalid rg query error)
-                                if vim.v.shell_error ~= 0 then
-                                    return {}
-                                end
-                                return results
-                            end,
-                        }),
-                        previewer = conf.file_previewer({}),
-                        sorter = require("telescope.sorters").empty(),
-                        attach_mappings = function(prompt_bufnr, map)
-                            -- quote the entire prompt
-                            map("i", "<C-q>", function()
-                                local current_picker = action_state.get_current_picker(prompt_bufnr)
-                                local prompt_text = current_picker:_get_prompt()
-                                current_picker:set_prompt('"' .. prompt_text .. '" ')
-                            end)
-                            -- add glob pattern
-                            map("i", "<C-g>", function()
-                                local current_picker = action_state.get_current_picker(prompt_bufnr)
-                                local prompt_text = current_picker:_get_prompt()
-                                current_picker:set_prompt(prompt_text .. '--glob ""')
-                                -- move cursor inside the quotes
-                                vim.schedule(function()
-                                    vim.api.nvim_feedkeys(
-                                        vim.api.nvim_replace_termcodes("<Left>", true, false, true),
-                                        "n",
-                                        true
-                                    )
-                                end)
-                            end)
-                            return true
-                        end,
-                    })
-                    :find()
-            end,
-            desc = "find files",
-            silent = true,
-            noremap = true,
-        },
-        {
-            "<leader>o",
-            ":lua require('telescope.builtin').resume()<CR>",
-            desc = "resume previous search",
-            silent = true,
-            noremap = true,
-        },
-        {
-            "<leader>r",
-            ":lua require('telescope.builtin').oldfiles({ cwd = vim.fn.getcwd() })<CR>",
-            desc = "toggle recent files scoped to this directory",
-            silent = true,
-            noremap = true,
-        },
-        {
-            "<leader>R",
-            ":lua require('telescope.builtin').oldfiles()<CR>",
-            desc = "toggle recent files with no scope (show ALL recent files)",
-            silent = true,
-            noremap = true,
-        },
-        {
-            "<leader>u",
-            ":lua require('telescope.builtin').lsp_references()<CR>",
-            desc = "find usages (references) for whatever the cursor is on",
-            silent = true,
-            noremap = true,
-        },
-        {
-            "<leader>i",
-            -- symbols are defined here starting on line 562: https://web.archive.org/web/20250803081947/https://mlir.llvm.org/doxygen/include_2mlir_2Tools_2lsp-server-support_2Protocol_8h_source.html
-            ":lua require('telescope.builtin').lsp_document_symbols({symbols={'function', 'class', 'method', 'constructor', 'enum', 'interface'}})<CR>",
-            desc = "find lsp symbols in the current file",
-            silent = true,
-            noremap = true,
-        },
-        {
-            "<leader>d",
-            ":lua require('telescope.builtin').diagnostics({ bufnr=0 })<CR>",
-            desc = "show lsp diagnostics for current buffer",
-            silent = true,
-            noremap = true,
-        },
-    },
 }
