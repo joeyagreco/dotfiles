@@ -7,6 +7,7 @@
       "Bash(docker:*)",
       "Bash(echo:*)",
       "Bash(find:*)",
+      "Bash(gh browse:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
@@ -47,7 +48,7 @@
     "deny": [],
     "ask": []
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -59,9 +60,5 @@
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047822
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
   }
 }
