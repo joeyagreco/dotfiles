@@ -94,7 +94,10 @@ return {
         {
             "<leader>f",
             function()
-                require("fzf-lua").files({ cmd = "rg --files --hidden --glob '!.git/'" })
+                require("fzf-lua").files({
+                    cmd = "rg --files --hidden --glob '!.git/'",
+                    fzf_opts = { ["--exact"] = true },
+                })
             end,
             desc = "find files",
             silent = true,
