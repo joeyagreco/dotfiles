@@ -20,6 +20,7 @@
       "Bash(git log:*)",
       "Bash(git show:*)",
       "Bash(grep:*)",
+      "Bash(gt ls:*)",
       "Bash(ls:*)",
       "Bash(lsof:*)",
       "Bash(npm ls:*)",
