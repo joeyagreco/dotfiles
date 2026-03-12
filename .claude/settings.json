@@ -57,6 +57,7 @@
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true
   },
+  "effortLevel": "high",
   "fastMode": true,
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
