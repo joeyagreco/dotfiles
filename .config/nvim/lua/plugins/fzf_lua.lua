@@ -74,15 +74,23 @@ return {
                 require("fzf-lua").live_grep({
                     -- enable rg flags after "--" separator (e.g. "search term -- -tts")
                     rg_glob = true,
-                    -- pass raw rg flags instead of converting to --iglob
+                    -- pass raw rg flags instead of converting to --iglob, with shell escaping
                     rg_glob_fn = function(query, opts)
                         local search_query, flags = query:match("(.*)" .. opts.glob_separator .. "(.*)")
-                        return search_query, flags
+                        local escaped = {}
+                        for flag in flags:gmatch("%S+") do
+                            table.insert(escaped, require("fzf-lua.libuv").shellescape(flag))
+                        end
+                        return search_query, table.concat(escaped, " ")
                     end,
+                    -- disable default ctrl-t (open in tab) so our fzf binding works
+                    actions = { ["ctrl-t"] = false },
                     keymap = {
                         fzf = {
                             -- append " -- " so you can start typing rg flags
                             ["ctrl-q"] = "transform-query(echo {q}' -- ')",
+                            -- exclude test files from results (-g to avoid "--" in --glob confusing the separator)
+                            ["ctrl-t"] = "transform-query(echo {q}' -- -g !*test*')",
                         },
                     },
                 })
@@ -131,7 +139,16 @@ return {
         {
             "<leader>u",
             function()
-                require("fzf-lua").lsp_references()
+                require("fzf-lua").lsp_references({
+                    -- disable default ctrl-t (open in tab) so our fzf binding works
+                    actions = { ["ctrl-t"] = false },
+                    keymap = {
+                        fzf = {
+                            -- exclude test files from results
+                            ["ctrl-t"] = "transform-query(echo {q}' !test')",
+                        },
+                    },
+                })
             end,
             desc = "find usages (references) for whatever the cursor is on",
             silent = true,
