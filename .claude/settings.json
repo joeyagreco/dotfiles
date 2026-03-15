@@ -36,6 +36,9 @@
       "Bash(uv:*)",
       "Bash(wc:*)",
       "Bash(xargs:*)",
+      "WebFetch",
+      "WebSearch",
+      "mcp__claude_ai_Linear__get_issue",
       "mcp__playwright__Click",
       "mcp__playwright__Get_console_messages",
       "mcp__playwright__Hover_mouse",
@@ -43,10 +46,7 @@
       "mcp__playwright__Navigate",
       "mcp__playwright__Page_snapshot",
       "mcp__playwright__Resize_browser_window",
-      "mcp__playwright__Wait_for",
-      "WebFetch",
-      "WebSearch",
-      "mcp__claude_ai_Linear__get_issue"
+      "mcp__playwright__Wait_for"
     ],
     "deny": [],
     "ask": []
