@@ -64,5 +64,6 @@
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047822
-  }
+  },
+  "voiceEnabled": true
 }
