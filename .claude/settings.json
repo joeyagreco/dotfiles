@@ -38,6 +38,7 @@
       "Bash(xargs:*)",
       "WebFetch",
       "WebSearch",
+      "mcp__claude_ai_Granola__get_meeting_transcript",
       "mcp__claude_ai_Linear__get_issue",
       "mcp__playwright__Click",
       "mcp__playwright__Get_console_messages",
