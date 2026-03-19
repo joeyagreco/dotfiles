@@ -46,7 +46,7 @@ local function recent_files()
     require("fzf-lua").fzf_exec(entries, {
         actions = require("fzf-lua").defaults.actions.files,
         previewer = "builtin",
-        fzf_opts = { ["--no-sort"] = true, ["--ansi"] = true },
+        fzf_opts = { ["--no-sort"] = true, ["--ansi"] = true, ["--exact"] = true },
     })
 end
 
