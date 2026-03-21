@@ -66,5 +66,11 @@
   "feedbackSurveyState": {
     "lastShownTime": 1754090047822
   },
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "spinnerVerbs": {
+    "mode": "append",
+    "verbs": [
+      "Roller blading"
+    ]
+  }
 }
