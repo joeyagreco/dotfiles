@@ -66,6 +66,7 @@
   "feedbackSurveyState": {
     "lastShownTime": 1754090047822
   },
+  "feedbackSurveyRate": 0,
   "voiceEnabled": true,
   "spinnerVerbs": {
     "mode": "append",
