@@ -6,7 +6,6 @@
     - when in doubt, present the plan and wait for approval.
 
 ## writing style (for comments, PR descriptions, docs, slack messages, etc.)
-- keep it casual and conversational - "stuff like", "sadly", "so basically"
 - be concise - cut the fluff, get to the point
 - for links/references, use "(source)" or "see X for more" instead of inline URLs when possible
 - avoid em-dashes - use commas or just start a new sentence
