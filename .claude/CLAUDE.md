@@ -16,6 +16,13 @@
 ## python
 - use `*` to enforce keyword-only arguments when a function has multiple parameters (e.g. `def foo(*, name, age)`)
 - avoid default values in function signatures
+- for one-off scripts, use `uv` with PEP 723 inline script metadata so they can be run with `uv run script.py`. define dependencies in a comment block at the top:
+    ```python
+    # /// script
+    # requires-python = ">=3.12"
+    # dependencies = ["requests", "rich"]
+    # ///
+    ```
 
 ## code formatting
 - new comments should be in all lower case
