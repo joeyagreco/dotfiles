@@ -14,7 +14,7 @@
 - avoid formal bullet-point-style prose in paragraphs - let it flow naturally
 
 ## python
-- use `*` to enforce keyword-only arguments when a function has multiple parameters (e.g. `def foo(*, name, age)`)
+- use `*` to enforce keyword-only arguments when a function has 2+ parameters (e.g. `def foo(*, name, age)`). not needed for single-param functions.
 - avoid default values in function signatures
 - for one-off scripts, use `uv` with PEP 723 inline script metadata so they can be run with `uv run script.py`. define dependencies in a comment block at the top:
     ```python
