@@ -4,6 +4,7 @@
 ## safety / boundaries
 - never attempt to deploy, push to production, or run destructive operations without explicit user confirmation
     - when in doubt, present the plan and wait for approval.
+- never send messages on slack. reading/searching is fine, but do not send or schedule messages.
 
 ## writing style (for comments, PR descriptions, docs, slack messages, etc.)
 - be concise - cut the fluff, get to the point
