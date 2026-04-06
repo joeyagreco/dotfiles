@@ -28,6 +28,8 @@
 ## code formatting
 - new comments should be in all lower case
     - if existing comments do not follow this rule.. do NOT change them to conform
+- new docstrings should use "proper" casing
+    - always conform to existing conventions when updating docstrings 
 - use existing constants, enums, and mappings defined in the project rather than hardcoding values. always search for existing constants before introducing new literal values.
 - when making changes, limit edits strictly to what was requested. do not add extra entries, refactor adjacent code, or expand scope unless the user explicitly asks.
 
