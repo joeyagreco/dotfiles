@@ -16,7 +16,7 @@ You are generating and updating a pull request title and description for the cur
 - Focus on WHAT the change does, not HOW
 
 ## Description Guidelines
-IMPORTANT: If there is already useful information in the description (like links, images, etc), use it when generating your new description.
+IMPORTANT: NEVER remove embedded media (images, videos, GIFs, etc) from an existing PR description. Other existing content like links can be replaced if your new description covers the same ground.
 
 Structure the body with:
 
