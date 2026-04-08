@@ -48,7 +48,8 @@
       "mcp__playwright__Navigate",
       "mcp__playwright__Page_snapshot",
       "mcp__playwright__Resize_browser_window",
-      "mcp__playwright__Wait_for"
+      "mcp__playwright__Wait_for",
+      "mcp__claude_ai_Slack__slack_search_public_and_private"
     ],
     "deny": [],
     "ask": []
