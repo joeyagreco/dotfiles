@@ -54,7 +54,7 @@ return {
     "ibhagwan/fzf-lua",
     config = function()
         require("fzf-lua").setup({
-            fzf_opts = { ["--layout"] = "default" },
+            fzf_opts = { ["--layout"] = "default", ["--cycle"] = true },
             grep = { rg_opts = rg_opts },
         })
     end,
