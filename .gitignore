@@ -19,6 +19,7 @@ package-lock.json
 # random
 akeyless
 packer
+scripts/january
 
 # .config
 !.config
