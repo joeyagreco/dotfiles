@@ -54,7 +54,7 @@
     "deny": [],
     "ask": []
   },
-  "model": "opus[1m]",
+  "model": "claude-opus-4-6[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -62,14 +62,7 @@
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true
   },
-  "effortLevel": "high",
-  "fastMode": true,
-  "disableBypassPermissionsMode": "disable",
-  "feedbackSurveyState": {
-    "lastShownTime": 1754090047822
-  },
   "feedbackSurveyRate": 0,
-  "voiceEnabled": true,
   "spinnerVerbs": {
     "mode": "append",
     "verbs": [
@@ -109,5 +102,12 @@
       "Watching Toy Story 3 on Blu-Ray",
       "Watching Vine compilations on YouTube"
     ]
+  },
+  "effortLevel": "high",
+  "fastMode": true,
+  "voiceEnabled": true,
+  "disableBypassPermissionsMode": "disable",
+  "feedbackSurveyState": {
+    "lastShownTime": 1754090047822
   }
 }
