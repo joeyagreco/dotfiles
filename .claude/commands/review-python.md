@@ -1,0 +1,133 @@
+---
+description: Review Python changes against quality checklists using parallel subagents
+argument-hint: "[branch name | PR number | blank]"
+allowed-tools: Bash, Read, Glob, Grep, Skill, Agent, TaskCreate, TaskUpdate
+---
+
+This command always operates in **reviewer mode**: the user is reviewing someone else's code (or their own PR as a reviewer would), not authoring it. Never fix code directly — draft comments and let the user post them.
+
+The only review scope is **branch** — the isolated diff between a single branch and its parent. Each invocation reviews exactly one branch and then stops. File-path, git-range, and stack scopes are not supported. To review a second branch (e.g., the next branch in a Graphite stack), finish this invocation, then run the command again with the new branch as the argument — this command does not iterate across branches.
+
+## Process
+
+1. **Initialize.**
+
+   Create a task list using TaskCreate. The first task is "Print local time". Run `date` via Bash, then mark the task complete. This anchors timing measurements for the session.
+
+   Then create tasks: "Resolve branch", "Launch reviewers", "Walk through findings", "Finalize review status".
+
+2. **Resolve branch.** Parse `$ARGUMENTS` into one of three forms — all resolve to a branch diff:
+   - **PR number** (e.g., `26453`) — fetch head branch and head SHA via `gh pr view <pr> --json headRefName,headRefOid`, then check it out frozen with `gt get --freeze <branch>`. Capture `{owner}`, `{repo}`, `{pr}`, and the head SHA (needed as `commit_id` when posting comments).
+   - **Branch name** (e.g., `pydev/feature-name`) — check it out frozen with `gt get --freeze <branch>`. Then look up the branch's PR with `gt pr`; if one exists, capture `{owner}`, `{repo}`, `{pr}`, and head SHA.
+   - **Blank** — use the current branch as-is (do not re-checkout). Look up its PR with `gt pr` the same way.
+
+   **Important:** Always use `gt get --freeze` (not `git checkout` and not `gt co`) when pulling a branch to review. Frozen checkout pulls the branch at its remote state without tracking it in the local stack, so `gt sync`/`gt restack` won't mutate what you're reviewing.
+
+   Compute the branch's isolated diff against its parent:
+   ```bash
+   git diff $(git merge-base HEAD <parent-branch>)...HEAD -- '*.py'
+   ```
+   The parent branch is the branch directly below it in the Graphite stack (`gt parent`) or `master` if the branch is on top of master.
+
+   Collect the changed `.py` files and separate into **source files** and **test files** (any file under a `test/` or `tests/` directory, or named `test_*.py`).
+
+3. **Launch adversarial-reviewer agents.**
+
+   Each reviewer receives a **reference file path** (the standalone review standard) and the artifact paths. Reference paths are relative to `python-development/skills/` in the plugins repo.
+
+   Launch up to 5 agents simultaneously, one per reference file:
+
+   **Agent A — Source code conventions** (only if source files changed):
+   ```
+   Reference: writing-python-code/references/code-conventions.md
+   Artifact: {changed source file paths}
+   ```
+
+   **Agent B — Source code quality** (only if source files changed):
+   ```
+   Reference: writing-python-code/references/code-quality.md
+   Artifact: {changed source file paths}
+   ```
+
+   **Agent C — Test conventions** (only if test files changed):
+   ```
+   Reference: writing-python-tests/references/test-conventions.md
+   Artifact: {changed test file paths}
+   ```
+
+   **Agent D — Test quality** (only if test files changed):
+   ```
+   Reference: writing-python-tests/references/test-quality.md
+   Artifact: {changed test file paths}
+   ```
+
+   **Agent E — Source code conventions on tests** (only if test files changed):
+   ```
+   Reference: writing-python-code/references/code-conventions.md
+   Artifact: {changed test file paths}
+   ```
+
+4. **Walk through findings one by one.**
+
+   Once all reviewer agents have completed, internally collect their findings and deduplicate — if multiple reviewers flagged the same file/line with an equivalent issue, collapse them into a single entry (keep the highest severity and merge the discussion points). Do this silently: do NOT flash the deduplicated list or a summary table to the reviewer. Only tell the user how many findings are queued (e.g., "7 findings to walk through") before starting the loop.
+
+   For each finding, present to the user:
+
+   - **Discussion** (1-2 sentences): why this matters and whether you'd recommend posting it or skipping it.
+   - **Draft comment**: the exact markdown that would be posted, using Conventional Comments format:
+     - `**issue (blocking):** <subject>` — bugs, correctness, security. Always blocking.
+     - `**suggestion (non-blocking):** <subject>` — concrete improvement with reasoning.
+     - `**question (non-blocking):** <subject>` — ask for clarification when unsure if it's a real problem.
+     - `**nitpick (non-blocking):** <subject>` — trivial, preference-based.
+
+     Default severity mapping from the reviewer's output: high → `issue (blocking)`, medium → `suggestion (non-blocking)`, low → `nitpick (non-blocking)`. Prefer questions over statements when there's ambiguity about whether the code is actually wrong. Keep subject under one sentence; add 1-3 sentences of discussion only if needed.
+
+   - **Location**: file path and line number for the inline comment.
+
+   Ask: **post**, **skip**, or **discuss**. The user may override the label (e.g., "post as question" or "post (blocking)").
+
+   On **post**:
+   - **Branch has an open PR**: post the comment immediately as a standalone line-level review comment via
+     ```bash
+     gh api repos/{owner}/{repo}/pulls/{pr}/comments \
+       -X POST \
+       -f body="<comment body>" \
+       -f commit_id="<PR head SHA>" \
+       -f path="<file path>" \
+       -F line=<line number> \
+       -f side="RIGHT"
+     ```
+     Capture the returned `html_url` and confirm to the user. Each post is independent — there is no batching or draft review.
+   - **No PR attached**: print the comment and location so the user can paste it somewhere or copy it into their own notes.
+
+   Only after the user resolves the current finding, move to the next one.
+
+   Never fix code directly in this flow — the user is reviewing, not authoring.
+
+   After all findings are walked through, print a summary: `#`, `Finding`, `Disposition` (posted/skipped), with links to each posted comment.
+
+5. **Finalize review status (only if a PR is attached).**
+
+   The inline comments posted in Step 4 are standalone — they do NOT carry a review verdict. Without a verdict, GitHub/Graphite leaves the PR in "awaiting review" and the reviewer (you) still shows as not having reviewed. This step closes that out so the user never has to switch to Graphite/GitHub to click Approve/Comment/Request Changes manually.
+
+   Ask the user which verdict to submit:
+   - **comment** — record that you reviewed without a blocking/approving stance (most common after a walk-through with non-blocking findings only)
+   - **request-changes** — block merge (use when any posted comment was `issue (blocking)`)
+   - **approve** — approve the PR
+   - **skip** — leave the PR in "awaiting review" (rare; use only if the user explicitly wants to finalize later)
+
+   Recommend a default based on what was posted: any `(blocking)` comment → recommend `request-changes`; otherwise → recommend `comment`. Never auto-recommend `approve`.
+
+   Also ask for an optional summary body (shown at the top of the review on GitHub/Graphite). Keep it short — 1-2 sentences covering what was reviewed and the overall take. Skip it if there's nothing worth adding beyond the inline comments.
+
+   Submit the verdict:
+   ```bash
+   gh api repos/{owner}/{repo}/pulls/{pr}/reviews \
+     -X POST \
+     -f event="APPROVE|REQUEST_CHANGES|COMMENT" \
+     -f body="<optional summary, or empty string>"
+   ```
+
+   Confirm to the user with the returned review URL. The PR's review status in Graphite updates immediately — no manual step required.
+
+Input: $ARGUMENTS
