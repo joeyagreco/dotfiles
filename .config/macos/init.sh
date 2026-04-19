@@ -40,6 +40,8 @@ defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
 defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv"
 # empty bin after 30 days
 defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
+# search current folder by default (!!!)
+defaults write com.apple.finder "FXDefaultSearchScope" -string "SCcf"
 # don't warn when changing file extension
 defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
 # hide all icons on desktop
@@ -55,6 +57,9 @@ defaults write com.apple.finder "ShowPathbar" -bool "true"
 defaults write NSGlobalDomain com.apple.mouse.scaling -float "0.875"
 # flip scroll direction (disable natural scrolling)
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool "false"
+# always show scrollbars
+# possible values: `whenscrolling`, `automatic` and `always`
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 ############
 # KEYBOARD #
