@@ -5,17 +5,6 @@ hs.hotkey.bind({ "cmd", "shift" }, "r", function()
     hs.reload()
 end)
 
--- google search shortcut
-hs.hotkey.bind({ "cmd", "shift" }, "z", function()
-    local button, text = hs.dialog.textPrompt("Search Google", "", "", "Search", "Cancel")
-    if button == "Search" and text ~= "" then
-        local encoded_query = hs.http.encodeForQuery(text)
-        local search_url = "https://www.google.com/search?q=" .. encoded_query
-        hs.urlevent.openURL(search_url)
-        hs.application.launchOrFocus("Google Chrome")
-    end
-end)
-
 -------------------------
 -- set up app switcher --
 -------------------------

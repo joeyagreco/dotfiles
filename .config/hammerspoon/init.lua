@@ -15,11 +15,6 @@ require("hotkeys")
 -------------------------
 require("random")
 
--------------------
--- set up spoons --
--------------------
-require("spoons")
-
 -----------------------------
 -- alert on config runtime --
 -----------------------------
