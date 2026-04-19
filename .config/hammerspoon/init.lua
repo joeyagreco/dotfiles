@@ -10,10 +10,10 @@ local start_time_ns = hs.timer.absoluteTime()
 --------------------
 require("hotkeys")
 
--------------------------
--- set up random stuff --
--------------------------
-require("random")
+-------------------------------------
+-- don't want to see the dock icon --
+-------------------------------------
+hs.dockicon.hide()
 
 -----------------------------
 -- alert on config runtime --

@@ -5,6 +5,16 @@ hs.hotkey.bind({ "cmd", "shift" }, "r", function()
     hs.reload()
 end)
 
+---------------------------------------
+-- maximize the focused window --
+---------------------------------------
+hs.hotkey.bind({ "cmd", "shift" }, "A", function()
+    local win = hs.window.focusedWindow()
+    if win then
+        win:maximize()
+    end
+end)
+
 -------------------------
 -- set up app switcher --
 -------------------------
