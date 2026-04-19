@@ -73,9 +73,6 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool "false"
 # SOUND #
 #########
 
-# increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int "40"
-
 ############
 # MENU BAR #
 ############
@@ -147,8 +144,8 @@ defaults write com.apple.screencapture location ~/Downloads
 
 # disable automatically arranging spaces based on most recent use
 # specifically, this seems to take the short fade animation away when switching windows
-# NOTE: this does not seem to work, manually switch OFF "Desktop and Dock" -> "Desktop and Stage Manger" -> "Stage Manager"
-defaults write com.apple.dock workspaces-auto-swoosh -bool NO
+# NOTE: if this does not seem to work, manually switch OFF "Desktop and Dock" -> "Desktop and Stage Manger" -> "Stage Manager"
+defaults write -g AppleSpacesSwitchOnActivate -bool false
 
 # needed to have hammerspoon config in a non-default place
 # source: https://github.com/Hammerspoon/hammerspoon/issues/1734
@@ -163,5 +160,5 @@ killall Dock
 killall Finder
 killall SystemUIServer
 
-# erase and rebuild index for spotlight search 'mdutil' for more info
-mdutil -E
+# rebuild spotlight index on all volumes
+sudo mdutil -E -a
