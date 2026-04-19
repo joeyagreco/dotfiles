@@ -28,5 +28,6 @@ brew "marksman"
 brew "prettier"
 brew "shellcheck"
 brew "stylua"
+brew "tree-sitter-cli"
 brew "xmlstarlet"
 

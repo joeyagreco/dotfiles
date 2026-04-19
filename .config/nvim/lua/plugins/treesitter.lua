@@ -1,21 +1,27 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
--- check module status: :TSModuleInfo
--- toggle highlighting: :TSBufToggle highlight
 return {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     lazy = false,
-    opts = {
-        ensure_installed = { "go", "gomod", "python", "typescript", "javascript", "terraform", "css" },
-        highlight = {
-            enable = true,
-        },
-        indent = {
-            enable = true,
-        },
-    },
     build = ":TSUpdate",
-    -- !! treesitter is not enabled unless this is run !!
-    config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
+    config = function()
+        require("nvim-treesitter").setup()
+
+        local parsers = { "go", "gomod", "python", "typescript", "javascript", "terraform", "css" }
+        require("nvim-treesitter").install(parsers)
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "*",
+            callback = function()
+                pcall(vim.treesitter.start)
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "*",
+            callback = function()
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
+        })
     end,
 }
