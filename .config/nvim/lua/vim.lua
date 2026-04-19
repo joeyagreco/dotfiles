@@ -39,9 +39,6 @@ vim.opt.relativenumber = false
 -- enable 24-bit RGB colors
 vim.opt.termguicolors = true
 
--- disable compatibility with vi which can cause unexpected issues.
-vim.opt.compatible = false
-
 -- case insensitive search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -93,9 +90,6 @@ vim.g.loaded_ruby_provider = 0
 
 -- -- stop things like Lazy from formatting
 -- vim.g.autoformat = false
-
--- add the g flag to search/replace by default
-vim.opt.gdefault = true
 
 -- this is opt-in as of nvim 0.11.0
 -- show diagnostics

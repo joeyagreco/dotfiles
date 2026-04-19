@@ -5,7 +5,7 @@ M.LOCAL_GIT_REPO_PATH = os.getenv("LOCAL_GIT_REPO_PATH")
 -- function to find top-level .git directories
 local function find_top_level_git_dirs(base_path)
     local git_dirs = {}
-    local uv = vim.loop
+    local uv = vim.uv
 
     local function is_git_dir(path)
         local stat = uv.fs_stat(path)

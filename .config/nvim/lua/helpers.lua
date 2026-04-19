@@ -1,10 +1,7 @@
 local M = {}
 
 function M.combine_tables(first_table, second_table)
-    for k, v in pairs(second_table) do
-        first_table[k] = v
-    end
-    return first_table
+    return vim.tbl_extend("force", first_table, second_table)
 end
 
 -- usage as param in lazy plugin: cond = helpers.should_load_plugin({ exclude_filetypes = { "gitcommit" } }),
