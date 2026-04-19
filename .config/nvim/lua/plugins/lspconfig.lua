@@ -5,7 +5,7 @@ return {
     event = "BufEnter",
     config = function()
         -- reduce lsp log verbosity (prevents huge log files)
-        vim.lsp.set_log_level("ERROR")
+        vim.lsp.log.set_level("ERROR")
 
         -- zsh
         -- NOTE: use .shellcheckrc for configuration
