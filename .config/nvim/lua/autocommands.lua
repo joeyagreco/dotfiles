@@ -69,7 +69,9 @@ end
 vim.api.nvim_create_autocmd("VimLeavePre", {
     desc = "force stop all lsp clients on quit",
     callback = function()
-        vim.lsp.stop_client(vim.lsp.get_clients(), true)
+        for _, client in ipairs(vim.lsp.get_clients()) do
+            client:stop(true)
+        end
     end,
 })
 
