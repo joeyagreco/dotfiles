@@ -11,7 +11,7 @@ end)
 hs.hotkey.bind({ "cmd", "shift" }, "A", function()
     local win = hs.window.focusedWindow()
     if win then
-        win:maximize()
+        win:setFrame(win:screen():frame(), 0)
     end
 end)
 
