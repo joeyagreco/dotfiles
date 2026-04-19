@@ -1,14 +1,29 @@
+local json = require("hs.json")
+
+-- tracks all cmd+shift hotkeys to detect collisions
+local reservedKeys = {}
+
+local function bindHotkey(key, description, fn)
+    local upper = string.upper(key)
+    if reservedKeys[upper] then
+        hs.alert.show("hotkey collision: cmd+shift+" .. upper .. " (" .. reservedKeys[upper] .. " vs " .. description .. ")")
+        return
+    end
+    reservedKeys[upper] = description
+    hs.hotkey.bind({ "cmd", "shift" }, key, fn)
+end
+
 -------------------------------------------
 -- shortcut to reload hammerspoon config --
 -------------------------------------------
-hs.hotkey.bind({ "cmd", "shift" }, "r", function()
+bindHotkey("r", "reload config", function()
     hs.reload()
 end)
 
 ---------------------------------------
 -- maximize the focused window --
 ---------------------------------------
-hs.hotkey.bind({ "cmd", "shift" }, "A", function()
+bindHotkey("A", "maximize window", function()
     local win = hs.window.focusedWindow()
     if win then
         win:setFrame(win:screen():frame(), 0)
@@ -18,8 +33,6 @@ end)
 -------------------------
 -- set up app switcher --
 -------------------------
-
-local json = require("hs.json")
 
 local function loadHotkeys(path, required)
     local file = io.open(path, "r")
@@ -46,7 +59,8 @@ for key, app in pairs(localHotkeys) do
 end
 
 for key, appConfig in pairs(baseHotkeys) do
-    hs.hotkey.bind({ "cmd", "shift" }, key, function()
+    local name = appConfig.appname or appConfig.bundleid
+    bindHotkey(key, name, function()
         if appConfig.bundleid then
             hs.application.launchOrFocusByBundleID(appConfig.bundleid)
         else
