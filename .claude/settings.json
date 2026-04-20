@@ -36,7 +36,7 @@
       "Bash(npm run typecheck:*)",
       "Bash(npm run:*)",
       "Bash(npx playwright:*)",
-      "Bash(npx vite build:*)",
+      "Bash(npx vite:*)",
       "Bash(rg:*)",
       "Bash(ruff:*)",
       "Bash(sed:*)",
