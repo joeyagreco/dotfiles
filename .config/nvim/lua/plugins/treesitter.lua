@@ -16,7 +16,6 @@ return {
             "html",
             "javascript",
             "json",
-            "jsonc",
             "lua",
             "markdown",
             "proto",
