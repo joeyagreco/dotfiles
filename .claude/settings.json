@@ -37,6 +37,7 @@
       "Bash(npm run:*)",
       "Bash(npx playwright:*)",
       "Bash(npx vite:*)",
+      "Bash(ping:*)",
       "Bash(rg:*)",
       "Bash(ruff:*)",
       "Bash(sed:*)",
