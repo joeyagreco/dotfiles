@@ -7,7 +7,25 @@ return {
     config = function()
         require("nvim-treesitter").setup()
 
-        local parsers = { "go", "gomod", "python", "typescript", "javascript", "terraform", "css" }
+        local parsers = {
+            "bash",
+            "css",
+            "go",
+            "gomod",
+            "hcl",
+            "html",
+            "javascript",
+            "json",
+            "jsonc",
+            "lua",
+            "markdown",
+            "proto",
+            "python",
+            "terraform",
+            "toml",
+            "typescript",
+            "yaml",
+        }
         require("nvim-treesitter").install(parsers)
 
         vim.api.nvim_create_autocmd("FileType", {
