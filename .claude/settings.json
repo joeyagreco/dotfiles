@@ -6,7 +6,6 @@
       "Bash(cat:*)",
       "Bash(cd:*)",
       "Bash(docker:*)",
-      "Bash(docker:*)",
       "Bash(echo:*)",
       "Bash(find:*)",
       "Bash(gh browse:*)",
