@@ -64,7 +64,7 @@
     "deny": [],
     "ask": []
   },
-  "model": "claude-opus-4-6[1m]",
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
