@@ -118,6 +118,7 @@
   "fastMode": true,
   "voiceEnabled": true,
   "disableBypassPermissionsMode": "disable",
+  "disableAutoMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047822
   }
