@@ -65,7 +65,7 @@
     "deny": [],
     "ask": []
   },
-  "model": "opus[1m]",
+  "model": "claude-opus-4-6",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -117,9 +117,9 @@
   },
   "effortLevel": "high",
   "fastMode": true,
+  "disableAutoMode": "disable",
   "voiceEnabled": true,
   "disableBypassPermissionsMode": "disable",
-  "disableAutoMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047822
   }
