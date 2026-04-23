@@ -34,6 +34,8 @@
 - when making changes, limit edits strictly to what was requested. do not add extra entries, refactor adjacent code, or expand scope unless the user explicitly asks.
 
 ## testing
-- when writing tests, prefer a single, simple test unless explicitly asked for multiple
+- prefer a single, simple test unless explicitly asked for multiple
+- prefer using table tests when possible
 - avoid over-engineering test cases with unnecessary parameterization or dual-format handling
 - match the real data format found in the codebase.
+- add a comment with "GIVEN, WHEN, THEN" to each test function
