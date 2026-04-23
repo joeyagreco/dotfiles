@@ -52,6 +52,7 @@ end
 
 return {
     "ibhagwan/fzf-lua",
+    version = false,
     config = function()
         require("fzf-lua").setup({
             fzf_opts = { ["--layout"] = "default", ["--cycle"] = true },
