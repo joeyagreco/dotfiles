@@ -19,6 +19,7 @@
       "Bash(gh workflow list:*)",
       "Bash(git blame:*)",
       "Bash(git describe:*)",
+      "Bash(git -C:*)",
       "Bash(git diff:*)",
       "Bash(git fetch:*)",
       "Bash(git log:*)",
