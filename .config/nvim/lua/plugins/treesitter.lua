@@ -10,6 +10,7 @@ return {
         local parsers = {
             "bash",
             "css",
+            "dockerfile",
             "go",
             "gomod",
             "hcl",
