@@ -17,6 +17,7 @@ return {
             "javascript",
             "json",
             "lua",
+            "make",
             "markdown",
             "proto",
             "python",
