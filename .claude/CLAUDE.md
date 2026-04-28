@@ -39,3 +39,4 @@
 - avoid over-engineering test cases with unnecessary parameterization or dual-format handling
 - match the real data format found in the codebase.
 - add a docstring with "GIVEN, WHEN, THEN" to each test function (not inline comments)
+- use plain tuples in `@pytest.mark.parametrize` instead of `pytest.param(..., id=)` unless the id adds information beyond what's already in the param values
