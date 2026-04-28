@@ -38,4 +38,4 @@
 - prefer using table tests when possible
 - avoid over-engineering test cases with unnecessary parameterization or dual-format handling
 - match the real data format found in the codebase.
-- add a comment with "GIVEN, WHEN, THEN" to each test function
+- add a docstring with "GIVEN, WHEN, THEN" to each test function (not inline comments)
