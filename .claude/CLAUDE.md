@@ -35,7 +35,7 @@
 
 ## testing
 - prefer a single, simple test unless explicitly asked for multiple
-- prefer using table tests when possible
+- when multiple test cases share the same assertion shape and only differ in inputs, always write them as a single table test. never write separate test functions for this.
 - avoid over-engineering test cases with unnecessary parameterization or dual-format handling
 - match the real data format found in the codebase.
 - add a docstring with "GIVEN, WHEN, THEN" to each test function (not inline comments)
