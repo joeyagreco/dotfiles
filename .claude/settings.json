@@ -135,7 +135,7 @@
   "effortLevel": "high",
   "fastMode": true,
   "disableAutoMode": "disable",
-  "editorMode": "normal",
+  "editorMode": "vim",
   "voiceEnabled": true,
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
