@@ -74,7 +74,7 @@ The only review scope is **branch** — the isolated diff between a single branc
    For each finding, present to the user:
 
    - **Discussion** (1-2 sentences): why this matters and whether you'd recommend posting it or skipping it.
-   - **Draft comment**: the exact markdown that would be posted, using Conventional Comments format:
+   - **Severity**: the severity of this finding
      - `**issue (blocking):** <subject>` — bugs, correctness, security. Always blocking.
      - `**suggestion (non-blocking):** <subject>` — concrete improvement with reasoning.
      - `**question (non-blocking):** <subject>` — ask for clarification when unsure if it's a real problem.
