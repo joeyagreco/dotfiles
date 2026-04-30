@@ -66,7 +66,10 @@
       "mcp__playwright__Wait_for"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "additionalDirectories": [
+      "/tmp"
+    ]
   },
   "model": "opus[1m]",
   "statusLine": {
