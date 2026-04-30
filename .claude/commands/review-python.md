@@ -6,7 +6,7 @@ allowed-tools: Bash, Read, Glob, Grep, Skill, Agent, TaskCreate, TaskUpdate
 
 This command always operates in **reviewer mode**: the user is reviewing someone else's code (or their own PR as a reviewer would), not authoring it. Never fix code directly — draft comments and let the user post them.
 
-The only review scope is **branch** — the isolated diff between a single branch and its parent. Each invocation reviews exactly one branch and then stops. File-path, git-range, and stack scopes are not supported. To review a second branch (e.g., the next branch in a Graphite stack), finish this invocation, then run the command again with the new branch as the argument — this command does not iterate across branches.
+The only review scope is **branch** — the isolated diff between a single branch and its parent. Each invocation reviews exactly one branch and then stops. File-path, git-range, and stack scopes are not supported. To review a second branch, finish this invocation, then run the command again with the new branch as the argument — this command does not iterate across branches.
 
 ## Process
 
@@ -17,17 +17,17 @@ The only review scope is **branch** — the isolated diff between a single branc
    Then create tasks: "Resolve branch", "Launch reviewers", "Walk through findings", "Finalize review status".
 
 2. **Resolve branch.** Parse `$ARGUMENTS` into one of three forms — all resolve to a branch diff:
-   - **PR number** (e.g., `26453`) — fetch head branch and head SHA via `gh pr view <pr> --json headRefName,headRefOid`, then check it out frozen with `gt get --freeze <branch>`. Capture `{owner}`, `{repo}`, `{pr}`, and the head SHA (needed as `commit_id` when posting comments).
-   - **Branch name** (e.g., `pydev/feature-name`) — check it out frozen with `gt get --freeze <branch>`. Then look up the branch's PR with `gt pr`; if one exists, capture `{owner}`, `{repo}`, `{pr}`, and head SHA.
-   - **Blank** — use the current branch as-is (do not re-checkout). Look up its PR with `gt pr` the same way.
+   - **PR number** (e.g., `26453`) — fetch head branch, head SHA, and base branch via `gh pr view <pr> --json headRefName,headRefOid,baseRefName`, then `git fetch origin <branch>` and `git checkout origin/<branch>` (detached HEAD). Capture `{owner}`, `{repo}`, `{pr}`, the head SHA (needed as `commit_id` when posting comments), and the base branch.
+   - **Branch name** (e.g., `pydev/feature-name`) — `git fetch origin <branch>` and `git checkout origin/<branch>` (detached HEAD). Then look up the branch's PR with `gh pr view <branch> --json number,headRefOid,baseRefName`; if one exists, capture `{owner}`, `{repo}`, `{pr}`, head SHA, and base branch.
+   - **Blank** — use the current branch as-is (do not re-checkout). Look up its PR with `gh pr view --json number,headRefOid,baseRefName` the same way.
 
-   **Important:** Always use `gt get --freeze` (not `git checkout` and not `gt co`) when pulling a branch to review. Frozen checkout pulls the branch at its remote state without tracking it in the local stack, so `gt sync`/`gt restack` won't mutate what you're reviewing.
+   **Important:** Check out the branch in detached HEAD via `git checkout origin/<branch>` (not `git checkout <branch>`). This pins the review to the remote state and avoids accidentally mutating any local branch.
 
    Compute the branch's isolated diff against its parent:
    ```bash
-   git diff $(git merge-base HEAD <parent-branch>)...HEAD -- '*.py'
+   git diff origin/<parent-branch>...HEAD -- '*.py'
    ```
-   The parent branch is the branch directly below it in the Graphite stack (`gt parent`) or `master` if the branch is on top of master.
+   The parent branch is the PR's base branch (from `gh pr view --json baseRefName`) if a PR exists, otherwise the repo's default branch (`gh repo view --json defaultBranchRef`).
 
    Collect the changed `.py` files and separate into **source files** and **test files** (any file under a `test/` or `tests/` directory, or named `test_*.py`).
 
@@ -108,7 +108,7 @@ The only review scope is **branch** — the isolated diff between a single branc
 
 5. **Finalize review status (only if a PR is attached).**
 
-   The inline comments posted in Step 4 are standalone — they do NOT carry a review verdict. Without a verdict, GitHub/Graphite leaves the PR in "awaiting review" and the reviewer (you) still shows as not having reviewed. This step closes that out so the user never has to switch to Graphite/GitHub to click Approve/Comment/Request Changes manually.
+   The inline comments posted in Step 4 are standalone — they do NOT carry a review verdict. Without a verdict, GitHub leaves the PR in "awaiting review" and the reviewer (you) still shows as not having reviewed. This step closes that out so the user never has to switch to GitHub to click Approve/Comment/Request Changes manually.
 
    Ask the user which verdict to submit:
    - **comment** — record that you reviewed without a blocking/approving stance (most common after a walk-through with non-blocking findings only)
@@ -118,7 +118,7 @@ The only review scope is **branch** — the isolated diff between a single branc
 
    Recommend a default based on what was posted: any `(blocking)` comment → recommend `request-changes`; otherwise → recommend `comment`. Never auto-recommend `approve`.
 
-   Also ask for an optional summary body (shown at the top of the review on GitHub/Graphite). Keep it short — 1-2 sentences covering what was reviewed and the overall take. Skip it if there's nothing worth adding beyond the inline comments.
+   Also ask for an optional summary body (shown at the top of the review on GitHub). Keep it short — 1-2 sentences covering what was reviewed and the overall take. Skip it if there's nothing worth adding beyond the inline comments.
 
    Submit the verdict:
    ```bash
@@ -128,6 +128,6 @@ The only review scope is **branch** — the isolated diff between a single branc
      -f body="<optional summary, or empty string>"
    ```
 
-   Confirm to the user with the returned review URL. The PR's review status in Graphite updates immediately — no manual step required.
+   Confirm to the user with the returned review URL. The PR's review status updates immediately on GitHub — no manual step required.
 
 Input: $ARGUMENTS
