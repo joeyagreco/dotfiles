@@ -4,7 +4,7 @@ argument-hint: "[branch name | PR number | blank]"
 allowed-tools: Bash, Read, Glob, Grep, Skill, Agent, TaskCreate, TaskUpdate
 ---
 
-This command always operates in **reviewer mode**: the user is reviewing someone else's code (or their own PR as a reviewer would), not authoring it. Never fix code directly — draft comments and let the user post them.
+This command always operates in **reviewer mode**: the user is reviewing someone else's code (or their own PR as a reviewer would), not authoring it. Never fix code directly — draft comments and let the user review them.
 
 The only review scope is **branch** — the isolated diff between a single branch and its parent. Each invocation reviews exactly one branch and then stops. File-path, git-range, and stack scopes are not supported. To review a second branch, finish this invocation, then run the command again with the new branch as the argument — this command does not iterate across branches.
 
@@ -73,7 +73,6 @@ The only review scope is **branch** — the isolated diff between a single branc
 
    For each finding, present to the user:
 
-   - **Discussion** (1-2 sentences): why this matters and whether you'd recommend posting it or skipping it.
    - **Severity**: the severity of this finding
      - `**issue (blocking):** <subject>` — bugs, correctness, security. Always blocking.
      - `**suggestion (non-blocking):** <subject>` — concrete improvement with reasoning.
@@ -84,21 +83,7 @@ The only review scope is **branch** — the isolated diff between a single branc
 
    - **Location**: file path and line number for the inline comment.
 
-   Ask: **post**, **skip**, or **discuss**. The user may override the label (e.g., "post as question" or "post (blocking)").
-
-   On **post**:
-   - **Branch has an open PR**: post the comment immediately as a standalone line-level review comment via
-     ```bash
-     gh api repos/{owner}/{repo}/pulls/{pr}/comments \
-       -X POST \
-       -f body="<comment body>" \
-       -f commit_id="<PR head SHA>" \
-       -f path="<file path>" \
-       -F line=<line number> \
-       -f side="RIGHT"
-     ```
-     Capture the returned `html_url` and confirm to the user. Each post is independent — there is no batching or draft review.
-   - **No PR attached**: print the comment and location so the user can paste it somewhere or copy it into their own notes.
+   Ask: **skip**, or **discuss**. The user may override the label (e.g., "post as question" or "post (blocking)").
 
    Only after the user resolves the current finding, move to the next one.
 
@@ -106,28 +91,8 @@ The only review scope is **branch** — the isolated diff between a single branc
 
    After all findings are walked through, print a summary: `#`, `Finding`, `Disposition` (posted/skipped), with links to each posted comment.
 
-5. **Finalize review status (only if a PR is attached).**
-
-   The inline comments posted in Step 4 are standalone — they do NOT carry a review verdict. Without a verdict, GitHub leaves the PR in "awaiting review" and the reviewer (you) still shows as not having reviewed. This step closes that out so the user never has to switch to GitHub to click Approve/Comment/Request Changes manually.
-
-   Ask the user which verdict to submit:
-   - **comment** — record that you reviewed without a blocking/approving stance (most common after a walk-through with non-blocking findings only)
-   - **request-changes** — block merge (use when any posted comment was `issue (blocking)`)
-   - **approve** — approve the PR
-   - **skip** — leave the PR in "awaiting review" (rare; use only if the user explicitly wants to finalize later)
-
    Recommend a default based on what was posted: any `(blocking)` comment → recommend `request-changes`; otherwise → recommend `comment`. Never auto-recommend `approve`.
 
    Also ask for an optional summary body (shown at the top of the review on GitHub). Keep it short — 1-2 sentences covering what was reviewed and the overall take. Skip it if there's nothing worth adding beyond the inline comments.
-
-   Submit the verdict:
-   ```bash
-   gh api repos/{owner}/{repo}/pulls/{pr}/reviews \
-     -X POST \
-     -f event="APPROVE|REQUEST_CHANGES|COMMENT" \
-     -f body="<optional summary, or empty string>"
-   ```
-
-   Confirm to the user with the returned review URL. The PR's review status updates immediately on GitHub — no manual step required.
 
 Input: $ARGUMENTS
