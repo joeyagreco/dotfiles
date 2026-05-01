@@ -39,6 +39,7 @@
       "Bash(grep:*)",
       "Bash(gt create:*)",
       "Bash(gt ls:*)",
+      "Bash(gt ss:*)",
       "Bash(gt version:*)",
       "Bash(jq:*)",
       "Bash(ls:*)",
