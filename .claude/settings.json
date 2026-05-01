@@ -71,7 +71,9 @@
       "mcp__playwright__Resize_browser_window",
       "mcp__playwright__Wait_for"
     ],
-    "deny": [],
+    "deny": [
+      "Bash(gt:*)"
+    ],
     "ask": [],
     "additionalDirectories": [
       "/tmp"
