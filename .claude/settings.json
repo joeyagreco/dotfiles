@@ -38,6 +38,7 @@
       "Bash(git status:*)",
       "Bash(grep:*)",
       "Bash(gt ls:*)",
+      "Bash(gt version:*)",
       "Bash(jq:*)",
       "Bash(ls:*)",
       "Bash(lsof:*)",
