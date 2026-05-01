@@ -37,6 +37,7 @@
       "Bash(git show:*)",
       "Bash(git status:*)",
       "Bash(grep:*)",
+      "Bash(gt ls:*)",
       "Bash(jq:*)",
       "Bash(ls:*)",
       "Bash(lsof:*)",
@@ -71,9 +72,7 @@
       "mcp__playwright__Resize_browser_window",
       "mcp__playwright__Wait_for"
     ],
-    "deny": [
-      "Bash(gt:*)"
-    ],
+    "deny": [],
     "ask": [],
     "additionalDirectories": [
       "/tmp"
