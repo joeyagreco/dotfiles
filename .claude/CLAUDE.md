@@ -32,6 +32,7 @@
     - always conform to existing conventions when updating docstrings 
 - use existing constants, enums, and mappings defined in the project rather than hardcoding values. always search for existing constants before introducing new literal values.
 - when making changes, limit edits strictly to what was requested. do not add extra entries, refactor adjacent code, or expand scope unless the user explicitly asks.
+- spell out variable names. no shorthand abbreviations (e.g. use `user` not `u`, `request` not `req`, `customer` not `cust`). applies to local variables, loop vars, factory spec dict keys, and any string references to those keys. for multiples, use `_one`/`_two` suffixes (e.g. `user_one`, not `u1`).
 
 ## testing
 - prefer a single, simple test unless explicitly asked for multiple
