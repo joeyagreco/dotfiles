@@ -145,6 +145,7 @@
   "effortLevel": "high",
   "fastMode": true,
   "disableAutoMode": "disable",
+  "theme": "dark",
   "editorMode": "vim",
   "voiceEnabled": true,
   "disableBypassPermissionsMode": "disable",
