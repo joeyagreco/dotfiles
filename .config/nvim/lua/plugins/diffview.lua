@@ -81,7 +81,25 @@ return {
                     vim.notify("⚠️no files changed!", vim.log.levels.INFO)
                     return
                 end
+
+                -- compute totals: tracked diff vs HEAD + untracked files counted as additions
+                local additions, deletions = 0, 0
+                for _, line in ipairs(vim.fn.systemlist("git diff HEAD --numstat")) do
+                    local added, removed = line:match("^(%S+)%s+(%S+)%s+")
+                    additions = additions + (tonumber(added) or 0)
+                    deletions = deletions + (tonumber(removed) or 0)
+                end
+                for _, file in ipairs(untracked) do
+                    local count = tonumber(vim.fn.systemlist("wc -l < " .. vim.fn.shellescape(file))[1]) or 0
+                    additions = additions + count
+                end
+
                 require("diffview").open()
+                local file_count = #changed + #untracked
+                vim.notify(
+                    string.format("%d file%s changed, +%d -%d", file_count, file_count == 1 and "" or "s", additions, deletions),
+                    vim.log.levels.INFO
+                )
             end,
             desc = "open git dif view",
             silent = true,
