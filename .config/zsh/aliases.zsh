@@ -62,8 +62,6 @@ alias info='fastfetch'
 alias speed='networkquality'
 # create a pr with github
 alias pr='$BASH_SCRIPTS_PATH/pr.sh'
-# create a pr with github and use claude to set the description and title of the pr
-alias prd='gh pr create --fill --draft && printf "\nsetting pr title and description with claude...\n\n" && claude "/pr-description-and-title" --print'
 alias bubu='brew update && brew upgrade'
 
 ##########
