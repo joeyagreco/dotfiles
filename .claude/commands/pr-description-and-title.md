@@ -18,7 +18,7 @@ You are generating and updating a pull request title and description for the cur
 ## Description Guidelines
 IMPORTANT: NEVER remove embedded media (images, videos, GIFs, etc) from an existing PR description. Other existing content like links can be replaced if your new description covers the same ground.
 
-Structure the body with:
+Sections:
 
 1. **Summary**: 1-2 sentences explaining the purpose of the changes
 
@@ -33,3 +33,4 @@ Structure the body with:
 - Be concise but comprehensive
 - Do not include implementation details unless they're architecturally significant
 - Do NOT add any attribution footer (e.g., "Generated with Claude Code")
+- Only include the sections listed above. Do not add any other sections.
