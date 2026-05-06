@@ -22,10 +22,9 @@ Sections:
 
 1. **Summary**: 1-2 sentences explaining the purpose of the changes
 
-2. **Changes**: Bullet points of the key changes made that are not immediately obvious by looking at the code diff
-   - Group related changes together
-   - Focus on user-facing or architecturally significant changes
-   - When referencing specific files, functions, or code, link directly to them on GitHub using permalink URLs (e.g. `https://github.com/OWNER/REPO/blob/COMMIT_SHA/path/to/file.py#L10-L20`). Use `gh browse` or construct the URL from the repo and current commit to get the right base URL.
+2. **Changes**: Bullet points explaining things that are not immediately obvious by looking at the code diff
+   - Focus on product level changes, not code level changes
+   - Refrain from referencing code here
 
 ## Rules
 - Use proper casing (standard capitalization) for the title and description, not lowercase
