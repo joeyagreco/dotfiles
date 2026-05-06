@@ -63,7 +63,7 @@ alias speed='networkquality'
 # create a pr with github
 alias pr='$BASH_SCRIPTS_PATH/pr.sh'
 alias bubu='brew update && brew upgrade'
-alias claude='claude "/color blue"'
+alias claude='claude "/color yellow"'
 
 ##########
 # PYTHON #
