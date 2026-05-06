@@ -10,7 +10,7 @@ return {
         -- zsh
         -- NOTE: use .shellcheckrc for configuration
         vim.lsp.config("bashls", {
-            filetypes = { "sh", "zsh", "zshrc" },
+            filetypes = { "sh", "zsh" },
         })
 
         -- python
@@ -83,7 +83,7 @@ return {
 
         -- yaml
         vim.lsp.config("yamlls", {
-            filetypes = { "yaml", "yml" },
+            filetypes = { "yaml" },
         })
 
         -- makefile
