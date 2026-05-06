@@ -51,6 +51,7 @@
       "Bash(npx playwright:*)",
       "Bash(npx vite:*)",
       "Bash(ping:*)",
+      "Bash(railway status)",
       "Bash(rg:*)",
       "Bash(ruff:*)",
       "Bash(sed:*)",
