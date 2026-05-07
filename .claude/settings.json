@@ -66,6 +66,8 @@
       "Bash(xargs:*)",
       "WebFetch",
       "WebSearch",
+      "mcp__claude_ai_Datadog__load_datadog_skill",
+      "mcp__claude_ai_Datadog__search_datadog_services",
       "mcp__claude_ai_Granola__get_meeting_transcript",
       "mcp__claude_ai_Linear__get_issue",
       "mcp__claude_ai_Slack__slack_search_public_and_private",

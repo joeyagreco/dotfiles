@@ -37,6 +37,7 @@ scripts/january
 .config/AWS*CLIENT
 
 # claude code
+.claude/.last-cleanup
 .claude/.update.lock
 .claude/backups
 .claude/cache
@@ -53,10 +54,10 @@ scripts/january
 .claude/projects
 .claude/sessions
 .claude/shell-snapshots
+.claude/skills/january-*
 .claude/stats-cache.json
 .claude/statsig
 .claude/tasks
 .claude/telemetry
 .claude/todos
 .claude/usage-data
-.claude/skills/january-*
