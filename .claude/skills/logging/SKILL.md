@@ -1,6 +1,6 @@
 ---
 name: logging
-description: Guidelines when adding or modifying log statements. Use when instrumenting workflows, activities, services, or any function with logging. Especially relevant for Temporal workflows and activities.
+description: Guidelines when adding or modifying log statements. Use when instrumenting workflows, activities, services, or any function with logging.
 ---
 
 # Logging Guidelines
