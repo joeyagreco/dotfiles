@@ -71,6 +71,8 @@ The only review scope is **branch** — the isolated diff between a single branc
 
    Once all reviewer agents have completed, internally collect their findings and deduplicate — if multiple reviewers flagged the same file/line with an equivalent issue, collapse them into a single entry (keep the highest severity and merge the discussion points). Do this silently: do NOT flash the deduplicated list or a summary table to the reviewer. Only tell the user how many findings are queued (e.g., "7 findings to walk through") before starting the loop.
 
+   Always present findings in order from highest to lowest severity.
+
    For each finding, present to the user:
 
    - **Severity**: the severity of this finding
