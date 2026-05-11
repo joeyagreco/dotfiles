@@ -4,7 +4,7 @@ argument-hint: "[branch name | PR number | blank]"
 allowed-tools: Bash, Read, Glob, Grep, Skill, Agent, TaskCreate, TaskUpdate
 ---
 
-This command always operates in **reviewer mode**: the user is reviewing someone else's code (or their own PR as a reviewer would), not authoring it. Never fix code directly — draft comments and let the user review them.
+This command always operates in **reviewer mode**: the user is reviewing someone else's code (or their own PR as a reviewer would), not authoring it. Never fix code directly.. draft comments and let the user review them.
 
 The only review scope is **branch** — the isolated diff between a single branch and its parent. Each invocation reviews exactly one branch and then stops. File-path, git-range, and stack scopes are not supported. To review a second branch, finish this invocation, then run the command again with the new branch as the argument — this command does not iterate across branches.
 
@@ -17,7 +17,7 @@ The only review scope is **branch** — the isolated diff between a single branc
    Then create tasks: "Resolve branch", "Launch reviewers", "Walk through findings", "Finalize review status".
 
 2. **Resolve branch.** Parse `$ARGUMENTS` into one of three forms — all resolve to a branch diff:
-   - **PR number** (e.g., `26453`) — fetch head branch, head SHA, and base branch via `gh pr view <pr> --json headRefName,headRefOid,baseRefName`, then `git fetch origin <branch>` and `git checkout origin/<branch>` (detached HEAD). Capture `{owner}`, `{repo}`, `{pr}`, the head SHA (needed as `commit_id` when posting comments), and the base branch.
+   - **PR number** (e.g., `26453`) — fetch head branch, head SHA, and base branch via `gh pr view <pr> --json headRefName,headRefOid,baseRefName`, then `git fetch origin <branch>` and `git checkout origin/<branch>` (detached HEAD). Capture `{owner}`, `{repo}`, `{pr}`, the head SHA, and the base branch.
    - **Branch name** (e.g., `pydev/feature-name`) — `git fetch origin <branch>` and `git checkout origin/<branch>` (detached HEAD). Then look up the branch's PR with `gh pr view <branch> --json number,headRefOid,baseRefName`; if one exists, capture `{owner}`, `{repo}`, `{pr}`, head SHA, and base branch.
    - **Blank** — use the current branch as-is (do not re-checkout). Look up its PR with `gh pr view --json number,headRefOid,baseRefName` the same way.
 
@@ -81,18 +81,12 @@ The only review scope is **branch** — the isolated diff between a single branc
 
      Default severity mapping from the reviewer's output: high → `issue (blocking)`, medium → `suggestion (non-blocking)`, low → `nitpick (non-blocking)`. Prefer questions over statements when there's ambiguity about whether the code is actually wrong. Keep subject under one sentence; add 1-3 sentences of discussion only if needed.
 
-   - **Location**: file path and line number for the inline comment.
+   - **Location**: file path and line number for the comment.
 
-   Ask: **skip**, or **discuss**. The user may override the label (e.g., "post as question" or "post (blocking)").
+   Ask: **skip**, or **discuss**.
 
    Only after the user resolves the current finding, move to the next one.
 
    Never fix code directly in this flow — the user is reviewing, not authoring.
-
-   After all findings are walked through, print a summary: `#`, `Finding`, `Disposition` (posted/skipped), with links to each posted comment.
-
-   Recommend a default based on what was posted: any `(blocking)` comment → recommend `request-changes`; otherwise → recommend `comment`. Never auto-recommend `approve`.
-
-   Also ask for an optional summary body (shown at the top of the review on GitHub). Keep it short — 1-2 sentences covering what was reviewed and the overall take. Skip it if there's nothing worth adding beyond the inline comments.
 
 Input: $ARGUMENTS
