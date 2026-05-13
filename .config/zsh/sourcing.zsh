@@ -116,8 +116,14 @@ if [[ -z "$HOMEBREW_PREFIX" ]]; then
 fi
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
-# set up syntax highlighting
-source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# defer syntax highlighting until after first prompt (~20ms faster shell startup)
+_defer_zsh_syntax_highlighting() {
+	source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+	add-zsh-hook -d precmd _defer_zsh_syntax_highlighting
+	unfunction _defer_zsh_syntax_highlighting
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _defer_zsh_syntax_highlighting
 
 # set up starship
 # https://starship.rs/
@@ -144,6 +150,9 @@ setopt HIST_IGNORE_DUPS
 
 # use emacs keybindings (ctrl+a, ctrl+e, etc)
 bindkey -e
+
+# reduce esc-key wait from 400ms to 10ms (in line with tmux escape time)
+KEYTIMEOUT=1
 
 # ctrl-n to edit current command in $EDITOR
 autoload -U edit-command-line
