@@ -22,10 +22,6 @@ Sections:
 
 1. **Summary**: 1-2 sentences explaining the purpose of the changes
 
-2. **Changes**: Bullet points explaining things that are not immediately obvious by looking at the code diff
-   - Focus on product level changes, not code level changes
-   - Refrain from referencing code here
-
 ## Rules
 - Use proper casing (standard capitalization) for the title and description, not lowercase
 - Infer the purpose from the code changes
