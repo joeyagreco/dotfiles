@@ -12,9 +12,7 @@ The only review scope is **branch** — the isolated diff between a single branc
 
 1. **Initialize.**
 
-   Create a task list using TaskCreate. The first task is "Print local time". Run `date` via Bash, then mark the task complete. This anchors timing measurements for the session.
-
-   Then create tasks: "Resolve branch", "Launch reviewers", "Walk through findings", "Finalize review status".
+   Create a task list using TaskCreate with tasks: "Resolve branch", "Launch reviewers", "Walk through findings", "Finalize review status".
 
 2. **Resolve branch.** Parse `$ARGUMENTS` into one of three forms — all resolve to a branch diff:
    - **PR number** (e.g., `26453`) — fetch head branch, head SHA, and base branch via `gh pr view <pr> --json headRefName,headRefOid,baseRefName`, then `git fetch origin <branch>` and `git checkout origin/<branch>` (detached HEAD). Capture `{owner}`, `{repo}`, `{pr}`, the head SHA, and the base branch.
