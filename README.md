@@ -1,4 +1,4 @@
-# setting up a new computer
+## setting up a new computer
 
 1. Clone this repo
 2. Create a `.zshrc.local` file in ~
@@ -16,12 +16,17 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 5. Run `make links`
 5. Run `source ~/.zshrc.local && source ~/.config/zsh/init.zsh && make deps`
 
-# installing/updating alacritty
+
+## Version Updates
+### Check for outdated versions
+`make check-versions`
+
+### installing/updating alacritty
 1. download the latest stable `.dmg` file from the [github releases page](https://github.com/alacritty/alacritty/releases)
 
-# upgrading neovim
+### upgrading neovim
 1. check [releases page](https://github.com/neovim/neovim/releases) to see the latest version
 1. set version `mise use neovim@{VERSION}`
 
-# upgrading tmux
+### upgrading tmux
 1. check the [releases page](https://github.com/tmux/tmux/releases) to see the latest version

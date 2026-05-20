@@ -27,3 +27,7 @@ setup-cargo:
 setup-macos:
 	@~/.config/macos/init.sh
 
+.PHONY: check-versions
+check-versions:
+	@$(BASH_SCRIPTS_PATH)/check_versions.sh
+
