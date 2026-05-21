@@ -6,5 +6,10 @@ node_modules/
 *.local*
 .playwright-mcp
 # yah this one shouldn't be here but for now i will keep it
+# git update-index --skip-worktree pyrightconfig.json
+# After that, your local changes stay, git status won't show the file,
+# and pulls won't try to overwrite it (unless upstream changes it, in which case you'll get a conflict and need to resolve manually).
+# To undo later:
+# git update-index --no-skip-worktree pyrightconfig.json
 pyrightconfig.json
 
