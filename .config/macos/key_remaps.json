@@ -11,6 +11,11 @@
             "_comment": "remap escape to backtick (`)",
             "HIDKeyboardModifierMappingSrc": 30064771113,
             "HIDKeyboardModifierMappingDst": 30064771125
+        },
+        {
+            "_comment": "remap right command to backspace/delete",
+            "HIDKeyboardModifierMappingSrc": 30064771303,
+            "HIDKeyboardModifierMappingDst": 30064771114
         }
     ]
 }
