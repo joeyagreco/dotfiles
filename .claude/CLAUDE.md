@@ -9,10 +9,11 @@
 ## writing style (for comments, PR descriptions, docs, slack messages, etc.)
 - be concise - cut the fluff, get to the point
 - for links/references, use "(source)" or "see X for more" instead of inline URLs when possible
-- avoid em-dashes - use commas or just start a new sentence
 - use parenthetical asides naturally like "(if we want it)"
 - don't over-explain - trust the reader to follow along
 - avoid formal bullet-point-style prose in paragraphs - let it flow naturally
+- NEVER use em dashes
+- NEVER use phrasing like "it's not X, it's Y"
 
 ## python
 - use `*` to enforce keyword-only arguments when a function has 2+ parameters (e.g. `def foo(*, name, age)`). not needed for single-param functions.
