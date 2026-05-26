@@ -5,6 +5,13 @@ vim.api.nvim_create_user_command("Pwd", function()
     print('"' .. full_path .. '" copied to clipboard')
 end, { desc = "show and copy to clipboard the full path of the current buffer" })
 
+-- show and copy to clipboard just the filename of the current buffer
+vim.api.nvim_create_user_command("Pwdf", function()
+    local filename = vim.fn.expand("%:t")
+    vim.fn.setreg("+", filename)
+    print('"' .. filename .. '" copied to clipboard')
+end, { desc = "show and copy to clipboard just the filename of the current buffer" })
+
 -- show and copy to clipboard the full path of the current buffer relative to git root
 vim.api.nvim_create_user_command("Pwdg", function()
     local full_path = vim.fn.expand("%:p")
