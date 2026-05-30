@@ -6,6 +6,7 @@ return {
     -- NOTE: foo
     -- FIXME: foo
     -- WARNING: foo
+    -- IMPORTANT: foo
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = true,
