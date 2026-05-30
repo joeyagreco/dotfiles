@@ -11,6 +11,7 @@ return {
             "bash",
             "css",
             "dockerfile",
+            "gitignore",
             "go",
             "gomod",
             "hcl",
