@@ -38,6 +38,7 @@ scripts/january
 
 # claude code
 .claude/.last-cleanup
+.claude/.last-update-result.json
 .claude/.update.lock
 .claude/backups
 .claude/cache
