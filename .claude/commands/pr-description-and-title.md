@@ -25,7 +25,7 @@ Sections:
 ## Rules
 - Use proper casing (standard capitalization) for the title and description, not lowercase
 - Infer the purpose from the code changes
-- Be concise but comprehensive
+- Be concise 
 - Do not include implementation details unless they're architecturally significant
 - Do NOT add any attribution footer (e.g., "Generated with Claude Code")
 - Only include the sections listed above. Do not add any other sections.
