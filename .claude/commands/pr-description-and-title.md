@@ -12,6 +12,7 @@ You are generating and updating a pull request title and description for the cur
 ## Title Guidelines
 - If the branch name or commit messages contain a ticket number (like `JAN-316` or `FOO-123`), prefix the title with it like "[JAN-316] Some Title". Only use ticket numbers that appear as-is, never construct one by combining parts from different sources.
 - Otherwise, use conventional commit format (Feat:, Fix:, Docs:, Refactor:, etc.)
+- Never prefix with (Feat:, Fix:, Docs:, Refactor:, etc.) if we already have a ticket number
 - Keep it concise but descriptive (max ~72 characters)
 - Focus on WHAT the change does, not HOW
 
