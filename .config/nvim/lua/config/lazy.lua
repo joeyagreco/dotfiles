@@ -27,7 +27,8 @@ require("lazy").setup({
     },
     install = { colorscheme = { "material" } },
     -- automatically check for plugin updates
-    checker = { enabled = true },
+    -- check weekly instead of hourly
+    checker = { enabled = true, frequency = 604800 },
     change_detection = {
         enabled = true,
         notify = false,
