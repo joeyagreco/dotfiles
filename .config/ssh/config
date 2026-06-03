@@ -1,0 +1,7 @@
+# this reuses a single ssh connection to github to skip tcp+ssh+auth handshake which is slow (2+ seconds)
+Host github.com
+    ControlMaster auto
+    ControlPath ~/.ssh/control-%r@%h:%p
+    ControlPersist yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
