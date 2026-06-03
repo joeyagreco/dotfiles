@@ -1,5 +1,7 @@
 # this reuses a single ssh connection to github to skip tcp+ssh+auth handshake which is slow (2+ seconds)
 Host github.com
+    # force ipv4.. see https://stackoverflow.com/questions/22040246/git-pull-is-very-slow-why
+    AddressFamily inet
     ControlMaster auto
     ControlPath ~/.ssh/control-%r@%h:%p
     ControlPersist yes
