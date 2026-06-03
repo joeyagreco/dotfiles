@@ -5,6 +5,7 @@
     "allow": [
       "Bash(cat:*)",
       "Bash(cd:*)",
+      "Bash(claude mcp list:*)",
       "Bash(docker:*)",
       "Bash(echo:*)",
       "Bash(find:*)",
