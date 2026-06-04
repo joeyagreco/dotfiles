@@ -91,7 +91,7 @@ return {
                             -- append " -- " so you can start typing rg flags
                             ["ctrl-q"] = "transform-query(echo {q}' -- ')",
                             -- exclude test files from results (-g to avoid "--" in --glob confusing the separator)
-                            ["ctrl-t"] = "transform-query(echo {q}' -- -g !*test*')",
+                            ["ctrl-t"] = "transform-query(echo {q}' -g !*test*')",
                         },
                     },
                 })
