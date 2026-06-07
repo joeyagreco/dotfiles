@@ -60,7 +60,8 @@ history = 10000
 save_to_clipboard = true
 
 [terminal.shell]
-args = [ "-l" ]
+# auto-attach to (or create) a tmux session named "main" on launch
+args = [ "-l", "-c", "tmux new-session -A -s main" ]
 program = "/bin/zsh"
 
 [window]
