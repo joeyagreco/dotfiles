@@ -61,7 +61,13 @@ starship_version() {
 	starship --version | head -1 | awk '{print $2}'
 }
 
+hammerspoon_version() {
+	[ -d /Applications/Hammerspoon.app ] || return
+	defaults read /Applications/Hammerspoon.app/Contents/Info.plist CFBundleShortVersionString
+}
+
 check "alacritty" "alacritty/alacritty" "$(alacritty_version)"
+check "hammerspoon" "Hammerspoon/hammerspoon" "$(hammerspoon_version)"
 check "neovim" "neovim/neovim" "$(nvim_version)"
-check "tmux" "tmux/tmux" "$(tmux_version)"
 check "starship" "starship/starship" "$(starship_version)"
+check "tmux" "tmux/tmux" "$(tmux_version)"

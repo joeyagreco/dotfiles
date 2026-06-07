@@ -34,3 +34,7 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 ### Upgrading starship
 1. Check the [releases page](https://github.com/starship/starship/releases) to see the latest version
 2. Upgrade with `brew update && brew upgrade starship`
+
+### Upgrading hammerspoon
+1. Check the [releases page](https://github.com/Hammerspoon/hammerspoon/releases) to see the latest version
+2. Upgrade with `brew update && brew upgrade --cask hammerspoon`
