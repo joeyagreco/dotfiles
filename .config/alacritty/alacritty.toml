@@ -60,8 +60,9 @@ history = 10000
 save_to_clipboard = true
 
 [terminal.shell]
-# auto-attach to (or create) a tmux session named "main" on launch
-args = [ "-l", "-c", "tmux new-session -A -s main" ]
+# on the first alacritty window (no tmux server running yet), start tmux.
+# any window opened after that just gets a plain shell.
+args = [ "-l", "-c", "tmux ls &>/dev/null && exec zsh -l || exec tmux new-session -A -s main" ]
 program = "/bin/zsh"
 
 [window]
