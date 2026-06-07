@@ -56,6 +56,12 @@ tmux_version() {
 	tmux -V | awk '{print $2}'
 }
 
+starship_version() {
+	command -v starship >/dev/null || return
+	starship --version | head -1 | awk '{print $2}'
+}
+
 check "alacritty" "alacritty/alacritty" "$(alacritty_version)"
 check "neovim" "neovim/neovim" "$(nvim_version)"
 check "tmux" "tmux/tmux" "$(tmux_version)"
+check "starship" "starship/starship" "$(starship_version)"
