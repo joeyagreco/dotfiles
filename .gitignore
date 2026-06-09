@@ -53,6 +53,7 @@ scripts/january
 .claude/plugins
 .claude/policy-limits.json
 .claude/projects
+.claude/remote-settings.json
 .claude/sessions
 .claude/shell-snapshots
 .claude/skills/january-*
