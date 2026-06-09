@@ -91,7 +91,7 @@
       "/tmp"
     ]
   },
-  "model": "claude-fable-5",
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
