@@ -27,6 +27,7 @@ Sections:
 1. **Summary**: 1-2 sentences explaining the purpose of the changes
 
 ## Rules
+- References to fields should use backticks (`` ` ``) in both the title and the description
 - Use proper casing (standard capitalization) for the title and description, not lowercase
 - Infer the purpose from the code changes
 - Be concise 
