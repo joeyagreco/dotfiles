@@ -23,6 +23,8 @@ You are generating and updating a pull request title and description for the cur
 - Focus on WHAT the change does, not HOW
 
 ## Description Guidelines
+IMPORTANT: `gh pr edit --body` REPLACES the entire description. Always fetch the current body first and re-include any embedded media. Never pass a `--body` that you built without first reading the existing one.
+
 IMPORTANT: NEVER remove embedded media (images, videos, GIFs, etc) from an existing PR description. Other existing content like links can be replaced if your new description covers the same ground.
 
 Sections:
