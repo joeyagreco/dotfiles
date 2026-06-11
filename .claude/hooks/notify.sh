@@ -4,6 +4,13 @@
 
 input=$(cat)
 
+# only notify for permission prompts, skip idle ("waiting for your input") and others
+notification_type=$(printf '%s' "$input" | jq -r '.notification_type // ""')
+case "$notification_type" in
+  *permission*) ;;
+  *) exit 0 ;;
+esac
+
 message=$(printf '%s' "$input" | jq -r '.message // "Needs your input"')
 project=$(printf '%s' "$input" | jq -r '.cwd // "" | split("/") | last')
 
