@@ -91,6 +91,18 @@
       "/tmp"
     ]
   },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Needs your input\" with title \"Claude Code\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ]
+  },
   "model": "opus[1m]",
   "statusLine": {
     "type": "command",
