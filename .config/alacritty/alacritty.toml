@@ -62,7 +62,9 @@ save_to_clipboard = true
 [terminal.shell]
 # on the first alacritty window (no tmux server running yet), start tmux.
 # any window opened after that just gets a plain shell.
-args = [ "-l", "-c", "tmux ls &>/dev/null && exec zsh -l || exec tmux new-session -A -s main" ]
+# the server is started from an interactive login shell (zsh -lic) so it inherits
+# the full .zshrc environment (vars, PATH, etc). this branch only runs once per server.
+args = [ "-l", "-c", "tmux ls &>/dev/null && exec zsh -l || exec zsh -lic 'exec tmux new-session -A -s main'" ]
 program = "/bin/zsh"
 
 [window]
