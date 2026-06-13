@@ -6,7 +6,9 @@ local reservedKeys = {}
 local function bindHotkey(key, description, fn)
     local upper = string.upper(key)
     if reservedKeys[upper] then
-        hs.alert.show("hotkey collision: cmd+shift+" .. upper .. " (" .. reservedKeys[upper] .. " vs " .. description .. ")")
+        hs.alert.show(
+            "hotkey collision: cmd+shift+" .. upper .. " (" .. reservedKeys[upper] .. " vs " .. description .. ")"
+        )
         return
     end
     reservedKeys[upper] = description
@@ -29,6 +31,22 @@ bindHotkey("A", "maximize window", function()
         win:setFrame(win:screen():frame(), 0)
     end
 end)
+
+----------------------------------------
+-- chrome tab navigation (up/right) --
+----------------------------------------
+-- only fires when chrome is focused, sending chrome's native cmd+option+arrow
+local function chromeTab(direction)
+    return function()
+        local app = hs.application.frontmostApplication()
+        if app and app:bundleID() == "com.google.Chrome" then
+            hs.eventtap.keyStroke({ "cmd", "alt" }, direction, 0)
+        end
+    end
+end
+
+bindHotkey("U", "chrome: next tab", chromeTab("right")) -- down
+bindHotkey("I", "chrome: prev tab", chromeTab("left")) -- up
 
 -------------------------
 -- set up app switcher --

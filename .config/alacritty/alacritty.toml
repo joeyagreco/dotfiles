@@ -64,7 +64,11 @@ save_to_clipboard = true
 # any window opened after that just gets a plain shell.
 # the server is started from an interactive login shell (zsh -lic) so it inherits
 # the full .zshrc environment (vars, PATH, etc). this branch only runs once per server.
-args = [ "-l", "-c", "tmux ls &>/dev/null && exec zsh -l || exec zsh -lic 'exec tmux new-session -A -s main'" ]
+args = [
+   "-l",
+   "-c",
+   "tmux ls &>/dev/null && exec zsh -l || exec zsh -lic 'exec tmux new-session -A -s main'",
+]
 program = "/bin/zsh"
 
 [window]
