@@ -48,6 +48,15 @@ return {
                     { "n", "j", actions.select_next_entry, { desc = "open diff for next file" } },
                     { "n", "k", actions.select_prev_entry, { desc = "open diff for previous file" } },
                 },
+                file_history_panel = {
+                    -- press j and k to select commits on hover (to view the diff)
+                    -- 1. disable j/k moving cursor without selecting (we want hover to select)
+                    { "n", "j", false },
+                    { "n", "k", false },
+                    -- 2. j/k now select the entry (opens the diff for that commit)
+                    { "n", "j", actions.select_next_entry, { desc = "open diff for next commit" } },
+                    { "n", "k", actions.select_prev_entry, { desc = "open diff for previous commit" } },
+                },
             },
         })
 

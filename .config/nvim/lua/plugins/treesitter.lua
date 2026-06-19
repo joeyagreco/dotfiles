@@ -26,6 +26,7 @@ return {
             "terraform",
             "toml",
             "typescript",
+            "vim",
             "yaml",
         }
         require("nvim-treesitter").install(parsers)
