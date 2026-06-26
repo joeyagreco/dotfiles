@@ -25,7 +25,8 @@ vim.opt.updatetime = 250
 vim.opt.signcolumn = "yes"
 
 -- enable syntax highlighting
-vim.cmd("syntax on")
+-- NOTE: @joeyagreco - commenting this out for now since treesitter should just take care of this
+-- vim.cmd("syntax on")
 
 -- keep n lines visible above or below the cursor at all times
 vim.opt.scrolloff = 5
