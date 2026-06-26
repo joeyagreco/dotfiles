@@ -6,9 +6,26 @@ return {
     cmd = { "Blame", "DifBranch" },
     config = function()
         local actions = require("diffview.actions")
+
+        -- toggle ignoring all whitespace in the diff and re-render the open diff windows
+        local function toggle_ignore_whitespace()
+            if vim.tbl_contains(vim.opt.diffopt:get(), "iwhiteall") then
+                vim.opt.diffopt:remove("iwhiteall")
+                vim.notify("diff: showing whitespace", vim.log.levels.INFO)
+            else
+                vim.opt.diffopt:append("iwhiteall")
+                vim.notify("diff: ignoring whitespace", vim.log.levels.INFO)
+            end
+            vim.cmd("diffupdate")
+        end
+
         require("diffview").setup({
             keymaps = {
+                view = {
+                    { "n", "<leader>w", toggle_ignore_whitespace, { desc = "toggle ignore whitespace" } },
+                },
                 file_panel = {
+                    { "n", "<leader>w", toggle_ignore_whitespace, { desc = "toggle ignore whitespace" } },
                     -- press ENTER to open the currently selected file in the explorer
                     -- 1. must disable default <cr> behavior (which just opens the diff)
                     { "n", "<cr>", false },
@@ -49,6 +66,7 @@ return {
                     { "n", "k", actions.select_prev_entry, { desc = "open diff for previous file" } },
                 },
                 file_history_panel = {
+                    { "n", "<leader>w", toggle_ignore_whitespace, { desc = "toggle ignore whitespace" } },
                     -- press j and k to select commits on hover (to view the diff)
                     -- 1. disable j/k moving cursor without selecting (we want hover to select)
                     { "n", "j", false },
@@ -106,7 +124,13 @@ return {
                 require("diffview").open()
                 local file_count = #changed + #untracked
                 vim.notify(
-                    string.format("%d file%s changed, +%d -%d", file_count, file_count == 1 and "" or "s", additions, deletions),
+                    string.format(
+                        "%d file%s changed, +%d -%d",
+                        file_count,
+                        file_count == 1 and "" or "s",
+                        additions,
+                        deletions
+                    ),
                     vim.log.levels.INFO
                 )
             end,
