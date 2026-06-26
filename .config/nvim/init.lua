@@ -1,3 +1,7 @@
+-- enable experimental lua module loader (supposed to speed up loading of lua modules with some caching magic)
+-- https://neovim.io/doc/user/lua/#vim.loader.enable()
+vim.loader.enable()
+
 -- vim settings come before lazy
 require("vim")
 require("config.lazy")
