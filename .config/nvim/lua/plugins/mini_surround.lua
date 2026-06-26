@@ -11,7 +11,11 @@ return {
     "echasnovski/mini.surround",
     version = "*", -- stable
     lazy = true,
-    event = "BufEnter",
+    keys = {
+        { "sa", mode = { "n", "x" } }, -- surround add (normal + visual)
+        "sd", -- surround delete
+        "sr", -- surround replace
+    },
     opts = {
         -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
         highlight_duration = 5000,

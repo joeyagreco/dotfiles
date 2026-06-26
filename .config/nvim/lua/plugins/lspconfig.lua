@@ -2,7 +2,7 @@
 return {
     "neovim/nvim-lspconfig",
     lazy = true,
-    event = "BufEnter",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         -- reduce lsp log verbosity (prevents huge log files)
         vim.lsp.log.set_level("ERROR")
