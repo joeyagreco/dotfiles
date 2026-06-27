@@ -7,6 +7,9 @@
 # https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
 TERM = "xterm-256color"
 
+# need this so on restart we know where tf brew is
+HOMEBREW_PREFIX = "/opt/homebrew"
+
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
 # must be a "Nerd Font" for icons to work on nvim-tree
 # OLD FONTS:
