@@ -53,6 +53,17 @@ function c() {
 	fi
 }
 
+# create a new tmux session
+# attach if not already in a tmux session
+# just create if already in a tmux session
+function f_tmn() {
+	if [[ -n $TMUX ]]; then
+		tmux new-session -d -s "$1" && tmux switch-client -t "$1"
+	else
+		tmux new-session -A -s "$1"
+	fi
+}
+
 # set up a new tmux session for coding in the given repo
 function f_setup() {
 	c "$1" && three && tmux new-window "nvim"

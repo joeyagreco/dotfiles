@@ -21,7 +21,7 @@ alias tmk='tmux kill-session -t'
 # list all tmux sessions
 alias tml='tmux list-sessions -F "#{session_name}"'
 # create a new named tmux session
-alias tmn='tmux new-session -A -s'
+alias tmn='f_tmn'
 # split the current pane into 3 panes (2 vertical stack on the left and 1 on the right)
 alias three='tmux split-window -h \; select-pane -L \; split-window -v'
 # split the current pane into 4 equal panes
