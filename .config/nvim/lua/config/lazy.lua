@@ -14,6 +14,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- manually add nightfox to runtimepath and apply colorscheme before lazy.setup()
+-- this ensures lazy ui has correct colors from the start
+local nightfox_path = vim.fn.stdpath("data") .. "/lazy/nightfox.nvim"
+if vim.loop.fs_stat(nightfox_path) then
+    vim.opt.rtp:prepend(nightfox_path)
+    pcall(vim.cmd, "colorscheme carbonfox")
+    pcall(vim.api.nvim_set_hl, 0, "Visual", { link = "IncSearch" })
+end
+
 -- https://lazy.folke.io/configuration
 -- https://lazy.folke.io/usage
 -- lazy loading events: https://lazy.folke.io/usage#-user-events
