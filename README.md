@@ -30,6 +30,7 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 
 ### Upgrading tmux
 1. Check the [releases page](https://github.com/tmux/tmux/releases) to see the latest version
+2. Upgrade with `brew update && brew upgrade tmux`
 
 ### Upgrading starship
 1. Check the [releases page](https://github.com/starship/starship/releases) to see the latest version
