@@ -35,7 +35,7 @@ check() {
 	fi
 
 	if [ "$current" = "$latest" ]; then
-		printf "%-12s ${GREEN}%s${RESET}  (up to date)\n" "$name" "$current"
+		printf "%-12s ${GREEN}%-8s${RESET}  (up to date)\n" "$name" "$current"
 	else
 		printf "%-12s ${YELLOW}%s${RESET} -> ${GREEN}%s${RESET}\n" "$name" "$current" "$latest"
 	fi
