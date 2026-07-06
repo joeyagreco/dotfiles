@@ -1,6 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "forceLoginMethod": "claudeai",
   "attribution": {},
   "permissions": {
     "allow": [
@@ -92,6 +91,7 @@
       "/tmp"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -104,7 +104,6 @@
       }
     ]
   },
-  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -123,6 +122,7 @@
       }
     }
   },
+  "forceLoginMethod": "claudeai",
   "feedbackSurveyRate": 0,
   "spinnerVerbs": {
     "mode": "append",
@@ -172,7 +172,7 @@
     ]
   },
   "effortLevel": "high",
-  "fastMode": true,
+  "fastMode": false,
   "disableAutoMode": "disable",
   "theme": "dark",
   "editorMode": "vim",
@@ -180,5 +180,6 @@
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047822
-  }
+  },
+  "tui": "fullscreen"
 }
