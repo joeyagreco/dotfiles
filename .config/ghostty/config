@@ -6,8 +6,17 @@ term = xterm-256color
 # font
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
 # must be a "Nerd Font" for icons to work on nvim-tree
-font-family = "JetBrainsMono Nerd Font"
+# NL = no-ligatures variant (matches the alacritty.local.sh override)
+font-family = "JetBrainsMonoNL Nerd Font Mono"
 font-size = 14
+
+# glyph rendering tuned to match alacritty:
+# - 'native' blending is too heavy, 'linear-corrected' is lighter
+# - font-thicken adds a little stroke weight back so it isn't too thin
+# - negative adjust-cell-width tightens the horizontal spacing
+alpha-blending = linear-corrected
+font-thicken = true
+adjust-cell-width = -3%
 
 # mouse
 mouse-hide-while-typing = true

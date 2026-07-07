@@ -172,7 +172,8 @@
     ]
   },
   "effortLevel": "high",
-  "fastMode": false,
+  "fastMode": true,
+  "tui": "fullscreen",
   "disableAutoMode": "disable",
   "theme": "dark",
   "editorMode": "vim",
@@ -180,6 +181,5 @@
   "disableBypassPermissionsMode": "disable",
   "feedbackSurveyState": {
     "lastShownTime": 1754090047822
-  },
-  "tui": "fullscreen"
+  }
 }
