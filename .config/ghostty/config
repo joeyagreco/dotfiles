@@ -31,3 +31,7 @@ command = /bin/zsh -l -c "tmux ls &>/dev/null && exec zsh -l || exec zsh -lic 'e
 
 # SHIFT+RETURN for a new line (e.g. in claude code)
 keybind = shift+enter=text:\n
+
+# automatic updates: download and install on next launch, from the stable channel
+auto-update = download
+auto-update-channel = stable
