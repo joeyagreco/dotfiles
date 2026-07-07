@@ -20,7 +20,8 @@ copy-on-select = clipboard
 scrollback-limit = 10000000
 
 # window
-window-decoration = false
+# 'none' disables the titlebar/borders entirely (also disables tabs on macos)
+window-decoration = none
 maximize = true
 
 # on the first ghostty window (no tmux server running yet), start tmux.
