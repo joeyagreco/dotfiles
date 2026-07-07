@@ -6,8 +6,7 @@ term = xterm-256color
 # font
 # DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
 # must be a "Nerd Font" for icons to work on nvim-tree
-# NL = no-ligatures variant (matches the alacritty.local.sh override)
-font-family = "JetBrainsMonoNL Nerd Font Mono"
+font-family = "JetBrainsMonoNL Nerd Font"
 font-size = 14
 
 # glyph rendering tuned to match alacritty:
