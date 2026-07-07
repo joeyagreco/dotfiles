@@ -55,6 +55,9 @@ scrollback-limit = 10000000
 window-decoration = none
 maximize = true
 
+# don't prompt to confirm when quitting/closing 
+confirm-close-surface = false
+
 command = /bin/zsh -l -c "tmux ls &>/dev/null && exec zsh -l || exec zsh -lic 'exec tmux new-session -A -s main'"
 
 # SHIFT+RETURN for a new line (used in claude code)
