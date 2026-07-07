@@ -1,6 +1,7 @@
 # Brewfile
 
 cask "hammerspoon"
+cask "ghostty"
 
 # general utils
 brew 'btop'
