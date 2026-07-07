@@ -1,6 +1,8 @@
 [alias]
 		# [a]dd[c]ommit[p]ush
 	acp     = "!sh -c 'git add . && git commit -am \"quick commit\" && git push'"
+		# [a]dd[c]ommit[p]ush[n]o[v]erify
+	acpnv   = "!sh -c 'git add . && git commit -am \"quick commit\" --no-verify && git push'"
 	co      = checkout
 	cnv     = commit --no-verify
 		# empty commit
