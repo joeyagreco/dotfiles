@@ -46,7 +46,10 @@ mouse-hide-while-typing = true
 # copy selection straight to the system clipboard (alacritty: save_to_clipboard)
 copy-on-select = clipboard
 
-# needed so claude code can paste images from the clipboard (ctrl+v).
+# use CTRL+V (not cmd+v) to paste images into Claude Code
+# also requires ghostty to have macos Accessibility access:
+#   System Settings > Privacy & Security > Accessibility > add + enable Ghostty.
+# cmd+v can't be made to paste images without breaking normal text paste -- see https://github.com/ghostty-org/ghostty/issues/11444
 clipboard-read = allow
 
 # scrollback. ghostty measures this in bytes, not lines (alacritty used 10000 lines)
