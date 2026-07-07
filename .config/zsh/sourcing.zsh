@@ -111,8 +111,13 @@ export PATH="$HOME/.cargo/bin:$PATH"
 "$HOME/.config/alacritty/alacritty.local.sh"
 
 # set up brew
+# NOTE: reference brew by absolute path so a fresh login shell
 if [[ -z "$HOMEBREW_PREFIX" ]]; then
-	export HOMEBREW_PREFIX="$(brew --prefix)"
+	if [[ -x /opt/homebrew/bin/brew ]]; then
+		export HOMEBREW_PREFIX=/opt/homebrew
+	elif [[ -x /usr/local/bin/brew ]]; then
+		export HOMEBREW_PREFIX=/usr/local
+	fi
 fi
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
