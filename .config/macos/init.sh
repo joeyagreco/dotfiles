@@ -97,7 +97,7 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 apps=(
 	"Docker:/Applications/Docker.app"
 	"Chrome:/Applications/Google Chrome.app"
-	"Alacritty:/Applications/Alacritty.app"
+	"Ghostty:/Applications/Ghostty.app"
 	"Hammerspoon:/Applications/Hammerspoon.app"
 )
 
