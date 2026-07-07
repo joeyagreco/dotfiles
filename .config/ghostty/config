@@ -1,0 +1,33 @@
+# https://ghostty.org/docs/config
+# ghostty looks for this at ~/.config/ghostty/config
+
+# for true color support (alacritty set this via env TERM)
+term = xterm-256color
+
+# font
+# DOWNLOAD HERE: https://www.nerdfonts.com/font-downloads
+# must be a "Nerd Font" for icons to work on nvim-tree
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+
+# mouse
+mouse-hide-while-typing = true
+
+# copy selection straight to the system clipboard (alacritty: save_to_clipboard)
+copy-on-select = clipboard
+
+# scrollback. ghostty measures this in bytes, not lines (alacritty used 10000 lines)
+scrollback-limit = 10000000
+
+# window
+window-decoration = false
+maximize = true
+
+# on the first ghostty window (no tmux server running yet), start tmux.
+# any window opened after that just gets a plain shell.
+# the server is started from an interactive login shell (zsh -lic) so it inherits
+# the full .zshrc environment (vars, PATH, etc). this branch only runs once per server.
+command = /bin/zsh -l -c "tmux ls &>/dev/null && exec zsh -l || exec zsh -lic 'exec tmux new-session -A -s main'"
+
+# SHIFT+RETURN for a new line (e.g. in claude code)
+keybind = shift+enter=text:\n
