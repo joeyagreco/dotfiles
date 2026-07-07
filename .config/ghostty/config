@@ -3,8 +3,7 @@
 # for true color support
 term = xterm-256color
 
-# colors: match alacritty's built-in default palette (base16 default dark).
-# ghostty ships a different default theme (blue-gray), so we pin these explicitly.
+# colors
 background = 181818
 foreground = d8d8d8
 # normal colors (0-7)
