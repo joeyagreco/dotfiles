@@ -1,7 +1,6 @@
 # https://ghostty.org/docs/config
-# ghostty looks for this at ~/.config/ghostty/config
 
-# for true color support (alacritty set this via env TERM)
+# for true color support
 term = xterm-256color
 
 # font
