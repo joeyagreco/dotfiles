@@ -32,10 +32,7 @@ palette = 15=#f8f8f8
 font-family = "JetBrainsMonoNL Nerd Font"
 font-size = 14
 
-# glyph rendering tuned to match alacritty:
-# - 'native' blending is too heavy, 'linear-corrected' is lighter
-# - font-thicken adds a little stroke weight back so it isn't too thin
-# - negative adjust-cell-width tightens the horizontal spacing
+# glyph rendering
 alpha-blending = linear-corrected
 font-thicken = true
 adjust-cell-width = -3%
@@ -43,7 +40,7 @@ adjust-cell-width = -3%
 # mouse
 mouse-hide-while-typing = true
 
-# copy selection straight to the system clipboard (alacritty: save_to_clipboard)
+# copy selection straight to the system clipboard 
 copy-on-select = clipboard
 
 # use CTRL+V (not cmd+v) to paste images into Claude Code
@@ -52,21 +49,16 @@ copy-on-select = clipboard
 # cmd+v can't be made to paste images without breaking normal text paste -- see https://github.com/ghostty-org/ghostty/issues/11444
 clipboard-read = allow
 
-# scrollback. ghostty measures this in bytes, not lines (alacritty used 10000 lines)
+# 10,000 lines
 scrollback-limit = 10000000
 
-# window
-# 'none' disables the titlebar/borders entirely (also disables tabs on macos)
+# disables window titlebar/borders/tabs
 window-decoration = none
 maximize = true
 
-# on the first ghostty window (no tmux server running yet), start tmux.
-# any window opened after that just gets a plain shell.
-# the server is started from an interactive login shell (zsh -lic) so it inherits
-# the full .zshrc environment (vars, PATH, etc). this branch only runs once per server.
 command = /bin/zsh -l -c "tmux ls &>/dev/null && exec zsh -l || exec zsh -lic 'exec tmux new-session -A -s main'"
 
-# SHIFT+RETURN for a new line (e.g. in claude code)
+# SHIFT+RETURN for a new line (used in claude code)
 keybind = shift+enter=text:\n
 
 # automatic updates: download and install on next launch, from the stable channel
