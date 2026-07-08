@@ -48,9 +48,6 @@ return {
                 {
                     function()
                         local symbols = {}
-                        if vim.fn.expand("%") == "" then
-                            table.insert(symbols, "") -- unnamed
-                        end
                         if vim.bo.modified then
                             table.insert(symbols, "") -- modified
                         end
