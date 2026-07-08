@@ -105,7 +105,7 @@ return {
                 local untracked = vim.fn.systemlist("git ls-files --others --exclude-standard")
                 local has_changes = (vim.v.shell_error == 0 and (#changed > 0 or #untracked > 0))
                 if not has_changes then
-                    vim.notify("⚠️no files changed!", vim.log.levels.INFO)
+                    vim.notify(" ⚠️ no files changed!", vim.log.levels.INFO)
                     return
                 end
 
