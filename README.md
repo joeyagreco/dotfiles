@@ -21,8 +21,9 @@ export GITHUB_PREFIX="my_github_profile_or_org"
 ### Check for outdated versions
 `make check-versions`
 
-### Installing/updating alacritty
-1. Download the latest stable `.dmg` file from the [github releases page](https://github.com/alacritty/alacritty/releases)
+### Upgrading ghostty
+1. Check the [releases page](https://github.com/ghostty-org/ghostty/releases) to see the latest version
+2. Upgrade with `brew update && brew upgrade --cask ghostty`
 
 ### Upgrading neovim
 1. Check [releases page](https://github.com/neovim/neovim/releases) to see the latest version

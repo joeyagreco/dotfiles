@@ -11,9 +11,13 @@ RESET=$'\033[0m'
 
 latest_release() {
 	local repo="$1"
-	curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" |
-		jq -r '.tag_name' |
-		sed 's/^v//'
+	local tag
+	tag=$(curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" 2>/dev/null | jq -r '.tag_name')
+	# some projects (e.g. ghostty) publish git tags but no proper github release
+	if [ -z "$tag" ] || [ "$tag" = "null" ]; then
+		tag=$(curl -fsSL "https://api.github.com/repos/${repo}/tags" 2>/dev/null | jq -r '.[0].name')
+	fi
+	printf '%s\n' "$tag" | sed 's/^v//'
 }
 
 check() {
@@ -41,9 +45,9 @@ check() {
 	fi
 }
 
-alacritty_version() {
-	command -v alacritty >/dev/null || return
-	alacritty --version | awk '{print $2}'
+ghostty_version() {
+	[ -d /Applications/Ghostty.app ] || return
+	defaults read /Applications/Ghostty.app/Contents/Info.plist CFBundleShortVersionString
 }
 
 nvim_version() {
@@ -66,7 +70,7 @@ hammerspoon_version() {
 	defaults read /Applications/Hammerspoon.app/Contents/Info.plist CFBundleShortVersionString
 }
 
-check "alacritty" "alacritty/alacritty" "$(alacritty_version)"
+check "ghostty" "ghostty-org/ghostty" "$(ghostty_version)"
 check "hammerspoon" "Hammerspoon/hammerspoon" "$(hammerspoon_version)"
 check "neovim" "neovim/neovim" "$(nvim_version)"
 check "starship" "starship/starship" "$(starship_version)"
