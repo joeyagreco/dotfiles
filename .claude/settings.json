@@ -60,6 +60,7 @@
       "Bash(ruff:*)",
       "Bash(sed:*)",
       "Bash(sort:*)",
+      "Bash(tail:*)",
       "Bash(time:*)",
       "Bash(tree:*)",
       "Bash(uv:*)",
