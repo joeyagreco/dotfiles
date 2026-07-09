@@ -88,6 +88,7 @@
       "Bash(git push:*)"
     ],
     "ask": [],
+    "defaultMode": "auto",
     "additionalDirectories": [
       "/tmp"
     ]
@@ -175,7 +176,6 @@
   "effortLevel": "high",
   "fastMode": true,
   "tui": "fullscreen",
-  "disableAutoMode": "disable",
   "theme": "dark",
   "editorMode": "vim",
   "voiceEnabled": true,
