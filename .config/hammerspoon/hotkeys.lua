@@ -33,20 +33,27 @@ bindHotkey("A", "maximize window", function()
 end)
 
 ----------------------------------------
--- chrome tab navigation (up/right) --
+-- list navigation (next/prev) --
 ----------------------------------------
--- only fires when chrome is focused, sending chrome's native cmd+option+arrow
-local function chromeTab(direction)
+-- "next" = chrome next tab / slack next channel (down the sidebar)
+-- "prev" = chrome prev tab / slack prev channel (up the sidebar)
+local function listNav(chromeArrow, slackArrow)
     return function()
         local app = hs.application.frontmostApplication()
-        if app and app:bundleID() == "com.google.Chrome" then
-            hs.eventtap.keyStroke({ "cmd", "alt" }, direction, 0)
+        if not app then
+            return
+        end
+        local bundleID = app:bundleID()
+        if bundleID == "com.google.Chrome" then
+            hs.eventtap.keyStroke({ "cmd", "alt" }, chromeArrow, 0)
+        elseif bundleID == "com.tinyspeck.slackmacgap" then
+            hs.eventtap.keyStroke({ "alt" }, slackArrow, 0)
         end
     end
 end
 
-bindHotkey("U", "chrome: next tab", chromeTab("right")) -- down
-bindHotkey("I", "chrome: prev tab", chromeTab("left")) -- up
+bindHotkey("U", "next tab/channel", listNav("right", "down"))
+bindHotkey("I", "prev tab/channel", listNav("left", "up"))
 
 -------------------------
 -- set up app switcher --
