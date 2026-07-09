@@ -45,6 +45,7 @@ alias dstop='docker stop $(docker ps -q)'
 
 alias vi='vim'
 alias cc='claude'
+alias ccu='open "https://claude.ai/new#settings/usage"'
 alias ic='ping 8.8.8.8'
 alias home='cd ~'
 alias ls='eza'
