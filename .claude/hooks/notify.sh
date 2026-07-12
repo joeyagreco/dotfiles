@@ -13,7 +13,7 @@ esac
 
 # skip if the terminal is already focused (i'm looking at the session).
 # if the focus check fails for any reason, default to notifying.
-terminal_app="alacritty"
+terminal_app="ghostty"
 frontmost=$(osascript -e 'tell application "System Events" to get name of first application process whose frontmost is true' 2>/dev/null)
 if [ "$(printf '%s' "$frontmost" | tr '[:upper:]' '[:lower:]')" = "$terminal_app" ]; then
 	exit 0

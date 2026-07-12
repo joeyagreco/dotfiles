@@ -107,9 +107,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # GENERAL #
 ###########
 
-# apply local alacritty settings
-"$HOME/.config/alacritty/alacritty.local.sh"
-
 # set up brew
 # NOTE: reference brew by absolute path so a fresh login shell
 if [[ -z "$HOMEBREW_PREFIX" ]]; then
