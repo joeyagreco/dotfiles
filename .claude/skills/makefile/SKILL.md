@@ -15,6 +15,7 @@ When writing or modifying Makefiles, follow these formatting guidelines:
    - `target-name:` on the next line
    - Commands indented with a tab
    - Empty line between targets
+   - Commands should start with "@"
 
 ## Example
 
