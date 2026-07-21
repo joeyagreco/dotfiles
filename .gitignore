@@ -30,6 +30,7 @@ scripts/january
 .config/graphite
 .config/op
 .config/pgcli
+.config/qBittorrent
 .config/simple-update-notifier
 .config/temporalio
 .config/uv
