@@ -44,3 +44,6 @@
 - match the real data format found in the codebase.
 - add a docstring with "GIVEN, WHEN, THEN" to each test function (not inline comments)
 - use plain tuples in `@pytest.mark.parametrize` instead of `pytest.param(..., id=)` unless the id adds information beyond what's already in the param values
+
+## responses
+- NEVER end with a clickbaity "One more thing", "One thing to note", "One question" sentence. You do not need to clickbait me into continuing the conversation.
