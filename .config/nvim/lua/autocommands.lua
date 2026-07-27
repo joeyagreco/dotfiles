@@ -86,9 +86,9 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
     },
     desc = "show a placeholder instead of loading binary media files",
     callback = function(args)
-        local ext = vim.fn.fnamemodify(args.file, ":e")
+        local filename = vim.fn.fnamemodify(args.file, ":t")
         vim.bo[args.buf].modifiable = true
-        vim.api.nvim_buf_set_lines(args.buf, 0, -1, false, { "<" .. ext .. ">" })
+        vim.api.nvim_buf_set_lines(args.buf, 0, -1, false, { "<" .. filename .. ">" })
         vim.bo[args.buf].modifiable = false
         vim.bo[args.buf].modified = false
         vim.bo[args.buf].buftype = "nowrite"
