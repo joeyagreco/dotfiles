@@ -31,6 +31,14 @@
 ## code formatting
 - new comments should be in all lower case
     - if existing comments do not follow this rule.. do NOT change them to conform
+- new comments should not have a sentence that spans multiple lines
+EXAMPLES:
+# this is an example of a 
+# bad comment because it spans
+# the same sentence across multiple lines
+
+# this is an example of a good comment because it spans a sentence within a single line
+
 - new docstrings should use "proper" casing
     - always conform to existing conventions when updating docstrings 
 - use existing constants, enums, and mappings defined in the project rather than hardcoding values. always search for existing constants before introducing new literal values.
