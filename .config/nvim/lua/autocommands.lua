@@ -65,6 +65,36 @@ for ft, cs in pairs(commentstrings) do
     })
 end
 
+-- show a placeholder instead of loading binary media files
+-- BufReadCmd takes over the read entirely so the raw bytes are never loaded
+-- These buffers open instantly instead of choking on encoded content
+vim.api.nvim_create_autocmd("BufReadCmd", {
+    pattern = {
+        "*.mp4",
+        "*.mov",
+        "*.mkv",
+        "*.avi",
+        "*.webm",
+        "*.mp3",
+        "*.wav",
+        "*.flac",
+        "*.png",
+        "*.jpg",
+        "*.jpeg",
+        "*.gif",
+        "*.pdf",
+    },
+    desc = "show a placeholder instead of loading binary media files",
+    callback = function(args)
+        local ext = vim.fn.fnamemodify(args.file, ":e")
+        vim.bo[args.buf].modifiable = true
+        vim.api.nvim_buf_set_lines(args.buf, 0, -1, false, { "<" .. ext .. ">" })
+        vim.bo[args.buf].modifiable = false
+        vim.bo[args.buf].modified = false
+        vim.bo[args.buf].buftype = "nowrite"
+    end,
+})
+
 -- force-kill lsp servers on quit to prevent slow shutdown
 vim.api.nvim_create_autocmd("VimLeavePre", {
     desc = "force stop all lsp clients on quit",
