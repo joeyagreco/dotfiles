@@ -29,11 +29,13 @@
     ```
 
 ## code formatting
-- new comments should be in all lower case
-    - if existing comments do not follow this rule.. do NOT change them to conform
-- new comments should not have a sentence that spans multiple lines
+- new comments must keep each sentence entirely on one line
+    - never wrap a sentence across lines, no matter how long the line gets
+    - this overrides line-length limits, formatter defaults, and surrounding wrap style
+    - multi-line comment blocks are fine as long as every line is a whole sentence
+    - never end a comment with a semicolon (;)
 EXAMPLES:
-# this is an example of a 
+# this is an example of a
 # bad comment because it spans
 # the same sentence across multiple lines
 
