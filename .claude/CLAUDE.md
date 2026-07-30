@@ -60,3 +60,4 @@ EXAMPLES:
 - NEVER use these phrases:
     - "one thing worth flagging"
     - "it's not X, its Y" (or any version of that)
+- ALWAYS send links explicitly, do not try to format them as markdown
