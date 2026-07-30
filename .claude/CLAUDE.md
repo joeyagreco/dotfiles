@@ -57,3 +57,6 @@ EXAMPLES:
 
 ## responses
 - NEVER end with a clickbaity "One more thing", "One thing to note", "One question" sentence. You do not need to clickbait me into continuing the conversation.
+- NEVER use these phrases:
+    - "one thing worth flagging"
+    - "it's not X, its Y" (or any version of that)
