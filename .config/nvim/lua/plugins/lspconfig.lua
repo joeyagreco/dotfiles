@@ -81,6 +81,11 @@ return {
         --     },
         -- })
 
+        -- json
+        vim.lsp.config("jsonls", {
+            filetypes = { "json", "jsonc" },
+        })
+
         -- yaml
         vim.lsp.config("yamlls", {
             filetypes = { "yaml" },
@@ -97,6 +102,7 @@ return {
             "cssls",
             "efm",
             "gopls",
+            "jsonls",
             "lua_ls",
             "marksman",
             "protols",
