@@ -7,14 +7,6 @@ local map = vim.keymap.set
 -- SEARCH --
 ------------
 
--- go to definition for whatever the cursor is on
-map(
-    "n",
-    "<leader>gd",
-    vim.lsp.buf.definition,
-    helpers.combine_tables(default_options, { desc = "go to definition for word under cursor" })
-)
-
 map("n", "<leader>S", function()
     local word = vim.fn.expand("<cword>") -- get the word under the cursor
     vim.fn.setreg("/", word) -- store the word in the search register

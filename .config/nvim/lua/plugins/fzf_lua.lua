@@ -139,6 +139,26 @@ return {
             noremap = true,
         },
         {
+            "<leader>gd",
+            function()
+                require("fzf-lua").lsp_definitions({
+                    -- jump straight to the location when there's only one result
+                    jump1 = true,
+                    -- disable default ctrl-t (open in tab) so our fzf binding works
+                    actions = { ["ctrl-t"] = false },
+                    keymap = {
+                        fzf = {
+                            -- exclude test files from results
+                            ["ctrl-t"] = "transform-query(echo {q}' !test')",
+                        },
+                    },
+                })
+            end,
+            desc = "go to definition for word under cursor",
+            silent = true,
+            noremap = true,
+        },
+        {
             "<leader>u",
             function()
                 require("fzf-lua").lsp_references({
