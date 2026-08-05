@@ -162,6 +162,8 @@ return {
             "<leader>u",
             function()
                 require("fzf-lua").lsp_references({
+                    -- don't include the declaration itself (the thing the cursor is on) in the results
+                    includeDeclaration = false,
                     -- disable default ctrl-t (open in tab) so our fzf binding works
                     actions = { ["ctrl-t"] = false },
                     keymap = {
