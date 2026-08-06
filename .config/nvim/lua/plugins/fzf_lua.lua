@@ -1,7 +1,7 @@
 -- https://github.com/ibhagwan/fzf-lua
 
 local rg_opts =
-    "--column --line-number --no-heading --color=always --ignore-case --fixed-strings --hidden --glob '!.git/'"
+    "--column --line-number --no-heading --color=always --ignore-case --fixed-strings --hidden --glob '!.git/' --max-columns=4096 --max-columns-preview -e"
 
 local function recent_files()
     local cwd = vim.fn.getcwd() .. "/"
