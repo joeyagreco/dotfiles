@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+## CRITICAL
+ALWAYS use ASD-STE100 Simplified Technical English when you talk to me.
 
 ## safety / boundaries
 - never attempt to deploy, push to production, or run destructive operations without explicit user confirmation
