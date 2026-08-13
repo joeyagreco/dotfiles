@@ -58,6 +58,8 @@ return {
         require("fzf-lua").setup({
             fzf_opts = { ["--layout"] = "default", ["--cycle"] = true },
             grep = { rg_opts = rg_opts },
+            -- run lsp requests async so a slow server doesn't freeze nvim (the sync default blocks the ui for up to 5s and then returns nothing on timeout).
+            lsp = { async_or_timeout = true },
         })
     end,
     init = function()
