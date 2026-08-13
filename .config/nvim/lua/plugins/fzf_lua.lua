@@ -146,6 +146,10 @@ return {
                 require("fzf-lua").lsp_definitions({
                     -- jump straight to the location when there's only one result
                     jump1 = true,
+                    -- a number forces this request to be sync, which overrides the global async setting.
+                    -- async mode opens the fzf window first and only closes it after the results arrive, so jump1 makes the popup flash.
+                    -- sync mode jumps without ever opening the window, and 1s is enough for a definition lookup.
+                    async_or_timeout = 1000,
                     -- disable default ctrl-t (open in tab) so our fzf binding works
                     actions = { ["ctrl-t"] = false },
                     keymap = {
