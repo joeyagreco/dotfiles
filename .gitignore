@@ -23,6 +23,7 @@ scripts/january
 
 # .config
 !.config
+.config/cagent
 .config/efm-langserver
 .config/fish
 .config/gcloud
