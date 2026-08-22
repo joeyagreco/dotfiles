@@ -2,6 +2,7 @@
 
 ## CRITICAL
 ALWAYS use ASD-STE100 Simplified Technical English when you talk to me. See @.claude/skills/asd-ste100/SKILL.md
+/asd-ste100
 
 ## safety / boundaries
 - never attempt to deploy, push to production, or run destructive operations without explicit user confirmation
