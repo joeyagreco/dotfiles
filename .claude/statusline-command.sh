@@ -20,8 +20,8 @@ if [ -n "$used" ]; then
 		bar="${bar}░"
 		i=$((i + 1))
 	done
-	# green up to 25%, yellow above 25% through 70%, red above 70%
-	color=$(echo "$used" | awk '{ if ($1 <= 25) print "32"; else if ($1 <= 70) print "33"; else print "31" }')
+	# green below 50%, yellow at 50% and above, red at 75% and above
+	color=$(echo "$used" | awk '{ if ($1 >= 75) print "31"; else if ($1 >= 50) print "33"; else print "32" }')
 	ctx_bar="  [${bar}] ${used}%"
 else
 	color="90"
