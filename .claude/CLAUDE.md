@@ -1,6 +1,7 @@
 # CLAUDE.md
 
 <!-- ste100:start -->
+**CRITICAL:**
 ALWAYS use ASD-STE100 Simplified Technical English when you talk to me. apply every rule below to every response.
 - use active voice. write "the script deletes the file". do not write "the file is deleted".
 - use simple tenses. write "we received the report". do not write "we have received the report".
