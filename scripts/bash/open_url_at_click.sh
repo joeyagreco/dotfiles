@@ -39,4 +39,8 @@ BEGIN { row = 0 }
 
 url=$(echo "$url" | sed -E 's/[).,;:!?]+$//')
 
-[ -n "$url" ] && open "$url"
+if [ -n "$url" ]; then
+	open "$url"
+fi
+
+exit 0
