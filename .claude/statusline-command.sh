@@ -20,11 +20,14 @@ if [ -n "$used" ]; then
 		bar="${bar}░"
 		i=$((i + 1))
 	done
+	# green up to 25%, yellow above 25% through 70%, red above 70%
+	color=$(echo "$used" | awk '{ if ($1 <= 25) print "32"; else if ($1 <= 70) print "33"; else print "31" }')
 	ctx_bar="  [${bar}] ${used}%"
 else
+	color="90"
 	ctx_bar="  [░░░░░░░░░░] …"
 fi
 
 printf '\033[90m%s\033[0m' "$model"
-[ -n "$ctx_bar" ] && printf '\033[90m%s\033[0m' "$ctx_bar"
+[ -n "$ctx_bar" ] && printf '\033[%sm%s\033[0m' "$color" "$ctx_bar"
 printf '\n'
