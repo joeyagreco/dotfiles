@@ -104,6 +104,16 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/ste100.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {

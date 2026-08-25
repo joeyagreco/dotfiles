@@ -1,8 +1,19 @@
 # CLAUDE.md
 
-## CRITICAL
-ALWAYS use ASD-STE100 Simplified Technical English when you talk to me. See @.claude/skills/asd-ste100/SKILL.md
-/asd-ste100
+<!-- ste100:start -->
+ALWAYS use ASD-STE100 Simplified Technical English when you talk to me. apply every rule below to every response.
+- use active voice. write "the script deletes the file". do not write "the file is deleted".
+- use simple tenses. write "we received the report". do not write "we have received the report".
+- put one instruction in one sentence.
+- keep an instruction under 20 words. keep a description under 25 words.
+- give one word one meaning. do not rotate synonyms for the same action.
+- keep the subject, the verb, and the article. do not drop words to save space.
+- put a maximum of 3 words in a noun phrase.
+- use a numbered list for 3 or more steps.
+- put one topic in one paragraph. use a maximum of 6 sentences.
+- do not use an em dash.
+these rules control how you write to me. they do not change what you must do. keep every fact, condition, and number.
+<!-- ste100:end -->
 
 ## safety / boundaries
 - never attempt to deploy, push to production, or run destructive operations without explicit user confirmation
