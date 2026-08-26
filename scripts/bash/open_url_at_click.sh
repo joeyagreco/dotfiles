@@ -2,45 +2,61 @@
 
 # ghostty matches urls one row at a time, and tmux redraws each row of a wrapped line on its own, so ghostty can only open the first row of a url that wraps.
 # tmux still tracks which rows continue a wrapped line, so capture-pane -J rebuilds the logical line and the url under the mouse comes back whole.
+# capture-pane -N prints one line for each visual row, so the clicked row is always at index mouse_y and the script never measures line widths.
+# the script reads the word under the mouse on that one row, then opens the rebuilt url that contains the word.
 
 mouse_x=$1
 mouse_y=$2
 pane=$3
 
-width=$(tmux display-message -p -t "$pane" '#{pane_width}')
+url_regex='(https?|ftp)://[^[:space:]"'"'"'`<>]+'
 
-export URL_RE="(https?|ftp)://[^[:space:]\"'\`<>]+"
+visual_rows=$(tmux capture-pane -p -N -t "$pane" 2>/dev/null)
+logical_lines=$(tmux capture-pane -p -J -N -t "$pane" 2>/dev/null)
 
-url=$(tmux capture-pane -p -J -t "$pane" | awk -v w="$width" -v mx="$mouse_x" -v my="$mouse_y" '
-BEGIN { row = 0 }
-{
-  length_of_line = length($0)
-  rows = (length_of_line == 0) ? 1 : int((length_of_line + w - 1) / w)
-  if (my >= row && my < row + rows) {
-    offset = (my - row) * w + mx + 1
-    rest = $0
-    consumed = 0
-    match_count = 0
-    while (match(rest, ENVIRON["URL_RE"])) {
-      start = consumed + RSTART
-      end = start + RLENGTH - 1
-      text = substr(rest, RSTART, RLENGTH)
-      match_count++
-      last_match = text
-      if (offset >= start && offset <= end) { print text; exit }
-      consumed = end
-      rest = substr(rest, RSTART + RLENGTH)
-    }
-    if (match_count == 1) print last_match
-    exit
-  }
-  row += rows
-}')
+clicked_row=$(printf '%s\n' "$visual_rows" | sed -n "$((mouse_y + 1))p")
 
-url=$(echo "$url" | sed -E 's/[).,;:!?]+$//')
+if [ "$mouse_x" -gt 0 ]; then
+    left_part=$(printf '%s' "$clicked_row" | cut -c "1-$mouse_x")
+else
+    left_part=""
+fi
+right_part=$(printf '%s' "$clicked_row" | cut -c "$((mouse_x + 1))-")
+
+left_word=$(printf '%s' "$left_part" | sed -E 's/.*[[:space:]]//')
+right_word=$(printf '%s' "$right_part" | sed -E 's/[[:space:]].*//')
+word="$left_word$right_word"
+
+if [ "${#word}" -lt 3 ]; then
+    exit 0
+fi
+
+# a row that continues a wrapped url always starts at column 0, so a word without a scheme must start there.
+case "$word" in
+    *://*) ;;
+    *)
+        if [ "$left_part" != "$left_word" ]; then
+            exit 0
+        fi
+        ;;
+esac
+
+url=""
+while IFS= read -r candidate; do
+    case "$candidate" in
+        *"$word"*)
+            url="$candidate"
+            break
+            ;;
+    esac
+done <<EOF
+$(printf '%s\n' "$logical_lines" | grep -oE "$url_regex")
+EOF
+
+url=$(printf '%s' "$url" | sed -E 's/[).,;:!?]+$//')
 
 if [ -n "$url" ]; then
-	open "$url"
+    open "$url"
 fi
 
 exit 0
