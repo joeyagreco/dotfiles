@@ -31,6 +31,7 @@ these rules control how you write to me. they do not change what you must do. ke
 - avoid formal bullet-point-style prose in paragraphs - let it flow naturally
 - NEVER use em dashes
 - NEVER use phrasing like "it's not X, it's Y"
+- Keep docstrings at the top of files minimal. One line or less.
 
 ## python
 - use `*` to enforce keyword-only arguments when a function has 2+ parameters (e.g. `def foo(*, name, age)`). not needed for single-param functions.
