@@ -55,13 +55,12 @@ vim.api.nvim_create_user_command("Claude", function(opts)
     local full_path = vim.fn.expand("%:p")
     local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
 
-    if vim.v.shell_error ~= 0 then
-        print("error: not in a git repository")
-        return
+    local path = full_path
+    if vim.v.shell_error == 0 then
+        path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
     end
 
-    local relative_path = full_path:gsub("^" .. git_root:gsub("([%(%)%.%+%-%*%?%[%]%^%$%%])", "%%%1") .. "/", "")
-    local result = "@" .. relative_path
+    local result = "@" .. path
 
     -- handle visual selection
     if opts.range == 2 then
@@ -109,7 +108,8 @@ vim.api.nvim_create_user_command("Pr", function()
         return
     end
 
-    local url = vim.fn.system("gh pr list --search " .. sha .. " --state merged --json url --jq '.[0].url'"):gsub("\n", "")
+    local url =
+        vim.fn.system("gh pr list --search " .. sha .. " --state merged --json url --jq '.[0].url'"):gsub("\n", "")
 
     if vim.v.shell_error ~= 0 or url == "" or url == "null" then
         print("error: no pr found for commit " .. sha:sub(1, 7))
