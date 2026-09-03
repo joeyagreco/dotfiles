@@ -114,6 +114,19 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|Bash|mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/deslop.py",
+            "timeout": 10,
+            "statusMessage": "Checking prose"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
