@@ -116,6 +116,18 @@ CHECKS = [
         r"|function|query|queries|program|schedule|system|pipeline)s?\s+"
         r"(?:walk|want|think|believe|hope|dream|dance|sing|journey|march|weave"
         r"|tell|see)s?\b", re.I)),
+    # "let me verify rather than assert", "I'll check instead of assuming":
+    # the sentence narrates the method and reports no result.
+    ("W35", "narrated verify-not-assert posture", re.compile(
+        r"\b(?:verif\w*|check\w*|confirm\w*|test\w*|measur\w*|look\w*|read)\b"
+        r"[^.!?\n]{0,40}\b(?:rather than|instead of)\s+"
+        r"(?:\w+\s+){0,2}(?:assert|assum|guess|claim|specul)\w*"
+        r"|\b(?:rather than|instead of)\s+(?:\w+\s+){0,2}"
+        r"(?:assert|assum|guess|claim|specul)\w*[^.!?\n]{0,40}"
+        r"\b(?:verif\w*|check\w*|confirm\w*|test\w*|measur\w*)\b"
+        r"|\b(?:let me|let'?s|i'?ll|i will|i'?m going to)\b[^.!?\n]{0,40}"
+        r"\b(?:rather than|instead of)\s+(?:\w+\s+){0,2}"
+        r"(?:assert|assum|guess|claim|specul)\w*", re.I)),
 ]
 
 # Google developer documentation style guide checks (see
