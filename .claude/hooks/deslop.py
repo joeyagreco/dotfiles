@@ -44,8 +44,7 @@ CHECKS = [
         r"|utiliz\w+|nuanced|tapestry|the \w+ landscape|landscape of"
         r"|not only\b[^.!?]{0,80}\bbut also|holistic|robust|cutting.edge)\b", re.I)),
     ("W2", "not-X-but-Y framing", re.compile(
-        r"(,\s+not\s+[a-z]"
-        r"|\bnot (?:just |merely |only )?about\b[^.!?]{0,60}\b(?:it'?s|but) about\b"
+        r"(\bnot (?:just |merely |only )?about\b[^.!?]{0,60}\b(?:it'?s|but) about\b"
         r"|\bless about\b[^.!?]{0,60}\bmore about\b"
         r"|\b(?:it|this|that)(?:'s| is) not\b[^.!?]{2,60}[.!?]\s+(?:it|this|that)(?:'s| is)\b)", re.I)),
     ("W3", "em-dash", re.compile("—")),
@@ -128,6 +127,33 @@ CHECKS = [
         r"|\b(?:let me|let'?s|i'?ll|i will|i'?m going to)\b[^.!?\n]{0,40}"
         r"\b(?:rather than|instead of)\s+(?:\w+\s+){0,2}"
         r"(?:assert|assum|guess|claim|specul)\w*", re.I)),
+    # "and it's a real bug, not a nitpick", "one thing worth flagging",
+    # "this actually matters": the sentence vouches for its own importance
+    # instead of stating the finding and letting the reader judge it.
+    # The qualified-noun list stays narrow (bug, issue, problem and kin) so
+    # "the real estate service" and "actual and expected values" stay legal.
+    ("W36", "self-vouching significance claim", re.compile(
+        r"\bnot\s+(?:a\s+|just\s+a\s+|merely\s+a\s+|only\s+a\s+)?"
+        r"(?:nit|nitpick|quibble|pedantry|bikeshed\w*|cosmetic|theoretical"
+        r"|hypothetical|false positive|style (?:preference|nit|issue|thing))s?\b"
+        r"|\b(?:real|genuine|actual|legitimate|true|honest)[- ]"
+        r"(?:bug|issue|problem|concern|risk|finding|defect|failure|blocker|break)s?\b"
+        r"|\bworth (?:flagging|noting|calling out|mentioning|surfacing)\b"
+        r"|\bthis (?:one )?(?:actually|really|genuinely) (?:matters|is a|does)\b"
+        r"|\b(?:i|we) (?:actually |really )?(?:did|do) "
+        r"(?:verify|check|confirm|test) (?:this|it|that)\b", re.I)),
+    # "it's a bug, not a nitpick", "this is a rewrite, not a patch": the
+    # sentence states the thing, then appends a comma and the rejected
+    # alternative. State the thing and stop.
+    # The first alternative names the subject-copula shape the rule targets.
+    # The second alternative catches every other comma-not tail.
+    # A clause break inside the gap ends the match, so "we ship it, and not
+    # before Friday" and other later-clause negations stay legal.
+    ("W37", "X-comma-not-Y contrast", re.compile(
+        r"\b(?:it|this|that|they|these|those|we|you|i|he|she)"
+        r"(?:'?s|'?re|'?m| is| are| was| were)\s"
+        r"[^,.!?;:\n]{1,80},\s*not\s+[a-z]"
+        r"|,\s+not\s+[a-z]", re.I)),
 ]
 
 # Google developer documentation style guide checks (see

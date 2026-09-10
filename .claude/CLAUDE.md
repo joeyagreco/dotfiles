@@ -30,7 +30,7 @@ these rules control how you write to me. they do not change what you must do. ke
 - don't over-explain - trust the reader to follow along
 - avoid formal bullet-point-style prose in paragraphs - let it flow naturally
 - NEVER use em dashes
-- NEVER use phrasing like "it's not X, it's Y"
+- NEVER use phrasing like "it's not X, it's Y" or "its X, not Y"
 - Keep docstrings at the top of files minimal. One line or less.
 
 ## python
