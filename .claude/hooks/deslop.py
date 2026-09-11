@@ -147,8 +147,11 @@ CHECKS = [
     # Alternative one is the subject-copula lead-in with a comma-not tail.
     # Alternative two catches every other comma-not tail.
     # Alternative three is the reversed form, where the negation comes first
-    # and a comma, semicolon, or period joins the replacement clause.
-    # Alternative four is the same reversed form joined by "but".
+    # and a comma or semicolon joins the replacement clause.
+    # Alternative four is the same reversed form split across two sentences.
+    # It keeps a narrow pronoun set, so "We are not blocked. You can ship."
+    # stays legal.
+    # Alternative five is the reversed form joined by "but".
     # A clause break inside a gap ends the match, so "we ship it, and not
     # before Friday" and other later-clause negations stay legal.
     ("W37", "X-not-Y contrast", re.compile(
@@ -158,9 +161,11 @@ CHECKS = [
         r"|,\s+not\s+[a-z]"
         r"|\b(?:it|this|that|they|these|those|we|you|i|he|she)"
         r"(?:'?s|'?re|'?m| is| are| was| were)\s+not\s"
-        r"[^,.!?;:\n]{1,80}[,;.!?]\s*"
+        r"[^,.!?;:\n]{1,80}[,;]\s*"
         r"(?:it|this|that|they|these|those|we|you|i|he|she)"
         r"(?:'?s|'?re|'?m| is| are| was| were)\s"
+        r"|\b(?:it|this|that)(?:'?s| is) not\b[^.!?\n]{2,60}[.!?]\s+"
+        r"(?:it|this|that)(?:'?s| is)\s"
         r"|\b(?:it|this|that|they|these|those|we|you|i|he|she)"
         r"(?:'?s|'?re|'?m| is| are| was| were)\s+not\s"
         r"[^,.!?;:\n]{1,80}\bbut\s+(?:rather\s+)?[a-z]", re.I)),
