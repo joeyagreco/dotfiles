@@ -65,3 +65,7 @@ scripts/january
 .claude/tasks
 .claude/telemetry
 .claude/todos
+.claude/daemon
+.claude/daemon.lock
+.claude/daemon.status.json
+.claude/jobs
