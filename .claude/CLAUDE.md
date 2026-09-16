@@ -63,6 +63,7 @@ EXAMPLES:
 - when making changes, limit edits strictly to what was requested. do not add extra entries, refactor adjacent code, or expand scope unless the user explicitly asks.
 - spell out variable names. no shorthand abbreviations (e.g. use `user` not `u`, `request` not `req`, `customer` not `cust`). applies to local variables, loop vars, factory spec dict keys, and any string references to those keys. for multiples, use `_one`/`_two` suffixes (e.g. `user_one`, not `u0`).
 - NEVER add comments inline unless explicitly asked
+- NEVER add docstrings to the top of a file
 
 ## testing
 - prefer a single, simple test unless explicitly asked for multiple
