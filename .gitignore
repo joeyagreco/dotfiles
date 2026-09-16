@@ -23,6 +23,7 @@ scripts/january
 
 # .config
 !.config
+.config/1Password
 .config/cagent
 .config/efm-langserver
 .config/fish
