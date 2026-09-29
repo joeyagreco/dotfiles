@@ -82,6 +82,7 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
         "*.jpg",
         "*.jpeg",
         "*.gif",
+        "*.svg",
         "*.pdf",
     },
     desc = "show a placeholder instead of loading binary media files",
