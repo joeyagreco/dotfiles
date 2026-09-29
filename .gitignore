@@ -66,6 +66,8 @@ scripts/january
 .claude/sessions
 .claude/shell-snapshots
 .claude/skills/january-*
+.claude/skills/synced
+.claude/state
 .claude/stats-cache.json
 .claude/statsig
 .claude/tasks
