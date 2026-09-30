@@ -1,10 +1,7 @@
 import os
 import subprocess
 
-from util import (
-    print_color,
-    print_color_v2,
-)
+from util import print_color_v2
 
 if __name__ == "__main__":
     # TODO: instead of using these ignore things just use the .gitignore file
@@ -25,9 +22,13 @@ if __name__ == "__main__":
     IGNORE_EXTENSIONS = ["log"]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
     if local_git_repo_path is None:
-        print_color(
-            "could not load local git repo path from $LOCAL_GIT_REPO_PATH",
-            color="red",
+        print_color_v2(
+            [
+                {
+                    "text": "could not load local git repo path from $LOCAL_GIT_REPO_PATH",
+                    "color": "red",
+                }
+            ]
         )
         exit(1)
 
@@ -44,9 +45,8 @@ if __name__ == "__main__":
     # links now holds the things we want to create a sym link for in $HOME
     home_dir_path = os.environ.get("HOME")
     if home_dir_path is None:
-        print_color(
-            "could not load home path from $HOME",
-            color="red",
+        print_color_v2(
+            [{"text": "could not load home path from $HOME", "color": "red"}]
         )
         exit(1)
     home_dir_existing_links = os.listdir(home_dir_path)
@@ -76,16 +76,17 @@ if __name__ == "__main__":
                 shell=True,
             )
             if result.returncode != 0:
-                print_color(
-                    f"command failed with code {result.returncode}",
-                    color="red",
+                print_color_v2(
+                    [
+                        {
+                            "text": f"command failed with code {result.returncode}",
+                            "color": "red",
+                        }
+                    ]
                 )
                 err_count += 1
             else:
-                print_color(
-                    "success!",
-                    color="green",
-                )
+                print_color_v2([{"text": "success!", "color": "green"}])
                 created_count += 1
         else:
             print(f"skipping creation of link '{link}' ...")
