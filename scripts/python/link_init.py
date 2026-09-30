@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from util import print_color_v2
+from util import print_color
 
 if __name__ == "__main__":
     # TODO: instead of using these ignore things just use the .gitignore file
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     IGNORE_EXTENSIONS = ["log"]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
     if local_git_repo_path is None:
-        print_color_v2(
+        print_color(
             [
                 {
                     "text": "could not load local git repo path from $LOCAL_GIT_REPO_PATH",
@@ -45,9 +45,7 @@ if __name__ == "__main__":
     # links now holds the things we want to create a sym link for in $HOME
     home_dir_path = os.environ.get("HOME")
     if home_dir_path is None:
-        print_color_v2(
-            [{"text": "could not load home path from $HOME", "color": "red"}]
-        )
+        print_color([{"text": "could not load home path from $HOME", "color": "red"}])
         exit(1)
     home_dir_existing_links = os.listdir(home_dir_path)
     err_count = 0
@@ -56,7 +54,7 @@ if __name__ == "__main__":
 
     for link in links:
         if link in home_dir_existing_links:
-            print_color_v2(
+            print_color(
                 [
                     {"text": "link "},
                     {"text": f"'{link}'", "color": "green"},
@@ -76,7 +74,7 @@ if __name__ == "__main__":
                 shell=True,
             )
             if result.returncode != 0:
-                print_color_v2(
+                print_color(
                     [
                         {
                             "text": f"command failed with code {result.returncode}",
@@ -86,13 +84,13 @@ if __name__ == "__main__":
                 )
                 err_count += 1
             else:
-                print_color_v2([{"text": "success!", "color": "green"}])
+                print_color([{"text": "success!", "color": "green"}])
                 created_count += 1
         else:
             print(f"skipping creation of link '{link}' ...")
             skipped_count += 1
 
-    print_color_v2(
+    print_color(
         [
             {"text": "\nlinking complete: "},
             {"text": f"{created_count} created", "color": "green"},

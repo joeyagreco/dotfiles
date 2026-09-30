@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from util import print_color_v2
+from util import print_color
 
 
 def install(*, deps_file_name: str, install_command: str) -> None:
@@ -10,9 +10,7 @@ def install(*, deps_file_name: str, install_command: str) -> None:
     """
     DEPS_DIR_PATH = os.environ.get("DEPS_DIR_PATH")
     if DEPS_DIR_PATH is None:
-        print_color_v2(
-            [{"text": "no env var found for '$DEPS_DIR_PATH'", "color": "red"}]
-        )
+        print_color([{"text": "no env var found for '$DEPS_DIR_PATH'", "color": "red"}])
         exit(1)
     DEPS_FILE_PATH = os.path.join(DEPS_DIR_PATH, deps_file_name)
 
@@ -30,7 +28,7 @@ def install(*, deps_file_name: str, install_command: str) -> None:
         print(f"running command '{command}'")
         result = subprocess.run(command, shell=True)
         if result.returncode != 0:
-            print_color_v2(
+            print_color(
                 [
                     {
                         "text": f"command failed with code {result.returncode}",
@@ -40,13 +38,13 @@ def install(*, deps_file_name: str, install_command: str) -> None:
             )
             err_count += 1
         else:
-            print_color_v2([{"text": "success!", "color": "green"}])
+            print_color([{"text": "success!", "color": "green"}])
             success_count += 1
 
     color = "green"
     if err_count > 0:
         color = "red"
-    print_color_v2(
+    print_color(
         [
             {
                 "text": f"\ninstalled {success_count} deps with {err_count} errors\n\n",

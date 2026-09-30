@@ -11,7 +11,7 @@ ColorPart = TypedDict(
 )
 
 
-def print_color_v2(parts: List[ColorPart]) -> None:
+def print_color(parts: List[ColorPart]) -> None:
     color_codes = {
         "red": "\033[91m",
         "green": "\033[92m",
