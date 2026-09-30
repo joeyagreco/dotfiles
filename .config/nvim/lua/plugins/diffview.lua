@@ -74,6 +74,36 @@ return {
                     -- 2. j/k now select the entry (opens the diff for that commit)
                     { "n", "j", actions.select_next_entry, { desc = "open diff for next commit" } },
                     { "n", "k", actions.select_prev_entry, { desc = "open diff for previous commit" } },
+                    -- disable default <cr> behavior
+                    { "n", "<cr>", false },
+                    -- close the file history and open the selected commit in the dif view
+                    {
+                        "n",
+                        "<cr>",
+                        function()
+                            local lib = require("diffview.lib")
+                            local view = lib.get_current_view()
+
+                            if not view then
+                                vim.notify("no diffview found", vim.log.levels.ERROR)
+                                return
+                            end
+
+                            local file = view:infer_cur_file()
+
+                            if not file or not file.commit then
+                                vim.notify("no commit selected", vim.log.levels.ERROR)
+                                return
+                            end
+
+                            local hash = file.commit.hash
+                            vim.cmd("DiffviewClose")
+                            vim.schedule(function()
+                                vim.cmd("DiffviewOpen " .. hash .. "^!")
+                            end)
+                        end,
+                        { desc = "open commit in diffview" },
+                    },
                 },
             },
         })
