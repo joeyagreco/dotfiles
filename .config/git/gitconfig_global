@@ -28,6 +28,8 @@
 
 [core]
 	editor = vim
+	# speeds up git status
+	untrackedCache = true
 
 [maintenance]
     auto = true
