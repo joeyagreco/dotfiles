@@ -47,6 +47,15 @@ return {
         skip_confirm_for_simple_edits = true,
         keymaps = {
             ["<C-p>"] = { "actions.preview", opts = { split = "belowright" } },
+            ["_"] = {
+                callback = function()
+                    local oil = require("oil")
+                    local git_root = vim.fs.root(oil.get_current_dir() or vim.fn.getcwd(), ".git")
+                    oil.open(git_root or vim.fn.getcwd())
+                end,
+                desc = "open the git root of the current directory, or the cwd if not in a git repo",
+                mode = "n",
+            },
         },
         view_options = {
             is_hidden_file = function(name, bufnr)
