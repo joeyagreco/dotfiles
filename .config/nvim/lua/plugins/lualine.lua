@@ -25,8 +25,27 @@ return {
             },
             -- disabled_filetypes = { "NvimTree" },
         },
-        -- not sure i prefer this to just disabling lualine when nvimtree is focused
-        extensions = { "oil" },
+        extensions = {
+            -- for oil:
+            --  - show search count
+            {
+                sections = {
+                    lualine_a = {
+                        function()
+                            return vim.fn.fnamemodify(require("oil").get_current_dir() or "", ":~")
+                        end,
+                    },
+                    lualine_x = {
+                        {
+                            "searchcount",
+                            maxcount = 9999,
+                            timeout = 500,
+                        },
+                    },
+                },
+                filetypes = { "oil" },
+            },
+        },
         globalstatus = true,
         sections = {
             lualine_a = { { "mode", padding = 2 } },

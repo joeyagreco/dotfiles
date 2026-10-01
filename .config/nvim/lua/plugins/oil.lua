@@ -1,7 +1,5 @@
 -- https://github.com/stevearc/oil.nvim
 
-local ALWAYS_SHOWN_PATTERNS = { "^%.env", "%.local" }
-
 -- hide git ignored files based on this recipe: https://github.com/stevearc/oil.nvim/blob/master/doc/recipes.md#hide-gitignored-files-and-show-git-tracked-hidden-files
 local git_ignored_cache = {}
 
@@ -52,7 +50,7 @@ return {
         },
         view_options = {
             is_hidden_file = function(name, bufnr)
-                for _, pattern in ipairs(ALWAYS_SHOWN_PATTERNS) do
+                for _, pattern in ipairs({ "^%.env", "%.local" }) do
                     if name:match(pattern) then
                         return false
                     end
