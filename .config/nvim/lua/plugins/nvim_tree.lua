@@ -6,8 +6,10 @@ vim.g.loaded_netrwPlugin = 1
 
 local constants = require("constants")
 
+-- NOTE: disabled in favor of oil (see oil.lua)
 return {
     "nvim-tree/nvim-tree.lua",
+    enabled = false,
     lazy = true,
     keys = {
         {

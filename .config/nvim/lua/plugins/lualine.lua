@@ -26,7 +26,7 @@ return {
             -- disabled_filetypes = { "NvimTree" },
         },
         -- not sure i prefer this to just disabling lualine when nvimtree is focused
-        extensions = { "nvim-tree" },
+        extensions = { "oil" },
         globalstatus = true,
         sections = {
             lualine_a = { { "mode", padding = 2 } },
