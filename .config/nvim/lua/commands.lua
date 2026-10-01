@@ -43,6 +43,9 @@ end, { desc = "print names of attached LSP servers" })
 -- open up the current buffer's directory in the macos finder app
 vim.api.nvim_create_user_command("Finder", function()
     local dir = vim.fn.expand("%:p:h")
+    if vim.bo.filetype == "oil" then
+        dir = require("oil").get_current_dir()
+    end
     vim.fn.system({ "open", dir })
 end, { desc = "open the current buffer's directory in finder" })
 
