@@ -1,4 +1,8 @@
 # https://starship.rs/config/
+
+# often on restart/startup we see the starship timeout, so set to 2 seconds
+command_timeout = 2000
+
 [directory]
 disabled = false
 home_symbol = "🏠"
