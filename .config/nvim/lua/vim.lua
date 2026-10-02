@@ -98,6 +98,9 @@ vim.diagnostic.config({ virtual_text = true })
 
 vim.opt.swapfile = false
 
+-- restore the view when jumping back with <C-o> instead of centering the line
+vim.opt.jumpoptions = "clean,view"
+
 -- NOTE: @joeyagreco - this is just to suppress warnings that pop up sometimes
 local notify = vim.notify
 vim.notify = function(msg, level, opts)
