@@ -56,6 +56,9 @@ end, { desc = "open the current buffer's directory in finder" })
 -- will print something like '"@foo/bar.py#L8" copied to clipboard'
 vim.api.nvim_create_user_command("Claude", function(opts)
     local full_path = vim.fn.expand("%:p")
+    if vim.bo.filetype == "oil" then
+        full_path = require("oil").get_current_dir()
+    end
     local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
 
     local path = full_path
