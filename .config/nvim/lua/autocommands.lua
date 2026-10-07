@@ -66,25 +66,57 @@ for ft, cs in pairs(commentstrings) do
 end
 
 -- show a placeholder instead of loading binary media files
--- BufReadCmd takes over the read entirely so the raw bytes are never loaded
--- These buffers open instantly instead of choking on encoded content
 vim.api.nvim_create_autocmd("BufReadCmd", {
     pattern = {
-        "*.avi",
-        "*.flac",
+        -- images
+        "*.avif",
+        "*.bmp",
         "*.gif",
+        "*.heic",
+        "*.ico",
         "*.jpeg",
         "*.jpg",
-        "*.m4a",
-        "*.mkv",
-        "*.mov",
-        "*.mp3",
-        "*.mp4",
-        "*.pdf",
         "*.png",
         "*.svg",
+        "*.tiff",
+        "*.webp",
+        -- audio
+        "*.aac",
+        "*.flac",
+        "*.m4a",
+        "*.mp3",
+        "*.ogg",
         "*.wav",
+        -- video
+        "*.avi",
+        "*.m4v",
+        "*.mkv",
+        "*.mov",
+        "*.mp4",
         "*.webm",
+        -- documents
+        "*.docx",
+        "*.pdf",
+        "*.pptx",
+        "*.xlsx",
+        -- fonts
+        "*.otf",
+        "*.ttf",
+        "*.woff",
+        "*.woff2",
+        -- compiled
+        "*.class",
+        "*.dylib",
+        "*.o",
+        "*.pyc",
+        "*.so",
+        "*.wasm",
+        -- data
+        "*.db",
+        "*.parquet",
+        "*.sqlite",
+        -- disk images
+        "*.dmg",
     },
     desc = "show a placeholder instead of loading binary media files",
     callback = function(args)
