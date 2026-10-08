@@ -60,6 +60,41 @@ return {
     },
     dependencies = "kevinhwang91/promise-async",
     config = function()
+        -- NOTE: @joeyagreco - this is a vibed up function to make it so python if/elif/else folds correctly on their own instead of the entire chain
+        local function splitIfStatementFolds(bufnr, ranges)
+            local ok, parser = pcall(vim.treesitter.get_parser, bufnr, "python")
+            if not ok or not parser then
+                return ranges
+            end
+            local tree = parser:parse()[1]
+            if not tree then
+                return ranges
+            end
+
+            local foldingrange = require("ufo.model.foldingrange")
+            local query = vim.treesitter.query.parse("python", "(if_statement) @if")
+            for _, if_node in query:iter_captures(tree:root(), bufnr) do
+                local alternatives = if_node:field("alternative")
+                local consequence = if_node:field("consequence")[1]
+                if #alternatives > 0 and consequence then
+                    local if_start_row, _, if_end_row = if_node:range()
+                    local _, _, consequence_end_row = consequence:range()
+                    for _, range in ipairs(ranges) do
+                        if range.startLine == if_start_row and range.endLine == if_end_row then
+                            range.endLine = consequence_end_row
+                        end
+                    end
+                    for _, alternative in ipairs(alternatives) do
+                        local alternative_start_row, _, alternative_end_row = alternative:range()
+                        if alternative_end_row > alternative_start_row then
+                            table.insert(ranges, foldingrange.new(alternative_start_row, alternative_end_row))
+                        end
+                    end
+                end
+            end
+            return ranges
+        end
+
         -- filters out nested folds that share the same start line (e.g. parameters inside python functions)
         -- NOTE: @joeyagreco - this makes it so i can fold a python function with multi-line function signature and it folds the function instead of just folding the signature
         local function customTreesitterProvider(bufnr)
@@ -85,7 +120,7 @@ return {
                         table.insert(filtered, range)
                     end
                 end
-                return filtered
+                return splitIfStatementFolds(bufnr, filtered)
             end
 
             return ranges
