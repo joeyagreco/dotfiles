@@ -21,6 +21,25 @@ local function get_git_ignored_names(directory)
     return names
 end
 
+-- show breadcrumbs from the git root in the winbar based on this recipe: https://github.com/stevearc/oil.nvim/blob/master/doc/recipes.md#show-cwd-in-the-winbar
+function _G.get_oil_winbar()
+    local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
+    local directory = require("oil").get_current_dir(bufnr)
+    if not directory then
+        return ""
+    end
+    local git_root = vim.fs.root(directory, ".git")
+    if not git_root then
+        return ""
+    end
+    local crumbs = { vim.fs.basename(git_root) }
+    local relative_path = vim.fs.relpath(git_root, directory)
+    if relative_path and relative_path ~= "." then
+        vim.list_extend(crumbs, vim.split(relative_path, "/", { plain = true }))
+    end
+    return (table.concat(crumbs, " > "):gsub("%%", "%%%%"))
+end
+
 return {
     "stevearc/oil.nvim",
     lazy = false,
@@ -45,6 +64,9 @@ return {
         -- send deleted files to the trash instead of permanently deleting them
         delete_to_trash = true,
         skip_confirm_for_simple_edits = true,
+        win_options = {
+            winbar = "%!v:lua.get_oil_winbar()",
+        },
         keymaps = {
             ["<C-p>"] = { "actions.preview", opts = { split = "belowright" } },
             ["_"] = {
