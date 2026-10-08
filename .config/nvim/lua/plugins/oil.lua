@@ -32,12 +32,25 @@ function _G.get_oil_winbar()
     if not git_root then
         return ""
     end
-    local crumbs = { vim.fs.basename(git_root) }
+    local paths = { git_root }
     local relative_path = vim.fs.relpath(git_root, directory)
     if relative_path and relative_path ~= "." then
-        vim.list_extend(crumbs, vim.split(relative_path, "/", { plain = true }))
+        for name in vim.gsplit(relative_path, "/", { plain = true }) do
+            table.insert(paths, vim.fs.joinpath(paths[#paths], name))
+        end
     end
-    return (table.concat(crumbs, " > "):gsub("%%", "%%%%"))
+    -- match the look of the dropbar breadcrumbs by reusing its icons, separator, highlights, and padding
+    local dropbar_opts = require("dropbar.configs").opts
+    local crumbs = {}
+    for _, path in ipairs(paths) do
+        local icon, icon_highlight = dropbar_opts.icons.kinds.dir_icon(path)
+        local name = vim.fs.basename(path):gsub("%%", "%%%%")
+        table.insert(crumbs, string.format("%%#%s#%s%%*%s", icon_highlight, icon, name))
+    end
+    local separator = string.format("%%#DropBarIconUISeparator#%s%%*", dropbar_opts.icons.ui.bar.separator)
+    return string.rep(" ", dropbar_opts.bar.padding.left)
+        .. table.concat(crumbs, separator)
+        .. string.rep(" ", dropbar_opts.bar.padding.right)
 end
 
 return {
