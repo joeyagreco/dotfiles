@@ -12,3 +12,7 @@ Do not make any code changes.
 - Do not run commands that change files, git state, or the system.
 - Reading, searching, and running read-only commands is fine.
 - If a change seems useful, describe it and wait for the user to ask for it.
+
+Do not do anything that will have an external side effect, including:
+- Posting anywhere (Slack, GitHub, Graphite, etc)
+- Executing an Update/Write/Delete to any database or file
