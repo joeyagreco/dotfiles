@@ -21,7 +21,7 @@ these rules control how you write to me. they do not change what you must do. ke
     - when in doubt, present the plan and wait for approval.
 - never send messages on slack. reading/searching is fine, but do not send or schedule messages.
 - never edit or create on notion without explicit permission.
-- never commit or push code
+- never commit or push code without permission 
 
 ## writing style (for comments, PR descriptions, docs, slack messages, etc.)
 - be concise - cut the fluff, get to the point
