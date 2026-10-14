@@ -78,10 +78,10 @@
       "mcp__playwright__Resize_browser_window",
       "mcp__playwright__Wait_for"
     ],
-    "deny": [
+    "deny": [],
+    "ask": [
       "Bash(git push:*)"
     ],
-    "ask": [],
     "defaultMode": "auto",
     "additionalDirectories": [
       "/tmp"
