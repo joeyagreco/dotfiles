@@ -30,6 +30,15 @@ IMPORTANT: NEVER remove embedded media (images, videos, GIFs, etc) from an exist
 Sections:
 
 1. **Summary**: 1-2 sentences explaining the purpose of the changes
+    - If 2 sentences, put a linebreak between them (example below)
+
+### BAD
+I'm the first sentence in a PR description, and I exist. I'm the second sentence.
+
+### GOOD
+I'm the first sentence in a PR description, and I exist.
+
+I'm the second sentence.
 
 ## Rules
 - References to fields should use backticks (`` ` ``) in both the title and the description
