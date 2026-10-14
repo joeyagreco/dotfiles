@@ -11,7 +11,8 @@
 	st      = stash --include-untracked
 	lg      = log --oneline
 		# interactive selection for branches
-	br      = "!f() { branch=$(git branch | fzf --no-multi | sed 's/^[* ]*//'); [ -n \"$branch\" ] && git checkout \"$branch\"; }; f"
+		# NOTE: @joeyagreco - this sorts by the last time i checked out the branch
+	br      = "!f() { branch=$({ git for-each-ref --format='b%(HEAD) %(refname:short)' refs/heads; git reflog --format=%gs | sed -n 's/^checkout: moving from .* to /c /p'; git for-each-ref --format='c %(refname:short)' refs/heads; } | awk '$1==\"b\"{ok[$2]=1; next} $1==\"c\" && ok[$2] && !seen[$2]++ {print $2}' | fzf --no-multi); [ -n \"$branch\" ] && git checkout \"$branch\"; }; f"
 
 [branch]
     sort = -committerdate
