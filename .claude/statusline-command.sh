@@ -30,4 +30,5 @@ fi
 
 printf '\033[90m%s\033[0m' "$model"
 [ -n "$ctx_bar" ] && printf '\033[%sm%s\033[0m' "$color" "$ctx_bar"
+[ -f "$HOME/.claude/statusline.local.sh" ] && . "$HOME/.claude/statusline.local.sh"
 printf '\n'
