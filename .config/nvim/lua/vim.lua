@@ -80,9 +80,8 @@ vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.x
 -- number of spaces per tab
 vim.opt.softtabstop = 4
 
--- enable smart tab and indent
+-- enable smart tab
 vim.opt.smarttab = true
-vim.opt.smartindent = true
 
 -- disable perl
 vim.g.loaded_perl_provider = 0
