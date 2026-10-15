@@ -45,6 +45,7 @@ scripts/january
 .claude/.update.lock
 .claude/backups
 .claude/cache
+.claude/cost-guard/
 .claude/daemon
 .claude/daemon.lock
 .claude/daemon.status.json
