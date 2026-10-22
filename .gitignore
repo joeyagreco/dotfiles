@@ -65,6 +65,7 @@ scripts/january
 .claude/remote-settings-consent.json
 .claude/remote-settings.json
 .claude/remote-settings.json.synced-at
+.claude/session-env
 .claude/sessions
 .claude/shell-snapshots
 .claude/skills/.trash
