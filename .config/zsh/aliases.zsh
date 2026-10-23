@@ -49,7 +49,7 @@ alias ccu='open "https://claude.ai/new#settings/usage"'
 alias ic='ping 8.8.8.8'
 alias home='cd ~'
 alias ls='eza'
-alias nukerepo='$BASH_SCRIPTS_PATH/nuke_repo.sh'
+alias nukerepo="$BASH_SCRIPTS_PATH/nuke_repo.sh"
 # open up notes in nvim in a new tmux window
 alias nn='tmux new-window -c $NOTES_PATH nvim'
 # screenshot and save to downloads folder
@@ -62,7 +62,7 @@ alias lastdownload='. $BASH_SCRIPTS_PATH/last_download.sh'
 alias info='fastfetch'
 alias speed='networkquality'
 # create a pr with github
-alias pr='$BASH_SCRIPTS_PATH/pr.sh'
+alias pr="$BASH_SCRIPTS_PATH/pr.sh"
 alias bubu='brew update && brew upgrade'
 alias claude='claude "/color yellow"'
 
