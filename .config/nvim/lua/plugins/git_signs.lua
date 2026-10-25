@@ -30,11 +30,9 @@ return {
         {
             "<leader>gn",
             function()
-                if require("gitsigns").nav_hunk("next") then
-                    vim.defer_fn(function()
-                        vim.cmd("normal! zz")
-                    end, 10) -- NOTE: - REALLY hate the 10ms delay here but doesn't seem to center unless i have it
-                end
+                require("gitsigns").nav_hunk("next", nil, function()
+                    vim.cmd("normal! zz")
+                end)
             end,
             desc = "git next hunk",
             silent = true,
@@ -43,11 +41,9 @@ return {
         {
             "<leader>gp",
             function()
-                if require("gitsigns").nav_hunk("prev") then
-                    vim.defer_fn(function()
-                        vim.cmd("normal! zz")
-                    end, 10) -- NOTE: - REALLY hate the 10ms delay here but doesn't seem to center unless i have it
-                end
+                require("gitsigns").nav_hunk("prev", nil, function()
+                    vim.cmd("normal! zz")
+                end)
             end,
             desc = "git previous hunk",
             silent = true,
