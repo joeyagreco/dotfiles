@@ -6,18 +6,19 @@ from util import print_color
 if __name__ == "__main__":
     # TODO: instead of using these ignore things just use the .gitignore file
     IGNORE_FILES = [
-        "README.md",
         ".git",
         ".gitignore",
-        "node_modules",
-        "Brewfile.lock.json",
-        "package-lock.json",
-        "akeyless",
-        ".ruff_cache",
         ".mise.toml",
-        "CLAUDE.md",
-        "AGENTS.md",
+        ".playwright-mcp",
+        ".ruff_cache",
         ".swp",
+        "AGENTS.md",
+        "Brewfile.lock.json",
+        "CLAUDE.md",
+        "README.md",
+        "akeyless",
+        "node_modules",
+        "package-lock.json",
     ]
     IGNORE_EXTENSIONS = ["log"]
     local_git_repo_path = os.environ.get("LOCAL_GIT_REPO_PATH")
