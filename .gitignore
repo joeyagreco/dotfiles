@@ -59,9 +59,7 @@ scripts/january
 .claude/paste-cache
 .claude/plans
 .claude/plugins
-.claude/policy-limits.json
-.claude/policy-limits.json.signature.json
-.claude/policy-limits.json.stamp.json
+.claude/policy-limits*
 .claude/projects
 .claude/remote-settings*
 .claude/session-env
