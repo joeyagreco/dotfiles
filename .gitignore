@@ -60,10 +60,12 @@ scripts/january
 .claude/plans
 .claude/plugins
 .claude/policy-limits.json
+.claude/policy-limits.json.signature.json
 .claude/policy-limits.json.stamp.json
 .claude/projects
 .claude/remote-settings-consent.json
 .claude/remote-settings.json
+.claude/remote-settings.json.signature.json
 .claude/remote-settings.json.synced-at
 .claude/session-env
 .claude/sessions
