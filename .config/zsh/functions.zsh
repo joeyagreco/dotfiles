@@ -57,6 +57,10 @@ function c() {
 # attach if not already in a tmux session
 # just create if already in a tmux session
 function f_tmn() {
+	if [ -z "$1" ]; then
+		echo "Usage: tmn <session name>"
+		return 1
+	fi
 	if [[ -n $TMUX ]]; then
 		tmux new-session -d -s "$1" && tmux switch-client -t "$1"
 	else
