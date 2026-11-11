@@ -166,6 +166,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
         if vim.b.saved_winview then
             vim.fn.winrestview(vim.b.saved_winview)
+            vim.b.saved_winview = nil
         end
     end,
 })
