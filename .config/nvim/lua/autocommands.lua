@@ -117,6 +117,9 @@ vim.api.nvim_create_autocmd("BufReadCmd", {
         "*.sqlite",
         -- disk images
         "*.dmg",
+        -- 3d models
+        "*.3mf",
+        "*.stl",
     },
     desc = "show a placeholder instead of loading binary media files",
     callback = function(args)
