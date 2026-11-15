@@ -152,6 +152,9 @@ defaults write com.apple.screencapture location ~/Downloads
 # NOTE: if this does not seem to work, manually switch OFF "Desktop and Dock" -> "Desktop and Stage Manger" -> "Stage Manager"
 defaults write -g AppleSpacesSwitchOnActivate -bool false
 
+# have finder open up new finders in a tab instead of a new window
+defaults write -g AppleWindowTabbingMode -string "always"
+
 # needed to have hammerspoon config in a non-default place
 # source: https://github.com/Hammerspoon/hammerspoon/issues/1734
 # NOTE: you will need to restart hammerspoon for this to work
