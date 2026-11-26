@@ -61,6 +61,7 @@ alias make='gmake'
 alias lastdownload='. $BASH_SCRIPTS_PATH/last_download.sh'
 alias info='fastfetch'
 alias speed='networkquality'
+alias vpn='route -n get default | grep interface'
 # create a pr with github
 alias pr="$BASH_SCRIPTS_PATH/pr.sh"
 alias bubu='brew update && brew upgrade'
