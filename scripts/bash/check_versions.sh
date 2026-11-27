@@ -15,7 +15,7 @@ latest_release() {
 	tag=$(curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" 2>/dev/null | jq -r '.tag_name')
 	# some projects (e.g. ghostty) publish git tags but no proper github release
 	if [ -z "$tag" ] || [ "$tag" = "null" ]; then
-		tag=$(curl -fsSL "https://api.github.com/repos/${repo}/tags" 2>/dev/null | jq -r '.[0].name')
+		tag=$(curl -fsSL "https://api.github.com/repos/${repo}/tags" 2>/dev/null | jq -r '[.[].name | select(test("^v?[0-9]"))][0]')
 	fi
 	printf '%s\n' "$tag" | sed 's/^v//'
 }
